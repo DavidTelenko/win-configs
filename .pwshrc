@@ -1,0 +1,11 @@
+Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+Import-Module Microsoft.PowerShell.Utility
+
+oh-my-posh init pwsh --config 'C:\Program Files (x86)\oh-my-posh\themes\huvix.omp.json' | Invoke-Expression
+
+Set-PSReadlineOption -EditMode vi
+
+$env:PYTHONIOENCODING='utf-8'
+
+iex (& { (zoxide init powershell | Out-String) })
+iex "$(thefuck --alias fix)"
