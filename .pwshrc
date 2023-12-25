@@ -1,7 +1,7 @@
 Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 Import-Module Microsoft.PowerShell.Utility
 
-oh-my-posh init pwsh --config 'C:\Program Files (x86)\oh-my-posh\themes\huvix.omp.json' | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\huvix.omp.json" | Invoke-Expression
 
 Set-PSReadlineOption -EditMode vi
 
