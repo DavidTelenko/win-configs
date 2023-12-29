@@ -9,3 +9,5 @@ $env:PYTHONIOENCODING='utf-8'
 
 iex (& { (zoxide init powershell | Out-String) })
 iex "$(thefuck --alias fix)"
+
+Remove-Alias -fo @("where", "pwd")
