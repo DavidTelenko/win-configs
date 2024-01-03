@@ -1,0 +1,620 @@
+clear
+nvim .
+help
+man ls
+ls
+ls --help
+ls
+clear
+ls
+ls e:/
+clear
+cd Family\
+ls
+cd Apartments\
+ls
+cd Utilities\
+ls
+cd Stryiska\
+ls
+clear
+cd d:/
+clear
+$enf:path
+env
+env:path
+path
+clear
+cd appdata
+cd $env:localappdata
+cat $env
+clear
+where nushell
+where
+where --help
+clear
+exit
+cd Configs\
+ls
+cd ..
+ps
+ps | sort-by name
+clear
+7z
+clear
+las
+lsd
+clear
+pwd 
+clear
+sys
+cp --help
+sys | get host
+sys | get sesstions.name
+sys | get sessions.name
+sys | get host.sessions.name
+sys | get host.sessions.name.0
+^ls
+clear
+^7z
+7z
+clear
+^lsd
+clear
+help ls
+clear
+$env
+clear
+ls | get name
+clear
+help get
+$env | get Path
+$env
+$env | get appdata | cd
+pwd
+cd -
+$env | get appdata
+$env | get appdata | cd
+pwd
+cd -
+clear
+$env | get localappdata
+ls **
+clear
+cd D:/
+cd E:/
+ls
+cd Configs\
+ls
+cd ..
+ls Applications\**
+clear
+ls **/*.md
+clear
+ls *.md
+cd Configs\
+ls *.md
+ls
+cd ..
+z 
+z mark
+^z mark
+clear
+cd markdown
+cd d:\Documents\Markdowned\
+ls
+ls *.md
+ls **/*.md
+cd -
+cd mark
+clear
+help glob
+glob **/*.md | ls
+glob **/*.md
+clear
+Configs
+.\Configs\
+./..
+clear
+.\Configs\
+pwd
+..
+clear
+$env | get localappdata | clip
+cd C:\Users\User\AppData\Local
+ls
+cd ..
+cd Roaming\
+ls
+ls | sort-by name
+cd nushell\
+ls
+cat config.nu
+nvim .
+clear
+cd -
+cd E:/
+clear
+help rm
+clear
+touch
+clear
+nvim .
+clear
+chcp
+chcp 65001
+clear
+nvim .
+clear
+exit
+nvim
+clear
+help make
+clear
+cmake
+clear
+pup
+pip
+clear
+[one, two, three] | to yaml
+clear
+[one, two, three] | to json
+clear
+[one, two, three] | to toml
+clear
+"10" | into float
+clear
+ls
+ls | select size
+ls | get size
+clear
+winfetch
+clear
+sys
+clear
+ls
+cd Links\
+ls
+cd ..
+clear
+.\Configs\
+..
+clear
+ls
+ls | get name
+clear
+sys
+sys | get disks.free
+sys | get disks
+clear
+pwd
+clear
+cd Configs\
+pwd
+pwd | clip
+E:\Configs
+clear
+..
+clear
+exti
+exit
+cd d:\Temp\
+ls
+clear
+touch Games.md
+geforcenow
+clear
+$env.config
+nvim $env.config
+$env.config.path
+clear
+config nu
+nvim $nu.config-path
+config nu
+nvim $nu.config-path
+restart
+load-env $env.config
+exit
+nvim $nu.config-path
+exit
+$env.config.path
+$nu.confg-path
+$nu.config-path
+ln
+clear
+ni
+clear
+cd Configs\
+ls
+cat init.ps1
+mkdir .nushell
+$nu.config-path
+ls $nu.config-path
+$nu.config-path | clip
+ls C:\Users\User\AppData\Roaming\nushell\
+powershell
+ls
+cd .\.nushell\
+ls
+nvim .
+clear
+ls
+powershell
+clear
+cd ..
+cd .nushell\
+ls
+cat env.nu
+nvim .
+cat env.nu
+nvim .
+clear
+print env.nu
+clear
+ls
+open env.nu
+nvim .
+clear
+ls
+ls -ls
+ls -la
+clear
+$env.Path
+$env
+$env.path
+$env.Path
+$env.Path = ($env.Path | append 'C:\Program Files\Git\usr\bin')
+$env.Path
+exit
+$env.Path
+config nu
+$nu.config-path
+$nu
+help config
+clear
+config nu
+clear
+exit
+exit
+ls -tree
+ls -t
+clear
+help ls
+ls -du
+ls -u
+ls -d
+clear
+help ls
+tree
+clear
+help tree
+clear
+ls
+cd dev
+cd cpp\
+tree
+clear
+../..
+clear
+choco
+choco list
+clear
+choco list --local
+zoxide
+cd Configs\
+open .pwshrc
+zoxide init nu
+zoxide init nushell
+cd .nushell\
+ls
+zoxide init nushell | save -f ./zoxide.nu
+ls
+nivim env.nu
+config nu
+zoxide init nushell
+exit
+nvim env.nu
+ls
+exit
+nvim env.nu
+exti
+exit
+nvim env.nu
+$nu
+ls
+nvim .
+$nu.default-config-dir = E:\Configs\.nushell\
+clear
+$nu
+ls
+open zoxide.nu
+ls
+rm zoxide.nu
+nvim .
+z
+$nu
+version
+zoxide init nushell
+z
+exti
+exit
+exti
+exit
+exit
+clear
+mkdir modules
+ls
+$nu
+nvim .
+zoxide init nushell | str replace "def-env" "def --env" --all  | save -f .\modules\zoxide.nu
+ls
+mv modules\ plugins\
+ls
+clear
+ls
+cd plugins\
+ls
+open zoxide.nu
+cd ..
+ls
+mkdir modules
+mv plugins\* modules\
+ls
+cd modules\
+ls
+cd ..
+ls plugins\
+powershell
+clear
+$nu
+clear
+$nu
+z
+exit
+exit
+cd Configs\
+ls
+nvim .
+exit
+ls
+cd nushell\
+cd .nushell\
+ls
+rm modules\ -r -fo
+rm -rf modules\
+clear
+ls
+nvim env.nu
+exti
+exit
+clear
+explore
+cd ../..
+ls | explore
+cd Configs\
+ls
+cd .nushell\
+ls
+nvim .
+exit
+hello
+clear
+cd Configs\
+ls
+clear
+cd .nushell\
+ls
+nvim .
+cd .
+cd ..
+ls
+cat .pwshrc
+$env.POSH_THEMES_PATH
+oh-my-posh prompt print primary --config $'($env.POSH_THEMES_PATH)/zash.omp.json'
+oh-my-posh prompt print primary --config $'($env.POSH_THEMES_PATH)/huvix.omp.json'
+cd .nushell\
+ls
+nvim .
+open $env.POSH_THEMES_PATH/
+$env.POSH_THEMES_PATH
+cd $env.POSH_THEMES_PATH
+ls
+huggingface-cli.exe 
+cd Configs\
+open init.ps1
+open .pwshrc
+exit
+exit
+help where
+ls
+open huvix.omp.json
+open huvix.omp.json --raw
+clear
+cd c:/
+cd E:/
+clear
+cd ~
+ld
+ls
+open .gitconfig
+oh-my-posh init nu --config $'($env.POSH_THEMES_PATH)/huvix.omp.json'
+ls
+open .oh-my-posh.nu
+cd E:\Configs\
+ls
+cd .nushell\
+nvim .
+exit
+nvim .
+clear
+help
+help ls
+clear
+cd Configs\
+powershell
+clear
+exit
+exit
+git 
+ls
+help git
+clear
+help externs
+clear
+ls
+clear
+cd configs
+ls
+$nu
+cd .nushell\
+ls
+nvim config.nu
+exit
+clear
+ls
+mv plugins\ modules\
+ls
+$nu
+help nu
+nu --help
+$nu
+exit
+nu --config E:/Configs/.nushell
+nvim .
+exit
+clear
+$env.NU_CONFIG_DIR = "E:/Configs/.nushell"
+ls
+$env
+$env
+powershell
+$env.NU_CONFIG_DIR
+clear
+exit
+2 + 2
+clear
+ls
+nvim .
+clear
+cd $env.LOCALAPPDATA
+cd Ghostrunner\Saved\
+l
+ls
+cd SaveGames\
+ls
+cd 0002745e39b346c9ac89a135343eb50d\
+ls
+cd ..
+open GhostrunnerSave.sav
+exit
+cd $env.LOCALAPPDATA
+cd Ghostrunner\
+ls
+cd Saved\
+ls
+cd SaveGames\
+ls
+cd 0002745e39b346c9ac89a135343eb50d\
+ls
+cd ..
+cd 0002745e39b346c9ac89a135343eb50d\
+ls
+rm *
+cd ..
+mv GhostrunnerSave.sav Ghostrunner.sav
+ls
+nvim .
+cp Ghostrunner.sav 0002745e39b346c9ac89a135343eb50d\
+ls
+mv Ghostrunner.sav GhostrunnerSave.sav
+ls
+clear
+ls
+cd E:/
+clear
+ls
+cd Naver\
+ls
+cd `Naver Whale\`
+ls
+cd `User Data\`
+ls
+cd c:/
+ls
+cd ProgramData\ls
+cd ProgramData\
+ls
+cd naver
+cd whale
+clear
+cd ..
+ls
+cd `Program Files\`
+ls
+cd naver
+ls
+cd `Naver Whale\`
+ls
+cd Application\
+ls
+ls 3.24.223.12\
+cd ..
+ls
+cd c:/
+ls
+cd Users\
+ls
+cd Public\
+ls
+cd Documents\
+ls
+cd ..
+ls
+cd User\
+ls
+cd `Application Data\`
+cd -
+cd +
+cd c:\Users\User\
+ls
+help ls
+ls -d
+cd Videos\
+ls
+cd Captures\
+ls
+rm *
+cd ../..
+ls
+cd AppData
+ls
+cd Localnvim-data\
+ls
+cd ..
+rm Localnvim-data\ -rf
+ls
+cd Local\
+ls
+cd `Naver\Naver Whale\`
+ls
+cd `User Data\`
+ls
+ls -d
+cd Default\
+ls
+open README
+git init
+gti add .
+git add .
+rm -rf git
+ls
+cd d:\Temp\
+ls
+touch Naver.md
+cd ..
+cp Naver D:/Temp/ -rf
+cd d:\Temp\
+ls
+rm Naver\ -rf
+clear
+cd e:\Configs\
