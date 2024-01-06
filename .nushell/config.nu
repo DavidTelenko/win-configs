@@ -762,6 +762,8 @@ $env.config = {
     ]
 }
 
+alias mv = ^mv
+
 source ~/.zoxide.nu
 source ~/.oh-my-posh.nu
 use ~/.configs/.nushell/modules/ *
