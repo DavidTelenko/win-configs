@@ -1,0 +1,83 @@
+cd d:\Configs\
+exti
+exit
+clear
+help
+clear
+exit
+ls
+cd d:\Configs\
+ls
+ps
+ls
+mkdir ~/.configs
+rm Configs\ -rf
+cd ~\.configs\
+ls
+powershell
+clear
+git pull
+clear
+exit
+help mv
+clear
+cd ~\.configs\
+ls
+git status
+git pull
+clear
+git status
+cd .nvim
+git status
+git checkout master
+git status
+git pull
+git status
+clear
+cd ..
+ls
+clear
+cd E:/
+ls
+cd D:/
+ls
+clear
+ls
+ps
+ps | sort-by cpu
+ps | where name starts-with "ms"
+kill 11572
+ps | where name starts-with "ms"
+iwr -useb https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.ps1 | iex
+powershell "iwr -useb https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.ps1 | iex"
+spicetify config extensions keyboardShortcut.js
+spicetify apply
+exit
+.
+wpa
+wpa_cli
+clear
+netsh
+clear
+z conf
+ls
+git pull
+disks
+clear
+help hibernate
+clear
+exit
+nvim .
+ls
+open .gitignore
+nvim .gitignore
+auto-commit
+pwd | clip
+cd .nushell\
+ls
+nvim config.nu
+source $nu.config-path
+nvim config.nu
+source $nu.config-path
+nvim config.nu
+source $nu.config-path
