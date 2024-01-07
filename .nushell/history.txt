@@ -96,3 +96,12 @@ ls
 cd .nushell\
 ls
 git status
+auto-commit
+git status
+cd .nvim
+cd ../.nvim
+git status
+open .gitignore
+cd ..
+ls
+git status
