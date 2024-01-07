@@ -81,3 +81,18 @@ nvim config.nu
 source $nu.config-path
 nvim config.nu
 source $nu.config-path
+auto-commit
+clear
+z mark
+ls
+git pull
+clear
+git status
+nvim .
+exit
+clear
+z conf
+ls
+cd .nushell\
+ls
+git status
