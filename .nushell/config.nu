@@ -767,4 +767,5 @@ def disks [] {sys | get disks}
 
 source ~/.zoxide.nu
 source ~/.oh-my-posh.nu
+source ~/atuin/init.nu
 use ~/.configs/.nushell/modules/ *
