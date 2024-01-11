@@ -764,6 +764,5 @@ $env.config = {
 
 source ~/.zoxide.nu
 source ~/.oh-my-posh.nu
-source ~/atuin/init.nu
 
 use ~/.configs/.nushell/modules/ *
