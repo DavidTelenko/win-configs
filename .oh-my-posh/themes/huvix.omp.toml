@@ -1,6 +1,6 @@
 # General
 "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
-final_space = false
+final_space = true
 version = 2
 
 # Left aligned block
@@ -13,14 +13,14 @@ alignment = "left"
 type = "session"
 style = "plain"
 foreground = "lightYellow"
-template = "@{{ .UserName }} > "
+template = "@{{ .UserName }} >"
 
 # Path segment
 [[blocks.segments]]
 type = "path"
 style = "plain"
 foreground = "lightGreen"
-template = "{{ .Path }} "
+template = " {{ .Path }}"
 
 [blocks.segments.properties]
 style = "agnoster_short"
@@ -30,7 +30,7 @@ style = "agnoster_short"
 type = "git"
 style = "plain"
 foreground = "lightBlue"
-template = "git(<yellow>{{ .HEAD }}</>) {{if .BranchStatus }}{{ .BranchStatus }} {{ end }}{{ if .Working.Changed }}<yellow>{{ .Working.String }}</>{{ end }} "
+template = " git(<yellow>{{ .HEAD }}</>){{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <yellow>{{ .Working.String }}</>{{ end }}"
 
 [blocks.segments.properties]
 branch_icon = ""
@@ -41,7 +41,7 @@ fetch_status = true
 type = "executiontime"
 style = "powerline"
 foreground = "lightYellow"
-template = "{{ .FormattedMs }}"
+template = " {{ .FormattedMs }}"
 
 [blocks.segments.properties]
 always_enabled = false
