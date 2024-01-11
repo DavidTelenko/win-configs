@@ -57,7 +57,7 @@ type = "rprompt"
 type = "time"
 style = "plain"
 foreground = "green"
-template = "{{ .Format }}"
+template = "{{ .CurrentDate | date .Format }}"
 
 [blocks.segments.properties]
 time_format = "3:04:05 PM"
