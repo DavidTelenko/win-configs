@@ -8,58 +8,69 @@ version = 2
 type = "prompt"
 alignment = "left"
 
-  # User segment
-  [[blocks.segments]]
-  type = "session"
-  style = "plain"
-  foreground = "lightYellow"
-  template = "@{{ .UserName }} > "
-  
-  # Path segment
-  [[blocks.segments]]
-  type = "path"
-  style = "plain"
-  foreground = "lightGreen"
-  template = "{{ .Path }} "
-  
-    [blocks.segments.properties]
-    style = "agnoster_short"
-  
-  # Git segment
-  [[blocks.segments]]
-  type = "git"
-  style = "plain"
-  foreground = "lightBlue"
-  template = "git(<yellow>{{ .HEAD }}</>) {{if .BranchStatus }}{{ .BranchStatus }} {{ end }}{{ if .Working.Changed }}<yellow>{{ .Working.String }}</>{{ end }} "
-  
-    [blocks.segments.properties]
-    branch_icon = ""
-    fetch_status = true
-  
-  # Execution time segment
-  [[blocks.segments]]
-  type = "executiontime"
-  style = "powerline"
-  foreground = "yellow"
-  template = "{{ .FormattedMs }}"
-  
-    [blocks.segments.properties]
-    always_enabled = false
-    style = "austin"
-    threshold = 100
+# User segment
+[[blocks.segments]]
+type = "session"
+style = "plain"
+foreground = "lightYellow"
+template = "@{{ .UserName }} > "
+
+# Path segment
+[[blocks.segments]]
+type = "path"
+style = "plain"
+foreground = "lightGreen"
+template = "{{ .Path }} "
+
+[blocks.segments.properties]
+style = "agnoster_short"
+
+# Git segment
+[[blocks.segments]]
+type = "git"
+style = "plain"
+foreground = "lightBlue"
+template = "git(<yellow>{{ .HEAD }}</>) {{if .BranchStatus }}{{ .BranchStatus }} {{ end }}{{ if .Working.Changed }}<yellow>{{ .Working.String }}</>{{ end }} "
+
+[blocks.segments.properties]
+branch_icon = ""
+fetch_status = true
+
+# Execution time segment
+[[blocks.segments]]
+type = "executiontime"
+style = "powerline"
+foreground = "lightYellow"
+template = "{{ .FormattedMs }}"
+
+[blocks.segments.properties]
+always_enabled = false
+style = "austin"
+threshold = 100
 
 # Right aligned block
 [[blocks]]
 type = "rprompt"
 
-  # Time block
-  [[blocks.segments]]
-  type = "time"
-  style = "plain"
-  foreground = "green"
-  
-    [blocks.segments.properties]
-    time_format = "02.01.06 | 3:04:05 PM"
+# Time block
+[[blocks.segments]]
+type = "time"
+style = "plain"
+foreground = "green"
+
+[blocks.segments.properties]
+time_format = "02.01.06 | 3:04:05 PM"
+
+# Battery block
+[[blocks.segments]]
+type = "battery"
+style = "powerline"
+foreground_templates = [
+  "{{if eq \"Charging\" .State.String}}lightYellow{{end}}",
+  "{{if eq \"Discharging\" .State.String}}lightRed{{end}}",
+  "{{if eq \"Full\" .State.String}}lightGreen{{end}}",
+]
+template = " [{{ if not .Error }}{{ .Percentage }}{{ end }}%]"
 
 # Spotify block
 # [[blocks.segments]]
