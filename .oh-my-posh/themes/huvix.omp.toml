@@ -1,0 +1,74 @@
+# General
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = false
+version = 2
+
+# Left aligned block
+[[blocks]]
+type = "prompt"
+alignment = "left"
+
+  # User segment
+  [[blocks.segments]]
+  type = "session"
+  style = "plain"
+  foreground = "lightYellow"
+  template = "@{{ .UserName }} > "
+  
+  # Path segment
+  [[blocks.segments]]
+  type = "path"
+  style = "plain"
+  foreground = "lightGreen"
+  template = "{{ .Path }} "
+  
+    [blocks.segments.properties]
+    style = "agnoster_short"
+  
+  # Git segment
+  [[blocks.segments]]
+  type = "git"
+  style = "plain"
+  foreground = "lightBlue"
+  template = "git(<yellow>{{ .HEAD }}</>) {{if .BranchStatus }}{{ .BranchStatus }} {{ end }}{{ if .Working.Changed }}<yellow>{{ .Working.String }}</>{{ end }} "
+  
+    [blocks.segments.properties]
+    branch_icon = ""
+    fetch_status = true
+  
+  # Execution time segment
+  [[blocks.segments]]
+  type = "executiontime"
+  style = "powerline"
+  foreground = "yellow"
+  template = "{{ .FormattedMs }}"
+  
+    [blocks.segments.properties]
+    always_enabled = false
+    style = "austin"
+    threshold = 100
+
+# Right aligned block
+[[blocks]]
+type = "rprompt"
+
+  # Time block
+  [[blocks.segments]]
+  type = "time"
+  style = "plain"
+  foreground = "green"
+  
+    [blocks.segments.properties]
+    time_format = "02.01.06 | 3:04:05 PM"
+
+# Spotify block
+# [[blocks.segments]]
+# foreground = "#1ED760"
+# style = "powerline"
+# template = "{{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }}"
+# type = "spotify"
+#
+# [blocks.segments.properties]
+# playing_icon = " "
+# paused_icon = " "
+# stopped_icon = " "

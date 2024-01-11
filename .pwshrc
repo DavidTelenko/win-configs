@@ -11,4 +11,4 @@ $env:PYTHONIOENCODING='utf-8'
 
 iex (& { (zoxide init powershell | Out-String) })
 
-# Remove-Alias -fo @("where", "pwd")
+Remove-Alias -fo @("where", "pwd", "rm", "ls", "mv", "cp")
