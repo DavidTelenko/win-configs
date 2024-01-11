@@ -57,9 +57,10 @@ type = "rprompt"
 type = "time"
 style = "plain"
 foreground = "green"
+template = "{{ .Format }}"
 
 [blocks.segments.properties]
-time_format = "02.01.06 | 3:04:05 PM"
+time_format = "3:04:05 PM"
 
 # Battery block
 [[blocks.segments]]
