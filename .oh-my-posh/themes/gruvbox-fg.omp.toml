@@ -19,7 +19,7 @@ alignment = "left"
 [[blocks.segments]]
 type = "path"
 style = "plain"
-foreground = "lightGreen"
+foreground = "lightYellow"
 template = " {{ .Path }}"
 
 [blocks.segments.properties]
@@ -40,7 +40,7 @@ fetch_status = true
 [[blocks.segments]]
 type = "executiontime"
 style = "powerline"
-foreground = "lightYellow"
+foreground = "white"
 template = " {{ .FormattedMs }}"
 
 [blocks.segments.properties]
