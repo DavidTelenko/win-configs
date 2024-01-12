@@ -9,11 +9,11 @@ type = "prompt"
 alignment = "left"
 
 # User segment
-[[blocks.segments]]
-type = "session"
-style = "plain"
-foreground = "lightYellow"
-template = "@{{ .UserName }} >"
+# [[blocks.segments]]
+# type = "session"
+# style = "plain"
+# foreground = "lightYellow"
+# template = "@{{ .UserName }} >"
 
 # Path segment
 [[blocks.segments]]
