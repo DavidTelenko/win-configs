@@ -311,13 +311,13 @@
         "list": 
         [
             {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "commandline": "powershell",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "commandline": "cmd",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
@@ -335,18 +335,7 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "commandline": "C:\\cygwin\\bin\\zsh --login -i",
-                "guid": "{d57d07ef-1e26-5de6-8a93-0dc4ecd0fe4f}",
-                "icon": "C:\\Cygwin\\Cygwin.ico",
-                "name": "Cygwin",
-                "startingDirectory": "C:\\Cygwin\\bin"
-            },
-            {
-                "commandline": "C:\\Users\\User\\scoop\\shims\\nu.exe",
-                "font": 
-                {
-                    "face": "RobotoMono Nerd Font Mono"
-                },
+                "commandline": "nu",
                 "guid": "{e87d91a6-0a2d-4b45-a386-5a7923a1fdc5}",
                 "hidden": false,
                 "name": "Nushell",
