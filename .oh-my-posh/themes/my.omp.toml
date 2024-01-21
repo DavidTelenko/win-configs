@@ -67,9 +67,9 @@ time_format = "3:04:05 PM"
 type = "battery"
 style = "powerline"
 foreground_templates = [
-  "{{if eq \"Charging\" .State.String}}lightYellow{{end}}",
-  "{{if eq \"Discharging\" .State.String}}lightRed{{end}}",
-  "{{if eq \"Full\" .State.String}}lightGreen{{end}}",
+    "{{if eq \"Charging\" .State.String}}lightYellow{{end}}",
+    "{{if eq \"Discharging\" .State.String}}lightRed{{end}}",
+    "{{if eq \"Full\" .State.String}}lightGreen{{end}}",
 ]
 template = " [{{ if not .Error }}{{ .Percentage }}{{ end }}%]"
 
