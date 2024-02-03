@@ -10,3 +10,5 @@ def clear [] {
         backup-clear
     }
 }
+
+alias "scoop search" = scoop-search
