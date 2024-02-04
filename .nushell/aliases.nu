@@ -11,4 +11,10 @@ def clear [] {
     }
 }
 
-alias "scoop search" = scoop-search
+# weird shenanigan but aliasing 'scoop search' directly to 'scoop-search' makes
+# it search the word 'search')
+def __scoop_search [param: string] {
+    scoop-search $param
+}
+
+alias "scoop search" = __scoop_search
