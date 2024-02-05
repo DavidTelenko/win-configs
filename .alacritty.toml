@@ -1,0 +1,53 @@
+import = []
+working_directory = "~"
+live_config_reload = true
+
+[shell]
+program = "nu"
+args = []
+
+[env]
+# additional env varialbes
+
+[window]
+padding = { x = 10, y = 10 }
+dynamic_padding = false
+decorations = "None"
+opacity = 1.0
+blur = false
+startup_mode = "Fullscreen"
+title = "Alacritty"
+dynamic_title = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+normal = { family = "RobotoMono Nerd Font Mono" }
+size = 12.5
+
+[colors]
+[colors.primary]
+background = "#000000"
+foreground = "#EBDBB2"
+
+[colors.normal]
+black = "#000000"
+red = "#CC241D"
+green = "#98971A"
+yellow = "#D79921"
+blue = "#458588"
+magenta = "#B16286"
+cyan = "#689D6A"
+white = "#A89984"
+
+[colors.bright]
+black = "#928374"
+red = "#FB4934"
+green = "#B8BB26"
+yellow = "#FABD2F"
+blue = "#83A598"
+magenta = "#D3869B"
+cyan = "#8EC07C"
+white = "#EBDBB2"
