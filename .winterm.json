@@ -6,17 +6,21 @@
         {
             "command": 
             {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
+        },
+        {
+            "command": 
+            {
                 "action": "newTab"
             },
             "keys": "ctrl+shift+t"
         },
         {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            },
-            "keys": "ctrl+c"
+            "command": "paste",
+            "keys": "ctrl+v"
         },
         {
             "command": 
@@ -27,12 +31,11 @@
             "keys": "alt+4"
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": 
+            {
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+j"
         },
         {
             "command": 
@@ -44,11 +47,8 @@
             "keys": "alt+shift+d"
         },
         {
-            "command": 
-            {
-                "action": "scrollDown"
-            },
-            "keys": "ctrl+shift+j"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": "closePane",
@@ -61,14 +61,6 @@
                 "index": 4
             },
             "keys": "alt+5"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 7
-            },
-            "keys": "alt+8"
         },
         {
             "command": "unbound",
@@ -178,6 +170,14 @@
             "command": 
             {
                 "action": "switchToTab",
+                "index": 7
+            },
+            "keys": "alt+8"
+        },
+        {
+            "command": 
+            {
+                "action": "switchToTab",
                 "index": 0
             },
             "keys": "alt+1"
@@ -202,17 +202,17 @@
             "command": 
             {
                 "action": "switchToTab",
-                "index": 6
+                "index": 5
             },
-            "keys": "alt+7"
+            "keys": "alt+6"
         },
         {
             "command": 
             {
                 "action": "switchToTab",
-                "index": 5
+                "index": 6
             },
-            "keys": "alt+6"
+            "keys": "alt+7"
         },
         {
             "command": 
@@ -288,7 +288,7 @@
         {
             "antialiasingMode": "grayscale",
             "backgroundImage": null,
-            "backgroundImageOpacity": 0.15,
+            "backgroundImageOpacity": 0.0,
             "bellStyle": "none",
             "colorScheme": "Gruvbox Black",
             "cursorShape": "filledBox",
@@ -305,7 +305,7 @@
             },
             "opacity": 100,
             "padding": "8",
-            "startingDirectory": "E:/",
+            "startingDirectory": "~",
             "useAcrylic": false
         },
         "list": 
