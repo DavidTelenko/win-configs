@@ -1,9 +1,9 @@
-# Simple scoop based bootstrap scrip for a fresh system
+# Simple scoop based bootstrap script for a fresh system
 
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
 
-# copy all initialize all configs
+# copy and initialize all configs
 git clone https://github.com/DavidTelenko/win-configs.git ~/.configs
 & ~/.configs/init.ps1
 
