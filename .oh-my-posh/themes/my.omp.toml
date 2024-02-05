@@ -48,7 +48,13 @@ always_enabled = false
 style = "austin"
 threshold = 100
 
-# Right aligned block
+[[blocks.segments]]
+type = "text"
+style = "plain"
+foreground = "lightBlue"
+template = " :"
+
+# Right aligned blocks
 [[blocks]]
 type = "rprompt"
 
