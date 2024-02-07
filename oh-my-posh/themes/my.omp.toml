@@ -9,18 +9,17 @@ type = "prompt"
 alignment = "left"
 
 # User segment
-# [[blocks.segments]]
-# type = "session"
-# style = "plain"
-# foreground = "#FABD2F"
-# template = "@{{ .UserName }} >"
+[[blocks.segments]]
+type = "session"
+style = "plain"
+foreground = "#FABD2F"
 
 # Path segment
 [[blocks.segments]]
 type = "path"
 style = "plain"
 foreground = "#FABD2F"
-template = " {{ .Path }}"
+template = "{{ .Path }}"
 
 [blocks.segments.properties]
 style = "agnoster_short"
