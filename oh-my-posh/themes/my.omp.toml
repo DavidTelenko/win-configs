@@ -12,14 +12,22 @@ alignment = "left"
 [[blocks.segments]]
 type = "session"
 style = "plain"
-foreground = "#FABD2F"
+template = "{{ if .SSHSession }}ssh {{ end }}{{ .UserName }}@{{ .HostName }}"
+foreground = "#98971A"
+
+# Shell segment
+[[blocks.segments]]
+type = "shell"
+style = "powerline"
+foreground = "#B16286"
+template = " {{ .Name }}"
 
 # Path segment
 [[blocks.segments]]
 type = "path"
 style = "plain"
 foreground = "#FABD2F"
-template = "{{ .Path }}"
+template = " {{ .Path }}"
 
 [blocks.segments.properties]
 style = "agnoster_short"
@@ -47,22 +55,29 @@ always_enabled = false
 style = "austin"
 threshold = 100
 
-[[blocks.segments]]
-type = "text"
-style = "plain"
-foreground = "#83A598"
-template = " :"
-
 # Right aligned blocks
 [[blocks]]
-type = "rprompt"
+alignment = "right"
+type = "prompt"
+
+# # Spotify block
+# [[blocks.segments]]
+# foreground = "#1ED760"
+# style = "powerline"
+# template = "{{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }}"
+# type = "spotify"
+#
+# [blocks.segments.properties]
+# playing_icon = " "
+# paused_icon = " "
+# stopped_icon = " "
 
 # Time block
 [[blocks.segments]]
 type = "time"
 style = "plain"
 foreground = "#98971A"
-template = "{{ .CurrentDate | date .Format }}"
+template = " {{ .CurrentDate | date .Format }}"
 
 [blocks.segments.properties]
 time_format = "3:04:05 PM"
@@ -78,14 +93,8 @@ foreground_templates = [
 ]
 template = " [{{ if not .Error }}{{ .Percentage }}{{ end }}%]"
 
-# Spotify block
-# [[blocks.segments]]
-# foreground = "#1ED760"
-# style = "powerline"
-# template = "{{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }}"
-# type = "spotify"
-#
-# [blocks.segments.properties]
-# playing_icon = " "
-# paused_icon = " "
-# stopped_icon = " "
+[[blocks.segments]]
+type = "text"
+style = "plain"
+foreground = "#83A598"
+template = "\n$"
