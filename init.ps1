@@ -10,3 +10,4 @@ rm -r -fo $env:appdata/nushell
 ni -i Junction $env:appdata/nushell/ -ta $curr/nushell/
 
 cat $curr/winterm.json > ~/scoop/persist/windows-terminal/settings/settings.json
+cat $curr/winterm.json > ~/scoop/persist/windows-terminal-preview/settings/settings.json
