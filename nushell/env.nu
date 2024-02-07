@@ -106,4 +106,4 @@ $env.NU_PLUGIN_DIRS = [
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
 zoxide init nushell | str replace "def-env" "def --env" --all  | save -f ~\.zoxide.nu
-oh-my-posh init nu --config $'~/.configs/.oh-my-posh/themes/my.omp.toml'
+oh-my-posh init nu --config $'~/.configs/oh-my-posh/themes/my.omp.toml'

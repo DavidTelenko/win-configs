@@ -1,5 +1,11 @@
 alias mv = ^mv
-alias ll = ^exa -la
+alias ll = ^exa -la --icons=auto
+
+def grid-ls [] {
+    ls | sort-by type name -i | grid -c
+}
+
+alias lg = grid-ls
 
 alias backup-clear = clear
 

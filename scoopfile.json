@@ -264,11 +264,11 @@
             "Version": "4.14.3"
         },
         {
-            "Updated": "2024-01-21T15:15:17.1481258+02:00",
+            "Updated": "2024-02-06T17:39:53.9062931+02:00",
+            "Source": "versions",
             "Info": "",
-            "Source": "extras",
-            "Name": "windows-terminal",
-            "Version": "1.18.3181.0"
+            "Version": "1.20.10303.0",
+            "Name": "windows-terminal-preview"
         },
         {
             "Updated": "2024-01-08T19:38:42.4069036+02:00",
