@@ -159,6 +159,13 @@
             "Version": "21.5.0"
         },
         {
+            "Info": "",
+            "Name": "ntop",
+            "Version": "0.3.4",
+            "Updated": "2024-02-08T00:01:32.9547287+02:00",
+            "Source": "main"
+        },
+        {
             "Updated": "2024-01-14T03:38:53.1619091+02:00",
             "Info": "",
             "Source": "extras",
