@@ -3,10 +3,11 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 iex "& { $(irm get.scoop.sh) } -RunAsAdmin"
 
-scoop import ~/.configs/.scoopfile.json
+scoop install git
 
-# copy and initialize all configs
 git clone https://github.com/DavidTelenko/win-configs.git ~/.configs
+
+scoop import ~/.configs/scoopfile.json
 & ~/.configs/init.ps1
 
 # separate spicetify+spotx install
