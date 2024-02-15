@@ -1,13 +1,70 @@
+param (
+    [Alias("PowerToys")]
+    [Switch] $Pwts = $false,
+
+    [Alias("PowerShell")]
+    [Switch] $Pwsh = $false,
+
+    [Alias("Neovim")]
+    [Switch] $Nvim = $false,
+
+    [Alias("WindowsTerminal")]
+    [Switch] $Winterm = $false,
+
+    [Switch] $Alacritty = $false,
+    [Switch] $Nushell = $false
+)
+
 $curr = pwd
+$scoop = "$env:userprofile/scoop/persist"
 
-ni -i SymbolicLink -fo $profile -ta $curr/pwshrc.ps1
-ni -i SymbolicLink -fo $env:appdata/alacritty/alacritty.toml -ta $curr/alacritty.toml
+function Link {
+    param (
+        [String] $Target,
+        [String] $Existing
+    )
+    if (Test-Path -Path $Target -PathType Container) {
+        rm -r -fo $Target
+        echo "Removed: $Target"
+        ni -i Junction -fo $Target -ta $Existing
+        echo "Linked: $Target -> $Existing"
+    }
+    elseif(Test-Path -Path $Target -PathType Leaf) {
+        rm -fo $Target
+        echo "Removed: $Target"
+        ni -i SymbolicLink -fo $Target -ta $Existing
+        echo "Linked: $Target -> $Existing"
+    }
+}
 
-rm -r -fo $env:localappdata/nvim
-ni -i Junction $env:localappdata/nvim -ta $curr/nvim/
+function CopyContent {
+    param (
+        [String] $Target,
+        [String] $Existing
+    )
+    if (Test-Path -Path $Target -PathType Leaf) {
+        cat $Existing > $Target
+        echo "Copied: $Existing > $Target"
+    }
+}
 
-rm -r -fo $env:appdata/nushell
-ni -i Junction $env:appdata/nushell/ -ta $curr/nushell/
+if ($Pwsh) {
+    Link -t $profile -e $curr/pwshrc.ps1
+}
+if ($Alacritty) {
+    Link -t $env:appdata/alacritty/alacritty.toml -e $curr/alacritty.toml
+}
+if ($Pwts) {
+    Link -t $env:localappdata/Microsoft/PowerToys -e $curr/powertoys
+}
+if ($Nvim) {
+    Link -t $env:localappdata/nvim -e $curr/nvim
+}
+if ($Nushell) {
+    Link -t $env:appdata/nushell -e $curr/nushell
+}
 
-cat $curr/winterm.json > ~/scoop/persist/windows-terminal/settings/settings.json
-cat $curr/winterm.json > ~/scoop/persist/windows-terminal-preview/settings/settings.json
+if ($Winterm) {
+    CopyContent -t $scoop/windows-terminal/settings/settings.json -e $curr/winterm.json
+    CopyContent -t $scoop/windows-terminal-preview/settings/settings.json  -e $curr/winterm.json
+}
