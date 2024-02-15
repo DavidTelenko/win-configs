@@ -1,1 +1,0 @@
-[2024-01-09 03:32:43.089924] [p-7244] [t-5884] [info] Send settings telemetry
