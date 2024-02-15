@@ -1,2 +1,0 @@
-[2023-12-01 06:00:44.472299] [p-8716] [t-8720] [trace] PowerToys Run hotkey is invoked from Centralized keyboard hook
-[2023-12-01 07:10:25.668144] [p-8716] [t-8720] [trace] Peek hotkey is invoked from Centralized keyboard hook

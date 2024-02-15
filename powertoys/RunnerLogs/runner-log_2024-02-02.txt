@@ -1,2 +1,0 @@
-[2024-02-02 01:47:24.077603] [p-3236] [t-8516] [trace] Discovered new version v0.78.0
-[2024-02-02 01:47:24.081656] [p-3236] [t-8516] [trace] Downloading installer for a new version

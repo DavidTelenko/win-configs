@@ -1,2 +1,0 @@
-[2023-11-01 03:57:57.313463] [p-7316] [t-7796] [trace] Discovered new version v0.75.1
-[2023-11-01 03:57:57.316528] [p-7316] [t-7796] [trace] Downloading installer for a new version
