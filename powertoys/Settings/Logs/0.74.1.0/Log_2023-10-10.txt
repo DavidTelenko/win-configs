@@ -1,0 +1,86 @@
+[04:45:10.8497488] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\settings.json does not exists.
+[04:45:10.8529735] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413759108300656\settings.json, dryRun:True.
+[04:45:10.8543289] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\Awake\settings.json does not exists.
+[04:45:10.8551879] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413759108300656\Awake\settings.json, dryRun:True.
+[04:45:10.8563061] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\ColorPicker\settings.json does not exists.
+[04:45:10.8573382] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413759108300656\ColorPicker\settings.json, dryRun:True.
+[04:45:10.8578678] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\File Locksmith\file-locksmith-settings.json does not exists.
+[04:45:10.8591383] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413759108300656\File Locksmith\file-locksmith-settings.json, dryRun:True.
+[04:45:10.8596434] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\Image Resizer\image-resizer-settings.json does not exists.
+[04:45:10.8607127] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413759108300656\Image Resizer\image-resizer-settings.json, dryRun:True.
+[04:45:10.8615830] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\PowerRename\power-rename-settings.json does not exists.
+[04:45:10.8623780] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413759108300656\PowerRename\power-rename-settings.json, dryRun:True.
+[04:45:10.8675990] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\PowerToys Run\settings.json does not exists.
+[04:45:10.8684554] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413759108300656\PowerToys Run\settings.json, dryRun:True.
+[04:45:10.8691590] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\TextExtractor\settings.json does not exists.
+[04:45:10.8702796] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413759108300656\TextExtractor\settings.json, dryRun:True.
+[04:45:10.8793687] [Info] SettingsBackupAndRestoreUtils::BackupSettings
+    BackupSettings took 363
+[04:46:47.7281514] [Info] SettingsUtils::GetSettingsOrDefault
+    Settings file settings.json for FancyZones was not found.
+[04:46:47.8784651] [Info] SettingsUtils::GetSettingsOrDefault
+    Settings file settings.json for Measure Tool was not found.
+[04:46:47.8987488] [Info] SettingsUtils::GetSettingsOrDefault
+    Settings file settings.json for Shortcut Guide was not found.
+[04:46:55.4778429] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\settings.json does not exists.
+[04:46:55.4788714] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\settings.json, dryRun:True.
+[04:46:55.4797627] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\Awake\settings.json does not exists.
+[04:46:55.4803792] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\Awake\settings.json, dryRun:True.
+[04:46:55.4811472] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\ColorPicker\settings.json does not exists.
+[04:46:55.4817729] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\ColorPicker\settings.json, dryRun:True.
+[04:46:55.4823513] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\FancyZones\settings.json does not exists.
+[04:46:55.4831275] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\FancyZones\settings.json, dryRun:True.
+[04:46:55.4835484] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\File Locksmith\file-locksmith-settings.json does not exists.
+[04:46:55.4864275] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\File Locksmith\file-locksmith-settings.json, dryRun:True.
+[04:46:55.4868535] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\Image Resizer\image-resizer-settings.json does not exists.
+[04:46:55.4874314] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\Image Resizer\image-resizer-settings.json, dryRun:True.
+[04:46:55.4878882] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\Measure Tool\settings.json does not exists.
+[04:46:55.4885505] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\Measure Tool\settings.json, dryRun:True.
+[04:46:55.4890128] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\PowerRename\power-rename-settings.json does not exists.
+[04:46:55.4895855] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\PowerRename\power-rename-settings.json, dryRun:True.
+[04:46:55.4928385] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\PowerToys Run\settings.json does not exists.
+[04:46:55.4937866] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\PowerToys Run\settings.json, dryRun:True.
+[04:46:55.4943344] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\Shortcut Guide\settings.json does not exists.
+[04:46:55.4951323] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\Shortcut Guide\settings.json, dryRun:True.
+[04:46:55.4958797] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings, C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\TextExtractor\settings.json does not exists.
+[04:46:55.4967326] [Info] SettingsBackupAndRestoreUtils::BackupSettingsInternal
+    BackupSettings writing, C:\Users\HP 820 G3\AppData\Local\Temp\settings_133413760154543117\TextExtractor\settings.json, dryRun:True.
+[04:46:55.5030279] [Info] SettingsBackupAndRestoreUtils::BackupSettings
+    BackupSettings took 79

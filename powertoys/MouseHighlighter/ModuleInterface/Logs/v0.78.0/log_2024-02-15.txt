@@ -1,0 +1,3 @@
+[2024-02-15 20:47:23.773147] [p-21104] [t-336] [info] mouse-highlighter logger is initialized
+[2024-02-15 20:47:23.781248] [p-21104] [t-336] [error] Left click color ARGB value is invalid. Will use default value
+[2024-02-15 20:47:23.781302] [p-21104] [t-336] [error] Right click color ARGB value is invalid. Will use default value

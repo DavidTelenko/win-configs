@@ -1,0 +1,4 @@
+[2023-11-29 07:16:10.848410] [p-8716] [t-8720] [info] launcher logger is initialized
+[2023-11-29 07:16:10.848693] [p-8716] [t-8720] [info] Launcher object is constructing
+[2023-11-29 07:16:12.655063] [p-8716] [t-8720] [trace] Launching PowerToys Awake process
+[2023-11-29 07:16:12.655250] [p-8716] [t-8720] [trace] PowerToys Awake launching with parameters: --use-pt-config --pid 8716

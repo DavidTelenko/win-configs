@@ -1,0 +1,12 @@
+[02:12:15.3042666] [Info] Program::Main
+    Color Picker started with pid=11240
+[02:12:18.9723124] [Info] App::OnStartup
+    Color Picker started from the PowerToys Runner. Runner pid=9112
+[02:12:22.8810292] [Info] UserSettings::SendSettingsTelemetry
+    Sending settings telemetry
+[19:33:24.9255165] [Info] CursorManager::ChangeCursor
+    Cursor file path was null
+[19:33:24.9351091] [Info] CursorManager::ChangeCursor
+    Cursor file path was null
+[19:33:25.0566844] [Info] App::<OnStartup>b__13_0
+    PowerToys Runner exited. Exiting ColorPicker

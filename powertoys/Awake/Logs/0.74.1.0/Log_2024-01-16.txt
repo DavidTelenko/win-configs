@@ -1,0 +1,15 @@
+[06:27:38.2704008] [Info] Program::Main
+    Launching Awake...
+[06:27:38.2803519] [Info] Program::Main
+    0.74.1.0
+[06:27:38.2813304] [Info] Program::Main
+    Build: ATRIOX_04132023
+[06:27:38.2819459] [Info] Program::Main
+    OS: Microsoft Windows NT 10.0.19045.0
+[06:27:38.3167018] [Info] Program::Main
+    OS Build: Windows 10 Pro 22H2 19041.1.amd64fre.vb_release.191206-1406
+[06:27:38.5378078] [Info] Program::Main
+    {}
+[06:27:38.5380982] [Info] Program::Main
+    Parsing parameters...
+[06:27:39.1813305] [Info] Program::HandleCommandLineArguments

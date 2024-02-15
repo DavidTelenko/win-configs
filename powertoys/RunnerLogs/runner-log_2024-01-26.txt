@@ -1,0 +1,1 @@
+[2024-01-26 11:26:46.560363] [p-8628] [t-8632] [trace] MouseJump hotkey is invoked from Centralized keyboard hook

@@ -1,0 +1,38 @@
+[11:32:18.4234640] [Info] Program::Main
+    Launching Awake...
+[11:32:18.4589182] [Info] Program::Main
+    0.74.1.0
+[11:32:18.4725281] [Info] Program::Main
+    Build: ATRIOX_04132023
+[11:32:18.4731043] [Info] Program::Main
+    OS: Microsoft Windows NT 10.0.19045.0
+[11:32:18.5548637] [Info] Program::Main
+    OS Build: Windows 10 Pro 22H2 19041.1.amd64fre.vb_release.191206-1406
+[11:32:18.9684993] [Info] Program::Main
+    {}
+[11:32:18.9688109] [Info] Program::Main
+    Parsing parameters...
+[11:32:19.4312079] [Info] Program::HandleCommandLineArguments
+    The value for --use-pt-config is: True
+[11:32:19.4327935] [Info] Program::HandleCommandLineArguments
+    The value for --display-on is: True
+[11:32:19.4333890] [Info] Program::HandleCommandLineArguments
+    The value for --time-limit is: 0
+[11:32:19.4339466] [Info] Program::HandleCommandLineArguments
+    The value for --pid is: 7316
+[11:32:19.4344896] [Info] Program::HandleCommandLineArguments
+    The value for --expire-at is: 
+[11:32:20.2604845] [Info] <>c__DisplayClass9_0::<InitializeTray>b__0
+    Setting up the tray.
+[11:32:20.3893035] [Info] Program::HandleCommandLineArguments
+    Reading configuration file: C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\Awake\settings.json
+[11:32:21.9220430] [Info] Program::ProcessSettings
+    Identified custom time shortcuts for the tray: 0
+[11:32:21.9232612] [Info] Program::SetupNoKeepAwake
+    Operating in passive mode (computer's standard power plan). No custom keep awake settings enabled.
+[11:32:21.9874851] [Info] Manager::CancelExistingThread
+    Attempting to ensure that the thread is properly cleaned up...
+[11:32:21.9910893] [Info] Manager::CancelExistingThread
+    Instantiating of new token source and thread token completed.
+[11:32:21.9937766] [Info] <>c::<StartMonitor>b__3_0
+    Setting state to ES_CONTINUOUS

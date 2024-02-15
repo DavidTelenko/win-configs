@@ -1,0 +1,2 @@
+[2024-01-08 02:30:48.774667] [p-7244] [t-7832] [trace] MouseJump hotkey is invoked from Centralized keyboard hook
+[2024-01-08 02:30:52.150358] [p-7244] [t-7832] [trace] MouseJump hotkey is invoked from Centralized keyboard hook

@@ -1,0 +1,3 @@
+[2023-11-30 01:19:36.997237] [p-8716] [t-8720] [trace] Peek hotkey is invoked from Centralized keyboard hook
+[2023-11-30 01:35:33.340737] [p-8716] [t-8720] [trace] Peek hotkey is invoked from Centralized keyboard hook
+[2023-11-30 02:15:35.410538] [p-8716] [t-8720] [trace] MouseJump hotkey is invoked from Centralized keyboard hook

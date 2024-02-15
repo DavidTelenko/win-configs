@@ -1,0 +1,4 @@
+[2024-02-15 20:47:23.572422] [p-21104] [t-336] [info] launcher logger is initialized
+[2024-02-15 20:47:23.572567] [p-21104] [t-336] [info] Launcher object is constructing
+[2024-02-15 20:47:26.015155] [p-21104] [t-336] [trace] Launching PowerToys Awake process
+[2024-02-15 20:47:26.015228] [p-21104] [t-336] [trace] PowerToys Awake launching with parameters: --use-pt-config --pid 21104

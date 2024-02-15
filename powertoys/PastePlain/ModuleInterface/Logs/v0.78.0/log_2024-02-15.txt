@@ -1,0 +1,4 @@
+[2024-02-15 20:47:24.373651] [p-21104] [t-336] [info] PastePlain logger is initialized
+[2024-02-15 20:47:24.384683] [p-21104] [t-336] [info] PastePlain settings are empty
+[2024-02-15 20:47:24.384742] [p-21104] [t-336] [info] PastePlain is going to use default shortcut
+[2024-02-15 20:47:26.764390] [p-21104] [t-336] [trace] PastePlain::enable()

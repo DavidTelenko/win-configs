@@ -1,0 +1,48 @@
+[00:22:33.3855828] [Info] Program::Main
+    Launching Awake...
+[00:22:33.4231178] [Info] Program::Main
+    0.74.1.0
+[00:22:33.4243521] [Info] Program::Main
+    Build: ATRIOX_04132023
+[00:22:33.4249656] [Info] Program::Main
+    OS: Microsoft Windows NT 10.0.19045.0
+[00:22:33.4326902] [Info] Program::Main
+    OS Build: Windows 10 Pro 22H2 19041.1.amd64fre.vb_release.191206-1406
+[00:22:33.8103333] [Info] Program::Main
+    {}
+[00:22:33.8106522] [Info] Program::Main
+    Parsing parameters...
+[00:22:34.1735745] [Info] Program::HandleCommandLineArguments
+    The value for --use-pt-config is: True
+[00:22:34.1754080] [Info] Program::HandleCommandLineArguments
+    The value for --display-on is: True
+[00:22:34.1760391] [Info] Program::HandleCommandLineArguments
+    The value for --time-limit is: 0
+[00:22:34.1770374] [Info] Program::HandleCommandLineArguments
+    The value for --pid is: 7224
+[00:22:34.1780502] [Info] Program::HandleCommandLineArguments
+    The value for --expire-at is: 
+[00:22:35.0086142] [Info] Program::HandleCommandLineArguments
+    Reading configuration file: C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\Awake\settings.json
+[00:22:35.0098649] [Info] <>c__DisplayClass9_0::<InitializeTray>b__0
+    Setting up the tray.
+[00:22:35.6890948] [Info] Program::ProcessSettings
+    Identified custom time shortcuts for the tray: 0
+[00:22:35.6904951] [Info] Program::SetupNoKeepAwake
+    Operating in passive mode (computer's standard power plan). No custom keep awake settings enabled.
+[00:22:35.7062604] [Info] Manager::CancelExistingThread
+    Attempting to ensure that the thread is properly cleaned up...
+[00:22:35.7211274] [Info] Manager::CancelExistingThread
+    Instantiating of new token source and thread token completed.
+[00:22:35.7370254] [Info] <>c::<StartMonitor>b__3_0
+    Setting state to ES_CONTINUOUS
+[07:14:48.5005521] [Info] <>c__DisplayClass14_0::<HandleCommandLineArguments>b__0
+    Triggered PID-based exit handler for PID 7224.
+[07:14:48.5234554] [Info] Program::Exit
+    Terminating from process binding hook.
+[07:14:48.5273804] [Info] Manager::CancelExistingThread
+    Attempting to ensure that the thread is properly cleaned up...
+[07:14:48.5304129] [Info] Manager::CancelExistingThread
+    Instantiating of new token source and thread token completed.
+[07:14:48.5323982] [Info] <>c::<StartMonitor>b__3_0
+    Setting state to ES_CONTINUOUS

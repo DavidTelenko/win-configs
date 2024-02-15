@@ -1,0 +1,16 @@
+[2023-12-16 01:53:38.428053] [p-16072] [t-14180] [info] keyboard-manager logger is initialized
+[2023-12-16 01:53:38.520204] [p-16072] [t-14180] [trace] Created/Opened Local\PowerToys_KBMEditor_InstanceMutex mutex
+[2023-12-16 01:53:38.520314] [p-16072] [t-14180] [trace] Editor started from the settings with pid 18736
+[2023-12-16 01:53:38.521746] [p-16072] [t-14180] [trace] SettingsHelper::LoadSettings()
+[2023-12-16 01:53:38.525463] [p-16072] [t-14180] [trace] CreateEditShortcutsWindowImpl()
+[2023-12-16 01:53:38.525705] [p-16072] [t-14180] [trace] Signaled PowerToys_KeyboardManager_Event_EditorWindow event to suspend the KBM engine
+[2023-12-16 01:53:38.713476] [p-16072] [t-14180] [trace] XamlBridge::InitDesktopWindowsXamlSource()
+[2023-12-16 01:53:39.141542] [p-16072] [t-14180] [trace] XamlBridge::MessageLoop()
+[2023-12-16 01:53:51.874208] [p-16072] [t-14180] [trace] Signaled PowerToys_KeyboardManager_Event_Settings event
+[2023-12-16 01:53:51.881874] [p-16072] [t-14180] [trace] XamlBridge::MessageHandler() message: WM_ACTIVATE
+[2023-12-16 01:53:51.881955] [p-16072] [t-14180] [trace] XamlBridge::OnActivate()
+[2023-12-16 01:53:51.917786] [p-16072] [t-14180] [trace] XamlBridge::MessageHandler() message: WM_NCDESTROY
+[2023-12-16 01:53:51.917971] [p-16072] [t-14180] [trace] XamlBridge::OnDestroy()
+[2023-12-16 01:53:51.918918] [p-16072] [t-14180] [trace] XamlBridge::MessageLoop() stopped
+[2023-12-16 01:53:51.919041] [p-16072] [t-14180] [trace] XamlBridge::ClearXamlIslands() 1 focus event revokers
+[2023-12-16 01:53:51.998008] [p-16072] [t-14180] [trace] Terminating process 16072

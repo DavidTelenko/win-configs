@@ -1,0 +1,2 @@
+[2023-12-17 05:24:16.928874] [p-8924] [t-8768] [trace] Discovered new version v0.76.2
+[2023-12-17 05:24:16.930847] [p-8924] [t-8768] [trace] Downloading installer for a new version

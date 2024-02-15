@@ -1,0 +1,2 @@
+[2024-01-13 01:04:34.945309] [p-9192] [t-9196] [trace] Peek hotkey is invoked from Centralized keyboard hook
+[2024-01-13 01:04:42.227567] [p-9192] [t-9196] [trace] Peek hotkey is invoked from Centralized keyboard hook

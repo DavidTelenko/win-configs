@@ -1,0 +1,1 @@
+[2024-02-15 20:47:23.048530] [p-21104] [t-336] [info] keyboard-manager logger is initialized

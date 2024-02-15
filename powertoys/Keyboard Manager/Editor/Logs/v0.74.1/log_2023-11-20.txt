@@ -1,0 +1,26 @@
+[2023-11-20 14:58:03.648502] [p-13748] [t-9504] [info] keyboard-manager logger is initialized
+[2023-11-20 14:58:03.797570] [p-13748] [t-9504] [trace] Created/Opened Local\PowerToys_KBMEditor_InstanceMutex mutex
+[2023-11-20 14:58:03.797729] [p-13748] [t-9504] [trace] Editor started from the settings with pid 5820
+[2023-11-20 14:58:03.799749] [p-13748] [t-9504] [trace] SettingsHelper::LoadSettings()
+[2023-11-20 14:58:03.800912] [p-13748] [t-9504] [trace] CreateEditShortcutsWindowImpl()
+[2023-11-20 14:58:03.800993] [p-13748] [t-9504] [trace] Signaled PowerToys_KeyboardManager_Event_EditorWindow event to suspend the KBM engine
+[2023-11-20 14:58:04.061883] [p-13748] [t-9504] [trace] XamlBridge::InitDesktopWindowsXamlSource()
+[2023-11-20 14:58:04.298208] [p-13748] [t-9504] [trace] XamlBridge::MessageLoop()
+[2023-11-20 14:58:07.336677] [p-13748] [t-9504] [trace] XamlBridge::MessageHandler() message: WM_ACTIVATE
+[2023-11-20 14:58:07.336848] [p-13748] [t-9504] [trace] XamlBridge::OnActivate()
+[2023-11-20 14:58:57.758379] [p-13748] [t-9504] [trace] XamlBridge::MessageHandler() message: WM_ACTIVATE
+[2023-11-20 14:58:57.759332] [p-13748] [t-9504] [trace] XamlBridge::MessageHandler() message: WM_SETFOCUS
+[2023-11-20 14:58:57.759396] [p-13748] [t-9504] [trace] XamlBridge::OnSetFocus()
+[2023-11-20 14:58:58.292082] [p-13748] [t-9504] [trace] XamlBridge::MessageHandler() message: WM_ACTIVATE
+[2023-11-20 14:58:58.292191] [p-13748] [t-9504] [trace] XamlBridge::OnActivate()
+[2023-11-20 14:59:10.616299] [p-13748] [t-9504] [trace] XamlBridge::MessageHandler() message: WM_ACTIVATE
+[2023-11-20 14:59:10.618537] [p-13748] [t-9504] [trace] XamlBridge::MessageHandler() message: WM_SETFOCUS
+[2023-11-20 14:59:10.618681] [p-13748] [t-9504] [trace] XamlBridge::OnSetFocus()
+[2023-11-20 15:00:17.460419] [p-13748] [t-9504] [trace] Signaled PowerToys_KeyboardManager_Event_Settings event
+[2023-11-20 15:00:17.474046] [p-13748] [t-9504] [trace] XamlBridge::MessageHandler() message: WM_ACTIVATE
+[2023-11-20 15:00:17.474169] [p-13748] [t-9504] [trace] XamlBridge::OnActivate()
+[2023-11-20 15:00:17.520664] [p-13748] [t-9504] [trace] XamlBridge::MessageHandler() message: WM_NCDESTROY
+[2023-11-20 15:00:17.520799] [p-13748] [t-9504] [trace] XamlBridge::OnDestroy()
+[2023-11-20 15:00:17.522326] [p-13748] [t-9504] [trace] XamlBridge::MessageLoop() stopped
+[2023-11-20 15:00:17.522607] [p-13748] [t-9504] [trace] XamlBridge::ClearXamlIslands() 1 focus event revokers
+[2023-11-20 15:00:17.581023] [p-13748] [t-9504] [trace] Terminating process 13748
