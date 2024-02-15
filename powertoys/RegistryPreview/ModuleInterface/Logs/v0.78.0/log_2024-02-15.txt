@@ -1,9 +1,0 @@
-[2024-02-15 20:47:24.599388] [p-21104] [t-336] [info] RegistryPreview logger is initialized
-[2024-02-15 20:47:24.608610] [p-21104] [t-336] [info] Registry Preview object is constructing
-[2024-02-15 20:47:24.609175] [p-21104] [t-336] [error] unApply of HKCU\Software\Classes\regfile\shell\preview\command\Default:C:\Users\HP 820 G3\scoop\apps\powertoys\current\WinUI3Apps\PowerToys.RegistryPreview.exe "%1": RegOpenKeyExW failed: The system cannot find the file specified.
-[2024-02-15 20:47:24.609283] [p-21104] [t-336] [error] unApply of HKCU\Software\Classes\regfile\shell\preview\icon:C:\Users\HP 820 G3\scoop\apps\powertoys\current\WinUI3Apps\Assets\RegistryPreview\app.ico: RegOpenKeyExW failed: The system cannot find the file specified.
-[2024-02-15 20:47:24.609619] [p-21104] [t-336] [error] Failed to unapply enabled registry change set.
-[2024-02-15 20:47:24.609676] [p-21104] [t-336] [info] Registry Preview settings are empty
-[2024-02-15 22:50:58.821524] [p-396] [t-18116] [info] RegistryPreview logger is initialized
-[2024-02-15 22:50:58.822216] [p-396] [t-18116] [info] Registry Preview object is constructing
-[2024-02-15 22:50:58.823660] [p-396] [t-18116] [info] Registry Preview settings are empty

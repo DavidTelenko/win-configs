@@ -1,4 +1,0 @@
-[2024-02-15 20:47:23.247519] [p-21104] [t-336] [info] powerrename logger is initialized
-[2024-02-15 20:47:27.105847] [p-21104] [t-336] [info] PowerRename enabled
-[2024-02-15 22:50:58.685831] [p-396] [t-18116] [info] powerrename logger is initialized
-[2024-02-15 22:50:59.418076] [p-396] [t-18116] [info] PowerRename enabled

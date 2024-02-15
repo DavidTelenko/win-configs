@@ -1,3 +1,0 @@
-[2024-02-13 02:05:04.4058] [ERROR] [C:\a\_work\1\s\src\modules\launcher\Wox.Infrastructure\Storage\ListRepository`1.cs::54]
-Item Already Exists <Microsoft Edge.lnk>
-

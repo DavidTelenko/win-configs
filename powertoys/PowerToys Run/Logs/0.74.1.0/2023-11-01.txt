@@ -1,3 +1,0 @@
-[2023-11-01 03:57:37.5227] [INFO] [C:\a\_work\1\s\src\modules\launcher\PowerLauncher\MainWindow.xaml.cs::73]
-Send Run settings telemetry
-

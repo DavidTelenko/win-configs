@@ -1,3 +1,0 @@
-[2024-01-16 06:27:45.738097] [p-7512] [t-8008] [info] shortcut-guide logger is initialized
-[2024-01-16 06:27:45.864729] [p-7512] [t-8008] [trace] Starting Shortcut Guide
-[2024-01-16 06:27:45.864883] [p-7512] [t-8008] [trace] Sending settings telemetry

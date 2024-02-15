@@ -1,6 +1,0 @@
-[2023-12-05 05:20:48.0366] [ERROR] [C:\a\_work\1\s\src\modules\launcher\Wox.Infrastructure\Storage\ListRepository`1.cs::54]
-Item Already Exists <Microsoft Edge.lnk>
-
-[2023-12-05 12:07:30.7838] [INFO] [C:\a\_work\1\s\src\modules\launcher\PowerLauncher\MainWindow.xaml.cs::73]
-Send Run settings telemetry
-

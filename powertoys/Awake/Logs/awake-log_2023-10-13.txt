@@ -1,4 +1,0 @@
-[2023-10-13 04:21:22.452858] [p-7460] [t-7432] [info] launcher logger is initialized
-[2023-10-13 04:21:22.453064] [p-7460] [t-7432] [info] Launcher object is constructing
-[2023-10-13 04:21:23.771697] [p-7460] [t-7432] [trace] Launching PowerToys Awake process
-[2023-10-13 04:21:23.771810] [p-7460] [t-7432] [trace] PowerToys Awake launching with parameters: --use-pt-config --pid 7460

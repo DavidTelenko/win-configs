@@ -1,4 +1,0 @@
-[2023-12-16 04:49:43.529233] [p-8924] [t-8928] [info] launcher logger is initialized
-[2023-12-16 04:49:43.529384] [p-8924] [t-8928] [info] Launcher object is constructing
-[2023-12-16 04:49:45.021453] [p-8924] [t-8928] [trace] Launching PowerToys Awake process
-[2023-12-16 04:49:45.021565] [p-8924] [t-8928] [trace] PowerToys Awake launching with parameters: --use-pt-config --pid 8924

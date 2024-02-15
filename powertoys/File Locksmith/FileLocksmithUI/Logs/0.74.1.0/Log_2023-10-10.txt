@@ -1,2 +1,0 @@
-[05:23:02.7187155] [Info] MainViewModel::.ctor
-    Starting FileLocksmith with 1 files selected.

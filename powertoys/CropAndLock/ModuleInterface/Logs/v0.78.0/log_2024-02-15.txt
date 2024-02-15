@@ -1,5 +1,0 @@
-[2024-02-15 20:47:25.343482] [p-21104] [t-336] [info] crop-and-lock logger is initialized
-[2024-02-15 20:47:25.357203] [p-21104] [t-336] [info] CropAndLock settings are empty
-[2024-02-15 20:47:26.163959] [p-21104] [t-336] [info] CropAndLock enabling
-[2024-02-15 22:50:58.857290] [p-396] [t-18116] [info] crop-and-lock logger is initialized
-[2024-02-15 22:50:59.019972] [p-396] [t-18116] [info] CropAndLock enabling

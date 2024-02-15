@@ -1,8 +1,0 @@
-[2024-02-15 20:47:23.674986] [p-21104] [t-336] [info] find-my-mouse logger is initialized
-[2024-02-15 20:47:23.686594] [p-21104] [t-336] [warning] Failed to initialize Shaking Interval Milliseconds from settings. Will use default value
-[2024-02-15 20:47:23.686965] [p-21104] [t-336] [warning] Failed to initialize Shaking Factor from settings. Will use default value
-[2024-02-15 20:47:23.687118] [p-21104] [t-336] [trace] GetHotkeyEx()
-[2024-02-15 22:50:58.719146] [p-396] [t-18116] [info] find-my-mouse logger is initialized
-[2024-02-15 22:50:58.730434] [p-396] [t-18116] [warning] Failed to initialize Shaking Interval Milliseconds from settings. Will use default value
-[2024-02-15 22:50:58.730813] [p-396] [t-18116] [warning] Failed to initialize Shaking Factor from settings. Will use default value
-[2024-02-15 22:50:58.730931] [p-396] [t-18116] [trace] GetHotkeyEx()

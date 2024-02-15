@@ -1,4 +1,0 @@
-[2024-01-28 02:39:06.552529] [p-3236] [t-3056] [info] launcher logger is initialized
-[2024-01-28 02:39:06.552671] [p-3236] [t-3056] [info] Launcher object is constructing
-[2024-01-28 02:39:10.758531] [p-3236] [t-3056] [trace] Launching PowerToys Awake process
-[2024-01-28 02:39:10.758633] [p-3236] [t-3056] [trace] PowerToys Awake launching with parameters: --use-pt-config --pid 3236

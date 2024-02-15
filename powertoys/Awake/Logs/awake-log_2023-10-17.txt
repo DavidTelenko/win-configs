@@ -1,4 +1,0 @@
-[2023-10-17 01:34:08.961716] [p-7276] [t-7280] [info] launcher logger is initialized
-[2023-10-17 01:34:08.961879] [p-7276] [t-7280] [info] Launcher object is constructing
-[2023-10-17 01:34:15.205990] [p-7276] [t-7280] [trace] Launching PowerToys Awake process
-[2023-10-17 01:34:15.206100] [p-7276] [t-7280] [trace] PowerToys Awake launching with parameters: --use-pt-config --pid 7276
