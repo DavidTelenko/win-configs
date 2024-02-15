@@ -49,7 +49,7 @@ vim.o.termguicolors = true
 
 vim.o.list = true
 -- vim.o.listchars = "tab:> ,trail:🞄,nbsp:+,space:🞄"
-vim.o.listchars = "tab:> ,trail:.,nbsp:+,space:."
+vim.o.listchars = "tab:> ,trail:·,nbsp:+,space:·"
 
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
