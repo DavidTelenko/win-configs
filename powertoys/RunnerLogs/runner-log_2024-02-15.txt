@@ -215,3 +215,4 @@
 [2024-02-15 22:50:59.550383] [p-396] [t-18116] [info] start_enabled_powertoys: Enabling powertoy Shortcut Guide
 [2024-02-15 22:50:59.550739] [p-396] [t-18116] [trace] shift+win+/ shortcut registered
 [2024-02-15 22:50:59.550774] [p-396] [t-18116] [info] start_enabled_powertoys: Enabling powertoy TextExtractor
+[2024-02-15 23:01:17.226318] [p-396] [t-18116] [trace] MouseJump hotkey is invoked from Centralized keyboard hook
