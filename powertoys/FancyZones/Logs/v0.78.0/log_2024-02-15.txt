@@ -22,3 +22,27 @@
 [2024-02-15 20:47:27.381529] [p-18940] [t-19540] [debug] Add new work area on virtual desktop {C613A09B-F4F9-46F9-A104-9F1E665FEE2A}
 [2024-02-15 20:47:27.382479] [p-18940] [t-19540] [info] Creating new ZonesOverlay window, hWnd = 0x110248
 [2024-02-15 20:47:27.783259] [p-18940] [t-19540] [info] Initialize layout on CMN1242_4&6dc1711&0&UID265988_1_0_{C613A09B-F4F9-46F9-A104-9F1E665FEE2A}, work area rect = 1920x1030
+[2024-02-15 22:50:59.269982] [p-11064] [t-3488] [info] fancyzones logger is initialized
+[2024-02-15 22:50:59.379877] [p-11064] [t-3488] [trace] FancyZonesSettings::LoadSettings Enter
+[2024-02-15 22:50:59.395110] [p-11064] [t-13604] [trace] OnThreadExecutor::worker_thread(loop) Enter
+[2024-02-15 22:50:59.419870] [p-11064] [t-3488] [trace] FancyZonesSettings::LoadSettings Exit
+[2024-02-15 22:50:59.421031] [p-11064] [t-3488] [info] layout-templates.json file is missing or malformed
+[2024-02-15 22:50:59.421591] [p-11064] [t-3488] [info] custom-layouts.json file is missing or malformed
+[2024-02-15 22:50:59.422121] [p-11064] [t-3488] [info] layout-hotkeys.json file is missing or malformed
+[2024-02-15 22:50:59.469785] [p-11064] [t-3488] [error] app-zone-history.json file is missing or malformed
+[2024-02-15 22:50:59.470446] [p-11064] [t-3488] [info] default-layouts.json file is missing or malformed
+[2024-02-15 22:50:59.527772] [p-11064] [t-13604] [trace] OnThreadExecutor::worker_thread(loop) Exit
+[2024-02-15 22:50:59.527905] [p-11064] [t-13604] [trace] OnThreadExecutor::worker_thread(loop) Enter
+[2024-02-15 22:50:59.529381] [p-11064] [t-3488] [info] Identifying monitors
+[2024-02-15 22:50:59.530020] [p-11064] [t-3488] [info] Get display device for display \\.\DISPLAY1 : \\?\DISPLAY#CMN1242#4&6dc1711&0&UID265988#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}
+[2024-02-15 22:50:59.942928] [p-11064] [t-3488] [info] InstanceName: DISPLAY\CMN1242\4&6dc1711&0&UID265988_0
+[2024-02-15 22:50:59.943038] [p-11064] [t-3488] [info] Serial number: 0
+[2024-02-15 22:50:59.943524] [p-11064] [t-3488] [info] Display changed, type: Initialization
+[2024-02-15 22:50:59.943559] [p-11064] [t-3488] [debug] Update work areas, update windows positions: false
+[2024-02-15 22:50:59.943629] [p-11064] [t-3488] [info] Identifying monitors
+[2024-02-15 22:50:59.944141] [p-11064] [t-3488] [info] Get display device for display \\.\DISPLAY1 : \\?\DISPLAY#CMN1242#4&6dc1711&0&UID265988#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}
+[2024-02-15 22:50:59.974791] [p-11064] [t-3488] [info] InstanceName: DISPLAY\CMN1242\4&6dc1711&0&UID265988_0
+[2024-02-15 22:50:59.974842] [p-11064] [t-3488] [info] Serial number: 0
+[2024-02-15 22:50:59.975315] [p-11064] [t-3488] [debug] Add new work area on virtual desktop {C613A09B-F4F9-46F9-A104-9F1E665FEE2A}
+[2024-02-15 22:50:59.976286] [p-11064] [t-3488] [info] Creating new ZonesOverlay window, hWnd = 0x21036c
+[2024-02-15 22:51:00.096517] [p-11064] [t-3488] [info] Initialize layout on CMN1242_4&6dc1711&0&UID265988_1_0_{C613A09B-F4F9-46F9-A104-9F1E665FEE2A}, work area rect = 1920x1030

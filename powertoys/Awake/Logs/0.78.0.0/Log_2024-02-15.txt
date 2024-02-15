@@ -36,3 +36,41 @@
     Instantiating of new token source and thread token completed.
 [20:47:32.7960162] [Info] <>c::<StartMonitor>b__5_0
     Setting state to ES_CONTINUOUS
+[22:50:59.2762570] [Info] Program::Main
+    Launching Awake...
+[22:50:59.3409289] [Info] Program::Main
+    0.78.0.0
+[22:50:59.3411038] [Info] Program::Main
+    Build: ATRIOX_04132023
+[22:50:59.3433134] [Info] Program::Main
+    OS: Microsoft Windows NT 10.0.19045.0
+[22:50:59.3541852] [Info] Program::Main
+    OS Build: Windows 10 Pro 22H2 19041.1.amd64fre.vb_release.191206-1406
+[22:50:59.4349884] [Info] Program::Main
+    {}
+[22:50:59.4351863] [Info] Program::Main
+    Parsing parameters...
+[22:50:59.5566500] [Info] Program::HandleCommandLineArguments
+    The value for --use-pt-config is: True
+[22:50:59.5576894] [Info] Program::HandleCommandLineArguments
+    The value for --display-on is: True
+[22:50:59.5579641] [Info] Program::HandleCommandLineArguments
+    The value for --time-limit is: 0
+[22:50:59.5582441] [Info] Program::HandleCommandLineArguments
+    The value for --pid is: 396
+[22:50:59.5584563] [Info] Program::HandleCommandLineArguments
+    The value for --expire-at is: 
+[22:50:59.6909484] [Info] <>c__DisplayClass9_0::<InitializeTray>b__0
+    Setting up the tray.
+[22:50:59.6921181] [Info] Program::HandleCommandLineArguments
+    Reading configuration file: C:\Users\HP 820 G3\AppData\Local\Microsoft\PowerToys\Awake\settings.json
+[22:50:59.9120905] [Info] Program::ProcessSettings
+    Identified custom time shortcuts for the tray: 0
+[22:50:59.9125074] [Info] Program::SetupNoKeepAwake
+    Operating in passive mode (computer's standard power plan). No custom keep awake settings enabled.
+[22:50:59.9299833] [Info] Manager::CancelExistingThread
+    Attempting to ensure that the thread is properly cleaned up...
+[22:50:59.9316549] [Info] Manager::CancelExistingThread
+    Instantiating of new token source and thread token completed.
+[22:50:59.9522814] [Info] <>c::<StartMonitor>b__5_0
+    Setting state to ES_CONTINUOUS

@@ -824,3 +824,49 @@ Exception HResult    : -2147467259
 -------------------------- End exception --------------------------
 
 
+[2024-02-15 22:51:12.4660] [INFO] [C:\a\_work\1\s\src\modules\launcher\Plugins\Microsoft.Plugin.Program\Storage\Win32ProgramRepository.cs::243]
+Indexed 1180 win32 applications
+
+[2024-02-15 22:51:12.4660] [INFO] [C:\a\_work\1\s\src\modules\launcher\Wox.Infrastructure\Stopwatch.cs::44]
+Microsoft.Plugin.Program.Main - Win32Program index cost <10329ms>
+
+[2024-02-15 22:51:12.4660] [INFO] [C:\a\_work\1\s\src\modules\launcher\Wox.Plugin\PluginPair.cs::56]
+Total initialize cost for <Program> is <10605ms>
+
+[2024-02-15 22:51:12.4660] [INFO] [C:\a\_work\1\s\src\modules\launcher\Wox.Plugin\PluginPair.cs::56]
+Total initialize cost for <Registry> is <1ms>
+
+[2024-02-15 22:51:12.4660] [INFO] [C:\a\_work\1\s\src\modules\launcher\Wox.Plugin\PluginPair.cs::56]
+Total initialize cost for <Service> is <2ms>
+
+[2024-02-15 22:51:12.4660] [INFO] [C:\a\_work\1\s\src\modules\launcher\Wox.Plugin\PluginPair.cs::56]
+Total initialize cost for <Shell> is <25ms>
+
+[2024-02-15 22:51:12.4777] [INFO] [C:\a\_work\1\s\src\modules\launcher\PowerLauncher\ViewModel\MainViewModel.cs::1275]
+Refresh plugins overview
+
+[2024-02-15 22:51:12.4777] [INFO] [C:\a\_work\1\s\src\modules\launcher\PowerLauncher\App.xaml.cs::157]
+Begin PowerToys Run startup ----------------------------------------------------
+Runtime info:
+Version: 0.78.0.0
+OS Version: Microsoft Windows NT 10.0.19045.0
+IntPtr Length: 8
+x64: True
+End PowerToys Run startup ----------------------------------------------------  
+
+
+[2024-02-15 22:51:12.4777] [INFO] [C:\a\_work\1\s\src\modules\launcher\Wox.Infrastructure\Stopwatch.cs::44]
+App.OnStartup - Startup cost <11786ms>
+
+[2024-02-15 22:51:13.1330] [INFO] [C:\a\_work\1\s\src\modules\launcher\Wox.Infrastructure\Stopwatch.cs::44]
+EnvironmentHelper.GetProtectedEnvironmentVariables - Duration cost <4ms>
+
+[2024-02-15 22:51:13.1330] [INFO] [C:\a\_work\1\s\src\modules\launcher\PowerLauncher\ViewModel\MainViewModel.cs::98]
+RegisterHotkey()
+
+[2024-02-15 22:51:13.1330] [INFO] [C:\a\_work\1\s\src\modules\launcher\PowerLauncher\ViewModel\MainViewModel.cs::845]
+Set HotKey()
+
+[2024-02-15 22:51:13.1330] [INFO] [C:\a\_work\1\s\src\modules\launcher\PowerLauncher\ViewModel\MainViewModel.cs::886]
+Registered global hotkey
+
