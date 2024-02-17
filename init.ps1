@@ -1,7 +1,4 @@
 param (
-    [Alias("PowerToys")]
-    [Switch] $Pwts = $false,
-
     [Alias("PowerShell")]
     [Switch] $Pwsh = $false,
 
@@ -53,9 +50,6 @@ if ($Pwsh) {
 }
 if ($Alacritty) {
     Link -t $env:appdata/alacritty/alacritty.toml -e $curr/alacritty.toml
-}
-if ($Pwts) {
-    Link -t $env:localappdata/Microsoft/PowerToys -e $curr/powertoys
 }
 if ($Nvim) {
     Link -t $env:localappdata/nvim -e $curr/nvim
