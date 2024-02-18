@@ -375,7 +375,8 @@ $env.config = {
             modifier: control
             keycode: char_d
             mode: [emacs, vi_normal, vi_insert]
-            event: { send: ctrld }
+            # event: { send: ctrld }
+            event: null
         }
         {
             name: clear_screen
