@@ -62,4 +62,22 @@ vim.o.spelllang = "en"
 
 vim.o.wrap = false
 
+local function escape(str)
+  local escape_chars = [[;,."|\]]
+  return vim.fn.escape(str, escape_chars)
+end
+
+local en_n = [[`qwertyuiop[]asdfghjkl;'zxcvbnm]]
+local ua_n = [['йцукенгшщзхїфівапролджєячсмить]]
+local en_s = [[~QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
+local ua_s = [[₴ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
+
+vim.o.langmap = vim.fn.join({
+  --  to           ;        from
+  escape(ua_n) .. ';' .. escape(en_n),
+  escape(ua_s) .. ';' .. escape(en_s),
+}, ',')
+
+vim.o.langremap = false
+
 -- vim: ts=2 sts=2 sw=2 et
