@@ -1,6 +1,6 @@
 # General
 "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
-final_space = true
+final_space = false
 version = 2
 
 # Left aligned block
@@ -87,14 +87,14 @@ time_format = "3:04:05 PM"
 type = "battery"
 style = "powerline"
 foreground_templates = [
-    "{{if eq \"Charging\" .State.String}}#FABD2F{{end}}",
-    "{{if eq \"Discharging\" .State.String}}#FB4934{{end}}",
-    "{{if eq \"Full\" .State.String}}#B8BB26{{end}}",
+    "{{ if eq \"Charging\" .State.String }}#FABD2F{{ end }}",
+    "{{ if eq \"Discharging\" .State.String }}#FB4934{{ end }}",
+    "{{ if eq \"Full\" .State.String }}#B8BB26{{ end }}",
 ]
 template = " [{{ if not .Error }}{{ .Percentage }}{{ end }}%]"
 
 [[blocks.segments]]
-type = "text"
-style = "plain"
+type = "shell"
+style = "powerline"
 foreground = "#83A598"
-template = "\n$"
+template = "{{ if ne \"nu\" .Name }}\n$ {{ end }}"
