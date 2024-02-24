@@ -1,6 +1,6 @@
 # Nushell Config File
 #
-# version = "0.88.1"
+# version = "0.90.1"
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
@@ -800,11 +800,16 @@ $env.config = {
     ]
 }
 
+const nushellDir = ($nu.config-path | path parse).parent
+const configDir = ($nushellDir | path parse).parent
+const aliases = ([$nushellDir, "aliases.nu"] | path join)
+const modules = ([$nushellDir, "modules"] | path join)
+const welcomeBanner = ([$nushellDir, "welcome-banner.txt"] | path join)
+
 source ~/.zoxide.nu
 source ~/.oh-my-posh.nu
-source ~/.configs/nushell/aliases.nu
+source $aliases
+use $modules *
 
-use ~/.configs/nushell/modules/ *
-
-let banner = open ~/.configs/nushell/welcome-banner.txt
+let banner = open $welcomeBanner
 $banner | ansi gradient --fgstart '0x00ddff' --fgend '0xff3377'
