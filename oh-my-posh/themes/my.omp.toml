@@ -1,6 +1,6 @@
 # General
 "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
-final_space = false
+final_space = true
 version = 2
 
 # Left aligned block
@@ -12,7 +12,7 @@ alignment = "left"
 [[blocks.segments]]
 type = "session"
 style = "plain"
-template = "{{ if .SSHSession }}ssh {{ end }}{{ .UserName }}@{{ .HostName }}"
+template = "{{ if .SSHSession }}󰖟{{ else }}@{{ end }}{{ .UserName }}"
 foreground = "#98971A"
 
 # Shell segment
@@ -37,7 +37,7 @@ style = "agnoster_short"
 type = "git"
 style = "plain"
 foreground = "#83A598"
-template = " git(<#D79921>{{ .HEAD }}</>){{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#D79921>{{ .Working.String }}</>{{ end }}"
+template = " 󰘬(<#D79921>{{ .HEAD }}</>){{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#D79921>{{ .Working.String }}</>{{ end }}"
 
 [blocks.segments.properties]
 branch_icon = ""
@@ -57,20 +57,7 @@ threshold = 100
 
 # Right aligned blocks
 [[blocks]]
-alignment = "right"
-type = "prompt"
-
-# # Spotify block
-# [[blocks.segments]]
-# foreground = "#1ED760"
-# style = "powerline"
-# template = "{{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }}"
-# type = "spotify"
-#
-# [blocks.segments.properties]
-# playing_icon = " "
-# paused_icon = " "
-# stopped_icon = " "
+type = "rprompt"
 
 # Time block
 [[blocks.segments]]
@@ -93,8 +80,13 @@ foreground_templates = [
 ]
 template = " [{{ if not .Error }}{{ .Percentage }}{{ end }}%]"
 
+[[blocks]]
+alignment = "left"
+type = "prompt"
+newline = true
+
 [[blocks.segments]]
 type = "shell"
 style = "powerline"
 foreground = "#83A598"
-template = "{{ if ne \"nu\" .Name }}\n$ {{ end }}"
+template = "{{ if ne \"nu\" .Name }}${{ end }}"
