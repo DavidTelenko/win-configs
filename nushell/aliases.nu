@@ -25,10 +25,27 @@ def __scoop_search [param: string] {
 
 alias "scoop search" = __scoop_search
 
-alias "pc hibernate" = rundll32.exe powrprof.dll,SetSuspendState Hibernate
-alias "pc sleep" = rundll32.exe powrprof.dll,SetSuspendState Sleep
-alias "pc restart" = shutdown.exe -r -t 00
-alias "pc shutdown" = shutdown.exe -s -t 00
+# Yeah I could use a separate file but, it is more convenient for now to put
+# small module inline in an alias module 'cause it just makes sense, all of the
+# commands listed here are simple aliases for system ones, as the module grow
+# and more snippets of code will be put i'll separate this module from aliases
+export module pc {
+    export def hibernate [] {
+        rundll32.exe powrprof.dll,SetSuspendState Hibernate
+    }
+
+    export def sleep [] {
+        rundll32.exe powrprof.dll,SetSuspendState Sleep
+    }
+
+    export def restart [] {
+        shutdown.exe -r -t 00
+    }
+
+    export def shutdown [] {
+        shutdown.exe -s -t 00
+    }
+}
 
 def symlink [
     existing: path   # The existing file
@@ -62,3 +79,5 @@ def timer [dur: duration, message?: string = 'Timer is done' ] {
     sleep $dur;
     powershell -NoProfile -Command $"New-BurntToastNotification -AppLogo '' -Text '($message)', '($dur) passed'"
 }
+
+use pc
