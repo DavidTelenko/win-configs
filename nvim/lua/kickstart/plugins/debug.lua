@@ -41,6 +41,18 @@ return {
             config.adapters["command"] = vim.fn.stdpath('data') .. "/mason/bin/OpenDebugAD7.cmd"
           end
         end,
+
+        python = function(config)
+          config.adapters = {
+            type = "executable",
+            command = "pythonw",
+            args = {
+              "-m",
+              "debugpy.adapter",
+            },
+          }
+          require('mason-nvim-dap').default_setup(config)
+        end,
       },
 
       -- You'll need to check that you have the required things installed
