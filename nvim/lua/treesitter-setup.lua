@@ -19,7 +19,7 @@ vim.defer_fn(function()
       'bash',
       'java',
       'kotlin',
-      -- 'nu',
+      'nu',
     },
     sync_install = true,
     ignore_install = {},
