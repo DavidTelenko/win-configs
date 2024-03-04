@@ -25,44 +25,24 @@ def __scoop_search [param: string] {
 
 alias "scoop search" = __scoop_search
 
-# Yeah I could use a separate file but, it is more convenient for now to put
-# small module inline in an alias module 'cause it just makes sense, all of the
-# commands listed here are simple aliases for system ones, as the module grow
-# and more snippets of code will be put i'll separate this module from aliases
-export module pc {
-    export def hibernate [] {
-        rundll32.exe powrprof.dll,SetSuspendState Hibernate
-    }
-
-    export def sleep [] {
-        rundll32.exe powrprof.dll,SetSuspendState Sleep
-    }
-
-    export def restart [] {
-        shutdown.exe -r -t 00
-    }
-
-    export def shutdown [] {
-        shutdown.exe -s -t 00
-    }
-}
-
+# Creating a symlink in a left to right manor `link_name -> existing` (auto& link_name = existing)
 def symlink [
-    existing: path   # The existing file
     link_name: path  # The name of the symlink
+    existing: path   # The existing file
 ] {
-    let existing = ($existing | path expand -s)
     let link_name = ($link_name | path expand)
+    let existing = ($existing | path expand -s)
 
-    if $nu.os-info.family == 'windows' {
-        if ($existing | path type) == 'dir' {
-            mklink /D $link_name $existing
-        } else {
-            mklink $link_name $existing
-        }
-    } else {
+    if $nu.os-info.family != 'windows' {
         ln -s $existing $link_name | ignore
-    }
+    } 
+
+    if ($existing | path type) == 'dir' {
+        mklink /D $link_name $existing
+        return
+    } 
+
+    mklink $link_name $existing
 }
 
 def auto-commit [] {
@@ -79,5 +59,3 @@ def timer [dur: duration, message?: string = 'Timer is done' ] {
     sleep $dur;
     powershell -NoProfile -Command $"New-BurntToastNotification -AppLogo '' -Text '($message)', '($dur) passed'"
 }
-
-use pc
