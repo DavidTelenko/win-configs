@@ -81,10 +81,5 @@ require('yank-highlight-setup')
 -- [[ Configure Refactoring ]]
 require('refactoring-setup')
 
--- [[ Configure compiler ]]
--- require('compiler-setup')
-
--- [[ Configure Debuger ]]
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
