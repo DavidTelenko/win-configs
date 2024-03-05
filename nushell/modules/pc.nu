@@ -1,8 +1,17 @@
+# For now implemented only to work for windows, however all necessary
+# mechanisms were put into this module to work seamlessly on any platform and
+# to be semi-easily configurable
+
+
+# Runs arbitury powershell command assuming it's installed on the system and
+# mounted into Path env variable
 def powershell_run [command] {
   powershell -NoProfile -Command $command
 }
 
-export def impl [f, ...rest] {
+# Implementation detail, acts like a switch between platform functions, it's
+# not recommended to use this function outside the module
+def impl [f, ...rest] {
     let platform = (
         $nu.os-info.family 
         | if $in == 'windows' {{
@@ -54,6 +63,7 @@ export def snooze [] {
     try { impl snooze } catch { echo "Not yet implemented" }
 }
 
+# Alias for sys
 export def main [] {
   sys
 }
