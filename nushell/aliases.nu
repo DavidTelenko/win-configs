@@ -1,5 +1,17 @@
+const nushellDir = ($nu.config-path | path parse).parent
+const configDir = ($nushellDir | path parse).parent
+
 alias mv = ^mv
 alias ll = ^exa -la --icons=auto
+alias vi = nvim
+
+def edit-config [] {
+    cd $configDir; # cd into config directory so that nvim will use it as cwd
+    nvim '.'; # nvim into this dir
+    cd -; # cd back to avoid side effects
+}
+
+alias conf = edit-config
 
 def grid-ls [] {
     ls | sort-by type name -i | grid -c
