@@ -36,10 +36,10 @@ return {
         end,
 
         cppdbg = function(config)
-          require('mason-nvim-dap').default_setup(config)
           if vim.fn.has('win32') == 1 then
             config.adapters["command"] = vim.fn.stdpath('data') .. "/mason/bin/OpenDebugAD7.cmd"
           end
+          require('mason-nvim-dap').default_setup(config)
         end,
 
         python = function(config)
@@ -73,6 +73,7 @@ return {
         -- Update this to ensure that you have the debuggers for the langs you want
         'cppdbg',
         'python',
+        'delve',
       },
     }
 
