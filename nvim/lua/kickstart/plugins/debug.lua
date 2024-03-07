@@ -65,6 +65,19 @@ return {
           }
           require('mason-nvim-dap').default_setup(config)
         end,
+        delve = function(config)
+          config.adapters = {
+            type = 'server',
+            host = '127.0.0.1',
+            port = '${port}',
+            executable = {
+              command = 'dlv',
+              args = { 'dap', '-l', '127.0.0.1:${port}' },
+              detached = false,
+            }
+          }
+          require('mason-nvim-dap').default_setup(config)
+        end
       },
 
       -- You'll need to check that you have the required things installed
