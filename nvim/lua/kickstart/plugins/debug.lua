@@ -45,11 +45,23 @@ return {
         python = function(config)
           config.adapters = {
             type = "executable",
-            command = "pythonw",
+            command = "python",
             args = {
               "-m",
               "debugpy.adapter",
             },
+          }
+          config.configurations = {
+            {
+              type = 'python',
+              request = 'launch',
+              name = 'Python: Launch file',
+              program = '${file}',
+              pythonPath = function()
+                return vim.fn.exepath('python')
+              end,
+              console = 'integratedTerminal',
+            }
           }
           require('mason-nvim-dap').default_setup(config)
         end,
