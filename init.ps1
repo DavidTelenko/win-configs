@@ -4,6 +4,8 @@ param (
 
     [Alias("Neovim")]
     [Switch] $Nvim = $false,
+    [Switch] $Helix = $false,
+    [Switch] $Ttyper = $false,
 
     [Alias("WindowsTerminal")]
     [Switch] $Winterm = $false,
@@ -54,8 +56,14 @@ if ($Alacritty) {
 if ($Nvim) {
     Link -t $env:localappdata/nvim -e $curr/nvim
 }
+if ($Helix) {
+    Link -t $env:appdata/helix -e $curr/helix
+}
 if ($Nushell) {
     Link -t $env:appdata/nushell -e $curr/nushell
+}
+if ($Ttyper) {
+    Link -t $env:appdata/ttyper -e $curr/ttyper
 }
 
 if ($Winterm) {
