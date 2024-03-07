@@ -6,9 +6,9 @@ alias ll = ^exa -la --icons=auto
 alias vi = nvim
 
 def edit-config [] {
-    cd $configDir; # cd into config directory so that nvim will use it as cwd
-    nvim '.'; # nvim into this dir
-    cd -; # cd back to avoid side effects
+    cd $configDir # cd into config directory so that nvim will use it as cwd
+    nvim '.'      # nvim into this dir
+    cd -          # cd back to avoid side effects
 }
 
 alias conf = edit-config
@@ -36,26 +36,6 @@ def __scoop_search [param: string] {
 }
 
 alias "scoop search" = __scoop_search
-
-# Creating a symlink in a left to right manor `link_name -> existing` (auto& link_name = existing)
-def symlink [
-    link_name: path  # The name of the symlink
-    existing: path   # The existing file
-] {
-    let link_name = ($link_name | path expand)
-    let existing = ($existing | path expand -s)
-
-    if $nu.os-info.family != 'windows' {
-        ln -s $existing $link_name | ignore
-    } 
-
-    if ($existing | path type) == 'dir' {
-        mklink /D $link_name $existing
-        return
-    } 
-
-    mklink $link_name $existing
-}
 
 def auto-commit [] {
     git add .
