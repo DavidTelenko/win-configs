@@ -30,6 +30,9 @@ def impl [f, ...rest] {
             restart: {
               shutdown.exe -r -t 00
             }
+            bios: {
+              shutdown.exe -r -fw -t 00
+            }
             shutdown: {
               shutdown.exe -s -t 00
             }
