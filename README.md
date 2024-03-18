@@ -65,13 +65,13 @@ left with two git instances on your pc - yours and scoop's (*The Egg method*).
 
 The names of the parameters for the `init.ps1` is the following:
 
-  - Pwsh        or PowerShell
-  - Nvim        or Neovim
-  - Helix
-  - Ttyper
-  - Winterm     or WindowsTerminal
-  - Alacritty
-  - Nushell
+  - `-Pwsh`        or PowerShell
+  - `-Nvim`        or Neovim
+  - `-Helix`
+  - `-Ttyper`
+  - `-Winterm`     or WindowsTerminal
+  - `-Alacritty`
+  - `-Nushell`
 
 # Notes
 
