@@ -14,7 +14,7 @@ if ($Chicken) {
     git clone https://github.com/DavidTelenko/win-configs.git ~/.configs
 }
 
-scoop import ~/.configs/scoopfile.json
+scoop import ~/.configs/scoop/scoopfile.json
 # & ~/.configs/init.ps1
 
 # separate spicetify+spotx install
