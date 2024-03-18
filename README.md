@@ -56,7 +56,7 @@ This method can be run like this
 ```powershell
 iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/master/bootstrap.ps1 | iex
 cd ~/.configs
-init.ps1 Nvim Winterm Pwsh
+init.ps1 -Nvim -Winterm -Pwsh
 ```
 
 Another solution is to manually download git, clone repo and run bootstrap with
