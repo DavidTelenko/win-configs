@@ -299,11 +299,11 @@
             "Version": "4.14.3"
         },
         {
-            "Updated": "2024-02-10T11:32:36.1654739+02:00",
-            "Name": "tldr",
-            "Version": "0.6.1",
-            "Info": "",
-            "Source": "main"
+            "Name": "tealdeer",
+            "Source": "main",
+            "Version": "1.6.1",
+            "Updated": "2024-03-19T00:52:10.5053268+02:00",
+            "Info": ""
         },
         {
             "Updated": "2024-03-05T20:41:17.6262147+02:00",
