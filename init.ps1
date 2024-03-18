@@ -48,10 +48,10 @@ function CopyContent {
 }
 
 if ($Pwsh) {
-    Link -t $profile -e $curr/pwshrc.ps1
+    Link -t $profile -e $curr/powershell/profile.ps1
 }
 if ($Alacritty) {
-    Link -t $env:appdata/alacritty/alacritty.toml -e $curr/alacritty.toml
+    Link -t $env:appdata/alacritty -e $curr/alacritty
 }
 if ($Nvim) {
     Link -t $env:localappdata/nvim -e $curr/nvim
@@ -67,6 +67,6 @@ if ($Ttyper) {
 }
 
 if ($Winterm) {
-    CopyContent -t $scoop/windows-terminal/settings/settings.json -e $curr/winterm.json
-    CopyContent -t $scoop/windows-terminal-preview/settings/settings.json  -e $curr/winterm.json
+    CopyContent -t $scoop/windows-terminal/settings/settings.json -e $curr/windows-terminal/winterm.json
+    CopyContent -t $scoop/windows-terminal-preview/settings/settings.json  -e $curr/windows-terminal/winterm.json
 }
