@@ -89,6 +89,13 @@
             "Version": "1.11.1"
         },
         {
+            "Info": "",
+            "Name": "delta",
+            "Source": "main",
+            "Version": "0.17.0",
+            "Updated": "2024-03-19T00:26:51.0672407+02:00"
+        },
+        {
             "Updated": "2024-01-24T19:56:33.3937411+02:00",
             "Info": "",
             "Source": "extras",

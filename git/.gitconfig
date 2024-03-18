@@ -1,0 +1,20 @@
+[user]
+    email = davidtelenko11@gmail.com
+    name = DavidTelenko
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[credential "helperselector"]
+    selected = manager
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
