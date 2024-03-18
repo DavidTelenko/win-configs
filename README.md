@@ -25,18 +25,17 @@ directory.
 The list of packages to be installed can be found in a scoopfile.json
 
 All configured tools by this repo:
-- Neovim
-- Helix (a backup plan editor :D)
-- Nushell
-- Windows Terminal
-- Alacritty
-- Ttyper
-- Power Toys (cannot be automatically configured you need to import config in
-  the settings of the app)
-- Oh My Posh
-- PowerShell
-- Spotify (Spicetify + SpotX)
-- Vimium browser extension (that's just a simple little piece of backup)
+- [Neovim](https://github.com/neovim/neovim)
+- [Helix](https://github.com/helix-editor/helix) (a backup plan editor :D)
+- [Nushell](https://github.com/nushell/nushell)
+- [Windows Terminal](https://github.com/microsoft/terminal)
+- [Alacritty](https://github.com/alacritty/alacritty)
+- [Ttyper](https://github.com/max-niederman/ttyper)
+- [Power Toys](https://github.com/microsoft/PowerToys)
+- [Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)
+- [PowerShell](https://github.com/PowerShell/PowerShell)
+- Spotify ([Spicetify](https://github.com/spicetify) + [SpotX](https://github.com/SpotX-Official/SpotX))
+- [Vimium](https://github.com/gdh1995/vimium-c) browser extension (that's just a simple little piece of backup)
 
 # Installation
 
