@@ -46,8 +46,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
-vim.g.terminal_emulator = 'nu'
-vim.o.shell = 'nu'
+-- vim.o.shell = 'nu'
 
 vim.o.list = true
 -- vim.o.listchars = "tab:> ,trail:🞄,nbsp:+,space:🞄"
