@@ -54,7 +54,7 @@ method*).
 This method can be run like this
 
 ```powershell
-iwr -useb https://github.com/DavidTelenko/win-configs/bootstrap.ps1 | iex
+iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/master/bootstrap.ps1 | iex
 cd ~/.configs
 init.ps1 Nvim Winterm Pwsh
 ```
