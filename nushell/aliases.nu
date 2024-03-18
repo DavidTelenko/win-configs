@@ -5,7 +5,7 @@ alias mv = ^mv
 alias ll = ^exa -la --icons=auto
 alias vi = nvim
 alias old-cat = cat
-alias cat = ^bat --theme=base16
+alias cat = ^bat --theme=gruvbox-dark
 
 def edit-config [] {
     cd $configDir # cd into config directory so that nvim will use it as cwd
