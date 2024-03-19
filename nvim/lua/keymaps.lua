@@ -45,7 +45,7 @@ vim.keymap.set('n', '<leader>o', ':luafile %<cr>', { desc = 'Source file' })
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>', { desc = 'Exit terminal' })
 vim.keymap.set('t', '<C-H>', '<C-w>', { desc = 'Ctrl + Backspace "default" behavior' })
 
-vim.keymap.set('n', '<leader>h', vim.cmd.UndotreeToggle)
+vim.keymap.set('n', '<leader>h', vim.cmd.UndotreeToggle, { desc = 'Open [H]istory tree' })
 vim.keymap.set('n', '<leader>T', vim.cmd.terminal, { desc = 'Open [T]erminal' })
 
 -- vim: ts=2 sts=2 sw=2 et
