@@ -1,5 +1,5 @@
 -- [[ Basic Keymaps ]]
-which_key = require('which-key')
+local which_key = require('which-key')
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
