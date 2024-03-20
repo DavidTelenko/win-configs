@@ -1,4 +1,5 @@
 -- [[ Basic Keymaps ]]
+which_key = require('which-key')
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -37,7 +38,7 @@ vim.keymap.set('v', 'p', 'P')
 
 vim.keymap.set({ 'x', 'n' }, '<leader>tu', ':Translate UK<cr>', { desc = 'Translate to Ukrainian' })
 vim.keymap.set({ 'x', 'n' }, '<leader>te', ':Translate EN<cr>', { desc = 'Translate to English' })
-require('which-key').register({ ['<leader>t'] = "[T]ranslate" }, { mode = { 'x', 'n' } })
+which_key.register({ ['<leader>t'] = "[T]ranslate" }, { mode = { 'x', 'n' } })
 
 vim.keymap.set('n', '<leader>o', ':luafile %<cr>', { desc = 'Source file' })
 

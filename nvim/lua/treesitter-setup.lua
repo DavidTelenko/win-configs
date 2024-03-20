@@ -78,6 +78,14 @@ vim.defer_fn(function()
       },
     },
   }
+  require('which-key').register({
+    ['aa'] = 'parameter outer',
+    ['ia'] = 'parameter inner',
+    ['af'] = 'function outer',
+    ['if'] = 'function inner',
+    ['ic'] = 'class inner',
+    ['ac'] = 'class outer',
+  }, { mode = 'o', prefix = '', preset = true })
 end, 0)
 
 -- vim: ts=2 sts=2 sw=2 et
