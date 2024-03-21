@@ -257,13 +257,6 @@
             "Version": "3.3.3"
         },
         {
-            "Updated": "2024-01-09T17:58:30.0243277+02:00",
-            "Info": "",
-            "Source": "main",
-            "Name": "python",
-            "Version": "3.12.1"
-        },
-        {
             "Updated": "2024-01-08T19:43:07.783267+02:00",
             "Info": "",
             "Source": "extras",
@@ -339,13 +332,6 @@
             "Source": "extras",
             "Name": "wiztree",
             "Version": "4.16"
-        },
-        {
-            "Updated": "2024-01-08T14:04:29.0402231+02:00",
-            "Info": "",
-            "Source": "main",
-            "Name": "zig",
-            "Version": "0.11.0"
         },
         {
             "Updated": "2024-01-08T14:03:15.8451698+02:00",
