@@ -1,11 +1,9 @@
 const nushellDir = ($nu.config-path | path parse).parent
 const configDir = ($nushellDir | path parse).parent
 
-alias mv = ^mv
-alias ll = ^exa -la --icons=auto
-alias vi = nvim
-alias old-cat = cat
-alias cat = ^bat --theme=gruvbox-dark
+def grid-ls [] {
+    ls | sort-by type name -i | grid -c
+}
 
 def edit-config [] {
     cd $configDir # cd into config directory so that nvim will use it as cwd
@@ -13,16 +11,7 @@ def edit-config [] {
     cd -          # cd back to avoid side effects
 }
 
-alias conf = edit-config
-
-def grid-ls [] {
-    ls | sort-by type name -i | grid -c
-}
-
-alias lg = grid-ls
-
 alias backup-clear = clear
-
 def clear [] {
     if $nu.os-info.family == 'windows' {
         ^cls
@@ -37,19 +26,22 @@ def __scoop_search [param: string] {
     scoop-search $param
 }
 
-alias "scoop search" = __scoop_search
-
 def auto-commit [] {
     git add .
     git commit -m $'(date now)'
     git push
 }
 
-def ddg [...search: string] {
-    start $"https://duckduckgo.com/?hps=1&q=($search | str join '+')&atb=v411-1&ia=web"
-}
+alias mv = ^mv
+alias lg = grid-ls
+alias ll = ^exa -la --icons=auto
+alias old-cat = cat
+alias cat = ^bat --theme=gruvbox-dark
+alias vi = nvim
 
-def timer [dur: duration, message?: string = 'Timer is done' ] {
-    sleep $dur;
-    powershell -NoProfile -Command $"New-BurntToastNotification -AppLogo '' -Text '($message)', '($dur) passed'"
-}
+alias conf = edit-config
+
+alias ghce = gh copilot explain
+alias ghcs = gh copilot suggest
+
+alias "scoop search" = __scoop_search
