@@ -6,6 +6,7 @@ param (
     [Switch] $Nvim = $false,
     [Switch] $Helix = $false,
     [Switch] $Ttyper = $false,
+    [Switch] $Lazygit = $false,
 
     [Alias("WindowsTerminal")]
     [Switch] $Winterm = $false,
@@ -55,6 +56,9 @@ if ($Alacritty) {
 }
 if ($Nvim) {
     Link -t $env:localappdata/nvim -e $curr/nvim
+}
+if ($Lazygit) {
+    Link -t $env:localappdata/lazygit -e $curr/lazygit
 }
 if ($Helix) {
     Link -t $env:appdata/helix -e $curr/helix
