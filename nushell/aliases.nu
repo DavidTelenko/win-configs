@@ -33,7 +33,7 @@ def auto-commit [] {
 }
 
 alias mv = ^mv
-alias lg = grid-ls
+alias lg = lazygit
 alias ll = ^exa -la --icons=auto
 alias old-cat = cat
 alias cat = ^bat --theme=gruvbox-dark
