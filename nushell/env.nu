@@ -107,3 +107,4 @@ $env.NU_PLUGIN_DIRS = [
 
 zoxide init nushell | save -f ~/.zoxide.nu
 oh-my-posh init nu --config '~/.configs/oh-my-posh/themes/my.omp.toml'
+broot --print-shell-function nushell | save -f ~/.broot.nu
