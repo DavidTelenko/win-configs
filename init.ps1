@@ -66,6 +66,9 @@ if ($Helix) {
 if ($Nushell) {
     Link -t $env:appdata/nushell -e $curr/nushell
 }
+if ($Nushell) {
+    Link -t $env:appdata/dystroy/broot -e $curr/broot
+}
 if ($Ttyper) {
     Link -t $env:appdata/ttyper -e $curr/ttyper
 }
