@@ -20,7 +20,7 @@ return {
         },
         suggestion = {
           enabled = true,
-          auto_trigger = false,
+          auto_trigger = true,
           debounce = 75,
           keymap = {
             accept = "<A-;>",
@@ -45,6 +45,8 @@ return {
         copilot_node_command = 'node', -- Node.js version must be > 18.x
         server_opts_overrides = {},
       }
+      vim.keymap.set('n', '<leader>ct', require('copilot.suggestion').toggle_auto_trigger,
+        { desc = '[C]opilot [T]tirgger auto suggestion' })
     end, 0)
   end
 }
