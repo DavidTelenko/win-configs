@@ -52,7 +52,7 @@
 #
 # You may start either in 'command' mode, or in 'input' mode
 #
-# modal: true
+modal: true
 # initial_mode: command
 
 ###############################################################
@@ -93,7 +93,7 @@ show_selection_mark: true
 # (see https://dystroy.org/broot/icons for installation and
 # troubleshooting)
 #
-# icon_theme: vscode
+icon_theme: nerdfont
 
 ###############################################################
 # Special paths
