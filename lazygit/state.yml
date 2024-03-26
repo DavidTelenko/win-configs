@@ -1,9 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
-- C:\Users\User\.configs
+  - C:\Users\User\.configs
 startuppopupversion: 5
 lastversion: 0.41.0
-customcommandshistory: []
+customcommandshistory:
+  - q
 hidecommandlog: false
 ignorewhitespaceindiffview: true
 diffcontextsize: 3
