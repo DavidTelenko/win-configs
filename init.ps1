@@ -12,7 +12,8 @@ param (
     [Switch] $Winterm = $false,
 
     [Switch] $Alacritty = $false,
-    [Switch] $Nushell = $false
+    [Switch] $Nushell = $false,
+    [Switch] $Broot = $false
 )
 
 $curr = pwd
@@ -66,7 +67,7 @@ if ($Helix) {
 if ($Nushell) {
     Link -t $env:appdata/nushell -e $curr/nushell
 }
-if ($Nushell) {
+if ($Broot) {
     Link -t $env:appdata/dystroy/broot -e $curr/broot
 }
 if ($Ttyper) {
