@@ -74,6 +74,9 @@ export def sleep [] { impl sleep }
 # Restarts computer
 export def restart [] { impl restart }
 
+# restart alias computer
+export def reboot [] { impl restart }
+
 # Turns off computer
 export def shutdown [] { impl shutdown }
 
