@@ -1,19 +1,19 @@
 param (
+    # Dev
     [Alias("PowerShell")]
     [Switch] $Pwsh = $false,
-
     [Alias("Neovim")]
     [Switch] $Nvim = $false,
     [Switch] $Helix = $false,
-    [Switch] $Ttyper = $false,
     [Switch] $Lazygit = $false,
-
     [Alias("WindowsTerminal")]
     [Switch] $Winterm = $false,
-
-    [Switch] $Alacritty = $false,
     [Switch] $Nushell = $false,
-    [Switch] $Broot = $false
+    # Apps
+    [Switch] $Alacritty = $false,
+    [Switch] $Broot = $false,
+    [Switch] $Mpv = $false,
+    [Switch] $Ttyper = $false
 )
 
 $curr = pwd
@@ -24,13 +24,13 @@ function Link {
         [String] $Target,
         [String] $Existing
     )
-    if (Test-Path -Path $Target -PathType Container) {
+    if (Test-Path -Path $Existing -PathType Container) {
         rm -r -fo $Target
         echo "Removed: $Target"
         ni -i Junction -fo $Target -ta $Existing
         echo "Linked: $Target -> $Existing"
     }
-    elseif(Test-Path -Path $Target -PathType Leaf) {
+    elseif(Test-Path -Path $Existing -PathType Leaf) {
         rm -fo $Target
         echo "Removed: $Target"
         ni -i SymbolicLink -fo $Target -ta $Existing
@@ -67,8 +67,12 @@ if ($Helix) {
 if ($Nushell) {
     Link -t $env:appdata/nushell -e $curr/nushell
 }
+
 if ($Broot) {
     Link -t $env:appdata/dystroy/broot -e $curr/broot
+}
+if ($Mpv) {
+    Link -t $scoop/mpv/portable_config -e $curr/mpv
 }
 if ($Ttyper) {
     Link -t $env:appdata/ttyper -e $curr/ttyper
