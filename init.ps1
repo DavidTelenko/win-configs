@@ -26,13 +26,11 @@ function Link {
     )
     if (Test-Path -Path $Existing -PathType Container) {
         rm -r -fo $Target
-        echo "Removed: $Target"
         ni -i Junction -fo $Target -ta $Existing
         echo "Linked: $Target -> $Existing"
     }
     elseif(Test-Path -Path $Existing -PathType Leaf) {
         rm -fo $Target
-        echo "Removed: $Target"
         ni -i SymbolicLink -fo $Target -ta $Existing
         echo "Linked: $Target -> $Existing"
     }
