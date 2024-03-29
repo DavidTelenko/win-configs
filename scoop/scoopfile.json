@@ -334,6 +334,13 @@
       "Source": "main"
     },
     {
+      "Info": "",
+      "Source": "main",
+      "Name": "yt-dlp",
+      "Version": "2024.03.10",
+      "Updated": "2024-03-29T16:12:15.0987512+02:00"
+    },
+    {
       "Updated": "2024-02-06T17:39:53.9062931+02:00",
       "Source": "versions",
       "Info": "",
