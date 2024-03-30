@@ -1,6 +1,5 @@
 $OutputEncoding = [Console]::InputEncoding = [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
-Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 Import-Module Microsoft.PowerShell.Utility
 
 oh-my-posh init pwsh --config "~/.configs/oh-my-posh/themes/my.omp.toml" | Invoke-Expression
