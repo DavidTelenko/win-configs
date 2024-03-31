@@ -105,6 +105,22 @@ $env.NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
-zoxide init nushell | save -f ~/.zoxide.nu
-oh-my-posh init nu --config '~/.configs/oh-my-posh/themes/my.omp.toml'
-broot --print-shell-function nushell | save -f ~/.broot.nu
+const nushellDir = ($nu.config-path | path parse).parent
+const configDir = ($nushellDir | path parse).parent
+
+def try-init [cmd, util] {
+    try {
+        do $cmd
+    } catch {
+        $"($util) failed to run, try to install this util with cargo or package manager"
+    }
+}
+
+try {
+    $env.LS_COLORS = (vivid generate gruvbox-dark | str trim)
+} catch {
+    "`vivid` not found, skipping LS_COLORS setup. Install it with `cargo install vivid`."
+}
+try-init { zoxide init nushell | save -f ~/.zoxide.nu } zoxide
+try-init { oh-my-posh init nu --config ([$configDir, oh-my-posh, themes, my.omp.toml] | path join) } oh-my-posh
+try-init { broot --print-shell-function nushell | save -f ~/.broot.nu } broot
