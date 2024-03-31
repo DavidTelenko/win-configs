@@ -4,6 +4,7 @@ const configDir = ($nushellDir | path parse).parent
 def grid-ls [] {
     ls | sort-by type name -i | grid -c
 }
+alias lsg = grid-ls
 
 def edit-config [] {
     cd $configDir # cd into config directory so that nvim will use it as cwd
