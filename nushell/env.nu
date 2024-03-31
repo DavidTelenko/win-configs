@@ -117,7 +117,7 @@ def try-init [cmd, util] {
 }
 
 try {
-    $env.LS_COLORS = (vivid generate gruvbox-dark | str trim)
+    $env.LS_COLORS = (vivid generate gruvbox-dark-soft | str trim)
 } catch {
     "`vivid` not found, skipping LS_COLORS setup. Install it with `cargo install vivid`."
 }
