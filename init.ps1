@@ -38,11 +38,13 @@ function Link {
 
 function CopyContent {
     param (
-        [String] $Target,
-        [String] $Existing
+        [String] $Existing,
+        [String] $Target
     )
     if (Test-Path -Path $Target -PathType Leaf) {
-        cat $Existing > $Target
+        $RawFile = Get-Content -Raw $Existing
+        $Utf8Encoded = New-Object System.Text.UTF8Encoding $False
+        [System.IO.File]::WriteAllLines($Target, $RawFile, $Utf8Encoded)
         echo "Copied: $Existing > $Target"
     }
 }
@@ -77,6 +79,6 @@ if ($Ttyper) {
 }
 
 if ($Winterm) {
-    CopyContent -t $scoop/windows-terminal/settings/settings.json -e $curr/windows-terminal/winterm.json
-    CopyContent -t $scoop/windows-terminal-preview/settings/settings.json  -e $curr/windows-terminal/winterm.json
+    CopyContent -e $curr/windows-terminal/winterm.json -t $scoop/windows-terminal/settings/settings.json
+    CopyContent -e $curr/windows-terminal/winterm.json -t $scoop/windows-terminal-preview/settings/settings.json
 }
