@@ -25,7 +25,7 @@ multiplier = 3
 
 [font]
 normal = { family = "RobotoMono Nerd Font Mono" }
-size = 12.5
+size = 16
 
 [colors]
 [colors.primary]
