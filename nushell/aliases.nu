@@ -46,3 +46,9 @@ alias ghce = gh copilot explain
 alias ghcs = gh copilot suggest
 
 alias "scoop search" = __scoop_search
+
+def transcribe-last-audio-message [] {
+    ls D:\Downloads\ | sort-by modified -r | first | get name | qstt $in
+}
+
+alias tlam = transcribe-last-audio-message
