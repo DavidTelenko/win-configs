@@ -1,4 +1,5 @@
 param (
+    [Switch] $All = $false,
     # Dev
     [Alias("PowerShell")]
     [Switch] $Pwsh = $false,
@@ -15,6 +16,17 @@ param (
     [Switch] $Mpv = $false,
     [Switch] $Ttyper = $false
 )
+
+$Pwsh = $All -or $Pwsh
+$Nvim = $All -or $Nvim
+$Helix = $All -or $Helix
+$Lazygit = $All -or $Lazygit
+$Winterm = $All -or $Winterm
+$Nushell = $All -or $Nushell
+$Alacritty = $All -or $Alacritty
+$Broot = $All -or $Broot
+$Mpv = $All -or $Mpv
+$Ttyper = $All -or $Ttyper
 
 $curr = pwd
 $scoop = "$env:userprofile/scoop/persist"
