@@ -4,17 +4,18 @@
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
+    -- This seem to completely butcher treesitter parsers installation
     ensure_installed = {
-      'c',
-      'cpp',
-      'go',
-      'lua',
-      'python',
-      'rust',
-      'vimdoc',
-      'vim',
-      'bash',
-      'nu',
+      -- 'c',
+      -- 'cpp',
+      -- 'go',
+      -- 'lua',
+      -- 'python',
+      -- 'rust',
+      -- 'vimdoc',
+      -- 'vim',
+      -- 'bash',
+      -- 'nu',
     },
     sync_install = true,
     ignore_install = {},
