@@ -17,6 +17,8 @@ return {
     -- Installs the debug adapters for you
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
+    "nvim-neotest/neotest",
+    "nvim-neotest/nvim-nio",
   },
   config = function()
     local dap = require 'dap'
