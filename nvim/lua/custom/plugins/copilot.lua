@@ -45,7 +45,13 @@ return {
         copilot_node_command = 'node', -- Node.js version must be > 18.x
         server_opts_overrides = {},
       }
-      vim.keymap.set('n', '<leader>ct', require('copilot.suggestion').toggle_auto_trigger,
+      local copilot_suggestion_enabled = false
+      vim.keymap.set('n', '<leader>ct',
+        function()
+          require('copilot.suggestion').toggle_auto_trigger()
+          copilot_suggestion_enabled = not copilot_suggestion_enabled
+          print('Copilot suggestion auto trigger: [' .. (copilot_suggestion_enabled and 'enabled' or 'disabled') .. ']')
+        end,
         { desc = '[C]opilot [T]tirgger auto suggestion' })
     end, 0)
   end
