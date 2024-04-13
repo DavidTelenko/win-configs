@@ -26,7 +26,6 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = os.getenv('LOCALAPPDATA') .. 'nvim-data\\undo'
 vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
@@ -50,7 +49,7 @@ vim.o.termguicolors = true
 
 vim.o.list = true
 -- vim.o.listchars = "tab:> ,trail:🞄,nbsp:+,space:🞄"
-vim.o.listchars = "tab:· ,trail:·,nbsp:+,space:·"
+vim.o.listchars = 'tab:· ,trail:·,nbsp:+,space:·'
 
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
@@ -59,7 +58,7 @@ vim.o.expandtab = true
 vim.o.smarttab = true
 
 vim.o.spell = true
-vim.o.spelllang = "en"
+vim.o.spelllang = 'en'
 
 vim.o.wrap = false
 
@@ -75,7 +74,9 @@ local ua_s = [[₴ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБ
 
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
-  escape(ua_n) .. ';' .. escape(en_n),
+  escape(ua_n)
+    .. ';'
+    .. escape(en_n),
   escape(ua_s) .. ';' .. escape(en_s),
 }, ',')
 

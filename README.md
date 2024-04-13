@@ -84,3 +84,9 @@ The names of the parameters for the `init.ps1` is the following:
 
   - **Vimium** - it does not support any type of automated backup mechanic (as
     far as I know) so it's the same as with powertoys - manual import.
+
+# TODO
+
+  - Zhs
+  - Tmux
+  - i3
