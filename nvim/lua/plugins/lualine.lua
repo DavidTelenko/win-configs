@@ -26,7 +26,7 @@ return {
       sections = {
         lualine_a = { { 'mode' } },
         lualine_b = {
-          { 'branch', icon = { '󰘬', color = { fg = '#fe8019' } } },
+          { 'branch', icon = '󰘬' },
           { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' } },
           'diagnostics',
         },
