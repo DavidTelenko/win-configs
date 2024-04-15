@@ -66,6 +66,7 @@ vim.o.wrap = false
 
 vim.g.netrw_banner = 0
 vim.g.netrw_hide = 0
+vim.g.netrw_bufsettings = "noma nomod rnu nowrap ro nobl"
 
 local function escape(str)
   local escape_chars = [[;,."|\]]
