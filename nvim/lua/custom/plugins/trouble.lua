@@ -5,22 +5,22 @@ return {
     local trouble = require("trouble")
     vim.keymap.set("n", "<leader>xx",
       function() trouble.toggle() end,
-      { desc = 'Open trouble diagnostics' }
+      { desc = 'Diagnostics' }
     )
     vim.keymap.set("n", "<leader>xw", function() trouble.toggle("workspace_diagnostics") end,
-      { desc = 'Open trouble [W]orkspace diagnostics' }
+      { desc = '[W]orkspace diagnostics' }
     )
     vim.keymap.set("n", "<leader>xd", function() trouble.toggle("document_diagnostics") end,
-      { desc = 'Open trouble [D]ocument diagnostics' }
+      { desc = '[D]ocument diagnostics' }
     )
     vim.keymap.set("n", "<leader>xq", function() trouble.toggle("quickfix") end,
-      { desc = 'Open trouble [Q]uickfix' }
+      { desc = '[Q]uickfix' }
     )
     vim.keymap.set("n", "<leader>xl", function() trouble.toggle("loclist") end,
-      { desc = 'Open trouble [L]oclist' }
+      { desc = '[L]oclist' }
     )
     vim.keymap.set("n", "gR", function() trouble.toggle("lsp_references") end,
-      { desc = 'Open trouble lsp reference' }
+      { desc = 'Lsp reference' }
     )
     require('which-key').register {
       ['<leader>x'] = { name = 'Trouble [X]', _ = 'which_key_ignore' },
