@@ -6,7 +6,7 @@ return {
   opts = {
     options = {
       icons_enabled = false,
-      theme = 'gruvbox',
+      theme = require("plugins.theme").theme,
       component_separators = '|',
       section_separators = '',
     },
