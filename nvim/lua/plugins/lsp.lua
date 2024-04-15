@@ -65,23 +65,56 @@ return {
 
     -- mason-lspconfig requires that these setup functions are called in this order
     -- before setting up the servers.
-    require('mason').setup()
+    require('mason').setup {
+      log_level = vim.log.levels.INFO,
+      max_concurrent_installers = 4,
+      registries = {
+        'github:mason-org/mason-registry',
+      },
+      providers = {
+        'mason.providers.registry-api',
+        'mason.providers.client',
+      },
+      github = {
+        download_url_template = 'https://github.com/%s/releases/download/%s/%s',
+      },
+      pip = {
+        upgrade_pip = false,
+        install_args = {},
+      },
+      ui = {
+        check_outdated_packages_on_open = true,
+        border = 'rounded',
+        width = 0.8,
+        height = 0.8,
+        icons = {
+          package_installed = '',
+          package_pending = '⌛',
+          package_uninstalled = '',
+        },
+        keymaps = {
+          toggle_package_expand = '<CR>',
+          install_package = 'i',
+          update_package = 'u',
+          check_package_version = 'c',
+          update_all_packages = 'U',
+          check_outdated_packages = 'C',
+          uninstall_package = 'X',
+          cancel_installation = '<C-c>',
+          apply_language_filter = '<C-f>',
+          toggle_package_install_log = '<CR>',
+          toggle_help = 'g?',
+        },
+      },
+    }
     require('mason-lspconfig').setup()
 
-    -- Enable the following language servers
-    --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-    --
-    --  Add any additional override configuration in the following tables. They will be passed to
-    --  the `settings` field of the server config. You must look up that documentation yourself.
-    --
-    --  If you want to override the default filetypes that your language server will attach to you can
-    --  define the property 'filetypes' to the map in question.
     local servers = {
       clangd = {},
       jdtls = {},
-      gopls = {},
-      pyright = {},
-      ols = {},
+      -- gopls = {},
+      -- pyright = {},
+      -- ols = {},
       -- rust_analyzer = {},
       -- tsserver = {},
       -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -91,7 +124,7 @@ return {
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
           -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-          -- diagnostics = { disable = { 'missing-fields' } },
+          diagnostics = { disable = { 'missing-fields' } },
         },
       },
     }
@@ -120,7 +153,7 @@ return {
         }
       end,
     }
-  end
+  end,
 }
 
 -- vim: ts=2 sts=2 sw=2 et
