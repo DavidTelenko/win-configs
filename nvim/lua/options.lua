@@ -1,6 +1,8 @@
 -- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
+
+-- Leader mappings
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -75,11 +77,24 @@ local ua_s = [[₴ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБ
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
   escape(ua_n)
-    .. ';'
-    .. escape(en_n),
+  .. ';'
+  .. escape(en_n),
   escape(ua_s) .. ';' .. escape(en_s),
 }, ',')
 
 vim.o.langremap = false
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {
+  clear = true
+})
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
 
 -- vim: ts=2 sts=2 sw=2 et

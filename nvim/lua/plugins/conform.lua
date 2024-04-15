@@ -1,3 +1,5 @@
+-- Plugin to format code on save
+
 return {
   'stevearc/conform.nvim',
   event = { 'BufReadPre', 'BufNewFile' },
@@ -28,3 +30,5 @@ return {
     }
   end,
 }
+
+-- vim: ts=2 sts=2 sw=2 et

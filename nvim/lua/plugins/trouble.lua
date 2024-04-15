@@ -1,27 +1,51 @@
+-- A pretty list for showing diagnostics, references, telescope results,
+-- quickfix and location lists to help you solve all the trouble your code is causing.
+
 return {
   "folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local trouble = require("trouble")
+
     vim.keymap.set("n", "<leader>xx",
       function() trouble.toggle() end,
       { desc = 'Diagnostics' }
     )
+
     vim.keymap.set("n", "<leader>xw", function() trouble.toggle("workspace_diagnostics") end,
       { desc = '[W]orkspace diagnostics' }
     )
+
     vim.keymap.set("n", "<leader>xd", function() trouble.toggle("document_diagnostics") end,
       { desc = '[D]ocument diagnostics' }
     )
+
     vim.keymap.set("n", "<leader>xq", function() trouble.toggle("quickfix") end,
       { desc = '[Q]uickfix' }
     )
+
     vim.keymap.set("n", "<leader>xl", function() trouble.toggle("loclist") end,
       { desc = '[L]oclist' }
     )
+
     vim.keymap.set("n", "gR", function() trouble.toggle("lsp_references") end,
       { desc = 'Lsp reference' }
     )
+
+    vim.keymap.set("n", "]x", function()
+      require("trouble").next({
+        skip_groups = true,
+        jump = true,
+      });
+    end, { desc = 'Next trouble' })
+
+    vim.keymap.set("n", "[x", function()
+      require("trouble").previous({
+        skip_groups = true,
+        jump = true
+      });
+    end, { desc = 'Previous trouble' })
+
     require('which-key').register {
       ['<leader>x'] = { name = 'Trouble [X]', _ = 'which_key_ignore' },
     }
@@ -94,3 +118,5 @@ return {
     use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
   },
 }
+
+-- vim: ts=2 sts=2 sw=2 et
