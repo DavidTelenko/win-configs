@@ -1,5 +1,4 @@
 -- [[ Basic Keymaps ]]
-local which_key = require('which-key')
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -36,17 +35,12 @@ vim.keymap.set('i', '<C-z>', '<esc>ua', { desc = 'Undo wiht Ctrl + Z' })
 vim.keymap.set('v', 'p', 'P')
 -- vim.keymap.set('v', 'p', '"0p')
 
-vim.keymap.set({ 'x', 'n' }, '<leader>tu', ':Translate UK<cr>', { desc = 'Translate to Ukrainian' })
-vim.keymap.set({ 'x', 'n' }, '<leader>te', ':Translate EN<cr>', { desc = 'Translate to English' })
-which_key.register({ ['<leader>t'] = "[T]ranslate" }, { mode = { 'x', 'n' } })
-
 vim.keymap.set('n', '<leader>o', ':luafile %<cr>', { desc = 'Source file' })
 
 -- How do i exit terminal in vim? --
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>', { desc = 'Exit terminal' })
 vim.keymap.set('t', '<C-H>', '<C-w>', { desc = 'Ctrl + Backspace "default" behavior' })
 
-vim.keymap.set('n', '<leader>h', vim.cmd.UndotreeToggle, { desc = 'Open [H]istory tree' })
 vim.keymap.set('n', '<leader>T', vim.cmd.terminal, { desc = 'Open [T]erminal' })
 
 -- vim: ts=2 sts=2 sw=2 et
