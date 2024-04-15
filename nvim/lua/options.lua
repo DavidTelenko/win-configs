@@ -64,6 +64,9 @@ vim.o.spelllang = 'en'
 
 vim.o.wrap = false
 
+vim.g.netrw_banner = 0
+vim.g.netrw_hide = 0
+
 local function escape(str)
   local escape_chars = [[;,."|\]]
   return vim.fn.escape(str, escape_chars)
