@@ -1,3 +1,5 @@
+-- Code completion with Copilot
+
 return {
   "zbirenbaum/copilot.lua",
   config = function()
@@ -56,3 +58,5 @@ return {
     end, 0)
   end
 }
+
+-- vim: ts=2 sts=2 sw=2 et

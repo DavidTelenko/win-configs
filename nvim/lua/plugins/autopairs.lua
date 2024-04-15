@@ -1,3 +1,5 @@
+-- Automatically add closing pairs
+
 return {
   "windwp/nvim-autopairs",
   -- Optional dependency
@@ -13,3 +15,5 @@ return {
     )
   end,
 }
+
+-- vim: ts=2 sts=2 sw=2 et
