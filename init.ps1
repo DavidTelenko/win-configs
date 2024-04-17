@@ -14,7 +14,8 @@ param (
     [Switch] $Alacritty = $false,
     [Switch] $Broot = $false,
     [Switch] $Mpv = $false,
-    [Switch] $Ttyper = $false
+    [Switch] $Ttyper = $false,
+    [Switch] $Vencord = $false
 )
 
 $Pwsh = $All -or $Pwsh
@@ -88,6 +89,9 @@ if ($Mpv) {
 }
 if ($Ttyper) {
     Link -t $env:appdata/ttyper -e $curr/ttyper
+}
+if ($Vencord) {
+    Link -t $env:appdata/Vencord -e $curr/vencord
 }
 
 if ($Winterm) {
