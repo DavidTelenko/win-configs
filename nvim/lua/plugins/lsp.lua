@@ -8,7 +8,6 @@ return {
     'williamboman/mason-lspconfig.nvim',
 
     -- Useful status updates for LSP
-    -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
     { 'j-hui/fidget.nvim', opts = {} },
 
     -- Additional lua configuration, makes nvim stuff amazing!
@@ -16,6 +15,8 @@ return {
   },
   config = function()
     --  This function gets run when an LSP connects to a particular buffer.
+    local telescope = require('telescope.builtin')
+
     local on_attach = function(_, bufnr)
       local nmap = function(keys, func, desc)
         if desc then
@@ -28,12 +29,12 @@ return {
       nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
       nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-      nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-      nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-      nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-      nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-      nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-      nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+      nmap('gd', telescope.lsp_definitions, '[G]oto [D]efinition')
+      nmap('gr', telescope.lsp_references, '[G]oto [R]eferences')
+      nmap('gI', telescope.lsp_implementations, '[G]oto [I]mplementation')
+      nmap('<leader>D', telescope.lsp_type_definitions, 'Type [D]efinition')
+      nmap('<leader>ds', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
+      nmap('<leader>ws', telescope.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
       -- See `:help K` for why this keymap
       nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -107,6 +108,25 @@ return {
         },
       },
     }
+
+    local _border = 'rounded'
+
+    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+      vim.lsp.handlers.hover, {
+        border = _border
+      }
+    )
+
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+      vim.lsp.handlers.signature_help, {
+        border = _border
+      }
+    )
+
+    vim.diagnostic.config {
+      float = { border = _border }
+    }
+
     require('mason-lspconfig').setup()
 
     local servers = {
