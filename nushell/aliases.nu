@@ -6,10 +6,10 @@ def grid-ls [] {
 }
 alias lsg = grid-ls
 
-def edit-config [] {
-    cd $configDir # cd into config directory so that nvim will use it as cwd
-    nvim '.'      # nvim into this dir
-    cd -          # cd back to avoid side effects
+def open-in-nvim [what: string] {
+    cd $what # cd into directory so that nvim will use it as cwd
+    nvim '.' # nvim into this dir
+    cd -     # cd back to avoid side effects
 }
 
 alias backup-clear = clear
@@ -40,7 +40,7 @@ alias old-cat = cat
 alias cat = ^bat --theme=gruvbox-dark
 alias vi = nvim
 
-alias conf = edit-config
+alias conf = open-in-nvim $configDir
 
 alias ghce = gh copilot explain
 alias ghcs = gh copilot suggest
@@ -52,3 +52,5 @@ def transcribe-last-audio-message [] {
 }
 
 alias tlam = transcribe-last-audio-message
+
+alias todo = open-in-nvim D:\Temp\todo
