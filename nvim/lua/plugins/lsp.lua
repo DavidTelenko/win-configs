@@ -109,6 +109,8 @@ return {
       },
     }
 
+    -- Setting up borders on lsp hover windows
+
     local _border = 'rounded'
 
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
