@@ -133,12 +133,13 @@ return {
         --      print(args.source, " moved to ", args.destination)
         --    end
         --  },
-        --  {
-        --    event = "neo_tree_buffer_enter",
-        --    handler = function()
-        --      vim.cmd 'highlight! Cursor blend=100'
-        --    end
-        --  },
+        {
+          event = "neo_tree_buffer_enter",
+          handler = function()
+            vim.opt_local.relativenumber = true
+            vim.opt_local.colorcolumn = ""
+          end
+        },
         --  {
         --    event = "neo_tree_buffer_leave",
         --    handler = function()
@@ -417,7 +418,7 @@ return {
       filesystem = {
         window = {
           mappings = {
-            ["H"] = "toggle_hidden",
+            ["."] = "toggle_hidden",
             ["/"] = "fuzzy_finder",
             ["D"] = "fuzzy_finder_directory",
             --["/"] = "filter_as_you_type", -- this was the default until v1.28
@@ -426,6 +427,7 @@ return {
             ["f"] = "filter_on_submit",
             ["<C-x>"] = "clear_filter",
             ["u"] = "navigate_up",
+            ["-"] = "navigate_up",
             ["<br>"] = "navigate_up",
             ["<cr>"] = "set_root",
             ["[g"] = "prev_git_modified",
