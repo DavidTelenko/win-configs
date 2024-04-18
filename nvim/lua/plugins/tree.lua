@@ -373,6 +373,7 @@ return {
           ["l"] = "toggle_node",
           ["<2-LeftMouse>"] = "open",
           ["l"] = "open",
+          ["<cr>"] = "open",
           -- ["<cr>"] = { "open", config = { expand_nested_files = true } }, -- expand nested file takes precedence
           ["<esc>"] = "cancel", -- close preview or floating neo-tree window
           ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
@@ -418,7 +419,7 @@ return {
       filesystem = {
         window = {
           mappings = {
-            ["."] = "toggle_hidden",
+            ["H"] = "toggle_hidden",
             ["/"] = "fuzzy_finder",
             ["D"] = "fuzzy_finder_directory",
             --["/"] = "filter_as_you_type", -- this was the default until v1.28
@@ -429,7 +430,7 @@ return {
             ["u"] = "navigate_up",
             ["-"] = "navigate_up",
             ["<br>"] = "navigate_up",
-            ["<cr>"] = "set_root",
+            ["."] = "set_root",
             ["[g"] = "prev_git_modified",
             ["]g"] = "next_git_modified",
             ["i"] = "show_file_details",
