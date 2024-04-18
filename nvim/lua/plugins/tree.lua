@@ -1,5 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  enabled = false,
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -51,8 +52,8 @@ return {
       -- popup_border_style is for input and confirmation dialogs.
       -- Configurtaion of floating window is done in the individual source sections.
       -- "NC" is a special style that works well with NormalNC set
-      popup_border_style = "NC",   -- "double", "none", "rounded", "shadow", "single" or "solid"
-      resize_timer_interval = 500, -- in ms, needed for containers to redraw right aligned and faded content
+      popup_border_style = "NC",  -- "double", "none", "rounded", "shadow", "single" or "solid"
+      resize_timer_interval = -1, -- in ms, needed for containers to redraw right aligned and faded content
       -- set to -1 to disable the resize timer entirely
       --                           -- NOTE: this will speed up to 50 ms for 1 second following a resize
       sort_case_insensitive = false, -- used when sorting files and directories in the tree
