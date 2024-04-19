@@ -1,5 +1,3 @@
--- Highlight, edit, and navigate code
-
 return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
@@ -23,6 +21,9 @@ return {
           -- 'vim',
           -- 'bash',
           -- 'nu',
+          -- 'regex',
+          -- 'markdown',
+          -- 'markdown_inline',
         },
         sync_install = true,
         ignore_install = {},
@@ -97,5 +98,3 @@ return {
     end, 0)
   end,
 }
-
--- vim: ts=2 sts=2 sw=2 et

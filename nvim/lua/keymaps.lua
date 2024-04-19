@@ -31,31 +31,18 @@ vim.keymap.set('i', '<C-H>', '<C-w>', { desc = 'Ctrl + Backspace "default" behav
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', { desc = 'Ctrl + Del "default" behavior' })
 vim.keymap.set('i', '<C-z>', '<esc>ua', { desc = 'Undo wiht Ctrl + Z' })
 
+-- paste without copying selected text in visual mode
 vim.keymap.set('v', 'p', 'P')
 -- vim.keymap.set('v', 'p', '"0p')
 
-vim.keymap.set('n', '<leader>o', ':luafile %<cr>', { desc = 'Source file' })
+vim.keymap.set('n', '<leader>o', ':so', { desc = 'Source file' })
 
--- How do i exit terminal in vim? --
+-- How do i exit terminal in vim?
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>', { desc = 'Exit terminal' })
 vim.keymap.set('t', '<C-H>', '<C-w>', { desc = 'Ctrl + Backspace "default" behavior' })
 
 vim.keymap.set('n', '<leader>T', vim.cmd.terminal, { desc = 'Open [T]erminal' })
 
 vim.keymap.set('n', '<tab>', ':E<cr>', { desc = 'Open Explorer' })
-
--- netrw keymaps for more 'lettered' experience
-vim.api.nvim_create_autocmd('BufModifiedSet', {
-  group = vim.api.nvim_create_augroup("netrw", { clear = false }),
-  pattern = '*',
-  callback = function()
-    if not (vim.bo and vim.bo.filetype == 'netrw') then
-      return
-    end
-    vim.keymap.set('n', 'l', '<cr>', { buffer = true, remap = true })
-    vim.keymap.set('n', 'h', '-', { buffer = true, remap = true })
-    vim.keymap.set('n', 'a', '%', { buffer = true, remap = true })
-  end
-})
 
 -- vim: ts=2 sts=2 sw=2 et

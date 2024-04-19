@@ -1,5 +1,3 @@
--- Neat little refactoring plugin
-
 return {
   "ThePrimeagen/refactoring.nvim",
   dependencies = {
@@ -25,5 +23,3 @@ return {
     }, { mode = 'x' })
   end,
 }
-
--- vim: ts=2 sts=2 sw=2 et
