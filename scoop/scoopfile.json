@@ -159,6 +159,13 @@
       "Version": "2.12.0"
     },
     {
+      "Name": "handle",
+      "Updated": "2024-02-11T13:07:58.3152+02:00",
+      "Source": "sysinternals",
+      "Version": "5.0",
+      "Info": ""
+    },
+    {
       "Updated": "2024-01-13T18:49:56.0196278+02:00",
       "Info": "",
       "Source": "main",
