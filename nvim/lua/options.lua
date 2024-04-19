@@ -93,6 +93,10 @@ vim.o.langremap = false
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {
   clear = true
 })
+local netrw_group = vim.api.nvim_create_augroup('Netrw', {
+  clear = true
+})
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
@@ -100,5 +104,30 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- netrw keymaps for more 'lettered' experience
+vim.api.nvim_create_autocmd('BufModifiedSet', {
+  group = netrw_group,
+  pattern = '*',
+  callback = function()
+    if not (vim.bo and vim.bo.filetype == 'netrw') then
+      return
+    end
+    vim.keymap.set('n', 'l', '<cr>', { buffer = true, remap = true })
+    vim.keymap.set('n', 'h', '-', { buffer = true, remap = true })
+    vim.keymap.set('n', 'a', '%', { buffer = true, remap = true })
+  end
+})
+
+-- Experimental: open telescope upon opening nvim
+-- vim.api.nvim_create_autocmd('UIEnter', {
+--   pattern = '*',
+--   callback = function()
+--     if not (vim.bo and vim.bo.filetype == 'netrw') then
+--       return
+--     end
+--     require('telescope.builtin').find_files()
+--   end,
+-- })
 
 -- vim: ts=2 sts=2 sw=2 et
