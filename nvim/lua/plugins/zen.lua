@@ -1,13 +1,10 @@
 return {
-  {
-    'folke/zen-mode.nvim',
-    dependencies = {
-      'folke/twilight.nvim',
-    },
-    config = function()
-      local zen = require('zen-mode')
-      zen.setup({})
-      vim.keymap.set('n', '<leader>z', zen.toggle, { silent = true })
-    end
+  'folke/zen-mode.nvim',
+  keys = {
+    { '<leader>z', '<cmd>ZenMode<cr>', silent = true, desc = '[Z]en Mode' },
   },
+  dependencies = {
+    'folke/twilight.nvim',
+  },
+  opts = {},
 }

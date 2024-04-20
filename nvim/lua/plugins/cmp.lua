@@ -1,6 +1,7 @@
 return {
   -- Autocompletion
   'hrsh7th/nvim-cmp',
+  event = 'InsertEnter',
   dependencies = {
     -- Snippet Engine & its associated nvim-cmp source
     'L3MON4D3/LuaSnip',
@@ -13,19 +14,19 @@ return {
     'rafamadriz/friendly-snippets',
   },
   config = function()
-    local cmp = require('cmp')
-    local luasnip = require('luasnip')
+    local cmp = require 'cmp'
+    local luasnip = require 'luasnip'
     require('luasnip.loaders.from_vscode').lazy_load()
     luasnip.config.setup {}
 
-    cmp.setup({
+    cmp.setup {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
       completion = {
-        completeopt = 'menu,menuone,noinsert'
+        completeopt = 'menu,menuone,noinsert',
       },
       mapping = cmp.mapping.preset.insert {
         ['<CR>'] = cmp.mapping.abort(),
@@ -60,6 +61,6 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
       },
-    })
-  end
+    }
+  end,
 }

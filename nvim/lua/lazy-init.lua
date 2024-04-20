@@ -19,7 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
   defaults = {
-    lazy = false,
+    lazy = true,
     version = nil,
     cond = nil,
   },
@@ -94,8 +94,8 @@ require('lazy').setup {
   checker = {
     enabled = false,
     concurrency = nil, ---@type number? set to 1 to check for updates very slowly
-    notify = true,        -- get a notification when new updates are found
-    frequency = 3600,     -- check for updates every hour
+    notify = true, -- get a notification when new updates are found
+    frequency = 3600, -- check for updates every hour
     check_pinned = false, -- check for pinned packages that can't be updated
   },
   change_detection = {
@@ -108,17 +108,17 @@ require('lazy').setup {
     },
     reset_packpath = true, -- reset the package path to improve startup time
     rtp = {
-      reset = true,        -- reset the runtime path to $VIMRUNTIME and your config directory
-      paths = {},          -- add any custom paths here that you want to includes in the rtp
+      reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
+      paths = {}, -- add any custom paths here that you want to includes in the rtp
       disabled_plugins = {
-        -- "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
-        -- "tarPlugin",
-        -- "tohtml",
-        -- "tutor",
-        -- "zipPlugin",
+        'gzip',
+        'matchit',
+        'matchparen',
+        -- 'netrwPlugin',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
       },
     },
   },
