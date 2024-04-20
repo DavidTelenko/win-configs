@@ -1,10 +1,15 @@
 return {
   {
     'tpope/vim-fugitive',
+    cmd = 'Git',
+  },
+  {
     'tpope/vim-rhubarb',
+    lazy = true,
   },
   {
     'lewis6991/gitsigns.nvim',
+    event = 'BufReadPre',
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
@@ -16,7 +21,8 @@ return {
       },
       on_attach = function(bufnr)
         vim.keymap.set('n', '<leader>gp', require('gitsigns').preview_hunk, {
-          buffer = bufnr, desc = 'Preview git hunk'
+          buffer = bufnr,
+          desc = 'Preview git hunk',
         })
 
         -- don't override the built-in and fugitive keymaps
@@ -41,5 +47,5 @@ return {
         end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
       end,
     },
-  }
+  },
 }

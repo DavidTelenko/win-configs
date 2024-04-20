@@ -1,42 +1,34 @@
 return {
   {
-    -- gc to comment
-    'numToStr/Comment.nvim',
-    opts = {},
-  },
-  {
-    -- Auto detect tab width
-    'tpope/vim-sleuth',
-  },
-  {
     -- Automatically add closing pairs
-    "windwp/nvim-autopairs",
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
     -- Optional dependency
     dependencies = { 'hrsh7th/nvim-cmp' },
     config = function()
-      require("nvim-autopairs").setup {}
+      require('nvim-autopairs').setup {}
       -- If you want to automatically add `(` after selecting a function or method
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp = require('cmp')
-      cmp.event:on(
-        'confirm_done',
-        cmp_autopairs.on_confirm_done()
-      )
+      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+      local cmp = require 'cmp'
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
     end,
   },
   {
     'neovim/nvim-lspconfig',
+    event = 'BufReadPost',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      'tpope/vim-sleuth',
+      { 'numToStr/Comment.nvim', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
     config = function()
       --  This function gets run when an LSP connects to a particular buffer.
-      local telescope = require('telescope.builtin')
+      local telescope = require 'telescope.builtin'
 
       local on_attach = function(_, bufnr)
         local nmap = function(keys, func, desc)
@@ -124,20 +116,16 @@ return {
 
       local _border = 'rounded'
 
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-        vim.lsp.handlers.hover, {
-          border = _border
-        }
-      )
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = _border,
+      })
 
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-        vim.lsp.handlers.signature_help, {
-          border = _border
-        }
-      )
+      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+        border = _border,
+      })
 
       vim.diagnostic.config {
-        float = { border = _border }
+        float = { border = _border },
       }
 
       require('mason-lspconfig').setup()
