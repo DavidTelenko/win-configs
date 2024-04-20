@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  event = 'BufReadPre',
+  event = 'VeryLazy',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
     'nushell/tree-sitter-nu',
