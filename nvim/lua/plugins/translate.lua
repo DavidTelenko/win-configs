@@ -15,6 +15,9 @@ return {
     },
   },
   config = function()
-    require('which-key').register({ ['<leader>t'] = '[T]ranslate' }, { mode = { 'x', 'n' } })
+    require('which-key').register({
+        ['<leader>t'] = '[T]ranslate' },
+      { mode = { 'x', 'n' } }
+    )
   end,
 }
