@@ -43,6 +43,6 @@ vim.keymap.set('t', '<C-H>', '<C-w>', { desc = 'Ctrl + Backspace "default" behav
 
 vim.keymap.set('n', '<leader>T', vim.cmd.terminal, { desc = 'Open [T]erminal' })
 
-vim.keymap.set('n', '<tab>', ':E<cr>', { desc = 'Open Explorer' })
+-- vim.keymap.set('n', '<tab>', ':E<cr>', { desc = 'Open Explorer' })
 
 -- vim: ts=2 sts=2 sw=2 et
