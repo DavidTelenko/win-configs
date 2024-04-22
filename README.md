@@ -25,6 +25,7 @@ directory.
 The list of packages to be installed can be found in a scoopfile.json
 
 All configured tools by this repo:
+
 - [Neovim](https://github.com/neovim/neovim)
 - [Helix](https://github.com/helix-editor/helix) (a backup plan editor :D)
 - [Nushell](https://github.com/nushell/nushell)
@@ -47,8 +48,8 @@ fresh system because the scoop is not yet installed however we need git in
 order to clone repo and run the bootstrap script.
 
 The simple solution is to first just download the script manually (or via web
-request) then run it and it will do all dirty typing for us (*The Chicken
-method*).
+request) then run it and it will do all dirty typing for us (_The Chicken
+method_).
 
 This method can be run like this
 
@@ -60,33 +61,33 @@ init.ps1 -Nvim -Winterm -Pwsh
 
 Another solution is to manually download git, clone repo and run bootstrap with
 an `-Egg` parameter this will effectively do the same, **however** you will be
-left with two git instances on your pc - yours and scoop's (*The Egg method*).
+left with two git instances on your pc - yours and scoop's (_The Egg method_).
 
 The names of the parameters for the `init.ps1` is the following:
 
-  - `-Pwsh`        or `-PowerShell`
-  - `-Nvim`        or `-Neovim`
-  - `-Helix`
-  - `-Ttyper`
-  - `-Winterm`     or `-WindowsTerminal`
-  - `-Alacritty`
-  - `-Nushell`
+- `-Pwsh` or `-PowerShell`
+- `-Nvim` or `-Neovim`
+- `-Helix`
+- `-Ttyper`
+- `-Winterm` or `-WindowsTerminal`
+- `-Alacritty`
+- `-Nushell`
 
 # Notes
 
-  - **Power Toys** - cannot be adequately configured using symlinks to its config
-    files so we just use their own manual system of backing up stuff
+- **Power Toys** - cannot be adequately configured using symlinks to its config
+  files so we just use their own manual system of backing up stuff
 
-  - **Windows Terminal** - its better not to sym or hard link config file to the
-    file in the config directory, after all its the terminal emulator and some
-    stuff tends to diverge in different computers, so this repo only contains
-    most general settings of my liking
+- **Windows Terminal** - its better not to sym or hard link config file to the
+  file in the config directory, after all its the terminal emulator and some
+  stuff tends to diverge in different computers, so this repo only contains
+  most general settings of my liking
 
-  - **Vimium** - it does not support any type of automated backup mechanic (as
-    far as I know) so it's the same as with powertoys - manual import.
+- **Vimium** - it does not support any type of automated backup mechanic (as
+  far as I know) so it's the same as with powertoys - manual import.
 
 # TODO
 
-  - Zhs
-  - Tmux
-  - i3
+- Zhs
+- Tmux
+- i3
