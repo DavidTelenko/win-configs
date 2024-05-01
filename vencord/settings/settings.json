@@ -432,9 +432,6 @@
         "ServerProfile": {
             "enabled": false
         },
-        "ShowTimeouts": {
-            "enabled": false
-        },
         "ThemeAttributes": {
             "enabled": false
         },
@@ -504,6 +501,9 @@
         },
         "ResurrectHome": {
             "enabled": false
+        },
+        "ShowHiddenThings": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -516,6 +516,6 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1713254894534
+        "settingsSyncVersion": 1714498087155
     }
 }
