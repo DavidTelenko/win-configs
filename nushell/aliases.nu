@@ -55,3 +55,4 @@ alias tlam = transcribe-last-audio-message
 
 alias todo = open-in-nvim D:\Temp\todo
 alias mark = open-in-nvim D:\Documents\Markdowned
+alias cal = cal --week-start mo
