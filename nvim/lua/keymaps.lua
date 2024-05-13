@@ -35,8 +35,6 @@ vim.keymap.set('i', '<C-z>', '<esc>ua', { desc = 'Undo wiht Ctrl + Z' })
 vim.keymap.set('v', 'p', 'P')
 -- vim.keymap.set('v', 'p', '"0p')
 
-vim.keymap.set('n', '<leader>o', ':so', { desc = 'Source file' })
-
 -- How do i exit terminal in vim?
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>', { desc = 'Exit terminal' })
 vim.keymap.set('t', '<C-H>', '<C-w>', { desc = 'Ctrl + Backspace "default" behavior' })

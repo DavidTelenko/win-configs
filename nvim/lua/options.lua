@@ -119,15 +119,4 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
   end
 })
 
--- Experimental: open telescope upon opening nvim
--- vim.api.nvim_create_autocmd('UIEnter', {
---   pattern = '*',
---   callback = function()
---     if not (vim.bo and vim.bo.filetype == 'netrw') then
---       return
---     end
---     require('telescope.builtin').find_files()
---   end,
--- })
-
 -- vim: ts=2 sts=2 sw=2 et
