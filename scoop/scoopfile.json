@@ -334,6 +334,13 @@
       "Source": "main"
     },
     {
+      "Version": "12.1.2",
+      "Updated": "2024-05-13T15:55:13.8624241+03:00",
+      "Source": "main",
+      "Info": "",
+      "Name": "tokei"
+    },
+    {
       "Info": "",
       "Source": "main",
       "Name": "yt-dlp",

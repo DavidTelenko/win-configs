@@ -32,7 +32,7 @@ return {
         nmap('gr', telescope.lsp_references, '[G]oto [R]eferences')
         nmap('gI', telescope.lsp_implementations, '[G]oto [I]mplementation')
         nmap('<leader>D', telescope.lsp_type_definitions, 'Type [D]efinition')
-        nmap('<leader>ds', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
+        nmap('<leader>ss', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
         nmap('<leader>ws', telescope.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
         -- See `:help K` for why this keymap
