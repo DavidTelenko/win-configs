@@ -41,15 +41,14 @@ return {
       lspkind.init {}
 
       local function jump_if_jumpable(i)
-        return function()
-          if luasnip.jumpable(i) then
+        return function(fallback)
+          if luasnip.locally_jumpable(i) then
             luasnip.jump(i)
+          else
+            fallback()
           end
         end
       end
-
-      vim.keymap.set({ "i", "s" }, "<Tab>", jump_if_jumpable(1), { silent = true })
-      vim.keymap.set({ "i", "s" }, "<S-Tab>", jump_if_jumpable(-1), { silent = true })
 
       cmp.setup {
         sources = {
@@ -86,24 +85,11 @@ return {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           },
-          ['<A-j>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_locally_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-          ['<A-k>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
+          -- The following binding relies on system wide mappings A-h, A-j, A-k, A-l, for arrow keys
+          ['<left>'] = cmp.mapping(jump_if_jumpable(-1), { 'i', 's' }),
+          ['<right>'] = cmp.mapping(jump_if_jumpable(1), { 'i', 's' }),
+          ['<up>'] = cmp.mapping.select_prev_item(),
+          ['<down>'] = cmp.mapping.select_next_item(),
         },
       }
     end,
