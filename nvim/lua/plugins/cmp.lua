@@ -39,6 +39,11 @@ return {
       lspkind.init {}
 
       cmp.setup {
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+          { name = 'path' },
+        },
         formatting = {
           format = lspkind.cmp_format({
             mode = 'symbol_text',
@@ -86,10 +91,6 @@ return {
               fallback()
             end
           end, { 'i', 's' }),
-        },
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
         },
       }
     end,
