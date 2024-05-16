@@ -34,9 +34,22 @@ return {
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       local lspkind = require 'lspkind'
+
       require('luasnip.loaders.from_vscode').lazy_load()
+
       luasnip.config.setup {}
       lspkind.init {}
+
+      local function jump_if_jumpable(i)
+        return function()
+          if luasnip.jumpable(i) then
+            luasnip.jump(i)
+          end
+        end
+      end
+
+      vim.keymap.set({ "i", "s" }, "<Tab>", jump_if_jumpable(1), { silent = true })
+      vim.keymap.set({ "i", "s" }, "<S-Tab>", jump_if_jumpable(-1), { silent = true })
 
       cmp.setup {
         sources = {
