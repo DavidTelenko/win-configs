@@ -14,6 +14,10 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+vim.keymap.set('n', '<leader>i', function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+end, { desc = "Enable [I]nline hints" })
+
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll half screen up with stablization' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll half screen down with stabilization' })
 
