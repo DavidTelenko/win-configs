@@ -2,7 +2,7 @@ return {
   {
     -- Automatically add closing pairs
     'windwp/nvim-autopairs',
-    event = 'InsertEnter',
+    event = { 'InsertEnter', 'CmdlineEnter' },
     -- Optional dependency
     dependencies = { 'hrsh7th/nvim-cmp' },
     config = function()
@@ -76,20 +76,49 @@ return {
           completeopt = 'menu,menuone,noinsert',
         },
         mapping = cmp.mapping.preset.insert {
-          ['<CR>'] = cmp.mapping.abort(),
+          ['<CR>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              if luasnip.expandable() then
+                luasnip.expand()
+              else
+                cmp.confirm({
+                  select = true,
+                  behavior = cmp.ConfirmBehavior.Replace,
+                })
+              end
+            else
+              fallback()
+            end
+          end),
+
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.locally_jumpable(1) then
+              luasnip.jump(1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-p>'] = cmp.mapping.select_prev_item(),
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<Tab>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          },
-          -- The following binding relies on system wide mappings A-h, A-j, A-k, A-l, for arrow keys
-          ['<left>'] = cmp.mapping(jump_if_jumpable(-1), { 'i', 's' }),
-          ['<right>'] = cmp.mapping(jump_if_jumpable(1), { 'i', 's' }),
-          ['<up>'] = cmp.mapping.select_prev_item(),
-          ['<down>'] = cmp.mapping.select_next_item(),
+          ['<C-h>'] = cmp.mapping(jump_if_jumpable(-1), { 'i', 's' }),
+          ['<C-l>'] = cmp.mapping(jump_if_jumpable(1), { 'i', 's' }),
+          ['<C-k>'] = cmp.mapping.select_prev_item(),
+          ['<C-j>'] = cmp.mapping.select_next_item(),
         },
       }
     end,
