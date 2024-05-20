@@ -66,7 +66,7 @@ vim.o.wrap = false
 
 vim.g.netrw_banner = 0
 vim.g.netrw_hide = 0
-vim.g.netrw_bufsettings = "noma nomod rnu nowrap ro nobl"
+vim.g.netrw_bufsettings = 'noma nomod rnu nowrap ro nobl'
 
 local function escape(str)
   local escape_chars = [[;,."|\]]
@@ -81,8 +81,8 @@ local ua_s = [[₴ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБ
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
   escape(ua_n)
-  .. ';'
-  .. escape(en_n),
+    .. ';'
+    .. escape(en_n),
   escape(ua_s) .. ';' .. escape(en_s),
 }, ',')
 
@@ -91,10 +91,10 @@ vim.o.langremap = false
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {
-  clear = true
+  clear = true,
 })
 local netrw_group = vim.api.nvim_create_augroup('Netrw', {
-  clear = true
+  clear = true,
 })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -116,7 +116,7 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
     vim.keymap.set('n', 'l', '<cr>', { buffer = true, remap = true })
     vim.keymap.set('n', 'h', '-', { buffer = true, remap = true })
     vim.keymap.set('n', 'a', '%', { buffer = true, remap = true })
-  end
+  end,
 })
 
 -- vim: ts=2 sts=2 sw=2 et
