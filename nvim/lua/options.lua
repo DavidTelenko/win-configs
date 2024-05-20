@@ -119,4 +119,9 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
   end,
 })
 
+-- Returning Explore command in nvim 0.10
+vim.api.nvim_create_user_command('E', function()
+  vim.cmd 'Explore'
+end, {})
+
 -- vim: ts=2 sts=2 sw=2 et
