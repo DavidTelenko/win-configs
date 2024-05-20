@@ -119,6 +119,16 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
   end,
 })
 
+-- disable some options in terminal mode
+vim.api.nvim_create_autocmd('TermOpen', {
+  group = vim.api.nvim_create_augroup('TerminalMode', { clear = true }),
+  pattern = '*',
+  callback = function()
+    vim.o.spell = false
+    vim.wo.signcolumn = 'yes'
+  end,
+})
+
 -- Returning Explore command in nvim 0.10
 vim.api.nvim_create_user_command('E', function()
   vim.cmd 'Explore'
