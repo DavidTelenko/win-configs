@@ -28,7 +28,7 @@ return {
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
       -- Completion icons
-      'onsails/lspkind.nvim'
+      'onsails/lspkind.nvim',
     },
     config = function()
       local cmp = require 'cmp'
@@ -57,15 +57,15 @@ return {
           { name = 'path' },
         },
         formatting = {
-          format = lspkind.cmp_format({
+          format = lspkind.cmp_format {
             mode = 'symbol_text',
             maxwidth = 50,
             ellipsis_char = '...',
             show_labelDetails = true,
             before = function(entry, vim_item)
               return vim_item
-            end
-          })
+            end,
+          },
         },
         snippet = {
           expand = function(args)
@@ -81,17 +81,17 @@ return {
               if luasnip.expandable() then
                 luasnip.expand()
               else
-                cmp.confirm({
+                cmp.confirm {
                   select = true,
                   behavior = cmp.ConfirmBehavior.Replace,
-                })
+                }
               end
             else
               fallback()
             end
           end),
 
-          ["<Tab>"] = cmp.mapping(function(fallback)
+          ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
             elseif luasnip.locally_jumpable(1) then
@@ -99,9 +99,9 @@ return {
             else
               fallback()
             end
-          end, { "i", "s" }),
+          end, { 'i', 's' }),
 
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
             elseif luasnip.locally_jumpable(-1) then
@@ -109,7 +109,7 @@ return {
             else
               fallback()
             end
-          end, { "i", "s" }),
+          end, { 'i', 's' }),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -122,5 +122,5 @@ return {
         },
       }
     end,
-  }
+  },
 }

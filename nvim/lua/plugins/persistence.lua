@@ -1,21 +1,19 @@
 return {
-  "folke/persistence.nvim",
+  'folke/persistence.nvim',
   lazy = false,
   config = function()
-    require("persistence").setup({})
+    require('persistence').setup {}
 
-    vim.keymap.set("n", "<leader>ps", require("persistence").load,
-      { desc = "Restore the session for the cwd" })
+    vim.keymap.set('n', '<leader>ps', require('persistence').load, { desc = 'Restore the session for the cwd' })
 
-    vim.keymap.set("n", "<leader>pl",
-      function() require("persistence").load({ last = true }) end,
-      { desc = "Restore the last session" })
+    vim.keymap.set('n', '<leader>pl', function()
+      require('persistence').load { last = true }
+    end, { desc = 'Restore the last session' })
 
-    vim.keymap.set("n", "<leader>pd", require("persistence").stop,
-      { desc = "Stop Persistence" })
+    vim.keymap.set('n', '<leader>pd', require('persistence').stop, { desc = 'Stop Persistence' })
 
-    require('which-key').register({
+    require('which-key').register {
       ['<leader>p'] = '[P]ersistence',
-    })
-  end
+    }
+  end,
 }
