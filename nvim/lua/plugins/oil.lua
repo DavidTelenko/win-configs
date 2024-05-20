@@ -1,6 +1,8 @@
 return {
   'stevearc/oil.nvim',
-  lazy = false,
+  keys = {
+    { '<leader>o', '<cmd>Oil<cr>', { desc = '[O]pen parent directory' } },
+  },
   config = function()
     require('oil').setup {
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
@@ -179,6 +181,5 @@ return {
         border = 'rounded',
       },
     }
-    vim.keymap.set('n', '<leader>o', '<cmd>Oil<cr>', { desc = '[O]pen parent directory' })
   end,
 }
