@@ -7,9 +7,7 @@ def grid-ls [] {
 alias lsg = grid-ls
 
 def open-in-nvim [what: string] {
-    cd $what # cd into directory so that nvim will use it as cwd
-    nvim '.' # nvim into this dir
-    cd -     # cd back to avoid side effects
+    cd $what; nvim .; cd -;
 }
 
 alias backup-clear = clear
