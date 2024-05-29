@@ -31,6 +31,23 @@ def auto-commit [] {
     git push
 }
 
+def search-kill [processName] {
+    let toKill = ps | where name =~ ("(?i)" + $processName)
+
+    if ($toKill | is-empty) {
+        print $"'($processName)' not found"
+        return
+    }
+
+    print $toKill
+    print "Are you sure you want to kill all of this?"
+
+    if ((['yes', 'no'] | input list) == 'yes') {
+        $toKill | each { kill -f $in.pid }
+    }
+}
+
+alias sk = search-kill
 alias mv = ^mv
 alias lg = lazygit
 alias ll = ^exa -la --icons=auto
@@ -51,7 +68,7 @@ def transcribe-last-audio-message [] {
 
 alias tlam = transcribe-last-audio-message
 
-alias todo = open-in-nvim D:\Temp\todo
+alias todo = open-in-nvim D:\Documents\Markdowned\Todo
 alias mark = open-in-nvim D:\Documents\Markdowned
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
