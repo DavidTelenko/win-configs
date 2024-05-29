@@ -1,4 +1,4 @@
-// Vencord dac2d75
+// Vencord da01237
 // Standalone: true
 // Platform: Universal
 // Updater disabled: false
