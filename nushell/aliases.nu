@@ -6,10 +6,6 @@ def grid-ls [] {
 }
 alias lsg = grid-ls
 
-def open-in-nvim [what: string] {
-    cd $what; nvim .; cd -;
-}
-
 alias backup-clear = clear
 def clear [] {
     if $nu.os-info.family == 'windows' {
@@ -55,7 +51,7 @@ alias old-cat = cat
 alias cat = ^bat --theme=gruvbox-dark
 alias vi = nvim
 
-alias conf = open-in-nvim $configDir
+alias conf = nvim $configDir
 
 alias ghce = gh copilot explain
 alias ghcs = gh copilot suggest
@@ -68,7 +64,7 @@ def transcribe-last-audio-message [] {
 
 alias tlam = transcribe-last-audio-message
 
-alias todo = open-in-nvim D:\Documents\Markdowned\Todo
-alias mark = open-in-nvim D:\Documents\Markdowned
+alias todo = nvim D:\Documents\Markdowned\Todo
+alias mark = nvim D:\Documents\Markdowned
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
