@@ -33,7 +33,6 @@ vim.keymap.set('i', '<A-w>', '<C-o>w', { desc = 'Navigation forward word in inse
 
 vim.keymap.set('i', '<C-H>', '<C-w>', { desc = 'Ctrl + Backspace "default" behavior' })
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', { desc = 'Ctrl + Del "default" behavior' })
-vim.keymap.set('i', '<C-z>', '<esc>ua', { desc = 'Undo wiht Ctrl + Z' })
 
 -- paste without copying selected text in visual mode
 vim.keymap.set('v', 'p', 'P')
