@@ -62,9 +62,16 @@ def transcribe-last-audio-message [] {
     ls D:\Downloads\ | sort-by modified -r | first | get name | qstt $in
 }
 
+def translate [from: string, to: string, word: string] {
+    open (
+        'D:\Documents\Utility\Dictionaries' | path join $"($from)-($to).txt"
+    ) | rg $word
+}
+
 alias tlam = transcribe-last-audio-message
 
 alias todo = nvim D:\Documents\Markdowned\Todo
 alias mark = nvim D:\Documents\Markdowned
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
+alias tr = translate eng rus
