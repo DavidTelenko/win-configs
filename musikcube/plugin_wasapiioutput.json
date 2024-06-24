@@ -1,0 +1,6 @@
+{
+  "allow_decoder_resampling": false,
+  "buffer_length_seconds": 1.0,
+  "device_id": "",
+  "enable_audio_endpoint_routing": false
+}
