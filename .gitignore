@@ -4,3 +4,9 @@ mpv/cache
 mpv/watch_later
 mpv/memo-history.log
 mpv/scripts/sponsorblock_shared
+musikcube/cache
+musikcube/1
+musikcube/log.txt
+musikcube/stderr.txt
+musikcube/session.json
+musikcube/playback.json

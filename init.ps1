@@ -15,7 +15,8 @@ param (
     [Switch] $Broot = $false,
     [Switch] $Mpv = $false,
     [Switch] $Ttyper = $false,
-    [Switch] $Vencord = $false
+    [Switch] $Vencord = $false,
+    [Switch] $Musikcube = $false
 )
 
 $Pwsh = $All -or $Pwsh
@@ -28,6 +29,8 @@ $Alacritty = $All -or $Alacritty
 $Broot = $All -or $Broot
 $Mpv = $All -or $Mpv
 $Ttyper = $All -or $Ttyper
+$Vencord = $All -or $Vencord
+$Musikcube = $All -or $Musikcube
 
 $curr = pwd
 $scoop = "$env:userprofile/scoop/persist"
@@ -92,6 +95,9 @@ if ($Ttyper) {
 }
 if ($Vencord) {
     Link -t $env:appdata/Vencord -e $curr/vencord
+}
+if ($Musikcube) {
+    Link -t $env:appdata/musikcube -e $curr/musikcube
 }
 
 if ($Winterm) {
