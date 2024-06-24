@@ -3,391 +3,233 @@
     {
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras",
-      "Updated": "2024-01-24T18:54:59+02:00",
       "Manifests": 1951
     },
     {
       "Name": "games",
       "Source": "https://github.com/Calinou/scoop-games",
-      "Updated": "2024-01-24T18:27:25+02:00",
       "Manifests": 294
     },
     {
       "Name": "main",
       "Source": "https://github.com/ScoopInstaller/Main.git",
-      "Updated": "2024-01-24T18:27:08+02:00",
       "Manifests": 1287
     },
     {
       "Name": "nerd-fonts",
       "Source": "https://github.com/matthewjberger/scoop-nerd-fonts",
-      "Updated": "2024-02-03T18:21:07+02:00",
       "Manifests": 327
     },
     {
       "Name": "versions",
       "Source": "https://github.com/ScoopInstaller/Versions",
-      "Updated": "2024-01-24T18:55:20+02:00",
       "Manifests": 436
     }
   ],
   "apps": [
     {
-      "Updated": "2024-01-08T13:57:49.3441103+02:00",
-      "Info": "",
-      "Source": "main",
       "Name": "7zip",
-      "Version": "23.01"
+      "Source": "main"
     },
     {
       "Name": "age",
-      "Version": "1.1.1",
-      "Updated": "2024-03-21T04:56:43.4663433+02:00",
-      "Source": "extras",
-      "Info": ""
-    },
-    {
-      "Info": "",
-      "Name": "aria2",
-      "Updated": "2024-03-29T00:48:41.7802205+02:00",
-      "Source": "main",
-      "Version": "1.37.0-1"
-    },
-    {
-      "Source": "main",
-      "Version": "0.24.0",
-      "Name": "bat",
-      "Info": "",
-      "Updated": "2024-03-19T00:13:35.3174462+02:00"
-    },
-    {
-      "Updated": "2024-02-17T14:43:21.8816756+02:00",
-      "Source": "main",
-      "Version": "2.14.0",
-      "Info": "",
-      "Name": "brename"
-    },
-    {
-      "Version": "1.36.1",
-      "Source": "main",
-      "Info": "",
-      "Name": "broot",
-      "Updated": "2024-03-25T11:22:39.1553883+02:00"
-    },
-    {
-      "Updated": "2024-01-14T21:33:08.0453109+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "clangd",
-      "Version": "17.0.3"
-    },
-    {
-      "Updated": "2024-01-09T00:07:10.2365683+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "coreutils",
-      "Version": "5.97.3"
-    },
-    {
-      "Source": "main",
-      "Updated": "2024-03-21T05:37:19.5461433+02:00",
-      "Info": "",
-      "Name": "croc",
-      "Version": "9.6.14"
-    },
-    {
-      "Updated": "2024-01-09T17:57:39.2261377+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "dark",
-      "Version": "3.11.2"
-    },
-    {
-      "Updated": "2024-01-14T01:20:15.6761239+02:00",
-      "Info": "",
-      "Source": "extras",
-      "Name": "dependencies",
-      "Version": "1.11.1"
-    },
-    {
-      "Info": "",
-      "Name": "delta",
-      "Source": "main",
-      "Version": "0.17.0",
-      "Updated": "2024-03-19T00:26:51.0672407+02:00"
-    },
-    {
-      "Updated": "2024-01-12T23:41:17.4760798+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "eza",
-      "Version": "0.17.1"
-    },
-    {
-      "Version": "9.0.0",
-      "Updated": "2024-03-19T16:12:18.4625871+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "fd"
-    },
-    {
-      "Updated": "2024-01-08T14:01:41.3546218+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "ffmpeg",
-      "Version": "6.1.1"
-    },
-    {
-      "Updated": "2024-01-08T14:19:45.2455566+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "fzf",
-      "Version": "0.45.0"
-    },
-    {
-      "Info": "",
-      "Updated": "2024-05-30T00:50:39.6438301+03:00",
-      "Source": "main",
-      "Name": "gow",
-      "Version": "0.8.0"
-    },
-    {
-      "Updated": "2024-01-09T12:36:18.7096387+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "git",
-      "Version": "2.43.0"
-    },
-    {
-      "Updated": "2024-01-08T14:05:42.6247075+02:00",
-      "Info": "",
-      "Source": "games",
-      "Name": "heroic-games-launcher",
-      "Version": "2.12.0"
-    },
-    {
-      "Name": "handle",
-      "Updated": "2024-02-11T13:07:58.3152+02:00",
-      "Source": "sysinternals",
-      "Version": "5.0",
-      "Info": ""
-    },
-    {
-      "Updated": "2024-01-13T18:49:56.0196278+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "innounp",
-      "Version": "0.50"
-    },
-    {
-      "Updated": "2024-01-14T19:27:17.7931485+02:00",
-      "Info": "",
-      "Source": "versions",
-      "Name": "mingw-winlibs-llvm",
-      "Version": "13.2.0-17.0.4-11.0.1-r2"
-    },
-    {
-      "Info": "",
-      "Name": "mpv",
-      "Updated": "2024-03-29T01:06:27.4603663+02:00",
-      "Source": "extras",
-      "Version": "0.37.0"
-    },
-    {
-      "Info": "",
-      "Source": "extras",
-      "Name": "musikcube",
-      "Version": "3.0.2",
-      "Updated": "/Date(1719266173256)/"
-    },
-    {
-      "Updated": "2024-01-08T23:36:12.9594334+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "neovim",
-      "Version": "0.9.5"
-    },
-    {
-      "Updated": "2024-01-13T23:27:22.1868097+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "ninja",
-      "Version": "1.11.1"
-    },
-    {
-      "Updated": "2024-01-08T23:53:55.7181844+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "nodejs",
-      "Version": "21.5.0"
-    },
-    {
-      "Info": "",
-      "Name": "ntop",
-      "Version": "0.3.4",
-      "Updated": "2024-02-08T00:01:32.9547287+02:00",
-      "Source": "main"
-    },
-    {
-      "Updated": "2024-01-14T03:38:53.1619091+02:00",
-      "Info": "",
-      "Source": "extras",
-      "Name": "nsis",
-      "Version": "3.09"
-    },
-    {
-      "Updated": "2024-01-08T14:03:00.0087906+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "nu",
-      "Version": "0.88.1"
-    },
-    {
-      "Updated": "2024-01-08T14:08:00.674749+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "oh-my-posh",
-      "Version": "19.4.0"
-    },
-    {
-      "Updated": "2024-01-09T13:05:13.5247714+02:00",
-      "Info": "",
-      "Source": "extras",
-      "Name": "paint.net",
-      "Version": "5.0.12"
-    },
-    {
-      "Info": "",
-      "Source": "main",
-      "Name": "pandoc",
-      "Version": "3.1.11.1",
-      "Updated": "2024-02-15T19:32:27.4751422+02:00"
-    },
-    {
-      "Updated": "2024-01-24T19:16:43.8901039+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "pdftk",
-      "Version": "2.02"
-    },
-    {
-      "Info": "",
-      "Version": "0.79.0",
-      "Name": "powertoys",
-      "Updated": "2024-03-21T03:03:28.9610975+02:00",
       "Source": "extras"
     },
     {
-      "Updated": "2024-01-13T18:50:08.9462081+02:00",
-      "Info": "",
-      "Source": "extras",
-      "Name": "pdftk-builder",
-      "Version": "3.10.0"
-    },
-    {
-      "Updated": "2024-01-13T00:41:10.2882258+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "pueue",
-      "Version": "3.3.3"
-    },
-    {
-      "Updated": "2024-01-08T19:43:07.783267+02:00",
-      "Info": "",
-      "Source": "extras",
-      "Name": "qbittorrent",
-      "Version": "4.6.2"
-    },
-    {
-      "Updated": "2024-01-08T14:08:20.587795+02:00",
-      "Info": "",
-      "Source": "main",
-      "Name": "ripgrep",
-      "Version": "14.1.0"
-    },
-    {
-      "Version": "3.1.1",
-      "Name": "RobotoMono-NF-Mono",
-      "Updated": "2024-02-05T06:41:18.330262+02:00",
-      "Source": "nerd-fonts",
-      "Info": ""
-    },
-    {
-      "Source": "main",
-      "Version": "1.4.0",
-      "Info": "",
-      "Name": "scoop-search",
-      "Updated": "2024-02-04T16:48:54.8155997+02:00"
-    },
-    {
-      "Version": "2024.02.06",
-      "Updated": "2024-05-21T11:42:08.0917891+03:00",
-      "Source": "sysinternals",
-      "Info": "",
-      "Name": "sysinternals-suite"
-    },
-    {
-      "Updated": "2024-01-24T16:22:12.5361272+02:00",
-      "Info": "",
-      "Source": "extras",
-      "Name": "taskbarx",
-      "Version": "1.7.8.0"
-    },
-    {
-      "Updated": "2024-01-08T23:45:37.104709+02:00",
-      "Info": "",
-      "Source": "extras",
-      "Name": "telegram",
-      "Version": "4.14.3"
-    },
-    {
-      "Name": "tealdeer",
-      "Source": "main",
-      "Version": "1.6.1",
-      "Updated": "2024-03-19T00:52:10.5053268+02:00",
-      "Info": ""
-    },
-    {
-      "Updated": "2024-03-05T20:41:17.6262147+02:00",
-      "Name": "ttyper",
-      "Version": "1.4.1",
-      "Info": "",
+      "Name": "aria2",
       "Source": "main"
     },
     {
-      "Version": "12.1.2",
-      "Updated": "2024-05-13T15:55:13.8624241+03:00",
-      "Source": "main",
-      "Info": "",
-      "Name": "tokei"
+      "Name": "bat",
+      "Source": "main"
     },
     {
-      "Info": "",
-      "Source": "main",
+      "Name": "brename",
+      "Source": "main"
+    },
+    {
+      "Name": "broot",
+      "Source": "main"
+    },
+    {
+      "Name": "clangd",
+      "Source": "main"
+    },
+    {
+      "Name": "coreutils",
+      "Source": "main"
+    },
+    {
+      "Name": "croc",
+      "Source": "main"
+    },
+    {
+      "Name": "dark",
+      "Source": "main"
+    },
+    {
+      "Name": "dependencies",
+      "Source": "extras"
+    },
+    {
+      "Name": "delta",
+      "Source": "main"
+    },
+    {
+      "Name": "eza",
+      "Source": "main"
+    },
+    {
+      "Name": "fd",
+      "Source": "main"
+    },
+    {
+      "Name": "ffmpeg",
+      "Source": "main"
+    },
+    {
+      "Name": "fzf",
+      "Source": "main"
+    },
+    {
+      "Name": "gow",
+      "Source": "main"
+    },
+    {
+      "Name": "git",
+      "Source": "main"
+    },
+    {
+      "Name": "heroic-games-launcher",
+      "Source": "games"
+    },
+    {
+      "Name": "handle",
+      "Source": "sysinternals"
+    },
+    {
+      "Name": "innounp",
+      "Source": "main"
+    },
+    {
+      "Name": "mingw-winlibs-llvm",
+      "Source": "versions"
+    },
+    {
+      "Name": "mpv",
+      "Source": "extras"
+    },
+    {
+      "Name": "musikcube",
+      "Source": "extras"
+    },
+    {
+      "Name": "neovim",
+      "Source": "main"
+    },
+    {
+      "Name": "ninja",
+      "Source": "main"
+    },
+    {
+      "Name": "nodejs",
+      "Source": "main"
+    },
+    {
+      "Name": "ntop",
+      "Source": "main"
+    },
+    {
+      "Name": "nsis",
+      "Source": "extras"
+    },
+    {
+      "Name": "nu",
+      "Source": "main"
+    },
+    {
+      "Name": "oh-my-posh",
+      "Source": "main"
+    },
+    {
+      "Name": "paint.net",
+      "Source": "extras"
+    },
+    {
+      "Name": "pandoc",
+      "Source": "main"
+    },
+    {
+      "Name": "pdftk",
+      "Source": "main"
+    },
+    {
+      "Name": "powertoys",
+      "Source": "extras"
+    },
+    {
+      "Name": "pdftk-builder",
+      "Source": "extras"
+    },
+    {
+      "Name": "pueue",
+      "Source": "main"
+    },
+    {
+      "Name": "qbittorrent",
+      "Source": "extras"
+    },
+    {
+      "Name": "ripgrep",
+      "Source": "main"
+    },
+    {
+      "Name": "RobotoMono-NF-Mono",
+      "Source": "nerd-fonts"
+    },
+    {
+      "Name": "scoop-search",
+      "Source": "main"
+    },
+    {
+      "Name": "sysinternals-suite",
+      "Source": "sysinternals"
+    },
+    {
+      "Name": "taskbarx",
+      "Source": "extras"
+    },
+    {
+      "Name": "telegram",
+      "Source": "extras"
+    },
+    {
+      "Name": "tealdeer",
+      "Source": "main"
+    },
+    {
+      "Name": "ttyper",
+      "Source": "main"
+    },
+    {
+      "Name": "tokei",
+      "Source": "main"
+    },
+    {
       "Name": "yt-dlp",
-      "Version": "2024.03.10",
-      "Updated": "2024-03-29T16:12:15.0987512+02:00"
+      "Source": "main"
     },
     {
-      "Updated": "2024-02-06T17:39:53.9062931+02:00",
-      "Source": "versions",
-      "Info": "",
-      "Version": "1.20.10303.0",
-      "Name": "windows-terminal-preview"
+      "Name": "windows-terminal-preview",
+      "Source": "versions"
     },
     {
-      "Updated": "2024-01-08T19:38:42.4069036+02:00",
-      "Info": "",
-      "Source": "extras",
       "Name": "wiztree",
-      "Version": "4.16"
+      "Source": "extras"
     },
     {
-      "Updated": "2024-01-08T14:03:15.8451698+02:00",
-      "Info": "",
-      "Source": "main",
       "Name": "zoxide",
-      "Version": "0.9.2"
+      "Source": "main"
     }
   ]
 }
