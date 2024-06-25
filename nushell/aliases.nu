@@ -63,7 +63,9 @@ def transcribe-last-audio-message [] {
 }
 
 def translate [word: string] {
-    open 'D:\Documents\Utility\Dictionaries\eng-rus.txt' | rg $word
+    open (
+        'D:\Documents\Utility\Dictionaries\eng-rus.txt'
+    ) | rg $word
 }
 
 alias tlam = transcribe-last-audio-message
