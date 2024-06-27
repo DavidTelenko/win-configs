@@ -192,10 +192,6 @@
       "Source": "main"
     },
     {
-      "Name": "spacesniffer",
-      "Source": "extras"
-    },
-    {
       "Name": "sysinternals-suite",
       "Source": "sysinternals"
     },
