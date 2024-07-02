@@ -58,7 +58,7 @@
   "playback_volume_up": "v",
   "search_input_toggle_match_type": "M-m",
   "show_equalizer": "^E",
-  "toggle_visualizer": "^V",
+  "toggle_visualizer": "M-v",
   "track_list_change_sort_order": "M-s",
   "track_list_next_group": "]",
   "track_list_play_from_top": "M-P",
