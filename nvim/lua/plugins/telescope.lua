@@ -82,12 +82,6 @@ return {
       })
     end, { desc = '[/] Fuzzily search in current buffer' })
 
-    -- most used, duplicated for even easier usage
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
-    vim.keymap.set('n', '<leader>fs', builtin.live_grep, { desc = '[F]ind by [S]tring (grep)' })
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind in [B]uffers' })
-
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
     vim.keymap.set('n', '<leader>gg', ':Git<cr>', { desc = '[G]it menu (fugitive)' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
