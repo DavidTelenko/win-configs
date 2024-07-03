@@ -504,6 +504,12 @@
         },
         "ServerInfo": {
             "enabled": false
+        },
+        "MessageUpdaterAPI": {
+            "enabled": false
+        },
+        "UserSettingsAPI": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -516,6 +522,6 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1718469788875
+        "settingsSyncVersion": 1719405302247
     }
 }
