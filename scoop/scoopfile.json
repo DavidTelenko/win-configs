@@ -196,6 +196,10 @@
       "Source": "sysinternals"
     },
     {
+      "Name": "sox",
+      "Source": "main"
+    },
+    {
       "Name": "taskbarx",
       "Source": "extras"
     },
