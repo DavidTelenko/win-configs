@@ -750,12 +750,14 @@ const nushellDir = ($nu.config-path | path parse).parent
 const configDir = ($nushellDir | path parse).parent
 const aliases = ([$nushellDir, aliases.nu] | path join)
 const modules = ([$nushellDir, modules] | path join)
+const completions = ([$nushellDir, completions] | path join)
 const welcomeBanner = ([$nushellDir, welcome-banner.txt] | path join)
 
 source ~/.zoxide.nu
 source ~/.oh-my-posh.nu
 source ~/.broot.nu
 source $aliases
+use $completions *;
 use $modules *
 
 let banner = open $welcomeBanner
