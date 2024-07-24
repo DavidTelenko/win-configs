@@ -2,7 +2,7 @@
 # mechanisms were put into this module to work seamlessly on any platform and
 # to be semi-easily configurable
 
-const nushellDir = ($nu.config-path | path parse).parent
+use core.nu *
 
 # Runs arbitury powershell command assuming it's installed on the system and
 # mounted into Path env variable

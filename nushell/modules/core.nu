@@ -16,3 +16,5 @@ export def symlink [
 
     mklink $link_name $existing
 }
+
+const nushellDir = ($nu.config-path | path parse).parent
