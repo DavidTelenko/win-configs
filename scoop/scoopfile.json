@@ -112,6 +112,10 @@
       "Source": "main"
     },
     {
+      "Name": "keepassxc",
+      "Source": "extras"
+    },
+    {
       "Name": "mingw-winlibs-llvm",
       "Source": "versions"
     },
