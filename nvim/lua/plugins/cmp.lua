@@ -40,16 +40,6 @@ return {
       luasnip.config.setup {}
       lspkind.init {}
 
-      local function jump_if_jumpable(i)
-        return function(fallback)
-          if luasnip.locally_jumpable(i) then
-            luasnip.jump(i)
-          else
-            fallback()
-          end
-        end
-      end
-
       cmp.setup {
         sources = {
           { name = 'nvim_lsp' },
@@ -110,15 +100,11 @@ return {
               fallback()
             end
           end, { 'i', 's' }),
-          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-l>'] = cmp.mapping.complete(),
           ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-p>'] = cmp.mapping.select_prev_item(),
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          -- ['<C-h>'] = cmp.mapping(jump_if_jumpable(-1), { 'i', 's' }),
-          -- ['<C-l>'] = cmp.mapping(jump_if_jumpable(1), { 'i', 's' }),
-          -- ['<C-k>'] = cmp.mapping.select_prev_item(),
-          -- ['<C-j>'] = cmp.mapping.select_next_item(),
         },
       }
     end,
