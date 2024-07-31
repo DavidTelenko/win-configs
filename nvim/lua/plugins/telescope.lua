@@ -15,6 +15,8 @@ return {
         return vim.fn.executable 'make' == 1
       end,
     },
+    'nvim-telescope/telescope-ui-select.nvim',
+    'nvim-telescope/telescope-live-grep-args.nvim',
   },
   config = function()
     -- [[ Configure Telescope ]]
@@ -32,6 +34,8 @@ return {
 
     -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
+    pcall(require('telescope').load_extension, 'live_grep_args')
+    pcall(require('telescope').load_extension, 'ui-select')
 
     -- Telescope live_grep in git root
     -- Function to find the git root directory based on the current buffer's path

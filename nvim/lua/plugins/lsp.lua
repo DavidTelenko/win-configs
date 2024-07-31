@@ -119,10 +119,10 @@ return {
       local servers = {
         clangd = {},
         jdtls = {},
+        rust_analyzer = {},
         -- gopls = {},
         -- pyright = {},
         -- ols = {},
-        rust_analyzer = {},
         -- tsserver = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
@@ -159,6 +159,34 @@ return {
           }
         end,
       }
+
+      -- local lsp_config = require 'lspconfig'
+      --
+      -- lsp_config['dartls'].setup {
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      --   cmd = {
+      --     'dart',
+      --     'language-server',
+      --     '--protocol=lsp',
+      --   },
+      --   filetypes = { 'dart' },
+      --   init_options = {
+      --     onlyAnalyzeProjectsWithOpenFiles = false,
+      --     suggestFromUnimportedLibraries = true,
+      --     closingLabels = true,
+      --     outline = false,
+      --     flutterOutline = false,
+      --   },
+      --   settings = {
+      --     dart = {
+      --       analysisExcludedFolders = {},
+      --       updateImportsOnRename = true,
+      --       completeFunctionCalls = true,
+      --       showTodos = true,
+      --     },
+      --   },
+      -- }
     end,
   },
 }
