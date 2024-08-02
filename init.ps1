@@ -17,6 +17,7 @@ param (
     [Switch] $Ttyper = $false,
     [Switch] $Vencord = $false,
     [Switch] $Musikcube = $false
+    [Switch] $Keymapper = $false
 )
 
 $Pwsh = $All -or $Pwsh
@@ -31,6 +32,7 @@ $Mpv = $All -or $Mpv
 $Ttyper = $All -or $Ttyper
 $Vencord = $All -or $Vencord
 $Musikcube = $All -or $Musikcube
+$Keymapper = $All -or $Keymapper
 
 $curr = pwd
 $scoop = "$env:userprofile/scoop/persist"
@@ -98,6 +100,9 @@ if ($Vencord) {
 }
 if ($Musikcube) {
     Link -t $env:appdata/musikcube -e $curr/musikcube
+}
+if ($Keymapper) {
+    Link -t $env:appdata/keymapper -e $curr/keymapper
 }
 
 if ($Winterm) {
