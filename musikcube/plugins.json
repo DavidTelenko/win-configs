@@ -1,0 +1,18 @@
+{
+  "cddadecoder.dll": true,
+  "directsoundout.dll": true,
+  "ffmpegdecoder.dll": true,
+  "gmedecoder.dll": true,
+  "httpdatastream.dll": true,
+  "libopenmptdecoder.dll": true,
+  "milkdrop2.dll": true,
+  "nullout.dll": true,
+  "server.dll": true,
+  "stockencoders.dll": true,
+  "supereqdsp.dll": true,
+  "taglib_plugin.dll": true,
+  "wasapiout.dll": true,
+  "waveout.dll": true,
+  "win32gdivis.dll": true,
+  "win32globalhotkeys.dll": true
+}

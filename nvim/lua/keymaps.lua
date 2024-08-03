@@ -24,10 +24,10 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll half screen down with s
 vim.keymap.set('n', '<C-s>', ':update<cr>', { desc = 'A bit more convenient save file' })
 vim.keymap.set('i', '<C-s>', '<Esc>:update<cr>gi', { desc = 'A bit more convenient save file' })
 
-vim.keymap.set('i', '<A-k>', '<C-o>gk', { desc = 'Navigation up in insert mode' })
-vim.keymap.set('i', '<A-h>', '<C-o>h', { desc = 'Navigation left in insert mode' })
-vim.keymap.set('i', '<A-l>', '<C-o>l', { desc = 'Navigation right in insert mode' })
-vim.keymap.set('i', '<A-j>', '<C-o>gj', { desc = 'Navigation down in insert mode' })
+vim.keymap.set('i', '<A-k>', '<up>', { desc = 'Navigation up in insert mode' })
+vim.keymap.set('i', '<A-h>', '<left>', { desc = 'Navigation left in insert mode' })
+vim.keymap.set('i', '<A-l>', '<right>', { desc = 'Navigation right in insert mode' })
+vim.keymap.set('i', '<A-j>', '<down>', { desc = 'Navigation down in insert mode' })
 vim.keymap.set('i', '<A-b>', '<C-o>b', { desc = 'Navigation back word in insert mode' })
 vim.keymap.set('i', '<A-w>', '<C-o>w', { desc = 'Navigation forward word in insert mode' })
 
