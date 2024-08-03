@@ -16,7 +16,7 @@ param (
     [Switch] $Mpv = $false,
     [Switch] $Ttyper = $false,
     [Switch] $Vencord = $false,
-    [Switch] $Musikcube = $false
+    [Switch] $Musikcube = $false,
     [Switch] $Keymapper = $false
 )
 
