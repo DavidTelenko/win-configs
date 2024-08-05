@@ -116,10 +116,13 @@ return {
 
       require('mason-lspconfig').setup()
 
+      local util = require 'lspconfig.util'
+
       local servers = {
         clangd = {},
         jdtls = {},
         rust_analyzer = {},
+        biome = {},
         -- gopls = {},
         -- pyright = {},
         -- ols = {},
