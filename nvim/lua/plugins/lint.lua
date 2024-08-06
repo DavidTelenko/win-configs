@@ -1,5 +1,3 @@
--- Plugin for auto linting file on save
-
 return {
   'mfussenegger/nvim-lint',
   event = {
@@ -10,8 +8,8 @@ return {
     local lint = require 'lint'
 
     lint.linters_by_ft = {
-      javascript = { 'eslint_d' },
-      typescript = { 'eslint_d' },
+      javascript = { 'biome' },
+      typescript = { 'biome' },
       javascriptreact = { 'eslint_d' },
       typescriptreact = { 'eslint_d' },
       svelte = { 'eslint_d' },
