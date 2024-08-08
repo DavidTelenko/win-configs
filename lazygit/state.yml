@@ -1,13 +1,14 @@
 lastupdatecheck: 0
 recentrepos:
-- C:\Users\User\.configs
+    - C:\Users\David\.configs
 startuppopupversion: 5
-lastversion: 0.41.0
+lastversion: 0.43.1
 customcommandshistory:
-- q
+    - q
 hidecommandlog: false
 ignorewhitespaceindiffview: false
 diffcontextsize: 3
+renamesimilaritythreshold: 50
 localbranchsortorder: recency
 remotebranchsortorder: alphabetical
 gitlogorder: topo-order
