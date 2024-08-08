@@ -8,11 +8,11 @@ return {
     local lint = require 'lint'
 
     lint.linters_by_ft = {
-      javascript = { 'biome' },
-      typescript = { 'biome' },
-      javascriptreact = { 'eslint_d' },
-      typescriptreact = { 'eslint_d' },
-      svelte = { 'eslint_d' },
+      javascript = { 'eslint' },
+      typescript = { 'eslint' },
+      javascriptreact = { 'eslint' },
+      typescriptreact = { 'eslint' },
+      svelte = { 'eslint' },
       python = { 'pylint' },
       cpp = { 'cpplint' },
     }
