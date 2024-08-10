@@ -5,7 +5,10 @@ return {
   },
   {
     'tpope/vim-rhubarb',
-    lazy = true,
+  },
+  {
+    'sindrets/diffview.nvim',
+    lazy = false,
   },
   {
     'lewis6991/gitsigns.nvim',
