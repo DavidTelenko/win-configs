@@ -1,2 +1,9 @@
-export use git.nu
-export use cargo.nu
+export use btm_completions.nu *
+export use cargo_completions.nu *
+export use croc_completions.nu *
+export use curl_completions.nu *
+export use docker_completions.nu *
+export use eza_completions.nu *
+export use git_completions.nu *
+export use rg_completions.nu *
+export use ttyper_completions.nu *
