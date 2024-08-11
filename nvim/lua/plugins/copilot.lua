@@ -1,7 +1,7 @@
 return {
   {
     'zbirenbaum/copilot.lua',
-    enabled = true,
+    enabled = false,
     event = 'InsertEnter',
     opts = {
       panel = {
@@ -22,21 +22,6 @@ return {
         ['.'] = false,
       },
     },
-    config = function(_, opts)
-      require('copilot').setup(opts)
-
-      local enabled = true
-      require('copilot.suggestion').toggle_auto_trigger()
-
-      vim.keymap.set('n', '<leader>ct', function()
-        require('copilot.suggestion').toggle_auto_trigger()
-
-        enabled = not enabled
-
-        local msg = 'Copilot suggestion auto trigger: ['
-        print(msg .. (enabled and 'enabled' or 'disabled') .. ']')
-      end, { desc = '[C]opilot [T]tirgger auto suggestion' })
-    end,
   },
   {
     'nvim-cmp',
