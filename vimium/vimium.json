@@ -1,29 +1,53 @@
 {
-	"name": "Vimium C",
-	"@time": "12/29/2023, 7:53:49 PM",
-	"time": 1703872429717,
-	"environment": {
-		"extension": "1.99.994",
-		"platform": "win",
-		"chromium": 120
-	},
-	"allBrowserUrls": true,
-	"exclusionRules": [
-		{
-			"passKeys": "",
-			"pattern": ":https://mail.google.com/"
-		},
-		{
-			"passKeys": "/ N f k ",
-			"pattern": ":https://www.youtube.com/"
-		},
-		{
-			"passKeys": "h j k l ",
-			"pattern": ":https://duckduckgo.com/"
-		}
-	],
-	"keyLayout": 2,
-	"newTabUrl": "https://duckduckgo.com/",
-	"searchUrl": "https://duckduckgo.com/?q=$s DuckDuckGo",
-	"vimSync": true
+  "name": "Vimium C",
+  "@time": "8/12/2024, 3:13:02 AM",
+  "time": 1723421582124,
+  "environment": {
+    "extension": "2.11.3",
+    "platform": "win",
+    "chromium": 126
+  },
+  "allBrowserUrls": true,
+  "exclusionRules": [
+    {
+      "passKeys": "/ < > N f i k m ",
+      "pattern": ":https://www.youtube.com/"
+    },
+    {
+      "passKeys": "h j k l ",
+      "pattern": ":https://duckduckgo.com/"
+    },
+    {
+      "passKeys": "f k m ",
+      "pattern": ":https://www.twitch.tv/"
+    },
+    {
+      "passKeys": "",
+      "pattern": ":https://godbolt.org/"
+    },
+    {
+      "passKeys": "",
+      "pattern": ":https://vim-adventures.com/"
+    },
+    {
+      "passKeys": "",
+      "pattern": ":https://www.toptal.com/"
+    },
+    {
+      "passKeys": "",
+      "pattern": ":https://api.flutter.dev/"
+    },
+    {
+      "passKeys": "f ",
+      "pattern": ":https://rezka.ag/"
+    },
+    {
+      "passKeys": "f ",
+      "pattern": ":https://hdrezka.ag/"
+    }
+  ],
+  "keyLayout": 2,
+  "newTabUrl": "https://duckduckgo.com/",
+  "searchUrl": "https://duckduckgo.com/?q=$s DuckDuckGo",
+  "vimSync": true
 }
