@@ -6,4 +6,5 @@ export use docker-completions.nu *
 export use eza-completions.nu *
 export use git-completions.nu *
 export use rg-completions.nu *
+export use tar-completions.nu *
 export use ttyper-completions.nu *
