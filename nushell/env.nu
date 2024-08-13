@@ -104,6 +104,14 @@ $env.NU_PLUGIN_DIRS = [
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+$env.PATH = ($env.PATH | split row (char esep)
+    | prepend $'($env.HOME)/bin'
+    | prepend $'($env.HOME)/.local/bin'
+    | prepend $'($env.HOME)/.bun/bin'
+    | prepend $'($env.HOME)/.cargo/bin'
+    | prepend $'($env.HOME)/.spicetify'
+    | uniq
+)
 
 const nushellDir = ($nu.config-path | path parse).parent
 const configDir = ($nushellDir | path parse).parent
