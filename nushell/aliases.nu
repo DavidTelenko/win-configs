@@ -50,6 +50,7 @@ alias ll = ^exa -la --icons=auto
 alias old-cat = cat
 alias cat = ^bat --theme=gruvbox-dark
 alias vi = nvim
+alias scoop = powershell scoop
 
 alias conf = nvim $configDir
 

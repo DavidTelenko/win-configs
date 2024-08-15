@@ -9,6 +9,7 @@ param (
     [Switch] $Lazygit = $false,
     [Alias("WindowsTerminal")]
     [Switch] $Winterm = $false,
+    [Switch] $Wezterm = $false,
     [Switch] $Nushell = $false,
     # Apps
     [Switch] $Alacritty = $false,
@@ -25,6 +26,7 @@ $Nvim = $All -or $Nvim
 $Helix = $All -or $Helix
 $Lazygit = $All -or $Lazygit
 $Winterm = $All -or $Winterm
+$Wezterm = $All -or $Wezterm
 $Nushell = $All -or $Nushell
 $Alacritty = $All -or $Alacritty
 $Broot = $All -or $Broot
@@ -84,6 +86,9 @@ if ($Helix) {
 }
 if ($Nushell) {
     Link -t $env:appdata/nushell -e $curr/nushell
+}
+if ($Wezterm) {
+    Link -t $env:homepath/.config/wezterm -e $curr/wezterm
 }
 
 if ($Broot) {
