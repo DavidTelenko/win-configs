@@ -17,8 +17,9 @@ config.font = wezterm.font("RobotoMono Nerd Font Mono")
 config.font_size = 16
 
 config.window_background_gradient = {
-	orientation = { Linear = { angle = -90 } },
+	orientation = { Linear = { angle = -80 } },
 	colors = {
+		"black",
 		"black",
 		"black",
 		"black",
