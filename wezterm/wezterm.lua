@@ -11,8 +11,10 @@ config.colors = {
 	background = "black",
 }
 
+config.automatically_reload_config = true
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
+config.enable_tab_bar = false
 config.font = wezterm.font("RobotoMono Nerd Font Mono")
 config.font_size = 16
 
@@ -61,6 +63,11 @@ config.keys = {
 		key = "v",
 		mods = "CTRL",
 		action = wezterm.action.PasteFrom("Clipboard"),
+	},
+	{
+		key = "a",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ShowTabNavigator,
 	},
 }
 
