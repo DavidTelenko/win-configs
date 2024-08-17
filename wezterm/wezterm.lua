@@ -117,6 +117,14 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ShowTabNavigator,
 	},
+	{
+		key = 'Backspace',
+		mods = 'CTRL',
+		action = wezterm.action.SendKey {
+			key = 'w',
+			mods = 'CTRL',
+		},
+	},
 }
 
 for i = 0, 8 do
