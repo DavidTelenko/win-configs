@@ -4,7 +4,7 @@
     markup = full
     follow = mouse
     offset = 20x24
-    origin = bottom-left
+    origin = bottom-right
 
     width = (0, 500)
     corner_radius = 10
