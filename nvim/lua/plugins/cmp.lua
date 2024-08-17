@@ -70,16 +70,14 @@ return {
             }
           end
         end),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-l>'] = cmp.mapping(function(fallback)
+        ['<C-k>'] = cmp.mapping(function(fallback)
           if luasnip.locally_jumpable(1) then
             luasnip.jump(1)
           else
             fallback()
           end
         end, { 'i', 's' }),
-        ['<C-h>'] = cmp.mapping(function(fallback)
+        ['<C-j>'] = cmp.mapping(function(fallback)
           if luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
           else
