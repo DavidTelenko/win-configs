@@ -3,18 +3,65 @@ local wezterm = require("wezterm")
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
+local nf = wezterm.nerdfonts
 
 -- Styling
 config.color_scheme = "GruvboxDark"
 
+local transparent = "rgba(0%, 0%, 0%, 0%)"
+
 config.colors = {
 	background = "black",
+	tab_bar = {
+		background = transparent,
+	},
 }
 
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local background = transparent
+	local foreground = "#a89984"
+
+	local edge_background = background
+	-- ↘️ this is meant to be transparent but it behaves weird
+	local edge_foreground = "#000000"
+
+	if tab.is_active then
+		background = "#98971a"
+		foreground = "#282828"
+		edge_foreground = background
+	elseif hover then
+		background = "#504f0d"
+		foreground = "#a89984"
+	end
+
+	local title = wezterm.truncate_right(tab.tab_index + 1, max_width - 2)
+
+	return {
+		{ Background = { Color = edge_background } },
+		{ Foreground = { Color = edge_foreground } },
+		{ Text = nf.ple_left_half_circle_thick },
+		{ Background = { Color = background } },
+		{ Foreground = { Color = foreground } },
+		{ Text = title },
+		{ Background = { Color = edge_background } },
+		{ Foreground = { Color = edge_foreground } },
+		{ Text = nf.ple_right_half_circle_thick },
+	}
+end)
+
+config.window_padding = {
+	left = 16,
+	right = 8,
+	top = 0,
+	bottom = 0,
+}
+
+-- config.enable_scroll_bar = true
 config.automatically_reload_config = true
+config.show_new_tab_button_in_tab_bar = false
 config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
-config.enable_tab_bar = false
+config.tab_bar_at_bottom = false
+config.enable_tab_bar = true
 config.font = wezterm.font("RobotoMono Nerd Font Mono")
 config.font_size = 16
 
@@ -34,7 +81,7 @@ config.window_background_gradient = {
 	interpolation = "Basis",
 	-- "Rgb", "LinearRgb", "Hsv" and "Oklab" are supported.
 	blend = "Rgb",
-	noise = 72,
+	noise = 30,
 }
 
 -- Keymaps
