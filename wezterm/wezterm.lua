@@ -118,12 +118,12 @@ config.keys = {
 		action = wezterm.action.ShowTabNavigator,
 	},
 	{
-		key = 'Backspace',
-		mods = 'CTRL',
-		action = wezterm.action.SendKey {
-			key = 'w',
-			mods = 'CTRL',
-		},
+		key = "Backspace",
+		mods = "CTRL",
+		action = wezterm.action.SendKey({
+			key = "w",
+			mods = "CTRL",
+		}),
 	},
 }
 
