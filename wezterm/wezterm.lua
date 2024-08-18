@@ -50,10 +50,10 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 end)
 
 config.window_padding = {
-	left = 16,
-	right = 8,
-	top = 0,
-	bottom = 0,
+	left = "1%",
+	right = "1%",
+	top = "0.5%",
+	bottom = "0.5%",
 }
 
 -- config.enable_scroll_bar = true
