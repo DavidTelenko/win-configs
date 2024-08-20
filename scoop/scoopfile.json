@@ -132,6 +132,10 @@
       "Source": "extras"
     },
     {
+      "Name": "mupdf",
+      "Source": "extras"
+    },
+    {
       "Name": "neovim",
       "Source": "main"
     },
