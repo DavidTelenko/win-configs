@@ -52,7 +52,27 @@ def impl [f, ...rest] {
             volume_unmute: {
                 powershell_run $"(load_win_volume) [audio]::Mute = $false"
             }
-        }} else if $in == 'linux' {{
+        }} else if $in == 'unix' {{
+            hibernate: {
+              systemctl hibernate
+            }
+            sleep: {
+              systemctl suspend
+            }
+            restart: {
+              systemctl reboot
+            }
+            bios: {
+              systemctl reboot --firmware-setup
+            }
+            shutdown: {
+              systemctl poweroff
+            }
+            volume_set: { |val, pid|
+            }
+            volume_mute: {
+              amixer set Master toggle
+            }
         }} else {{
         }}
     )
