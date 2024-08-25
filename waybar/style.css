@@ -22,16 +22,19 @@
 #backlight,
 #custom-media {
     border-radius: 16px;
-    margin: 2px 4px 2px 4px;
     padding: 2px 8px 2px 8px;
-    /* background: alpha(@fg, 0.1); */
+    margin: 2px 4px 2px 4px;
     background: @bg;
     color: @fg;
+    /* overlay design (transparent version)*/
+    /* background: alpha(@fg, 0.1); */
 }
 
 window#waybar {
-    /* background: rgba(0, 0, 0, 0.8); */
     background: #000000;
+    /* overlay design (transparent version)*/
+    /* border-radius: 16px; */
+    /* background: rgba(0, 0, 0, 0.8); */
 }
 
 tooltip {
@@ -154,6 +157,6 @@ tooltip {
 
 #window {
     color: @fg2;
-    background: rgba(0, 0, 0, 0)
+    background: rgba(0, 0, 0, 0);
 }
 
