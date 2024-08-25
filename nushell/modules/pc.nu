@@ -77,7 +77,6 @@ def impl [f, ...rest] {
         }}
     )
 
-    
     try {
         do ($platform | get $f) ...$rest 
     } catch {

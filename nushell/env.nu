@@ -110,6 +110,7 @@ if $nu.os-info.family != "windows" {
         | prepend $'($env.HOME)/.local/bin'
         | prepend $'($env.HOME)/.bun/bin'
         | prepend $'($env.HOME)/.cargo/bin'
+        | prepend $'($env.HOME)/go/bin'
         | prepend $'($env.HOME)/.spicetify'
         | uniq
     )
