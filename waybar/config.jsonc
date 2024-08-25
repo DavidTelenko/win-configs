@@ -1,9 +1,9 @@
 {
+    // overlay design
+    // "mode": "overlay",
+    // "margin": "4px",
     "layer": "top",
     "position": "top", // top|bottom|left|right
-    // "height": 20,
-    // "width": 1280,
-    // "spacing": 4,
     "reload_style_on_change": true,
 
     "modules-left": [
