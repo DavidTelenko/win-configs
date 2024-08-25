@@ -1,0 +1,159 @@
+@import "theme.css";
+
+* {
+    border: none;
+    font-family: "RobotoMono Nerd Font Propo, JetBrainsMono Nerd Font, monospace";
+    font-weight: bold;
+    font-size: 12px;
+    min-height: 0;
+}
+
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#temperature,
+#language,
+#keyboard-state,
+#tray,
+#workspaces,
+#backlight,
+#custom-media {
+    border-radius: 16px;
+    margin: 2px 4px 2px 4px;
+    padding: 2px 8px 2px 8px;
+    /* background: alpha(@fg, 0.1); */
+    background: @bg;
+    color: @fg;
+}
+
+window#waybar {
+    /* background: rgba(0, 0, 0, 0.8); */
+    background: #000000;
+}
+
+tooltip {
+    background: @bg;
+    color: @fg;
+    border-radius: 16px;
+}
+
+#workspaces {
+    padding: 2px;
+}
+
+#workspaces button {
+    color: @bg4;
+    border-radius: 16px;
+    padding: 2px 4px 2px 4px;
+}
+
+#workspaces button.active {
+    color: @fg;
+    background: @bg4;
+}
+
+#workspaces button.focused {
+    color: @green;
+    background: @bg;
+}
+
+#workspaces button.urgent {
+    color: @red;
+    background: @bg;
+}
+
+#workspaces button:hover {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+
+    background: @bg2;
+    border: none;
+    color: @fg;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#tray {
+}
+
+#window {
+}
+
+#clock {
+    color: @fg2;
+}
+
+#network {
+    color: @aqua;
+}
+
+#network.disabled {
+    color: @aqua-dim;
+}
+
+#network.disconnected {
+    color: @orange;
+}
+
+#bluetooth {
+    color: @blue;
+} 
+
+#pulseaudio {
+    color: @purple;
+}
+
+#pulseaudio.muted {
+    color: @orange-dim;
+}
+
+#temperature {
+    color: @yellow;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#battery.good {
+    color: @green;
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#language {
+    color: @fg2;
+}
+
+#custom-media {
+    color: @fg2;
+    background: rgba(0, 0, 0, 0);
+}
+
+#custom-media.paused {
+    color: @bg4;
+    background: rgba(0, 0, 0, 0);
+}
+
+#custom-media:hover {
+    background: @bg;
+}
+
+#window {
+    color: @fg2;
+    background: rgba(0, 0, 0, 0)
+}
+
