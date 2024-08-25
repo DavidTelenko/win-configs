@@ -8,4 +8,7 @@ full_metadata=$(playerctl metadata -f "$full_metadata_fmt")
 status_upper="$(playerctl status)"
 status="${status_upper,,}"
 
-echo {\"text\": \""$metadata"\", \"alt\": \""$status"\", \"tooltip\": "\"$full_metadata\"", "\"class"\": "\"$status"\"}
+metadata_esc=$(echo "$metadata" | sed 's/"/\\"/g')
+full_metadata_esc=$(echo "$full_metadata" | sed 's/"/\\"/g')
+
+echo {\"text\": \""$metadata_esc"\", \"alt\": \""$status"\", \"tooltip\": "\"$full_metadata_esc\"", "\"class"\": "\"$status"\"}
