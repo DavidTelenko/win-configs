@@ -31,7 +31,7 @@
 
     "clock": {
         "interval": 1,
-        "format": "{:%r}",
+        "format": " {:%r}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%d/%m/%Y}"
     },
@@ -54,15 +54,15 @@
 
     "battery": {
         "states": {
-            "good": 95,
+            "good": 100,
             "warning": 30,
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "on-click": ""
     },
 
@@ -72,11 +72,11 @@
 
     "network": {
         "format-wifi": " {signalStrength}%",
-        "format-ethernet": " {ipaddr}/{cidr}",
-        "tooltip-format": " {ifname} via {gwaddr}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "⚠ Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-ethernet": "󰀃 {ipaddr}/{cidr}",
+        "tooltip-format": "󰀃 {essid}: {ifname} via {gwaddr}",
+        "format-linked": "󰀃 {ifname} (No IP)",
+        "format-disconnected": "󰣽",
+        "on-click": ""
     },
 
     "pulseaudio": {
@@ -125,7 +125,8 @@
         "max-length": 40,
         "on-click": "playerctl play-pause",
         "smooth-scrolling-threshold": 10,
-        "exec": "$HOME/.config/waybar/scripts/media-info.sh"
+        "exec": "$HOME/.config/waybar/scripts/media-info.sh get",
+        "exec-if": "$HOME/.config/waybar/scripts/media-info.sh can"
     }
 }
 
