@@ -125,7 +125,8 @@ tooltip {
     color: @red;
 }
 
-#battery.good {
+#battery.good,
+#battery.full {
     color: @green;
 }
 
