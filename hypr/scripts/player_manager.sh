@@ -1,3 +1,5 @@
+#!/bin/bash
+
 state_file="$HOME/.config/hypr/scripts/data/player_state"
 
 select_source() {
