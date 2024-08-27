@@ -120,7 +120,8 @@
             "headset-muted": "󰋐",
             "car": "󰄋",
             "car": "󰸜",
-            "default": ["", "", ""]
+            "default": ["", "", ""],
+            "default-muted": ""
         },
         "on-click": "pavucontrol"
     },
