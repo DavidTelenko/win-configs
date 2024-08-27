@@ -18,8 +18,9 @@
     "modules-right": [
         "group/group-tray",
         "pulseaudio",
+        "backlight",
         "network",
-        "temperature",
+        // "temperature",
         "battery",
         "hyprland/language",
         "clock",
@@ -72,6 +73,12 @@
         "format-icons": ["", "", "", "", ""],
         "thermal-zone": 4,
         "tooltip": false
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"]
     },
 
     "battery": {
