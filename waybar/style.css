@@ -15,6 +15,7 @@
 #network,
 #bluetooth,
 #temperature,
+#backlight,
 #language,
 #keyboard-state,
 #tray,
@@ -157,6 +158,10 @@ tooltip {
     background: @red-dim;
     color: @fg;
   }
+}
+
+#backlight {
+    color: @yellow;
 }
 
 #temperature {
