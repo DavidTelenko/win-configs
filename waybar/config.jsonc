@@ -53,7 +53,7 @@
         "interval": 1,
         "format": "󰥔 {:%r}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%d/%m/%Y}"
+        "format-alt": " {:%d/%m/%Y}"
     },
 
     "cpu": {
@@ -165,16 +165,16 @@
         },
         "modules": [
             "custom/power", // First element is the "group leader" and won't ever be hidden
-            "custom/quit",
+            "custom/sleep",
             "custom/lock",
             "custom/reboot"
         ]
     },
 
-    "custom/quit": {
-        "format": "󰈆",
-        "tooltip-format": "Quit",
-        "on-click": "hyprctl dispatch exit"
+    "custom/sleep": {
+        "format": "󰤄",
+        "tooltip-format": "Sleep",
+        "on-click": "systemctl suspend"
     },
 
     "custom/lock": {
