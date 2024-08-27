@@ -24,7 +24,7 @@
 #custom-media,
 #custom-power,
 #custom-reboot,
-#custom-quit,
+#custom-sleep,
 #custom-lock,
 #custom-show-tray {
     border-radius: 1.35rem;
@@ -49,7 +49,7 @@
 }
 
 #custom-reboot,
-#custom-quit,
+#custom-sleep,
 #custom-lock,
 #custom-power {
     padding: 0.25rem 0.8rem;
@@ -63,7 +63,7 @@
     color: @blue;
 }
 
-#custom-quit {
+#custom-sleep {
     color: @green;
 }
 
