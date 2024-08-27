@@ -16,22 +16,41 @@
     ],
 
     "modules-right": [
+        "group/group-tray",
         "pulseaudio",
         "network",
         "temperature",
         "battery",
         "hyprland/language",
         "clock",
-        "tray"
+        "group/group-power"
     ],
+
+    "custom/show-tray" : {
+        "format": "",
+        "tooltip-format": "Tray"
+    },
 
     "tray": {
         "spacing": 10
     },
 
+    "group/group-tray": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "children-class": "not-show-tray",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/show-tray",
+            "tray"
+        ]
+    },
+
     "clock": {
         "interval": 1,
-        "format": " {:%r}",
+        "format": "󰥔 {:%r}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%d/%m/%Y}"
     },
@@ -45,11 +64,14 @@
         "format": " {}%"
     },
 
+    // this is not portable
     "temperature": {
         "critical-threshold": 70,
-        "format-critical": "{icon} {temperatureC}°C",
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", "!!!"]
+        "format-critical": "{icon} {temperatureC}󰔄",
+        "format": "{icon} {temperatureC}󰔄",
+        "format-icons": ["", "", "", "", ""],
+        "thermal-zone": 4,
+        "tooltip": false
     },
 
     "battery": {
@@ -63,11 +85,7 @@
         "format-plugged": "󰂄 {capacity}%",
         "format-alt": "{time} {icon}",
         "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "on-click": ""
-    },
-
-    "battery#bat2": {
-        "bat": "BAT2"
+        "interval": 10
     },
 
     "network": {
@@ -75,24 +93,26 @@
         "format-ethernet": "󰀃 {ipaddr}/{cidr}",
         "tooltip-format": "󰀃 {essid}: {ifname} via {gwaddr}",
         "format-linked": "󰀃 {ifname} (No IP)",
-        "format-disconnected": "󰣽",
-        "on-click": ""
+        "format-disconnected": "󰣽"
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "{icon}  {format_source}",
-        "format-muted": "{icon}  {format_source}",
-        "format-source": " {volume}%",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "{icon} {format_source}",
+        "format-source": "",
         "format-source-muted": "",
+        "tooltip-format": "{icon} {volume}% {format_source}",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
+            "headphone": "󰋋",
+            "headphone-muted": "󰟎",
+            "hands-free": "󰋎",
+            "hands-free-muted": "󰋐",
+            "headset": "󰋎",
+            "headset-muted": "󰋐",
+            "car": "󰄋",
+            "car": "󰸜",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
@@ -109,8 +129,7 @@
     },
 
     "hyprland/language": {
-        "format": " {short}",
-        "min-length" : 4
+        "format": " {short}"
     },
 
     "custom/media": {
@@ -127,6 +146,44 @@
         "smooth-scrolling-threshold": 10,
         "exec": "$HOME/.config/waybar/scripts/media-info.sh get",
         "exec-if": "$HOME/.config/waybar/scripts/media-info.sh can"
+    },
+
+    "group/group-power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "children-class": "not-power",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/power", // First element is the "group leader" and won't ever be hidden
+            "custom/quit",
+            "custom/lock",
+            "custom/reboot"
+        ]
+    },
+
+    "custom/quit": {
+        "format": "󰈆",
+        "tooltip-format": "Quit",
+        "on-click": "hyprctl dispatch exit"
+    },
+
+    "custom/lock": {
+        "format": "󰌾",
+        "tooltip-format": "Lock",
+        "on-click": "kill -9 -1"
+    },
+
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip-format": "Reboot",
+        "on-click": "reboot"
+    },
+
+    "custom/power": {
+        "format": "",
+        "tooltip-format": "Shutdown",
+        "on-click": "shutdown now"
     }
 }
-
