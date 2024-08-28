@@ -52,8 +52,8 @@ shot() {
 	__shot $__shot_screen
 }
 
-__record_area='wf-recorder -g "$(slurp)" -f $video_file'
-__record_screen='wf-recorder -f $video_file'
+__record_area='wf-recorder -c libx264 -C aac -x yuv420p -g "$(slurp)" -f $video_file'
+__record_screen='wf-recorder -c libx264 -C aac -x yuv420p -f $video_file'
 
 # waybar specific
 __update_bar () {
