@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Requires: acpi
+
 charging=$(acpi -b | grep -c "Charging")
 battery_level=$(acpi -b | cut -d',' -f2 | tr -d ' ',\%)
 warning_level=15

@@ -1,51 +1,109 @@
 #!/bin/bash
 
-# Screenshot
+# Requires: grim, slurp, wf-recorder
+
 time=`date +%Y-%m-%d-%H-%M-%S`
-geometry=`xrandr | grep 'current' | head -n1 | cut -d',' -f2 | tr -d '[:blank:],current'`
-dir="`xdg-user-dir PICTURES`/Screenshots"
-file="Screenshot_${time}_${geometry}.png"
+rec_status_file="/tmp/recording.status"
 
-if [[ ! -d "$dir" ]]; then
-	mkdir -p "$dir"
-fi
-
-# notify and view screenshot
-notify_view() {
-	if [[ -e "$dir/$file" ]]; then
-		dunstify -u low --replace=699 "$file saved."
+# Safely make a directory and cd into it
+__mkdir_cd () {
+	if [[ ! -d $1 ]]; then
+		mkdir -p $1
 	fi
+	cd $1
 }
 
-# Copy screenshot to clipboard
-copy_shot () {
-	cat $dir/$file | wl-copy
-}
-
-shot() {
-	cd ${dir} && grim -t png $file
-	copy_shot
-	notify_view
-}
-
-# countdown
-countdown () {
+# Countdown with a message
+__countdown () {
 	for sec in `seq $1 -1 1`; do
-		dunstify -t 1000 --replace=699 "Taking shot in: $sec"
+		notify_send -t 1000 -r 699 "Taking shot in: $sec"
 		sleep 1
 	done
 }
 
-shot_win () {
-	cd ${dir} && grim -t png -o `xdotool getactivewindow` $file
-	copy_shot
-	notify_view
+__shot_area='grim -t png -g "$(slurp)" $shot_file'
+__shot_screen='grim -t png $shot_file'
+__shot_win='grim -t png -o `xdotool getactivewindow` $shot_file'
+
+__shot() {
+	local shot_dir="`xdg-user-dir PICTURES`/Screenshots"
+	local shot_file="Screenshot_${time}.png"
+
+	__mkdir_cd $shot_dir
+
+	eval $@
+
+	cat $shot_file | wl-copy
+
+	if [[ -e $shot_file ]]; then
+		notify-send -u low -r 699 "   $shot_file saved."
+	fi
 }
 
-shot_area () {
-	cd ${dir} && grim -t png -g "$(slurp)" $file
-	copy_shot
-	notify_view
+shot-win() {
+	__shot $__shot_win
+}
+
+shot-area() {
+	__shot $__shot_area
+}
+
+shot() {
+	__shot $__shot_screen
+}
+
+__record_area='wf-recorder -g "$(slurp)" -f $video_file'
+__record_screen='wf-recorder -f $video_file'
+
+# waybar specific
+__update_bar () {
+	local $SIGNAL=1
+	pkill -RTMIN+1 waybar
+}
+
+__record_detail () {
+	if [[ -s $rec_status_file ]]; then
+		local video_file=$(awk 'NR==1' $rec_status_file)
+
+		killall wf-recorder
+
+		printf "" > $rec_status_file
+		notify-send -r 699 "   $video_file saved."
+
+		__update_bar
+		exit
+	fi
+
+	local video_dir="`xdg-user-dir VIDEOS`/Captures"
+	local video_file="Capture_${time}.mp4"
+	local log_file="$video_dir/$video_file.log"
+
+	__mkdir_cd $video_dir
+
+	notify-send -t 1000 -r 699 " Started"
+	sleep 1.1
+
+	eval $@ 1>$log_file 2>&1 &
+	printf "%s\n%s" $video_file $log_file > $rec_status_file
+
+	__update_bar
+}
+
+record () {
+	__record_detail $__record_screen
+}
+
+record-area () {
+	__record_detail $__record_area
+}
+
+# waybar specific
+record-status () {
+	if [[ -s $rec_status_file ]]; then
+		echo '{"class": "recording"}'
+	else
+		echo '{"class": "idle"}'
+	fi
 }
 
 "$@"

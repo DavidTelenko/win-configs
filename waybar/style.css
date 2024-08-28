@@ -20,6 +20,7 @@
 #tray,
 #workspaces,
 #backlight,
+#custom-record,
 #custom-media,
 #custom-power,
 #custom-reboot,
@@ -171,8 +172,11 @@ tooltip {
     color: @green;
 }
 
-#battery.critical:not(.charging),
-#temperature.critical {
+#battery:not(.charging) {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
     color: @red;
     animation-name: blink;
     animation-duration: 1s;
@@ -183,6 +187,19 @@ tooltip {
 
 #language {
     color: @blue;
+}
+
+#custom-record.recording {
+    color: @red;
+    padding: 0.25rem 0.8rem;
+}
+
+#custom-record.idle {
+    background: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    font-size: 0px;
+    margin: 0rem;
+    padding: 0rem;
 }
 
 #custom-media {
