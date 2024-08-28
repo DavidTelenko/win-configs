@@ -1,11 +1,11 @@
 @import "theme.css";
 
 * {
-  border: none;
-  font-family: "RobotoMono Nerd Font Propo, JetBrainsMono Nerd Font, monospace";
-  font-weight: bold;
-  font-size: 12px;
-  min-height: 0;
+    border: none;
+    font-family: "RobotoMono Nerd Font Propo, JetBrainsMono Nerd Font, monospace";
+    font-weight: bold;
+    font-size: 12px;
+    min-height: 0;
 }
 
 #window,
@@ -27,130 +27,130 @@
 #custom-sleep,
 #custom-lock,
 #custom-show-tray {
-  border-radius: 1.35rem;
-  padding: 0.25rem 0.5rem;
-  margin: 0.25rem;
-  background: @bg;
-  color: @fg;
-  /* overlay design (transparent version)*/
-  /* background: alpha(@fg, 0.12); */
-  /* 3d effect */
-  /* background-image: linear-gradient(180deg, @bg1, @bg); */
+    border-radius: 1.35rem;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    background: @bg;
+    color: @fg;
+    /* overlay design (transparent version)*/
+    /* background: alpha(@fg, 0.12); */
+    /* 3d effect */
+    /* background-image: linear-gradient(180deg, @bg1, @bg); */
 }
 
 #custom-show-tray {
-  color: @fg2;
-  background: rgba(0, 0, 0, 0);
+    color: @fg2;
+    background: rgba(0, 0, 0, 0);
 }
 
 #tray {
-  margin: 0.25rem 0rem;
-  background: rgba(0, 0, 0, 0);
+    margin: 0.25rem 0rem;
+    background: rgba(0, 0, 0, 0);
 }
 
 #custom-reboot,
 #custom-sleep,
 #custom-lock,
 #custom-power {
-  padding: 0.25rem 0.8rem;
+    padding: 0.25rem 0.8rem;
 }
 
 #custom-power {
-  color: @orange;
+    color: @orange;
 }
 
 #custom-reboot {
-  color: @blue;
+    color: @blue;
 }
 
 #custom-sleep {
-  color: @green;
+    color: @green;
 }
 
 #custom-lock {
-  color: @purple;
+    color: @purple;
 }
 
 window#waybar {
-  background: #000000;
-  /* overlay design (transparent version)*/
-  /* border-radius: 1.35rem; */
-  /* background: rgba(0, 0, 0, 0.8); */
+    background: #000000;
+    /* overlay design (transparent version)*/
+    /* border-radius: 1.35rem; */
+    /* background: rgba(0, 0, 0, 0.8); */
 }
 
 tooltip {
-  border-radius: 1.35rem;
-  background: @bg;
-  color: @fg;
+    border-radius: 1.35rem;
+    background: @bg;
+    color: @fg;
 }
 
 #workspaces {
-  padding: 0.15rem;
+    padding: 0.15rem;
 }
 
 #workspaces button {
-  color: @bg4;
-  border-radius: 1.35rem;
-  padding: 0.15rem 0.25rem;
+    color: @bg4;
+    border-radius: 1.35rem;
+    padding: 0.15rem 0.25rem;
 }
 
 #workspaces button.active {
-  color: @fg;
-  background: @bg4;
+    color: @fg;
+    background: @bg4;
 }
 
 #workspaces button.focused {
-  color: @green;
-  background: @bg;
+    color: @green;
+    background: @bg;
 }
 
 #workspaces button.urgent {
-  color: @red;
-  background: @bg;
+    color: @red;
+    background: @bg;
 }
 
 #workspaces button:hover {
-  box-shadow: none;
-  text-shadow: none;
-  background: none;
-  transition: none;
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
 
-  background: @bg2;
-  border: none;
-  color: @fg;
+    background: @bg2;
+    border: none;
+    color: @fg;
 }
 
 #temperature.critical {
-  color: @red;
+    color: @red;
 }
 
 #clock {
-  color: @fg2;
+    color: @fg2;
 }
 
 #network {
-  color: @aqua;
+    color: @aqua;
 }
 
 #network.disabled {
-  color: @aqua-dim;
+    color: @aqua-dim;
 }
 
 #network.disconnected {
-  color: @orange;
-  padding: 0.25rem 0.8rem;
+    color: @orange;
+    padding: 0.25rem 0.8rem;
 }
 
 #bluetooth {
-  color: @blue;
-}
+    color: @blue;
+} 
 
 #pulseaudio {
-  color: @purple;
+    color: @purple;
 }
 
 #pulseaudio.muted {
-  color: @orange-dim;
+    color: @orange-dim;
 }
 
 @keyframes blink {
@@ -161,62 +161,63 @@ tooltip {
 }
 
 #backlight {
-  color: @yellow;
+    color: @yellow;
 }
 
 #temperature {
-  color: @yellow;
+    color: @yellow;
 }
 
 #battery {
-  color: @green;
+    color: @green;
 }
 
 #battery:not(.charging) {
-  color: @yellow;
+    color: @yellow;
 }
 
 #battery.critical:not(.charging) {
-  color: @red;
-  animation-name: blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+    color: @red;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #language {
-  color: @blue;
+    color: @blue;
 }
 
 #custom-record.recording {
-  color: @red;
-  padding: 0.25rem 0.8rem;
+    color: @red;
+    padding: 0.25rem 0.8rem;
 }
 
 #custom-record.idle {
-  background: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0);
-  font-size: 0px;
-  margin: 0rem;
-  padding: 0rem;
+    background: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    font-size: 0px;
+    margin: 0rem;
+    padding: 0rem;
 }
 
 #custom-media {
-  color: @fg2;
-  background: rgba(0, 0, 0, 0);
+    color: @fg2;
+    background: rgba(0, 0, 0, 0);
 }
 
 #custom-media.paused {
-  color: @bg4;
-  background: rgba(0, 0, 0, 0);
+    color: @bg4;
+    background: rgba(0, 0, 0, 0);
 }
 
 #custom-media:hover {
-  background: @bg;
+    background: @bg;
 }
 
 #window {
-  color: @fg2;
-  background: rgba(0, 0, 0, 0);
+    color: @fg2;
+    background: rgba(0, 0, 0, 0);
 }
+
