@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Requires: playerctl, ~/.config/hypr/scripts/player_manager.sh
+
 get() {
   player=$(~/.config/hypr/scripts/player_manager.sh get)
 
@@ -24,4 +28,4 @@ can() {
   return 0
 }
 
-f_call=$1; shift; $f_call "$@"
+"$@"

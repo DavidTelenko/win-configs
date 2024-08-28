@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Requires: playerctl
+
 state_file="$HOME/.config/hypr/scripts/data/player_state"
 
 select_source() {
@@ -28,4 +30,4 @@ get() {
   echo ${players[$index]}
 }
 
-f_call=$1; shift; $f_call "$@"
+"$@"
