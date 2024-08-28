@@ -70,7 +70,6 @@ exec = "$HOME/.config/hypr/scripts/screenshot.sh record-status"
 format = ""
 interval = "once"
 on-click = "$HOME/.config/hypr/scripts/screenshot.sh record"
-on-click-right = "$HOME/.config/hypr/scripts/screenshot.sh record-area"
 return-type = "json"
 signal = 1
 tooltip = false
