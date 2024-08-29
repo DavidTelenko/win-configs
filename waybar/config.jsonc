@@ -67,6 +67,7 @@
       "playing": ""
     },
     "interval": 1,
+    "signal": 2,
     "max-length": 40,
     "on-click": "playerctl play-pause",
     "return-type": "json",
@@ -87,7 +88,7 @@
   "custom/record":
   {
     "exec": "$HOME/.config/hypr/scripts/screenshot.sh record-status",
-    "format": "",
+    "format": "󰑊",
     "interval": "once",
     "on-click": "$HOME/.config/hypr/scripts/screenshot.sh record",
     "return-type": "json",

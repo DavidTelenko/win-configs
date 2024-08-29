@@ -2,27 +2,47 @@
 
 # Requires: playerctl, ~/.config/hypr/scripts/player_manager.sh
 
+__esc() {
+  sed 's/"/\\"/g'
+}
+
 get() {
-  player=$(~/.config/hypr/scripts/player_manager.sh get)
+  local player=$(~/.config/hypr/scripts/player_manager.sh get)
 
-  full_metadata_fmt="{{ title }}\n{{ artist }}\n{{ album }}"
-  progress_fmt="{{ duration(position) }} / {{ duration(mpris:length) }}"
-  song_info_fmt="{{ artist }} - {{ title }}"
+  local status_upper="$(playerctl -p $player status)"
+  local status="${status_upper,,}"
 
-  metadata=$(playerctl -p $player metadata -f "$progress_fmt $song_info_fmt")
-  full_metadata=$(playerctl -p $player metadata -f "$full_metadata_fmt")
+  if [[ $status == stopped ]]; then
+    echo "{ class="\"class\": \"stopped"\" }"
+    return
+  fi
 
-  status_upper="$(playerctl -p $player status)"
-  status="${status_upper,,}"
+  local artist=$(echo $(playerctl -p $player metadata -f "{{ artist }}") | __esc)
+  local title=$(echo $(playerctl -p $player metadata -f "{{ title }}") | __esc)
+  local artist_title=$(echo $(playerctl -p $player metadata -f "{{ artist }} - {{ title }}") | __esc)
+  local album=$(echo $(playerctl -p $player metadata -f "{{ album }}") | __esc)
 
-  metadata_esc=$(echo "$metadata" | sed 's/"/\\"/g')
-  full_metadata_esc=$(echo "$full_metadata" | sed 's/"/\\"/g')
+  if [[ $status == playing && $1 != simple ]]; then
+    local current_position=$(playerctl metadata -f "{{ position }}")
+    local total_length=$(playerctl metadata -f "{{ mpris:length }}")
 
-  echo {\"text\": \""$metadata_esc"\", \"alt\": \""$status"\", \"tooltip\": "\"$full_metadata_esc\"", "\"class"\": "\"$status"\"}
+    local progress=$(echo $current_position $total_length \
+      | awk '{printf "%f", $1 / ($2 + 1) * 10}')
+    progress=${progress%%.*}
+
+    local class="\"class\": \"$status-$progress\""
+  else
+    local class="\"class\": \"$status"\"
+  fi
+
+  echo {\"text\": \"$artist_title\", \
+        \"alt\": \"$status\", \
+        \"tooltip\": "\"$title\n$artist\n$album\"", \
+        $class}
 }
 
 can() {
-  if [ $(playerctl status) == Stopped ]; then
+  if [[ $(playerctl status) == Stopped ]]; then
     return 1
   fi
   return 0

@@ -97,6 +97,8 @@ tooltip {
 #workspaces button.active {
     color: @fg;
     background: @bg4;
+    transition-property: background;
+    transition-duration: 600ms;
 }
 
 #workspaces button.focused {
@@ -202,18 +204,70 @@ tooltip {
     padding: 0rem;
 }
 
+@define-color start @orange;
+@define-color end   @yellow;
+
 #custom-media {
-    color: @fg2;
+    color: @bg;
     background: rgba(0, 0, 0, 0);
+    transition-property: all;
+    transition-duration: 600ms;
+}
+
+#custom-media:hover {
+    color: @fg;
+}
+
+#custom-media.playing {
+    color: @fg2;
 }
 
 #custom-media.paused {
     color: @bg4;
-    background: rgba(0, 0, 0, 0);
 }
 
-#custom-media:hover {
-    background: @bg;
+#custom-media.stopped {
+    color: rgba(0, 0, 0, 0);
+}
+
+#custom-media.playing-9 {
+    background-image: linear-gradient(90deg, @start 70%, @end 100%);
+}
+
+#custom-media.playing-8 {
+    background-image: linear-gradient(90deg, @start 60%, @end 90%);
+}
+
+#custom-media.playing-7 {
+    background-image: linear-gradient(90deg, @start 50%, @end 80%);
+}
+
+#custom-media.playing-6 {
+    background-image: linear-gradient(90deg, @start 40%, @end 70%);
+}
+
+#custom-media.playing-5 {
+    background-image: linear-gradient(90deg, @start 30%, @end 60%);
+}
+
+#custom-media.playing-4 {
+    background-image: linear-gradient(90deg, @start 20%, @end 50%);
+}
+
+#custom-media.playing-3 {
+    background-image: linear-gradient(90deg, @start 10%, @end 40%);
+}
+
+#custom-media.playing-2 {
+    background-image: linear-gradient(90deg, @start 0%, @end 30%);
+}
+
+#custom-media.playing-1 {
+    background-image: linear-gradient(90deg, @start 0%, @end 20%);
+}
+
+#custom-media.playing-0 {
+    background-image: linear-gradient(90deg, @start 0%, @end 10%);
 }
 
 #window {
