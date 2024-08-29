@@ -4,17 +4,21 @@
 
 state_file="$HOME/.config/hypr/scripts/data/player_state"
 
-select_source() {
+if [[ ! -s $state_file ]]; then
+  0 > $state_file
+fi
+
+__select_source() {
   readarray -t players < <(playerctl -l)
   echo $(($1 % ${#players[@]})) > $state_file
 }
 
 next() {
-  select_source $(($(cat $state_file) + 1))
+  __select_source $(($(cat $state_file) + 1))
 }
 
 prev() {
-  select_source $(($(cat $state_file) - 1))
+  __select_source $(($(cat $state_file) - 1))
 }
 
 get() {
