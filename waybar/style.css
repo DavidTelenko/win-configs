@@ -38,6 +38,19 @@
     /* background-image: linear-gradient(180deg, @bg1, @bg); */
 }
 
+window#waybar {
+    /* background: #000000; */
+    /* overlay design (transparent version)*/
+    /* border-radius: 1.35rem; */
+    background: rgba(0, 0, 0, 0.8);
+}
+
+tooltip {
+    border-radius: 1.35rem;
+    background: @bg;
+    color: @fg;
+}
+
 #custom-show-tray {
     color: @fg2;
     background: rgba(0, 0, 0, 0);
@@ -69,19 +82,6 @@
 
 #custom-lock {
     color: @purple;
-}
-
-window#waybar {
-    background: #000000;
-    /* overlay design (transparent version)*/
-    /* border-radius: 1.35rem; */
-    /* background: rgba(0, 0, 0, 0.8); */
-}
-
-tooltip {
-    border-radius: 1.35rem;
-    background: @bg;
-    color: @fg;
 }
 
 #workspaces {
@@ -215,7 +215,7 @@ tooltip {
 }
 
 #custom-media:hover {
-    color: @fg;
+    padding: 0.25rem 1rem;
 }
 
 #custom-media.playing {
