@@ -1,0 +1,6 @@
+bind -f library V vol -10%
+bind -f library v vol +10%
+bind -f library N player-prev
+bind -f library n player-next
+bind -f library p player-pause
+set show_remaining_time=false
