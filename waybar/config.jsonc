@@ -69,7 +69,7 @@
     "interval": 1,
     "signal": 2,
     "max-length": 40,
-    "on-click": "playerctl play-pause",
+    "on-click": "playerctl -p $($HOME/.config/hypr/scripts/player_manager.sh get) play-pause",
     "return-type": "json",
     "smooth-scrolling-threshold": 10
   },
