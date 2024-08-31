@@ -8,12 +8,12 @@
       "󰃞",
       "󰃟",
       "󰃠"
-    ]
+    ],
+    "tooltip": false
   },
   "battery":
   {
     "format": "{icon} {capacity}%",
-    "format-alt": "{time} {icon}",
     "format-charging": "󰂄 {capacity}%",
     "format-icons":
     [
@@ -39,10 +39,25 @@
   },
   "clock":
   {
-    "format": "󰥔 {:%r}",
-    "format-alt": " {:%d/%m/%Y}",
-    "interval": 1,
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "format": "{:%H:%M - %a %d}",
+    "interval": 60,
+    "tooltip-format": "{calendar}",
+    "on-click": "gnome-clocks",
+    "calendar":
+    {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format":
+      {
+        "months": "<span color='#fabd2f'><b>{}</b></span>",
+        "days": "<span color='#d3869b'><b>{}</b></span>",
+        "weeks": "",
+        "weekdays": "<span color='#8ec07c'><b>{}</b></span>",
+        "today": "<span color='#fb4934'><b>{}</b></span>"
+      }
+    }
   },
   "cpu":
   {
@@ -159,7 +174,7 @@
   },
   "modules-center":
   [
-    "hyprland/window"
+    "clock"
   ],
   "modules-left":
   [
@@ -175,7 +190,6 @@
     "network",
     "battery",
     "hyprland/language",
-    "clock",
     "group/group-power"
   ],
   "network":
@@ -213,7 +227,7 @@
     "format-source": " {volume}%",
     "format-source-muted": "",
     "on-click": "pavucontrol",
-    "tooltip-format": "{icon} {volume}% {format_source}"
+    "tooltip": false
   },
   "reload_style_on_change": true,
   "temperature":
