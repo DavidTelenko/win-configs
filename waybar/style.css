@@ -45,8 +45,9 @@ window#waybar {
     background: rgba(0, 0, 0, 0.8);
 }
 
+#tray menu,
 tooltip {
-    border-radius: 1.35rem;
+    border-radius: 1rem;
     background: @bg;
     color: @fg;
 }
@@ -128,6 +129,15 @@ tooltip {
 
 #clock {
     color: @fg2;
+    background: rgba(0, 0, 0, 0);
+    transition-property: all;
+    transition-duration: 600ms;
+}
+
+#clock:hover {
+    color: @fg2;
+    background: @bg;
+    padding: 0.25rem 1rem;
 }
 
 #network {
@@ -204,8 +214,8 @@ tooltip {
     padding: 0rem;
 }
 
-@define-color start @orange;
-@define-color end   @yellow;
+@define-color start @red;
+@define-color end   @blue;
 
 #custom-media {
     color: @bg;
