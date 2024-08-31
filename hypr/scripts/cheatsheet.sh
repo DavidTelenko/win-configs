@@ -46,7 +46,7 @@ notify-send -t 100000 -r 699 " 󰋗 Cheat Sheet $W$S/" \
  $(cmd $W F) - Fullscreen Window    $(cmd $W $R) - Launch Terminal
  $(cmd $W R) - Open App Launcher    $(cmd $W $S P) - Launch Color Picker
  $(cmd $W C) - Open Clipboard Menu  $(cmd $W $S W) - Close All Notifications
- $(cmd $W W) - Toggle Bar           $(cmd $W $S /) - Show Cheet Sheet
+ $(cmd $W W) - Toggle Bar           $(cmd $W $S /) - Show Cheat Sheet
  $(cmd $W "$n") - Select $n Workspace
  $(cmd $W $S "$n") - Move Window to $n Workspace
 
