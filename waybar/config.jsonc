@@ -45,7 +45,7 @@
     "on-click": "gnome-clocks",
     "calendar":
     {
-      "mode": "year",
+      "mode": "month",
       "mode-mon-col": 3,
       "weeks-pos": "right",
       "on-scroll": 1,
