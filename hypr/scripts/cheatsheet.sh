@@ -38,15 +38,24 @@ R="󰌑 "
 T="󰌒 "
 E="󱁐 "
 n="{$(green n)}"
+opened="$HOME/.config/hypr/scripts/data/cheatsheet_opened"
 
-notify-send -t 100000 -r 699 " 󰋗 Cheat Sheet $W$S/" \
+if [[ ! -z $(cat $opened) ]]; then
+  notify-send -t 1 -r 699 " " # just to close opened cheat sheet
+  echo "" > $opened
+  exit
+fi
+
+echo 1 > $opened
+
+notify-send -t 0 -r 699 " 󰋗 Cheat Sheet $W$S/" \
 """
  $(h  Manager)
  $(cmd $W X) - Close Window         $(cmd $W $T) - Open Windows List
  $(cmd $W F) - Fullscreen Window    $(cmd $W $R) - Launch Terminal
  $(cmd $W R) - Open App Launcher    $(cmd $W $S P) - Launch Color Picker
  $(cmd $W C) - Open Clipboard Menu  $(cmd $W $S W) - Close All Notifications
- $(cmd $W W) - Toggle Bar           $(cmd $W $S /) - Show Cheat Sheet
+ $(cmd $W W) - Toggle Bar           $(cmd $W $S /) - Toggle Cheat Sheet
  $(cmd $W "$n") - Select $n Workspace
  $(cmd $W $S "$n") - Move Window to $n Workspace
 
