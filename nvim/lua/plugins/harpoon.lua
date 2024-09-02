@@ -12,9 +12,9 @@ return {
 
     harpoon:setup()
 
-    require('which-key').register({ ['<leader>H'] = '[H]arpoon' }, {
-      mode = { 'n' },
-    })
+    require('which-key').add {
+      { "<leader>H", desc = "[H]arpoon" },
+    }
 
     for i = 1, 5 do
       vim.keymap.set('n', '<leader>' .. i, function()
