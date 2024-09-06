@@ -1,13 +1,14 @@
 [global]
-    font = Noto Sans 10
+    font = RobotoMono Nerd Font Propo 10
     word_wrap = yes
     markup = full
     follow = mouse
     offset = 4x4
     origin = top-right
 
-    width = (0, 500)
-    corner_radius = 16
+    width = (0, 800)
+    height = 900
+    corner_radius = 14
 
     timeout = 5
     show_age_threshold = 60
