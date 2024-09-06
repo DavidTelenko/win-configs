@@ -86,7 +86,7 @@ type = "prompt"
 newline = true
 
 [[blocks.segments]]
-type = "shell"
-style = "powerline"
+type = "text"
+style = "plain"
 foreground = "#83A598"
-template = "{{ if ne \"nu\" .Name }}${{ end }}"
+template = ">"
