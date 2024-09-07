@@ -60,10 +60,10 @@ notify-send -t 0 -r 777 " 󰋗 Cheat Sheet $W$S/" \
  $(cmd $W $S "$n") - Move Window to $n Workspace
 
  $(h 󰍹 System)
- $(cmd $W M) - Mute Volume   $(purple W $S M) - Mute Microphone
- $(cmd $W V) - Volume Up     $(purple W $S V) - Volume Down
- $(cmd $W I) - Mic Volume Up $(purple W $S I) - Mic Volume Down
- $(cmd $W B) - Brightness Up $(purple W $S B) - Brightness Down
+ $(cmd $W M) - Mute Volume   $(purple $W $S M) - Mute Microphone
+ $(cmd $W V) - Volume Up     $(purple $W $S V) - Volume Down
+ $(cmd $W I) - Mic Volume Up $(purple $W $S I) - Mic Volume Down
+ $(cmd $W B) - Brightness Up $(purple $W $S B) - Brightness Down
 
  $(h  Player)
  $(cmd $W P) - Play / Pause
