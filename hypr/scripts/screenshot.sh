@@ -16,7 +16,7 @@ __mkdir_cd () {
 # Countdown with a message
 __countdown () {
 	for sec in `seq $1 -1 1`; do
-		notify_send -t 1000 -r 699 "Taking shot in: $sec"
+		notify_send -t 1000 -r 777 "Taking shot in: $sec"
 		sleep 1
 	done
 }
@@ -36,7 +36,7 @@ __shot() {
 	cat $shot_file | wl-copy
 
 	if [[ -e $shot_file ]]; then
-		notify-send -u low -r 699 "   $shot_file saved."
+		notify-send -u low -r 777 "   $shot_file saved."
 	fi
 }
 
@@ -68,7 +68,7 @@ __record_detail () {
 		killall wf-recorder
 
 		printf "" > $rec_status_file
-		notify-send -r 699 "   $video_file saved."
+		notify-send -r 777 "   $video_file saved."
 
 		__update_bar
 		exit
@@ -80,7 +80,7 @@ __record_detail () {
 
 	__mkdir_cd $video_dir
 
-	notify-send -t 1000 -r 699 " Started"
+	notify-send -t 1000 -r 777 " Started"
 	sleep 1.1
 
 	eval $@ 1>$log_file 2>&1 &
