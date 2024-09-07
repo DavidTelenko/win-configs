@@ -7,7 +7,7 @@ __esc() {
 }
 
 get() {
-  local player=$(~/.config/hypr/scripts/player_manager.sh get)
+  local player=$($HOME/.config/hypr/scripts/player_manager.sh get)
 
   local status_upper="$(playerctl -p $player status)"
   local status="${status_upper,,}"
@@ -23,8 +23,8 @@ get() {
   local album=$(echo $(playerctl -p $player metadata -f "{{ album }}") | __esc)
 
   if [[ $status == playing && $1 != simple ]]; then
-    local current_position=$(playerctl metadata -f "{{ position }}")
-    local total_length=$(playerctl metadata -f "{{ mpris:length }}")
+    local current_position=$(playerctl -p $player metadata -f "{{ position }}")
+    local total_length=$(playerctl -p $player metadata -f "{{ mpris:length }}")
 
     local progress=$(echo $current_position $total_length \
       | awk '{printf "%f", $1 / ($2 + 1) * 10}')
