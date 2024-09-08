@@ -81,8 +81,8 @@ local ua_s = [[₴ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБ
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
   escape(ua_n)
-    .. ';'
-    .. escape(en_n),
+  .. ';'
+  .. escape(en_n),
   escape(ua_s) .. ';' .. escape(en_s),
 }, ',')
 
@@ -117,6 +117,12 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
     vim.keymap.set('n', 'h', '-', { buffer = true, remap = true })
     vim.keymap.set('n', 'a', '%', { buffer = true, remap = true })
   end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = vim.api.nvim_create_augroup('ClearPostSpaces', { clear = true }),
+  pattern = "*",
+  command = [[%s/\s\+$//e]],
 })
 
 -- disable some options in terminal mode
