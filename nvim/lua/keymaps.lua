@@ -48,6 +48,10 @@ vim.keymap.set('n', '<leader>T', vim.cmd.terminal, { desc = 'Open [T]erminal' })
 vim.keymap.set({ 'n', 'v' }, 'L', 'e')
 vim.keymap.set({ 'n', 'v' }, 'H', 'b')
 
+-- Jump to begin end of a tag
+vim.keymap.set({ 'n' }, ']t', 'vat<esc>', { desc = 'Jump to end of a tag' })
+vim.keymap.set({ 'n' }, '[t', 'vato<esc>', { desc = 'Jump to begining of a tag' })
+
 -- vim.keymap.set('n', '<tab>', ':E<cr>', { desc = 'Open Explorer' })
 
 -- vim: ts=2 sts=2 sw=2 et
