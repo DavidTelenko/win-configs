@@ -153,15 +153,37 @@ return {
 
       mason_lspconfig.setup_handlers {
         function(server_name)
-          if server_name == 'tsserver' then
-            server_name = 'ts_ls'
-          end
           require('lspconfig')[server_name].setup {
             capabilities = capabilities,
             on_attach = on_attach,
             settings = servers[server_name],
             filetypes = (servers[server_name] or {}).filetypes,
           }
+          if server_name == 'tsserver' then
+            -- server_name = 'ts_ls'
+            require('lspconfig')[server_name].setup {
+              capabilities = capabilities,
+              on_attach = on_attach,
+              settings = servers[server_name],
+              filetypes = (servers[server_name] or {}).filetypes,
+              commands = {
+                OrganizeImports = {
+                  function()
+                    local params = {
+                      command = "_typescript.organizeImports",
+                      arguments = { vim.api.nvim_buf_get_name(0) },
+                      title = ""
+                    }
+                    vim.lsp.buf.execute_command(params)
+                  end,
+                  description = "Organize Imports"
+                }
+              }
+            }
+            vim.keymap.set('n', '<leader>ci', '<cmd>OrganizeImports<cr>', {
+              desc = 'Organize Imports'
+            })
+          end
         end,
       }
     end,
