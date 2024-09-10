@@ -160,7 +160,7 @@ return {
             filetypes = (servers[server_name] or {}).filetypes,
           }
           if server_name == 'tsserver' then
-            -- server_name = 'ts_ls'
+            server_name = 'ts_ls'
             require('lspconfig')[server_name].setup {
               capabilities = capabilities,
               on_attach = on_attach,
@@ -180,9 +180,6 @@ return {
                 },
               },
             }
-            if server_name == 'tsserver' then
-              server_name = 'ts_ls'
-            end
             vim.keymap.set('n', '<leader>ci', '<cmd>OrganizeImports<cr>', {
               desc = 'Organize Imports',
             })
