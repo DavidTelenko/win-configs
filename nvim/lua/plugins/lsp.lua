@@ -170,18 +170,21 @@ return {
                 OrganizeImports = {
                   function()
                     local params = {
-                      command = "_typescript.organizeImports",
+                      command = '_typescript.organizeImports',
                       arguments = { vim.api.nvim_buf_get_name(0) },
-                      title = ""
+                      title = '',
                     }
                     vim.lsp.buf.execute_command(params)
                   end,
-                  description = "Organize Imports"
-                }
-              }
+                  description = 'Organize Imports',
+                },
+              },
             }
+            if server_name == 'tsserver' then
+              server_name = 'ts_ls'
+            end
             vim.keymap.set('n', '<leader>ci', '<cmd>OrganizeImports<cr>', {
-              desc = 'Organize Imports'
+              desc = 'Organize Imports',
             })
           end
         end,
