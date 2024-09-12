@@ -159,7 +159,7 @@ return {
             filetypes = (servers[server_name] or {}).filetypes,
           }
           if server_name == 'tsserver' then
-            -- server_name = 'ts_ls'
+            server_name = 'ts_ls'
             require('lspconfig')[server_name].setup {
               capabilities = capabilities,
               on_attach = on_attach,
@@ -169,18 +169,18 @@ return {
                 OrganizeImports = {
                   function()
                     local params = {
-                      command = "_typescript.organizeImports",
+                      command = '_typescript.organizeImports',
                       arguments = { vim.api.nvim_buf_get_name(0) },
-                      title = ""
+                      title = '',
                     }
                     vim.lsp.buf.execute_command(params)
                   end,
-                  description = "Organize Imports"
-                }
-              }
+                  description = 'Organize Imports',
+                },
+              },
             }
             vim.keymap.set('n', '<leader>ci', '<cmd>OrganizeImports<cr>', {
-              desc = 'Organize Imports'
+              desc = 'Organize Imports',
             })
           end
         end,
