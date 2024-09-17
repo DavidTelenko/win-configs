@@ -65,8 +65,14 @@ def transcribe-last-audio-message [] {
 }
 
 def translate [word: string] {
+    let home = if $nu.os-info.family == "windows" {
+        $env.HOMEPATH
+    } else {
+        $env.HOME
+    }
+
     open (
-        'D:\Documents\Utility\Dictionaries\eng-rus.txt'
+        $'($home)\Documents\Utility\Dictionaries\eng-rus.txt'
     ) | rg $word
 }
 
