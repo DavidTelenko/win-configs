@@ -152,7 +152,7 @@ return {
 
       mason_lspconfig.setup_handlers {
         function(server_name)
-          if server_name == 'tsserver' then
+          if server_name == 'ts_ls' then
             require('lspconfig')[server_name].setup {
               capabilities = capabilities,
               on_attach = on_attach,

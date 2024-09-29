@@ -82,3 +82,10 @@ alias todo = nvim D:\Documents\Markdowned\Todo
 alias mark = nvim D:\Documents\Markdowned
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
+
+const modules = ([$nushellDir, modules] | path join)
+const pc = [$modules, "pc.nu"] | path join
+use $pc
+
+alias pcs = pc sleep
+alias pcr = pc reboot
