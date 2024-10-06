@@ -31,12 +31,14 @@ __shot() {
 
 	__mkdir_cd $shot_dir
 
+	notify-send -t 1 -r 777 " " # close previous notification
+	sleep 0.1
 	eval $@
 
 	cat $shot_file | wl-copy
 
 	if [[ -e $shot_file ]]; then
-		notify-send -u low -r 777 "   $shot_file saved."
+		notify-send -u low -r 777 " $shot_file saved."
 	fi
 }
 
@@ -68,7 +70,7 @@ __record_detail () {
 		killall wf-recorder
 
 		printf "" > $rec_status_file
-		notify-send -r 777 "   $video_file saved."
+		notify-send -r 777 " $video_file saved."
 
 		__update_bar
 		exit
