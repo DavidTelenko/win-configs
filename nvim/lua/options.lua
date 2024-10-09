@@ -62,8 +62,11 @@ vim.o.smarttab = true
 vim.o.spell = true
 vim.o.spelllang = 'en'
 
-vim.o.wrap = false
+-- wrapping
+vim.o.wrap = true
+vim.o.linebreak = true
 
+-- netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_hide = 0
 vim.g.netrw_bufsettings = 'noma nomod rnu nowrap ro nobl'
