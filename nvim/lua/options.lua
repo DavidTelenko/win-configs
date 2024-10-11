@@ -119,6 +119,7 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
     vim.keymap.set('n', 'l', '<cr>', { buffer = true, remap = true })
     vim.keymap.set('n', 'h', '-', { buffer = true, remap = true })
     vim.keymap.set('n', 'a', '%', { buffer = true, remap = true })
+    vim.keymap.set('n', '<F1>', '<Esc>', { buffer = true, remap = true })
   end,
 })
 
