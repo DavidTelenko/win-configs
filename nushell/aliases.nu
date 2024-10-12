@@ -64,22 +64,28 @@ def transcribe-last-audio-message [] {
     ls D:\Downloads\ | sort-by modified -r | first | get name | qstt $in
 }
 
-def translate [word: string] {
-    let home = if $nu.os-info.family == "windows" {
-        $env.HOMEPATH
-    } else {
-        $env.HOME
-    }
+let home = if $nu.os-info.family == "windows" {
+    [$env.HOMEDRIVE, $env.HOMEPATH] | path join
+} else {
+    $env.HOME
+}
 
+def translate [word: string] {
     open (
-        $'($home)\Documents\Utility\Dictionaries\eng-rus.txt'
+        [$home, Documents, Utility, Dictionaries, eng-rus.txt] | path join
     ) | rg $word
 }
 
 alias tlam = transcribe-last-audio-message
 
-alias todo = nvim D:\Documents\Markdowned\Todo
-alias mark = nvim D:\Documents\Markdowned
+def todo [] {
+    ([$home, Documents, Markdowned, Todo] | path join) | nvim $in
+}
+
+def mark [] {
+    ([$home, Documents, Markdowned] | path join) | nvim $in
+}
+
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
 
