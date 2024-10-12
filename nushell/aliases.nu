@@ -2,7 +2,9 @@ const nushellDir = ($nu.config-path | path parse).parent
 const configDir = ($nushellDir | path parse).parent
 
 def grid-ls [] {
-    ls | sort-by type name -i | grid -c
+    ls
+    | sort-by type name -i
+    | grid -c
 }
 alias lsg = grid-ls
 
@@ -60,36 +62,47 @@ alias ghcs = gh copilot suggest
 
 alias "scoop search" = __scoop_search
 
-def transcribe-last-audio-message [] {
-    ls D:\Downloads\ | sort-by modified -r | first | get name | qstt $in
-}
-
 let home = if $nu.os-info.family == "windows" {
     [$env.HOMEDRIVE, $env.HOMEPATH] | path join
 } else {
     $env.HOME
 }
 
+def transcribe-last-audio-message [] {
+    [$home, Downloads]
+    | path join
+    | ls $in
+    | sort-by modified -r
+    | first
+    | get name
+    | qstt $in
+}
+
 def translate [word: string] {
-    open (
-        [$home, Documents, Utility, Dictionaries, eng-rus.txt] | path join
-    ) | rg $word
+    [$home, Documents, Utility, Dictionaries, eng-rus.txt]
+    | path join
+    | open $in
+    | rg $word
 }
 
 alias tlam = transcribe-last-audio-message
 
 def todo [] {
-    ([$home, Documents, Markdowned, Todo] | path join) | nvim $in
+    [$home, Documents, Markdowned, Todo]
+    | path join
+    | nvim $in
 }
 
 def mark [] {
-    ([$home, Documents, Markdowned] | path join) | nvim $in
+    [$home, Documents, Markdowned]
+    | path join
+    | nvim $in
 }
 
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
 
-const modules = ([$nushellDir, modules] | path join)
+const modules = [$nushellDir, modules] | path join
 const pc = [$modules, "pc.nu"] | path join
 use $pc
 
