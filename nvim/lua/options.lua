@@ -62,7 +62,6 @@ vim.o.smarttab = true
 vim.o.spell = true
 vim.o.spelllang = 'en'
 
--- wrapping
 vim.o.wrap = true
 vim.o.linebreak = true
 
@@ -84,8 +83,8 @@ local ua_s = [[₴ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБ
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
   escape(ua_n)
-  .. ';'
-  .. escape(en_n),
+    .. ';'
+    .. escape(en_n),
   escape(ua_s) .. ';' .. escape(en_s),
 }, ',')
 
@@ -123,9 +122,9 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   group = vim.api.nvim_create_augroup('ClearPostSpaces', { clear = true }),
-  pattern = "*",
+  pattern = '*',
   command = [[%s/\s\+$//e]],
 })
 
