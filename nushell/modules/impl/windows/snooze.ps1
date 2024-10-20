@@ -1,0 +1,1 @@
+(Add-Type -MemberDefinition "[DllImport(""user32.dll"")]`npublic static extern int PostMessage(int hWnd, int hMsg, int wParam, int lParam);" -Name "Win32SendMessage" -Namespace Win32Functions -PassThru)::PostMessage(0xffff, 0x0112, 0xF170, 2)
