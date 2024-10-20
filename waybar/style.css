@@ -1,11 +1,11 @@
 @import "theme.css";
 
 * {
-    border: none;
-    font-family: "RobotoMono Nerd Font Propo, JetBrainsMono Nerd Font, monospace";
-    font-weight: bold;
-    font-size: 12px;
-    min-height: 0;
+  border: none;
+  font-family: "RobotoMono Nerd Font Propo, JetBrainsMono Nerd Font, monospace";
+  font-weight: bold;
+  font-size: 12px;
+  min-height: 0;
 }
 
 #window,
@@ -27,142 +27,142 @@
 #custom-sleep,
 #custom-lock,
 #custom-show-tray {
-    border-radius: 1.35rem;
-    padding: 0.25rem 0.5rem;
-    margin: 0.25rem;
-    background: @bg;
-    color: @fg;
-    /* overlay design (transparent version)*/
-    /* background: alpha(@fg, 0.12); */
-    /* 3d effect */
-    /* background-image: linear-gradient(180deg, @bg1, @bg); */
+  border-radius: 1.35rem;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+  background: @bg;
+  color: @fg;
+  /* overlay design (transparent version)*/
+  /* background: alpha(@fg, 0.12); */
+  /* 3d effect */
+  /* background-image: linear-gradient(180deg, @bg1, @bg); */
 }
 
 window#waybar {
-    /* background: #000000; */
-    /* overlay design (transparent version)*/
-    /* border-radius: 1.35rem; */
-    background: rgba(0, 0, 0, 0.8);
+  /* background: #000000; */
+  /* overlay design (transparent version)*/
+  /* border-radius: 1.35rem; */
+  background: rgba(0, 0, 0, 0.8);
 }
 
 #tray menu,
 tooltip {
-    border-radius: 1rem;
-    background: @bg;
-    color: @fg;
+  border-radius: 1rem;
+  background: @bg;
+  color: @fg;
 }
 
 #custom-show-tray {
-    color: @fg2;
-    background: rgba(0, 0, 0, 0);
+  color: @fg2;
+  background: rgba(0, 0, 0, 0);
 }
 
 #tray {
-    margin: 0.25rem 0rem;
-    background: rgba(0, 0, 0, 0);
+  margin: 0.25rem 0rem;
+  background: rgba(0, 0, 0, 0);
 }
 
 #custom-reboot,
 #custom-sleep,
 #custom-lock,
 #custom-power {
-    padding: 0.25rem 0.8rem;
+  padding: 0.25rem 0.8rem;
 }
 
 #custom-power {
-    color: @orange;
+  color: @orange;
 }
 
 #custom-reboot {
-    color: @blue;
+  color: @blue;
 }
 
 #custom-sleep {
-    color: @green;
+  color: @green;
 }
 
 #custom-lock {
-    color: @purple;
+  color: @purple;
 }
 
 #workspaces {
-    padding: 0.15rem;
+  padding: 0.15rem;
 }
 
 #workspaces button {
-    color: @bg4;
-    border-radius: 1.35rem;
-    padding: 0.15rem 0.25rem;
+  color: @bg4;
+  border-radius: 1.35rem;
+  padding: 0.15rem 0.25rem;
 }
 
 #workspaces button.active {
-    color: @fg;
-    background: @bg4;
-    transition-property: background;
-    transition-duration: 600ms;
+  color: @fg;
+  background: @bg4;
+  transition-property: background;
+  transition-duration: 600ms;
 }
 
 #workspaces button.focused {
-    color: @green;
-    background: @bg;
+  color: @green;
+  background: @bg;
 }
 
 #workspaces button.urgent {
-    color: @red;
-    background: @bg;
+  color: @red;
+  background: @bg;
 }
 
 #workspaces button:hover {
-    box-shadow: none;
-    text-shadow: none;
-    background: none;
-    transition: none;
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
 
-    background: @bg2;
-    border: none;
-    color: @fg;
+  background: @bg2;
+  border: none;
+  color: @fg;
 }
 
 #temperature.critical {
-    color: @red;
+  color: @red;
 }
 
 #clock {
-    color: @fg2;
-    background: rgba(0, 0, 0, 0);
-    transition-property: all;
-    transition-duration: 600ms;
+  color: @fg2;
+  background: rgba(0, 0, 0, 0);
+  transition-property: all;
+  transition-duration: 600ms;
 }
 
 #clock:hover {
-    color: @fg2;
-    background: @bg;
-    padding: 0.25rem 1rem;
+  color: @fg2;
+  background: @bg;
+  padding: 0.25rem 1rem;
 }
 
 #network {
-    color: @aqua;
+  color: @aqua;
 }
 
 #network.disabled {
-    color: @aqua-dim;
+  color: @aqua-dim;
 }
 
 #network.disconnected {
-    color: @orange;
-    padding: 0.25rem 0.8rem;
+  color: @orange;
+  padding: 0.25rem 0.8rem;
 }
 
 #bluetooth {
-    color: @blue;
-} 
+  color: @blue;
+}
 
 #pulseaudio {
-    color: @purple;
+  color: @purple;
 }
 
 #pulseaudio.muted {
-    color: @orange-dim;
+  color: @orange-dim;
 }
 
 @keyframes blink {
@@ -173,115 +173,114 @@ tooltip {
 }
 
 #backlight {
-    color: @yellow;
+  color: @yellow;
 }
 
 #temperature {
-    color: @yellow;
+  color: @yellow;
 }
 
 #battery {
-    color: @green;
+  color: @green;
 }
 
 #battery:not(.charging) {
-    color: @yellow;
+  color: @yellow;
 }
 
 #battery.critical:not(.charging) {
-    color: @red;
-    animation-name: blink;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: @red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #language {
-    color: @blue;
+  color: @blue;
 }
 
 #custom-record.recording {
-    color: @red;
-    padding: 0.25rem 0.8rem;
+  color: @red;
+  padding: 0.25rem 0.8rem;
 }
 
 #custom-record.idle {
-    background: rgba(0, 0, 0, 0);
-    color: rgba(0, 0, 0, 0);
-    font-size: 0px;
-    margin: 0rem;
-    padding: 0rem;
+  background: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  font-size: 0px;
+  margin: 0rem;
+  padding: 0rem;
 }
 
 @define-color start @red;
 @define-color end   @blue;
 
 #custom-media {
-    color: @bg;
-    background: rgba(0, 0, 0, 0);
-    transition-property: all;
-    transition-duration: 600ms;
+  color: @bg;
+  background: rgba(0, 0, 0, 0);
+  transition-property: all;
+  transition-duration: 600ms;
 }
 
 #custom-media:hover {
-    padding: 0.25rem 1rem;
+  padding: 0.25rem 1rem;
 }
 
 #custom-media.playing {
-    color: @fg2;
+  color: @fg2;
 }
 
 #custom-media.paused {
-    color: @bg4;
+  color: @bg4;
 }
 
 #custom-media.stopped {
-    color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
 }
 
 #custom-media.playing-9 {
-    background-image: linear-gradient(90deg, @start 70%, @end 100%);
+  background-image: linear-gradient(90deg, @start 70%, @end 100%);
 }
 
 #custom-media.playing-8 {
-    background-image: linear-gradient(90deg, @start 60%, @end 90%);
+  background-image: linear-gradient(90deg, @start 60%, @end 90%);
 }
 
 #custom-media.playing-7 {
-    background-image: linear-gradient(90deg, @start 50%, @end 80%);
+  background-image: linear-gradient(90deg, @start 50%, @end 80%);
 }
 
 #custom-media.playing-6 {
-    background-image: linear-gradient(90deg, @start 40%, @end 70%);
+  background-image: linear-gradient(90deg, @start 40%, @end 70%);
 }
 
 #custom-media.playing-5 {
-    background-image: linear-gradient(90deg, @start 30%, @end 60%);
+  background-image: linear-gradient(90deg, @start 30%, @end 60%);
 }
 
 #custom-media.playing-4 {
-    background-image: linear-gradient(90deg, @start 20%, @end 50%);
+  background-image: linear-gradient(90deg, @start 20%, @end 50%);
 }
 
 #custom-media.playing-3 {
-    background-image: linear-gradient(90deg, @start 10%, @end 40%);
+  background-image: linear-gradient(90deg, @start 10%, @end 40%);
 }
 
 #custom-media.playing-2 {
-    background-image: linear-gradient(90deg, @start 0%, @end 30%);
+  background-image: linear-gradient(90deg, @start 0%, @end 30%);
 }
 
 #custom-media.playing-1 {
-    background-image: linear-gradient(90deg, @start 0%, @end 20%);
+  background-image: linear-gradient(90deg, @start 0%, @end 20%);
 }
 
 #custom-media.playing-0 {
-    background-image: linear-gradient(90deg, @start 0%, @end 10%);
+  background-image: linear-gradient(90deg, @start 0%, @end 10%);
 }
 
 #window {
-    color: @fg2;
-    background: rgba(0, 0, 0, 0);
+  color: @fg2;
+  background: rgba(0, 0, 0, 0);
 }
-
