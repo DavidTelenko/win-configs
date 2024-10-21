@@ -11,8 +11,8 @@ vim.o.hlsearch = false
 vim.wo.number = true
 vim.wo.relativenumber = true
 
--- Enable mouse mode
-vim.o.mouse = 'a'
+-- Disable mouse mode
+vim.o.mouse = ''
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -83,8 +83,8 @@ local ua_s = [[₴ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБ
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
   escape(ua_n)
-    .. ';'
-    .. escape(en_n),
+  .. ';'
+  .. escape(en_n),
   escape(ua_s) .. ';' .. escape(en_s),
 }, ',')
 
