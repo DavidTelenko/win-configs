@@ -64,6 +64,7 @@ vim.o.spelllang = 'en'
 
 vim.o.wrap = true
 vim.o.linebreak = true
+vim.o.foldmethod = 'indent'
 
 -- netrw
 vim.g.netrw_banner = 0
