@@ -105,6 +105,9 @@ export def shutdown [] { impl shutdown }
 # Turns off monitor(s)
 export def snooze [] { impl snooze }
 
+# Restars computer to bios
+export def bios [] { impl bios }
+
 # Sets volume to desired value
 export def "volume set" [
     value: float,
