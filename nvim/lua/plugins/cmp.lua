@@ -61,14 +61,14 @@ return {
             fallback()
             return
           end
-          if luasnip.expandable() then
-            luasnip.expand()
-          else
-            cmp.confirm {
-              select = true,
-              behavior = cmp.ConfirmBehavior.Replace,
-            }
-          end
+          -- if luasnip.expandable() then
+          --   luasnip.expand()
+          -- else
+          cmp.confirm {
+            select = true,
+            behavior = cmp.ConfirmBehavior.Replace,
+          }
+          -- end
         end),
         ['<C-k>'] = cmp.mapping(function(fallback)
           if luasnip.locally_jumpable(1) then
