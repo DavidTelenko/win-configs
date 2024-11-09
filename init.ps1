@@ -18,7 +18,8 @@ param (
     [Switch] $Ttyper = $false,
     [Switch] $Vencord = $false,
     [Switch] $Musikcube = $false,
-    [Switch] $Keymapper = $false
+    [Switch] $Keymapper = $false,
+    [Switch] $Kanata = $false
 )
 
 $Pwsh = $All -or $Pwsh
@@ -35,6 +36,7 @@ $Ttyper = $All -or $Ttyper
 $Vencord = $All -or $Vencord
 $Musikcube = $All -or $Musikcube
 $Keymapper = $All -or $Keymapper
+$Kanata = $All -or $Kanata
 
 $curr = pwd
 $scoop = "$env:userprofile/scoop/persist"
@@ -108,6 +110,9 @@ if ($Musikcube) {
 }
 if ($Keymapper) {
     Link -t $env:appdata/keymapper -e $curr/keymapper
+}
+if ($Kanata) {
+    Link -t $env:appdata/kanata -e $curr/kanata
 }
 
 if ($Winterm) {
