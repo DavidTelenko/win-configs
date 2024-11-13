@@ -5,6 +5,7 @@ return {
   },
   {
     'tpope/vim-rhubarb',
+    cmd = 'GBrowse',
   },
   {
     'sindrets/diffview.nvim',
