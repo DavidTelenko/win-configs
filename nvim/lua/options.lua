@@ -77,16 +77,16 @@ local function escape(str)
   return vim.fn.escape(str, escape_chars)
 end
 
-local en_n = [[`qwertyuiop[]asdfghjkl;'zxcvbnm]]
-local ua_n = [['йцукенгшщзхїфівапролджєячсмить]]
-local en_s = [[~QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
-local ua_s = [[₴ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
+local en_n = [[qwertyuiop[]asdfghjkl;'zxcvbnm]]
+local ua_n = [[йцукенгшщзхїфівапролджєячсмить]]
+local en_s = [[QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
+local ua_s = [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
 
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
   escape(ua_n)
-  .. ';'
-  .. escape(en_n),
+    .. ';'
+    .. escape(en_n),
   escape(ua_s) .. ';' .. escape(en_s),
 }, ',')
 
