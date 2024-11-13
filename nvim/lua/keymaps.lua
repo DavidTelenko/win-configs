@@ -56,7 +56,6 @@ vim.keymap.set({ 'n' }, '[t', 'vato<esc>', { desc = 'Jump to begining of a tag' 
 -- disable default control keymaps
 vim.keymap.set({ 'i' }, '<C-k>', '<NOP>', {})
 vim.keymap.set({ 'i' }, '<C-j>', '<NOP>', {})
-vim.keymap.set({ 'i' }, '<C-h>', '<NOP>', {})
 vim.keymap.set({ 'i' }, '<C-l>', '<NOP>', {})
 
 -- vim.keymap.set('n', '<tab>', ':E<cr>', { desc = 'Open Explorer' })
