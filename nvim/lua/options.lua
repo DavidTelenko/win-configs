@@ -140,8 +140,8 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
--- Returning Explore command in nvim 0.10
 vim.api.nvim_create_user_command('E', function()
+  -- vim.cmd 'Explore'
   vim.cmd 'Oil'
 end, {})
 
