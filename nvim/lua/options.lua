@@ -85,8 +85,8 @@ local ua_s = [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
   escape(ua_n)
-    .. ';'
-    .. escape(en_n),
+  .. ';'
+  .. escape(en_n),
   escape(ua_s) .. ';' .. escape(en_s),
 }, ',')
 
@@ -142,7 +142,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
 
 -- Returning Explore command in nvim 0.10
 vim.api.nvim_create_user_command('E', function()
-  vim.cmd 'Explore'
+  vim.cmd 'Oil'
 end, {})
 
 -- vim: ts=2 sts=2 sw=2 et
