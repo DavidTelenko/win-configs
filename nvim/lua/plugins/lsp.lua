@@ -116,17 +116,17 @@ return {
       require('mason-lspconfig').setup()
 
       local servers = {
-        clangd = {},
-        jdtls = {},
-        rust_analyzer = {},
-        biome = {},
+        -- clangd = {},        -- c++
+        -- jdtls = {},         -- java
+        -- rust_analyzer = {}, -- rust
+        -- gopls = {},         -- go
+        -- pyright = {},       -- python
+        -- ols = {},           -- odin
+        -- html = { filetypes = { 'html', 'twig', 'hbs' } },
+        biome = {}, -- js/ts/jsx/tsx lint + format
         ts_ls = {},
-        -- gopls = {},
-        -- pyright = {},
-        -- ols = {},
-        -- tsserver = {},
-        -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+        tailwindcss = {},
+        emmet_language_server = {},
         lua_ls = {
           Lua = {
             workspace = { checkThirdParty = false },
