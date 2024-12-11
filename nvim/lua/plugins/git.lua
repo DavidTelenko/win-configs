@@ -2,6 +2,9 @@ return {
   {
     'tpope/vim-fugitive',
     cmd = 'Git',
+    keys = {
+      { '<leader>gg', '<cmd>Git<cr>', { desc = '[G]it menu (fugitive)' } },
+    },
   },
   {
     'tpope/vim-rhubarb',

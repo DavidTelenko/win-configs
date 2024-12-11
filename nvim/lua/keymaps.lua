@@ -57,6 +57,7 @@ vim.keymap.set({ 'n' }, '[t', 'vato<esc>', { desc = 'Jump to begining of a tag' 
 vim.keymap.set({ 'i' }, '<C-k>', '<NOP>', {})
 vim.keymap.set({ 'i' }, '<C-j>', '<NOP>', {})
 
--- vim.keymap.set('n', '<tab>', ':E<cr>', { desc = 'Open Explorer' })
+-- lua execute
+vim.keymap.set({ 'n' }, '<leader>cx', ':.lua<CR>', { desc = 'e[X]ecute current line with lua' })
 
 -- vim: ts=2 sts=2 sw=2 et
