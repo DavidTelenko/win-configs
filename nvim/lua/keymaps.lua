@@ -50,14 +50,20 @@ vim.keymap.set({ 'n', 'v' }, 'L', 'e')
 vim.keymap.set({ 'n', 'v' }, 'H', 'b')
 
 -- Jump to begin end of a tag
-vim.keymap.set({ 'n' }, ']t', 'vat<esc>', { desc = 'Jump to end of a tag' })
-vim.keymap.set({ 'n' }, '[t', 'vato<esc>', { desc = 'Jump to begining of a tag' })
+vim.keymap.set('n', ']t', 'vat<esc>', { desc = 'Jump to end of a tag' })
+vim.keymap.set('n', '[t', 'vato<esc>', { desc = 'Jump to begining of a tag' })
 
 -- disable default control keymaps
-vim.keymap.set({ 'i' }, '<C-k>', '<NOP>', {})
-vim.keymap.set({ 'i' }, '<C-j>', '<NOP>', {})
+vim.keymap.set('i', '<C-k>', '<NOP>', {})
+vim.keymap.set('i', '<C-j>', '<NOP>', {})
 
 -- lua execute
-vim.keymap.set({ 'n' }, '<leader>cx', ':.lua<CR>', { desc = 'e[X]ecute current line with lua' })
+vim.keymap.set('n', '<leader>cx', ':.lua<CR>', { desc = 'e[X]ecute current line with lua' })
+
+-- quicklist
+vim.keymap.set('n', '<leader>qn', '<cmd>cnext<CR>', { desc = 'Jump to [N]ext quicklist entry' })
+vim.keymap.set('n', '<leader>qp', '<cmd>cprev<CR>', { desc = 'Jump to [P]ev quicklist entry' })
+vim.keymap.set('n', '<leader>qo', '<cmd>copen<CR>', { desc = '[O]pen quicklist' })
+vim.keymap.set('n', '<leader>qc', '<cmd>cclose<CR>', { desc = '[C]lose quicklist' })
 
 -- vim: ts=2 sts=2 sw=2 et
