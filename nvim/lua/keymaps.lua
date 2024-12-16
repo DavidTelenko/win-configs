@@ -42,7 +42,6 @@ vim.keymap.set('v', 'p', 'P')
 -- How do i exit terminal in vim?
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>', { desc = 'Exit terminal' })
 vim.keymap.set('t', '<C-H>', '<C-w>', { desc = 'Ctrl + Backspace "default" behavior' })
-
 vim.keymap.set('n', '<leader>T', vim.cmd.terminal, { desc = 'Open [T]erminal' })
 
 -- Useless for me - L and H
@@ -58,7 +57,9 @@ vim.keymap.set('i', '<C-k>', '<NOP>', {})
 vim.keymap.set('i', '<C-j>', '<NOP>', {})
 
 -- lua execute
-vim.keymap.set('n', '<leader>cx', ':.lua<CR>', { desc = 'e[X]ecute current line with lua' })
+vim.keymap.set('n', '<leader>cf', '<cmd>source %<CR>', { desc = 'e[X]ecute this file with lua' })
+vim.keymap.set('n', '<leader>cx', '<cmd>.lua<CR>', { desc = 'e[X]ecute current line with lua' })
+vim.keymap.set('v', '<leader>cx', '<cmd>lua<CR>', { desc = 'e[X]ecute current selection with lua' })
 
 -- quicklist
 vim.keymap.set('n', '<leader>qn', '<cmd>cnext<CR>', { desc = 'Jump to [N]ext quicklist entry' })
