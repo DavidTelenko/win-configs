@@ -85,9 +85,11 @@ local ua_s = [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
   escape(ua_n)
-  .. ';'
-  .. escape(en_n),
-  escape(ua_s) .. ';' .. escape(en_s),
+    .. ';' --
+    .. escape(en_n),
+  escape(ua_s)
+    .. ';' --
+    .. escape(en_s),
 }, ',')
 
 vim.o.langremap = false
