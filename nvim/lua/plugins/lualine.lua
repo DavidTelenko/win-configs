@@ -1,5 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
+  enabled = true,
   lazy = false,
   dependencies = {
     'nvim-tree/nvim-web-devicons',
@@ -28,7 +29,10 @@ return {
         lualine_a = { { 'mode' } },
         lualine_b = {
           { 'branch', icon = '󰘬' },
-          { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' } },
+          {
+            'diff',
+            symbols = { added = ' ', modified = ' ', removed = ' ' },
+          },
           'diagnostics',
         },
         lualine_c = { 'filename' },

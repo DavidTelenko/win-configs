@@ -51,7 +51,11 @@ return {
             gs.prev_hunk()
           end)
           return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
+        end, {
+          expr = true,
+          buffer = bufnr,
+          desc = 'Jump to previous hunk',
+        })
       end,
     },
   },

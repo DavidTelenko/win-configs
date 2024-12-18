@@ -9,7 +9,11 @@ return {
       'tpope/vim-sleuth',
 
       -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
+      {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {},
+      },
     },
     config = function()
       --  This function gets run when an LSP connects to a particular buffer.
@@ -31,8 +35,16 @@ return {
         nmap('gr', telescope.lsp_references, '[G]oto [R]eferences')
         nmap('gI', telescope.lsp_implementations, '[G]oto [I]mplementation')
         nmap('<leader>D', telescope.lsp_type_definitions, 'Type [D]efinition')
-        nmap('<leader>ss', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
-        nmap('<leader>ws', telescope.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+        nmap(
+          '<leader>ss',
+          telescope.lsp_document_symbols,
+          '[D]ocument [S]ymbols'
+        )
+        nmap(
+          '<leader>ws',
+          telescope.lsp_dynamic_workspace_symbols,
+          '[W]orkspace [S]ymbols'
+        )
 
         -- See `:help K` for why this keymap
         nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -40,8 +52,16 @@ return {
 
         -- Lesser used LSP functionality
         nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-        nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-        nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+        nmap(
+          '<leader>wa',
+          vim.lsp.buf.add_workspace_folder,
+          '[W]orkspace [A]dd Folder'
+        )
+        nmap(
+          '<leader>wr',
+          vim.lsp.buf.remove_workspace_folder,
+          '[W]orkspace [R]emove Folder'
+        )
         nmap('<leader>wl', function()
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, '[W]orkspace [L]ist Folders')
@@ -101,13 +121,15 @@ return {
 
       local _border = 'rounded'
 
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = _border,
-      })
+      vim.lsp.handlers['textDocument/hover'] =
+        vim.lsp.with(vim.lsp.handlers.hover, {
+          border = _border,
+        })
 
-      vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = _border,
-      })
+      vim.lsp.handlers['textDocument/signatureHelp'] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, {
+          border = _border,
+        })
 
       vim.diagnostic.config {
         float = { border = _border },
@@ -135,9 +157,6 @@ return {
           },
         },
       }
-
-      -- Setup neovim lua configuration
-      require('neodev').setup()
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.lsp.protocol.make_client_capabilities()

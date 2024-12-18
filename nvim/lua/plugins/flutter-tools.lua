@@ -83,8 +83,16 @@ return {
           nmap('gr', telescope.lsp_references, '[G]oto [R]eferences')
           nmap('gI', telescope.lsp_implementations, '[G]oto [I]mplementation')
           nmap('<leader>D', telescope.lsp_type_definitions, 'Type [D]efinition')
-          nmap('<leader>ss', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
-          nmap('<leader>ws', telescope.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+          nmap(
+            '<leader>ss',
+            telescope.lsp_document_symbols,
+            '[D]ocument [S]ymbols'
+          )
+          nmap(
+            '<leader>ws',
+            telescope.lsp_dynamic_workspace_symbols,
+            '[W]orkspace [S]ymbols'
+          )
 
           -- See `:help K` for why this keymap
           nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -92,8 +100,16 @@ return {
 
           -- Lesser used LSP functionality
           nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-          nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-          nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+          nmap(
+            '<leader>wa',
+            vim.lsp.buf.add_workspace_folder,
+            '[W]orkspace [A]dd Folder'
+          )
+          nmap(
+            '<leader>wr',
+            vim.lsp.buf.remove_workspace_folder,
+            '[W]orkspace [R]emove Folder'
+          )
           nmap('<leader>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
           end, '[W]orkspace [L]ist Folders')
@@ -128,7 +144,12 @@ return {
     vim.api.nvim_create_autocmd('BufEnter', {
       pattern = { '*.dart' },
       callback = function()
-        vim.keymap.set('n', '<leader>fr', '<cmd>FlutterRun<cr>', { desc = '[F]lutter [R]un' })
+        vim.keymap.set(
+          'n',
+          '<leader>fr',
+          '<cmd>FlutterRun<cr>',
+          { desc = '[F]lutter [R]un' }
+        )
         vim.keymap.set('n', '<leader>ft', function()
           require('telescope').extensions.flutter.commands()
         end, { desc = '[F]lutter [T]ools' })
