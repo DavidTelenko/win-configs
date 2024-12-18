@@ -72,6 +72,9 @@ vim.g.netrw_banner = 0
 vim.g.netrw_hide = 0
 vim.g.netrw_bufsettings = 'noma nomod rnu nowrap ro nobl'
 
+-- ms windows shenanigans
+vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,)'
+
 local function escape(str)
   local escape_chars = [[;,."|\]]
   return vim.fn.escape(str, escape_chars)
@@ -80,7 +83,8 @@ end
 local en_n = [[qwertyuiop[]asdfghjkl;'zxcvbnm]]
 local ua_n = [[йцукенгшщзхїфівапролджєячсмить]]
 local en_s = [[QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
-local ua_s = [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
+local ua_s =
+  [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
 
 vim.o.langmap = vim.fn.join({
   --  to           ;        from
@@ -146,5 +150,10 @@ vim.api.nvim_create_user_command('E', function()
   -- vim.cmd 'Explore'
   vim.cmd 'Oil'
 end, {})
+
+if vim.fn.has 'win32' then
+  vim.o.shellslash = true
+  vim.o.completeslash = 'slash'
+end
 
 -- vim: ts=2 sts=2 sw=2 et

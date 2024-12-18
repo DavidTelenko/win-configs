@@ -34,7 +34,8 @@ return {
 
         cppdbg = function(config)
           if vim.fn.has 'win32' == 1 then
-            config.adapters['command'] = vim.fn.stdpath 'data' .. '/mason/bin/OpenDebugAD7.cmd'
+            config.adapters['command'] = vim.fn.stdpath 'data'
+              .. '/mason/bin/OpenDebugAD7.cmd'
           end
           require('mason-nvim-dap').default_setup(config)
         end,
@@ -77,8 +78,18 @@ return {
     vim.keymap.set('n', '<leader>di', dap.step_into, { desc = 'Step [I]nto' })
     vim.keymap.set('n', '<leader>do', dap.step_over, { desc = 'Step [O]ver' })
     vim.keymap.set('n', '<leader>dO', dap.step_out, { desc = 'Step [O]ut' })
-    vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'Start/[C]ontinue' })
-    vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = 'Toggle [B]reakpoint' })
+    vim.keymap.set(
+      'n',
+      '<leader>dc',
+      dap.continue,
+      { desc = 'Start/[C]ontinue' }
+    )
+    vim.keymap.set(
+      'n',
+      '<leader>db',
+      dap.toggle_breakpoint,
+      { desc = 'Toggle [B]reakpoint' }
+    )
     vim.keymap.set('n', '<leader>dB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
     end, { desc = 'Set [B]reakpoint' })
@@ -88,22 +99,60 @@ return {
     dapui.setup()
     require('nvim-dap-virtual-text').setup {}
 
-    vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#fb4934', bg = '#261c1c' })
-    vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#83a598', bg = '#261c1c' })
-    vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#fb4934', bg = '#261c1c' })
+    vim.api.nvim_set_hl(
+      0,
+      'DapBreakpoint',
+      { ctermbg = 0, fg = '#fb4934', bg = '#261c1c' }
+    )
+    vim.api.nvim_set_hl(
+      0,
+      'DapLogPoint',
+      { ctermbg = 0, fg = '#83a598', bg = '#261c1c' }
+    )
+    vim.api.nvim_set_hl(
+      0,
+      'DapStopped',
+      { ctermbg = 0, fg = '#fb4934', bg = '#261c1c' }
+    )
 
-    vim.fn.sign_define('DapBreakpoint',
-      { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
-    vim.fn.sign_define('DapBreakpointCondition',
-      { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
-    vim.fn.sign_define('DapBreakpointRejected',
-      { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
-    vim.fn.sign_define('DapLogPoint',
-      { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' })
-    vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
+    vim.fn.sign_define('DapBreakpoint', {
+      text = '',
+      texthl = 'DapBreakpoint',
+      linehl = 'DapBreakpoint',
+      numhl = 'DapBreakpoint',
+    })
+    vim.fn.sign_define('DapBreakpointCondition', {
+      text = '',
+      texthl = 'DapBreakpoint',
+      linehl = 'DapBreakpoint',
+      numhl = 'DapBreakpoint',
+    })
+    vim.fn.sign_define('DapBreakpointRejected', {
+      text = '',
+      texthl = 'DapBreakpoint',
+      linehl = 'DapBreakpoint',
+      numhl = 'DapBreakpoint',
+    })
+    vim.fn.sign_define('DapLogPoint', {
+      text = '',
+      texthl = 'DapLogPoint',
+      linehl = 'DapLogPoint',
+      numhl = 'DapLogPoint',
+    })
+    vim.fn.sign_define('DapStopped', {
+      text = '',
+      texthl = 'DapStopped',
+      linehl = 'DapStopped',
+      numhl = 'DapStopped',
+    })
 
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-    vim.keymap.set('n', '<F7>', dapui.toggle, { desc = 'Debug: See last session result.' })
+    vim.keymap.set(
+      'n',
+      '<F7>',
+      dapui.toggle,
+      { desc = 'Debug: See last session result.' }
+    )
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close

@@ -13,7 +13,7 @@ return {
     harpoon:setup()
 
     require('which-key').add {
-      { "<leader>H", desc = "[H]arpoon" },
+      { '<leader>H', desc = '[H]arpoon' },
     }
 
     for i = 1, 5 do
