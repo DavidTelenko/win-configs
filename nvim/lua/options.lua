@@ -73,7 +73,7 @@ vim.g.netrw_hide = 0
 vim.g.netrw_bufsettings = 'noma nomod rnu nowrap ro nobl'
 
 -- ms windows shenanigans
-vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,)'
+vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,),[,]'
 
 local function escape(str)
   local escape_chars = [[;,."|\]]
