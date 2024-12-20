@@ -53,12 +53,24 @@ return {
             lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
             keymaps = {
               -- You can use the capture groups defined in textobjects.scm
-              ['aa'] = '@parameter.outer',
-              ['ia'] = '@parameter.inner',
-              ['af'] = '@function.outer',
-              ['if'] = '@function.inner',
-              ['ac'] = '@class.outer',
-              ['ic'] = '@class.inner',
+              ['aa'] = { query = '@parameter.outer', desc = 'outer parameter' },
+              ['ia'] = { query = '@parameter.inner', desc = 'inner parameter' },
+              ['af'] = { query = '@function.outer', desc = 'outer function' },
+              ['if'] = { query = '@function.inner', desc = 'inner function' },
+              ['ac'] = { query = '@class.outer', desc = 'outer class' },
+              ['ic'] = { query = '@class.inner', desc = 'inner class' },
+              ['a='] = {
+                query = '@assignment.outer',
+                desc = 'outer assignment',
+              },
+              ['i='] = {
+                query = '@assignment.inner',
+                desc = 'inner assignment',
+              },
+              ['r='] = { query = '@assignment.rhs', desc = 'rhs assignment' },
+              ['l='] = { query = '@assignment.lhs', desc = 'lhs assignment' },
+              ['al'] = { query = '@loop.outer', desc = 'outer loop' },
+              ['il'] = { query = '@loop.inner', desc = 'inner loop' },
             },
           },
           move = {
@@ -84,23 +96,18 @@ return {
           swap = {
             enable = true,
             swap_next = {
-              ['<leader>a'] = '@parameter.inner',
+              ['<leader>sa'] = {
+                query = '@parameter.inner',
+                desc = 'swap next parameter',
+              },
             },
             swap_previous = {
-              ['<leader>A'] = '@parameter.inner',
+              ['<leader>sA'] = {
+                query = '@parameter.inner',
+                desc = 'swap previous parameter',
+              },
             },
           },
-        },
-      }
-      require('which-key').add {
-        {
-          mode = { 'o' },
-          { '', desc = 'ia' },
-          { '', desc = 'aa' },
-          { '', desc = 'ac' },
-          { '', desc = 'if' },
-          { '', desc = 'ic' },
-          { '', desc = 'af' },
         },
       }
 

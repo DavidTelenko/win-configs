@@ -149,7 +149,7 @@ vim.keymap.set('i', '<C-j>', '<NOP>', {})
 -- lua execute
 vim.keymap.set(
   'n',
-  '<leader>cf',
+  '<leader>cX',
   '<cmd>source %<CR>',
   { desc = 'e[X]ecute this file with lua' }
 )
