@@ -1,4 +1,4 @@
-// Vencord cb2848f
+// Vencord 48a9aef
 // Standalone: true
 // Platform: Universal
 // Updater Disabled: false

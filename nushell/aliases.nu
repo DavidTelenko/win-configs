@@ -105,3 +105,5 @@ use $pc
 alias pcs = pc sleep
 alias pcr = pc reboot
 alias pcn = pc snooze
+alias v = nvim .
+alias c = clear
