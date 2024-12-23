@@ -3,8 +3,12 @@ return {
   keys = {
     { '<leader>z', '<cmd>ZenMode<cr>', silent = true, desc = '[Z]en Mode' },
   },
-  dependencies = {
-    'folke/twilight.nvim',
+  opts = {
+    on_open = function()
+      vim.o.listchars = ''
+    end,
+    on_close = function()
+      vim.o.listchars = 'tab:· ,trail:·,nbsp:+,space:·'
+    end,
   },
-  opts = {},
 }
