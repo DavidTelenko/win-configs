@@ -1,5 +1,3 @@
--- [[ Setting options ]]
-
 -- Leader mappings
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -19,7 +17,10 @@ vim.o.mouse = ''
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
+-- This thing ---------------------------------------------------------------->
 vim.o.colorcolumn = '80'
+
+-- Scroll will trigger leaving 8 lines at the bottom
 vim.o.scrolloff = 8
 
 -- Enable break indent
@@ -35,6 +36,9 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.smartindent = true
 
+-- Font
+vim.o.guifont = 'RobotoMono Nerd Font Mono:h18'
+
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
 
@@ -47,34 +51,38 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
--- vim.o.shell = 'nu'
+vim.o.shell = 'nu'
 
+-- This little circles to see spaces (VS Code habit)
 vim.o.list = true
 -- vim.o.listchars = "tab:> ,trail:🞄,nbsp:+,space:🞄"
 vim.o.listchars = 'tab:· ,trail:·,nbsp:+,space:·'
 
+-- Tabs
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.smarttab = true
 
+-- Spellcheck
 vim.o.spell = true
 vim.o.spelllang = 'en'
 
+-- Wrapping
 vim.o.wrap = true
 vim.o.linebreak = true
+
+-- Folding
 vim.o.foldmethod = 'indent'
 vim.o.foldlevel = 99
 
--- netrw
+-- Netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_hide = 0
 vim.g.netrw_bufsettings = 'noma nomod rnu nowrap ro nobl'
 
--- ms windows shenanigans
-vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,),[,]'
-
+-- Attempt to make it work in ua_uk locale
 local function escape(str)
   local escape_chars = [[;,."|\]]
   return vim.fn.escape(str, escape_chars)
@@ -87,7 +95,9 @@ local ua_s =
   [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
 
 vim.o.langmap = vim.fn.join({
-  --  to           ;        from
+  --  to
+  --  ;
+  --  from
   escape(ua_n)
     .. ';' --
     .. escape(en_n),
@@ -100,24 +110,21 @@ vim.o.langremap = false
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {
-  clear = true,
-})
-local netrw_group = vim.api.nvim_create_augroup('Netrw', {
-  clear = true,
-})
-
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
   end,
-  group = highlight_group,
+  group = vim.api.nvim_create_augroup('YankHighlight', {
+    clear = true,
+  }),
   pattern = '*',
 })
 
 -- netrw keymaps for more 'lettered' experience
 vim.api.nvim_create_autocmd('BufModifiedSet', {
-  group = netrw_group,
+  group = vim.api.nvim_create_augroup('Netrw', {
+    clear = true,
+  }),
   pattern = '*',
   callback = function()
     if not (vim.bo and vim.bo.filetype == 'netrw') then
@@ -130,13 +137,14 @@ vim.api.nvim_create_autocmd('BufModifiedSet', {
   end,
 })
 
+-- Clear redundant spaces at the end of lines
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   group = vim.api.nvim_create_augroup('ClearPostSpaces', { clear = true }),
   pattern = '*',
   command = [[%s/\s\+$//e]],
 })
 
--- disable some options in terminal mode
+-- Disable some options in terminal mode
 vim.api.nvim_create_autocmd('TermOpen', {
   group = vim.api.nvim_create_augroup('TerminalMode', { clear = true }),
   pattern = '*',
@@ -146,14 +154,24 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
+-- Muscle memory
 vim.api.nvim_create_user_command('E', function()
   -- vim.cmd 'Explore'
   vim.cmd 'Oil'
 end, {})
 
+-- MS Windows shenanigans
+vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,),[,]'
 if vim.fn.has 'win32' then
   vim.o.shellslash = true
   vim.o.completeslash = 'slash'
+end
+
+-- Neovide setup for easier jumpstart in OS Windows
+if vim.g.neovide then
+  vim.g.neovide_fullscreen = true
+  vim.g.neovide_cursor_trail_size = 0.2
+  vim.g.neovide_cursor_animate_command_line = false
 end
 
 -- vim: ts=2 sts=2 sw=2 et
