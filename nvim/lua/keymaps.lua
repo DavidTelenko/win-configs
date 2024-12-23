@@ -7,6 +7,18 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<F1>', '<Esc>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set(
   'n',
+  '0',
+  "v:count == 0 ? 'g0' : '0'",
+  { expr = true, silent = true }
+)
+vim.keymap.set(
+  'n',
+  '$',
+  "v:count == 0 ? 'g$' : '$'",
+  { expr = true, silent = true }
+)
+vim.keymap.set(
+  'n',
   'k',
   "v:count == 0 ? 'gk' : 'k'",
   { expr = true, silent = true }

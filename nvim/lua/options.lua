@@ -18,7 +18,7 @@ vim.o.mouse = ''
 vim.o.clipboard = 'unnamedplus'
 
 -- This thing ---------------------------------------------------------------->
-vim.o.colorcolumn = '80'
+-- vim.o.colorcolumn = '80'
 
 -- Scroll will trigger leaving 8 lines at the bottom
 vim.o.scrolloff = 8
@@ -72,6 +72,7 @@ vim.o.spelllang = 'en'
 -- Wrapping
 vim.o.wrap = true
 vim.o.linebreak = true
+vim.o.smoothscroll = true
 
 -- Folding
 vim.o.foldmethod = 'indent'
