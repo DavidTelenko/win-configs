@@ -9,6 +9,7 @@ param (
     [Switch] $Lazygit = $false,
     [Alias("WindowsTerminal")]
     [Switch] $Winterm = $false,
+    [Switch] $Rio = $false,
     [Switch] $Wezterm = $false,
     [Switch] $Nushell = $false,
     # Apps
@@ -27,6 +28,7 @@ $Nvim = $All -or $Nvim
 $Helix = $All -or $Helix
 $Lazygit = $All -or $Lazygit
 $Winterm = $All -or $Winterm
+$Rio = $All -or $Rio
 $Wezterm = $All -or $Wezterm
 $Nushell = $All -or $Nushell
 $Alacritty = $All -or $Alacritty
@@ -76,6 +78,9 @@ if ($Pwsh) {
 }
 if ($Alacritty) {
     Link -t $env:appdata/alacritty -e $curr/alacritty
+}
+if ($Rio) {
+    Link -t $env:localappdata/rio -e $curr/rio
 }
 if ($Nvim) {
     Link -t $env:localappdata/nvim -e $curr/nvim
