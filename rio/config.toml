@@ -1,0 +1,66 @@
+[window]
+mode = "fullscreen"
+width = 1920
+height = 1080
+
+[renderer]
+performance = "high"
+backend = "vulkan"
+disable-unfocused-render = true
+target-fps = 60
+
+[cursor]
+shape = "block"
+
+[fonts]
+family = "RobotoMono Nerd Font Mono"
+size = 26
+
+[mouse]
+hide-mouse-curson-when-typing = true
+
+[navigation]
+mode = "Bookmark"
+clickable = true
+
+[editor]
+program = "nvim"
+
+[shell]
+program = "nu"
+
+[bindings]
+keys = [
+    { key = "1", with = "alt", action = "SelectTab(1)"},
+    { key = "2", with = "alt", action = "SelectTab(2)"},
+    { key = "3", with = "alt", action = "SelectTab(3)"},
+    { key = "4", with = "alt", action = "SelectTab(4)"},
+    { key = "5", with = "alt", action = "SelectTab(5)"},
+    { key = "6", with = "alt", action = "SelectTab(6)"},
+    { key = "7", with = "alt", action = "SelectTab(7)"},
+    { key = "8", with = "alt", action = "SelectTab(8)"},
+    { key = "9", with = "alt", action = "SelectTab(9)"},
+]
+
+[colors]
+background = '#000000'
+foreground = '#ebdbb2'
+selection-background = '#665c54'
+selection-foreground = '#ebdbb2'
+cursor = '#ebdbb2'
+black = '#282828'
+red = '#cc241d'
+green = '#98971a'
+yellow = '#d79921'
+blue = '#458588'
+magenta = '#b16286'
+cyan = '#689d6a'
+white = '#a89984'
+light_black = '#928374'
+light_red = '#fb4934'
+light_green = '#b8bb26'
+light_yellow = '#fabd2f'
+light_blue = '#83a598'
+light_magenta = '#d3869b'
+light_cyan = '#8ec07c'
+light_white = '#ebdbb2'
