@@ -51,7 +51,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
-vim.o.shell = 'nu'
+-- vim.o.shell = 'nu'
 
 -- This little circles to see spaces (VS Code habit)
 vim.o.list = true
@@ -93,18 +93,18 @@ local en_n = [[qwertyuiop[]asdfghjkl;'zxcvbnm]]
 local ua_n = [[йцукенгшщзхїфівапролджєячсмить]]
 local en_s = [[QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
 local ua_s =
-  [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
+[[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
 
 vim.o.langmap = vim.fn.join({
   --  to
   --  ;
   --  from
   escape(ua_n)
-    .. ';' --
-    .. escape(en_n),
+  .. ';' --
+  .. escape(en_n),
   escape(ua_s)
-    .. ';' --
-    .. escape(en_s),
+  .. ';' --
+  .. escape(en_s),
 }, ',')
 
 vim.o.langremap = false
