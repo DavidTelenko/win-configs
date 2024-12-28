@@ -244,10 +244,6 @@
       "Source": "extras"
     },
     {
-      "Name": "wezterm",
-      "Source": "extras"
-    },
-    {
       "Name": "zoxide",
       "Source": "main"
     }

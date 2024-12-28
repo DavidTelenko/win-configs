@@ -28,6 +28,7 @@ return {
           'markdown_inline',
           'typescript',
           'javascript',
+          'json',
           'tsx',
         },
         sync_install = true,

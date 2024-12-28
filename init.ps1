@@ -122,6 +122,5 @@ if ($Kanata) {
 
 # NOTE: you don't need to turn off winterm in order to run this option, it will hot reload as of latest version
 if ($Winterm) {
-    CopyContent -e $curr/windows-terminal/winterm.json -t $scoop/windows-terminal/settings/settings.json
     CopyContent -e $curr/windows-terminal/winterm.json -t $scoop/windows-terminal-preview/settings/settings.json
 }
