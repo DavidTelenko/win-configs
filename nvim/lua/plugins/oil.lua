@@ -2,7 +2,7 @@ return {
   'stevearc/oil.nvim',
   lazy = false,
   keys = {
-    { '<leader>e', '<cmd>Oil<cr>', { desc = 'Open [E]xplorer' } },
+    { '<leader>o', '<cmd>Oil<cr>', { desc = 'Open [O]il explorer' } },
   },
   opts = {
     -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
