@@ -7,6 +7,7 @@ export def symlink [
 
     if $nu.os-info.family != 'windows' {
         ln -s $existing $link_name | ignore
+        return
     }
 
     if ($existing | path type) == 'dir' {
