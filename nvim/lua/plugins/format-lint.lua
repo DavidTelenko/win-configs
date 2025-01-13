@@ -15,11 +15,11 @@ return {
     vim.g.current_linter = 'None'
 
     local linters_by_ft = {
-      javascript = { 'eslint_d', 'biomejs' },
-      typescript = { 'eslint_d', 'biomejs' },
-      javascriptreact = { 'eslint_d', 'biomejs' },
-      typescriptreact = { 'eslint_d', 'biomejs' },
-      svelte = { 'eslint_d' },
+      javascript = { 'eslint', 'biomejs' },
+      typescript = { 'eslint', 'biomejs' },
+      javascriptreact = { 'eslint', 'biomejs' },
+      typescriptreact = { 'eslint', 'biomejs' },
+      svelte = { 'eslint' },
       python = { 'pylint' },
       cpp = { 'cpplint' },
     }
@@ -122,11 +122,6 @@ return {
 
       if
         linter == 'eslint'
-        and vim.tbl_contains(available_linter, 'eslint_d')
-      then
-        vim.g.current_linter = 'eslint_d'
-      elseif
-        linter == 'eslint'
         and vim.tbl_contains(available_linter, 'eslint')
       then
         vim.g.current_linter = 'eslint'
@@ -141,7 +136,7 @@ return {
     end
 
     -- Format auto command
-    vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+    vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
       callback = function(args)
         conform.format {
           formatters = get_formatter(),
