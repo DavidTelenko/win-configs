@@ -142,7 +142,6 @@ return {
           formatters = get_formatter(),
           bufnr = args.buf,
           lsp_fallback = true,
-          async = true,
           timeout_ms = 100000,
         }
       end,
