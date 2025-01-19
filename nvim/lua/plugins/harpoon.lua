@@ -12,15 +12,20 @@ return {
 
     harpoon:setup()
 
-    require('which-key').add {
+    local wk = require 'which-key'
+
+    wk.add {
       { '<leader>H', desc = '[H]arpoon' },
     }
 
-    for i = 1, 5 do
+    for i = 1, 9 do
       vim.keymap.set('n', '<leader>' .. i, function()
         harpoon:list():select(i)
       end, { desc = 'Navigate to harpoon file [' .. i .. ']' })
+      wk.add { '<leader>' .. i, hidden = true }
     end
+
+    wk.add { '<leader>1', desc = 'Navigate to harpoon file [1..9]' }
 
     vim.keymap.set('n', '<leader>Ha', function()
       harpoon:list():add()
