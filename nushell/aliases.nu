@@ -52,6 +52,7 @@ alias dnf = sudo dnf -y
 alias scoop = powershell scoop
 
 alias conf = nvim $configDir
+alias jmplst = nvim $env.JUMP_LIST
 
 alias ghce = gh copilot explain
 alias ghcs = gh copilot suggest
@@ -64,16 +65,6 @@ let home = if $nu.os-info.family == "windows" {
     $env.HOME
 }
 
-def transcribe-last-audio-message [] {
-    [$home, Downloads]
-    | path join
-    | ls $in
-    | sort-by modified -r
-    | first
-    | get name
-    | qstt $in
-}
-
 def translate [word: string] {
     [$home, Documents, Utility, Dictionaries, eng-rus.txt]
     | path join
@@ -81,19 +72,14 @@ def translate [word: string] {
     | rg $word
 }
 
-alias tlam = transcribe-last-audio-message
-
-def todo [] {
-    [$home, Documents, Markdowned, Todo]
+def open_nvim [what: list<string>] {
+    $what
     | path join
     | nvim $in
 }
 
-def mark [] {
-    [$home, Documents, Markdowned]
-    | path join
-    | nvim $in
-}
+alias todo = open_nvim [$home, Documents, Markdowned, Todo]
+alias mark = open_nvim [$home, Documents, Markdowned]
 
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
