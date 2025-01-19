@@ -73,9 +73,9 @@ def translate [word: string] {
 }
 
 def open_nvim [what: list<string>] {
-    $what
-    | path join
-    | nvim $in
+    let pathified = $what | path join
+    cd $pathified
+    nvim $pathified
 }
 
 alias todo = open_nvim [$home, Documents, Markdowned, Todo]
