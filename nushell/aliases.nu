@@ -45,8 +45,6 @@ alias sk = search-kill
 alias mv = ^mv
 alias lg = lazygit
 alias ll = ^exa -la --icons=auto
-alias old-cat = cat
-alias cat = ^bat --theme=gruvbox-dark
 alias vi = nvim
 alias dnf = sudo dnf -y
 alias scoop = powershell scoop

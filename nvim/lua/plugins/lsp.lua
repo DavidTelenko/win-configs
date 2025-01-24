@@ -145,7 +145,6 @@ return {
         -- pyright = {},       -- python
         -- ols = {},           -- odin
         -- html = { filetypes = { 'html', 'twig', 'hbs' } },
-        biome = {}, -- js/ts/jsx/tsx lint + format
         ts_ls = {},
         tailwindcss = {},
         emmet_language_server = {},
