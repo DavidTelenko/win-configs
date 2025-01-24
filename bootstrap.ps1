@@ -1,23 +1,64 @@
-# Simple scoop based bootstrap script for a fresh system
+<#
+.SYNOPSIS
+    Bootstraps the system to this config snapshot
+
+.DESCRIPTION
+    This script is intended to be installed from this api request or mnually and run as a starting point to clone the configs repository, install all the packages, and symlink the configs to appropriate configuration locations. There is a lot of other flags which all signify whether the targeted package config should be installed, for example if passed the -Nvim flag this script will install the config for neovim in dedicated directory as a symlink, if you want to work the other way around, you can pass the -All flag, and then pass any other flags to signify the need to omit this package configs from installation.
+
+.PARAMETER SkipScoop
+    Specifies whether the script should skip installing scoop. If you've manually installed scoop package manager and cloned the configuration repository, you can run this script with -NoScoop flag, which will skip several steps of the installation process and just proceed to package installation and configuration
+
+.EXAMPLE
+    iex "& { $(iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/master/bootstrap.ps1) } -All"
+    Request script from web, install packages and configure all available in configs
+
+.EXAMPLE
+    bootstrap.ps1 -All -Keymapper
+    Run script from local environment, configure all packages except keymapper
+#>
 
 param (
-    [Switch] $Egg = $false
+    [Switch] $SkipScoop = $false,
+    [Switch] $All = $false,
+
+    [Switch] $Alacritty = $false,
+    [Switch] $Broot = $false,
+    [Switch] $Helix = $false,
+    [Switch] $Kanata = $false,
+    [Switch] $Keymapper = $false,
+    [Switch] $Lazygit = $false,
+    [Switch] $Mpv = $false,
+    [Switch] $Musikcube = $false,
+    [Switch] $Nushell = $false,
+    [Alias("Neovim")]
+    [Switch] $Nvim = $false,
+    [Alias("PowerShell")]
+    [Switch] $Pwsh = $false,
+    [Switch] $Rio = $false,
+    [Switch] $Spotify = $false,
+    [Switch] $Ttyper = $false,
+    [Switch] $Vencord = $false,
+    [Switch] $Wezterm = $false,
+    [Alias("WindowsTerminal")]
+    [Switch] $Winterm = $false
 )
 
-$Chicken = !$Egg
-
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-iex "& { $(irm get.scoop.sh) } -RunAsAdmin"
-
-if ($Chicken) {
-    scoop install git
-    git clone https://github.com/DavidTelenko/win-configs.git ~/.configs
+# If we start from scratch and got this script from web call we need to install
+# scoop package manager first
+if (!$SkipScoop) {
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    iex "& { $(irm get.scoop.sh) } -RunAsAdmin"
 }
 
-scoop import ~/.configs/scoop/scoopfile.json
-# & ~/.configs/init.ps1
+# Once scoop is in our system we can proceed with git installation and clone
+# all our configs
+scoop install git
+git clone https://github.com/DavidTelenko/win-configs.git ~/.configs
 
-# separate spicetify+spotx install
-iex "& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/spotx-official.github.io/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -podcasts_off -block_update_on -start_spoti -new_theme -adsections_off -lyrics_stat spotify"
-iwr -useb https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.ps1 | iex
-iwr -useb https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.ps1 | iex
+# installing all packages from scoopfile
+scoop import ~/.configs/scoop/scoopfile.json
+
+# installing configs respecting the users options
+& ~/.configs/init.ps1 `
+  -All -Helix -Lazygit -Rio -Wezterm -Nushell -Alacritty -Broot -Mpv -Ttyper `
+  -Vencord -Musikcube -Keymapper -Kanata

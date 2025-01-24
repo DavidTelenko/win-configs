@@ -22,21 +22,57 @@ initialization scripts for downloading and installing all the necessary
 packages as well as creating all the necessary symlinks to all folders in this
 directory.
 
-The list of packages to be installed can be found in a scoopfile.json
+The list of packages to be installed can be found in a
+[scoopfile](scoop/scoopfile.json)
 
-All configured tools by this repo:
+Here the general list of configured packages:
+
+### Editors:
 
 - [Neovim](https://github.com/neovim/neovim)
 - [Helix](https://github.com/helix-editor/helix) (a backup plan editor :D)
+
+### Shells:
+
 - [Nushell](https://github.com/nushell/nushell)
+- [PowerShell](https://github.com/PowerShell/PowerShell)
+
+### Terminal emulators:
+
 - [Windows Terminal](https://github.com/microsoft/terminal)
 - [Alacritty](https://github.com/alacritty/alacritty)
-- [Ttyper](https://github.com/max-niederman/ttyper)
-- [Power Toys](https://github.com/microsoft/PowerToys)
+- [Kitty](https://sw.kovidgoyal.net/kitty/)
+- [Wezterm](https://wezfurlong.org/wezterm/index.html)
+- [Rio](https://github.com/raphamorim/rio)
+
+### Crucial for me Tools:
+
+- [Fzf](https://github.com/junegunn/fzf)
 - [Oh My Posh](https://github.com/jandedobbeleer/oh-my-posh)
-- [PowerShell](https://github.com/PowerShell/PowerShell)
-- Spotify ([Spicetify](https://github.com/spicetify) + [SpotX](https://github.com/SpotX-Official/SpotX))
+- [Power Toys](https://github.com/microsoft/PowerToys)
+- [Spicetify](https://github.com/spicetify) + [SpotX](https://github.com/SpotX-Official/SpotX)
+- [Ttyper](https://github.com/max-niederman/ttyper)
 - [Vimium](https://github.com/gdh1995/vimium-c) browser extension (that's just a simple little piece of backup)
+- [Zoxide](https://github.com/ajeetdsouza/zoxide)
+
+### Media:
+
+- [Cmus](https://github.com/cmus/cmus)
+- [Mpv](https://mpv.io/)
+- [Musikcube](https://github.com/clangen/musikcube)
+
+### Other tools:
+
+- [Broot](https://github.com/Canop/broot)
+- [Kanata](https://github.com/jtroo/kanata)
+- [Keymapper](https://github.com/houmain/keymapper)
+- [Lazygit](https://github.com/jesseduffield/lazygit)
+- [Roboto Mono NF Font](https://www.nerdfonts.com/)
+- [Vencord](https://vencord.dev/)
+
+> [!NOTE] This is not a comprehensive list and the packages in a
+> [scoopfile](scoop/scoopfile.json) is being constantly updated whereas this list is updated
+> quite infrequently
 
 # Installation
 
@@ -54,24 +90,45 @@ method_).
 This method can be run like this
 
 ```powershell
-iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/master/bootstrap.ps1 | iex
-cd ~/.configs
-init.ps1 -Nvim -Winterm -Pwsh
+iex "& { $(iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/master/bootstrap.ps1) } -All"
 ```
 
-Another solution is to manually download git, clone repo and run bootstrap with
-an `-Egg` parameter this will effectively do the same, **however** you will be
-left with two git instances on your pc - yours and scoop's (_The Egg method_).
+> [!NOTE]
+> If you want to skip some packages you can combine `-All` option with
+> the name of the package you want to skip installing configs for e.g `-Pwsh`
+> skips the powershell config completely.
 
-The names of the parameters for the `init.ps1` is the following:
+> [!NOTE]
+> If you want to only install some packages configs remove `-All` option and
+> invoke the script with only the names of the packages you want to configure
+> e.g passing only `-Pwsh` will configure only the powershell config for you.
 
+Another solution is to manually install scoop, clone repo and run bootstrap with
+a `-SkipScoop` parameter this will effectively do the same.
+
+The names of the parameters for the [bootsrap.ps1](./bootsrap.ps1) is the following:
+
+- `-All`
 - `-Pwsh` or `-PowerShell`
 - `-Nvim` or `-Neovim`
 - `-Helix`
-- `-Ttyper`
+- `-Lazygit`
 - `-Winterm` or `-WindowsTerminal`
-- `-Alacritty`
+- `-Rio`
+- `-Wezterm`
 - `-Nushell`
+- `-Alacritty`
+- `-Broot`
+- `-Mpv`
+- `-Ttyper`
+- `-Vencord`
+- `-Musikcube`
+- `-Keymapper`
+- `-Kanata`
+
+If you left with some questions please take a look at a
+[bootsrap.ps1](./bootsrap.ps1) documentation by invoking this command in
+powershell `help bootstrap.ps1` and `help bootsrap.ps1 -examples`
 
 # Notes
 
@@ -86,8 +143,12 @@ The names of the parameters for the `init.ps1` is the following:
 - **Vimium** - it does not support any type of automated backup mechanic (as
   far as I know) so it's the same as with powertoys - manual import.
 
-# TODO
+# Linux related configs
 
-- Zhs
-- Tmux
-- i3
+In the future this needs to be listed in [ansible config](https://docs.ansible.com/ansible/latest/index.html)
+
+- [Dunst](https://github.com/dunst-project/dunst)
+- [Rofi](https://github.com/davatorium/rofi)
+- [Waybar](https://github.com/Alexays/Waybar)
+- [Hyprland](https://hyprland.org/)
+- [Keyd](https://github.com/rvaiya/keyd)

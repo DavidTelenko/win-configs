@@ -1,44 +1,45 @@
 param (
     [Switch] $All = $false,
-    # Dev
-    [Alias("PowerShell")]
-    [Switch] $Pwsh = $false,
-    [Alias("Neovim")]
-    [Switch] $Nvim = $false,
-    [Switch] $Helix = $false,
-    [Switch] $Lazygit = $false,
-    [Alias("WindowsTerminal")]
-    [Switch] $Winterm = $false,
-    [Switch] $Rio = $false,
-    [Switch] $Wezterm = $false,
-    [Switch] $Nushell = $false,
-    # Apps
+
     [Switch] $Alacritty = $false,
     [Switch] $Broot = $false,
+    [Switch] $Helix = $false,
+    [Switch] $Kanata = $false,
+    [Switch] $Keymapper = $false,
+    [Switch] $Lazygit = $false,
     [Switch] $Mpv = $false,
+    [Switch] $Musikcube = $false,
+    [Switch] $Nushell = $false,
+    [Alias("Neovim")]
+    [Switch] $Nvim = $false,
+    [Alias("PowerShell")]
+    [Switch] $Pwsh = $false,
+    [Switch] $Rio = $false,
+    [Switch] $Spotify = $false,
     [Switch] $Ttyper = $false,
     [Switch] $Vencord = $false,
-    [Switch] $Musikcube = $false,
-    [Switch] $Keymapper = $false,
-    [Switch] $Kanata = $false
+    [Switch] $Wezterm = $false,
+    [Alias("WindowsTerminal")]
+    [Switch] $Winterm = $false
 )
 
-$Pwsh = $All -or $Pwsh
-$Nvim = $All -or $Nvim
-$Helix = $All -or $Helix
-$Lazygit = $All -or $Lazygit
-$Winterm = $All -or $Winterm
-$Rio = $All -or $Rio
-$Wezterm = $All -or $Wezterm
-$Nushell = $All -or $Nushell
-$Alacritty = $All -or $Alacritty
-$Broot = $All -or $Broot
-$Mpv = $All -or $Mpv
-$Ttyper = $All -or $Ttyper
-$Vencord = $All -or $Vencord
-$Musikcube = $All -or $Musikcube
-$Keymapper = $All -or $Keymapper
-$Kanata = $All -or $Kanata
+$Pwsh = $All -xor $Pwsh
+$Nvim = $All -xor $Nvim
+$Helix = $All -xor $Helix
+$Lazygit = $All -xor $Lazygit
+$Winterm = $All -xor $Winterm
+$Rio = $All -xor $Rio
+$Wezterm = $All -xor $Wezterm
+$Nushell = $All -xor $Nushell
+$Alacritty = $All -xor $Alacritty
+$Broot = $All -xor $Broot
+$Mpv = $All -xor $Mpv
+$Ttyper = $All -xor $Ttyper
+$Vencord = $All -xor $Vencord
+$Musikcube = $All -xor $Musikcube
+$Keymapper = $All -xor $Keymapper
+$Kanata = $All -xor $Kanata
+$Spotify = $All -xor $Spotify
 
 $curr = pwd
 $scoop = "$env:userprofile/scoop/persist"
@@ -123,4 +124,11 @@ if ($Kanata) {
 # NOTE: you don't need to turn off winterm in order to run this option, it will hot reload as of latest version
 if ($Winterm) {
     CopyContent -e $curr/windows-terminal/winterm.json -t $scoop/windows-terminal-preview/settings/settings.json
+}
+
+# separate spicetify+spotx install
+if ($Spotify) {
+    iex "& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/spotx-official.github.io/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -podcasts_off -block_update_on -start_spoti -new_theme -adsections_off -lyrics_stat spotify"
+    iwr -useb https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.ps1 | iex
+    iwr -useb https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.ps1 | iex
 }
