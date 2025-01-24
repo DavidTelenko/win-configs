@@ -107,7 +107,7 @@ iex "& { $(iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/
 Another solution is to manually install scoop, clone repo and run bootstrap with
 a `-SkipScoop` parameter this will effectively do the same.
 
-The names of the parameters for the [bootsrap.ps1](./bootsrap.ps1) is the following:
+The names of the parameters for the [bootsrap.ps1](bootsrap.ps1) is the following:
 
 - `-All`
 - `-Pwsh` or `-PowerShell`
@@ -128,7 +128,7 @@ The names of the parameters for the [bootsrap.ps1](./bootsrap.ps1) is the follow
 - `-Kanata`
 
 If you left with some questions please take a look at a
-[bootsrap.ps1](./bootsrap.ps1) documentation by invoking this command in
+[bootsrap.ps1](bootsrap.ps1) documentation by invoking this command in
 powershell `help bootstrap.ps1` and `help bootsrap.ps1 -examples`
 
 # Notes
