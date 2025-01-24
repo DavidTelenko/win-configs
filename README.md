@@ -71,9 +71,9 @@ Here the general list of configured packages:
 - [Vencord](https://vencord.dev/)
 
 > [!NOTE]
-> This is not a comprehensive list and the packages in a
-> [scoopfile](scoop/scoopfile.json) is being constantly updated whereas this
-> list is updated quite infrequently
+> This is not a comprehensive list of all the packages in a
+> [scoopfile](scoop/scoopfile.json). It is being constantly updated, and
+> behaves similar to a living organism
 
 # Installation
 
