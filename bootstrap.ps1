@@ -3,10 +3,22 @@
     Bootstraps the system to this config snapshot
 
 .DESCRIPTION
-    This script is intended to be installed from this api request or mnually and run as a starting point to clone the configs repository, install all the packages, and symlink the configs to appropriate configuration locations. There is a lot of other flags which all signify whether the targeted package config should be installed, for example if passed the -Nvim flag this script will install the config for neovim in dedicated directory as a symlink, if you want to work the other way around, you can pass the -All flag, and then pass any other flags to signify the need to omit this package configs from installation.
+    This script is intended to be installed from this api request or mnually
+    and run as a starting point to clone the configs repository, install all
+    the packages, and symlink the configs to appropriate configuration
+    locations. There is a lot of other flags which all signify whether the
+    targeted package config should be installed, for example if passed the
+    -Nvim flag this script will install the config for neovim in dedicated
+    directory as a symlink, if you want to work the other way around, you can
+    pass the -All flag, and then pass any other flags to signify the need to
+    omit this package configs from installation.
 
 .PARAMETER SkipScoop
-    Specifies whether the script should skip installing scoop. If you've manually installed scoop package manager and cloned the configuration repository, you can run this script with -NoScoop flag, which will skip several steps of the installation process and just proceed to package installation and configuration
+    Specifies whether the script should skip installing scoop. If you've
+    manually installed scoop package manager and cloned the configuration
+    repository, you can run this script with -NoScoop flag, which will skip
+    several steps of the installation process and just proceed to package
+    installation and configuration
 
 .EXAMPLE
     iex "& { $(iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/master/bootstrap.ps1) } -All"
