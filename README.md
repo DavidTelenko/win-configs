@@ -70,9 +70,10 @@ Here the general list of configured packages:
 - [Roboto Mono NF Font](https://www.nerdfonts.com/)
 - [Vencord](https://vencord.dev/)
 
-> [!NOTE] This is not a comprehensive list and the packages in a
-> [scoopfile](scoop/scoopfile.json) is being constantly updated whereas this list is updated
-> quite infrequently
+> [!NOTE]
+> This is not a comprehensive list and the packages in a
+> [scoopfile](scoop/scoopfile.json) is being constantly updated whereas this
+> list is updated quite infrequently
 
 # Installation
 
