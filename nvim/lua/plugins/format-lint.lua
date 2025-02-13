@@ -152,7 +152,7 @@ return {
       callback = function()
         lint.try_lint(get_linter())
 
-        lint.try_lint 'cspell'
+        -- lint.try_lint 'cspell'
       end,
     })
   end,
