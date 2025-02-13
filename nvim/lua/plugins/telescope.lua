@@ -19,10 +19,18 @@ return {
     'nvim-telescope/telescope-live-grep-args.nvim',
   },
   config = function()
+    local telescope = require 'telescope'
+
+    telescope.setup {
+      defaults = {
+        wrap_results = true,
+      },
+    }
+
     -- Enable telescope fzf native, if installed
-    pcall(require('telescope').load_extension, 'fzf')
-    pcall(require('telescope').load_extension, 'live_grep_args')
-    pcall(require('telescope').load_extension, 'ui-select')
+    pcall(telescope.load_extension, 'fzf')
+    pcall(telescope.load_extension, 'live_grep_args')
+    pcall(telescope.load_extension, 'ui-select')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -35,9 +43,9 @@ return {
     )
     vim.keymap.set(
       'n',
-      '<leader><space>',
+      '<leader>sb',
       builtin.buffers,
-      { desc = '[ ] Find existing buffers' }
+      { desc = 'Find existing [B]uffers' }
     )
     vim.keymap.set('n', '<leader>/', function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.

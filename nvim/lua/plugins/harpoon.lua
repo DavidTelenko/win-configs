@@ -27,24 +27,20 @@ return {
 
     wk.add { '<leader>1', desc = 'Navigate to harpoon file [1..9]' }
 
-    vim.keymap.set('n', '<leader>Ha', function()
+    vim.keymap.set('n', '<leader>ha', function()
       harpoon:list():add()
     end, { desc = '[A]dd file to harpoon' })
 
-    vim.keymap.set('n', '<leader>Hr', function()
+    vim.keymap.set('n', '<leader>hr', function()
       harpoon:list():remove()
     end, { desc = '[R]remove file from harpoon' })
 
-    vim.keymap.set('n', '<leader>Hm', function()
+    vim.keymap.set('n', '<leader>hm', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = 'Open quick [M]enu' })
 
-    vim.keymap.set('n', '<leader>p', function()
-      harpoon:list():prev()
-    end, { desc = '[N]ext harpoon entry' })
-
-    vim.keymap.set('n', '<leader>n', function()
-      harpoon:list():next()
-    end, { desc = '[P]revious harpoon entry' })
+    vim.keymap.set('n', '<leader><space>', function()
+      harpoon.ui:toggle_quick_menu(harpoon:list())
+    end, { desc = 'Open quick menu' })
   end,
 }
