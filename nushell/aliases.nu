@@ -12,6 +12,9 @@ alias backup-clear = clear
 def clear [] {
     backup-clear --keep-scrollback
 }
+def wipe [] {
+    backup-clear
+}
 
 # weird shenanigan but aliasing 'scoop search' directly to 'scoop-search' makes
 # it search the word 'search')
