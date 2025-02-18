@@ -92,5 +92,13 @@ use $pc
 alias pcs = pc sleep
 alias pcr = pc reboot
 alias pcn = pc snooze
+
+alias enva = pc env add
+alias envr = pc env remove
+
+alias ptha = pc path add
+alias pthr = pc path remove
+alias pthls = pc path list
+
 alias v = nvim .
 alias c = clear
