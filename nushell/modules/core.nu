@@ -1,6 +1,6 @@
 export def symlink [
-    link_name: path # The name of the symlink
-    existing: path  # The existing file
+    link_name: path, # The name of the symlink
+    existing: path,  # The existing file
 ] {
     let link_name = ($link_name | path expand)
     let existing = ($existing | path expand -s)
