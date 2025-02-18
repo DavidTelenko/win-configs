@@ -59,6 +59,73 @@ def impl [f, ...rest] {
                 let win_volume = "volume.ps1" | load_win_impl $in
                 powershell_run $"($win_volume) [audio]::Mute = $false"
             }
+            env_add: { |name, value|
+                powershell_run $"[System.Environment]::SetEnvironmentVariable\(
+                    \"($name)\",
+                    \"($value)\",
+                    [System.EnvironmentVariableTarget]::User # Machine
+                \)"
+            }
+            env_remove: { |name|
+                powershell_run $"[System.Environment]::SetEnvironmentVariable\(
+                    \"($name)\",
+                    $null,
+                    [System.EnvironmentVariableTarget]::User # Machine
+                \)"
+            }
+            path_add: { |path|
+                powershell_run $"
+                    $currentPath = [System.Environment]::GetEnvironmentVariable\(
+                        'Path',
+                        [System.EnvironmentVariableTarget]::User
+                    \)
+
+                    if \($currentPath -split ';' -contains '($path)'\) {
+                        Write-Host -ForegroundColor 'Red' 'Path already present'
+                        return
+                    }
+
+                    [System.Environment]::SetEnvironmentVariable\(
+                        'Path',
+                        $currentPath + '($path)' + ';',
+                        [System.EnvironmentVariableTarget]::User # Machine
+                    \)
+
+                    Write-Host -ForegroundColor 'Green' 'Path successfully added'
+                "
+            }
+            path_remove: { |path|
+                powershell_run $"
+                    $currentPath = [System.Environment]::GetEnvironmentVariable\(
+                        'Path',
+                        [System.EnvironmentVariableTarget]::User
+                    \)
+
+                    $updatedPath = \($currentPath -split ';' | Where-Object {
+                        $_ -ne '($path)'
+                    }\) -join ';'
+
+                    [System.Environment]::SetEnvironmentVariable\(
+                        'Path',
+                        $updatedPath,
+                        [System.EnvironmentVariableTarget]::User # Machine
+                    \)
+
+                    Write-Host -ForegroundColor 'Green' 'Path successfully removed'
+                "
+            }
+            path_list: {
+                powershell_run $"
+                    $currentPath = [System.Environment]::GetEnvironmentVariable\(
+                        'Path',
+                        [System.EnvironmentVariableTarget]::User
+                    \)
+
+                    $currentPath -split ';' | ForEach-Object {
+                        Write-Host $_ -ForegroundColor 'Green'
+                    }
+                "
+            }
         }} else if $in == 'unix' {{
             hibernate: {
                 systemctl hibernate
@@ -119,6 +186,26 @@ export def "volume set" [
 export def "volume mute" [] { impl volume_mute }
 
 export def "volume unmute" [] { impl volume_unmute }
+
+# Adds env variable
+export def "env add" [
+    name: string,
+    value: string,
+] {
+    impl env_add $name $value
+}
+
+# Removes env variable
+export def "env remove" [name: string] { impl env_remove $name }
+
+# Adds value to PATH env variable
+export def "path add" [path: string] { impl path_add $path }
+
+# Removes value from PATH env variable
+export def "path remove" [path: string] { impl path_remove $path }
+
+# Lists all paths in PATH env variable
+export def "path list" [] { impl path_list }
 
 # Alias for sys
 export def main [] {
