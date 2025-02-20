@@ -1,12 +1,3 @@
-# Nushell Config File
-#
-# version = "0.90.1"
-
-# For more information on defining custom themes, see
-# https://www.nushell.sh/book/coloring_and_theming.html
-# And here is the theme collection
-# https://github.com/nushell/nu_scripts/tree/main/themes
-
 let theme = {
     # color for nushell primitives
     separator: white
@@ -151,8 +142,7 @@ $env.config = {
     }
 
     filesize: {
-        metric: false # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
-        format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, auto
+        unit: "binary"
     }
 
     cursor_shape: {
