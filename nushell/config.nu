@@ -769,7 +769,6 @@ const modules = ([$nushellDir, modules] | path join)
 const completions = ([$nushellDir, completions] | path join)
 const welcomeBanner = ([$nushellDir, welcome-banner.txt] | path join)
 
-source ([$configDir, scripts, fnm.nu] | path join)
 source ~/.zoxide.nu
 source ~/.oh-my-posh.nu
 source ~/.broot.nu
