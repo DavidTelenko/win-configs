@@ -4,6 +4,7 @@ param (
     [Switch] $Alacritty = $false,
     [Switch] $Broot = $false,
     [Switch] $Helix = $false,
+    [Switch] $Git = $false,
     [Switch] $Kanata = $false,
     [Switch] $Keymapper = $false,
     [Switch] $Lazygit = $false,
@@ -26,6 +27,7 @@ param (
 $Pwsh = $All -xor $Pwsh
 $Nvim = $All -xor $Nvim
 $Helix = $All -xor $Helix
+$Git = $All -xor $Git
 $Lazygit = $All -xor $Lazygit
 $Winterm = $All -xor $Winterm
 $Rio = $All -xor $Rio
@@ -124,6 +126,10 @@ if ($Kanata) {
 # NOTE: you don't need to turn off winterm in order to run this option, it will hot reload as of latest version
 if ($Winterm) {
     CopyContent -e $curr/windows-terminal/winterm.json -t $scoop/windows-terminal-preview/settings/settings.json
+}
+
+if ($Git) {
+    git config --global --add include.path "$curr\git\.gitconfig"
 }
 
 # separate spicetify+spotx install
