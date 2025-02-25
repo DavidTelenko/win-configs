@@ -7,6 +7,8 @@
     selected = manager
 [core]
     pager = delta
+    symlinks = true
+    editor = nvim
 [interactive]
     diffFilter = delta --color-only
 [delta]
@@ -17,3 +19,8 @@
     colorMoved = default
 [init]
     defalutBranch = main
+[rerere]
+    enabled = true
+[push]
+    autoSetupRemote = true
+    default = current
