@@ -125,11 +125,18 @@ def try-init [cmd, util] {
     }
 }
 
-try {
+try-init {
     $env.LS_COLORS = (vivid generate gruvbox-dark-soft | str trim)
-} catch {
-    "`vivid` not found, skipping LS_COLORS setup. Install it with `cargo install vivid`."
-}
-try-init { zoxide init nushell | save -f ~/.zoxide.nu } zoxide
-try-init { oh-my-posh init nu --config ([$configDir, oh-my-posh, themes, my.omp.toml] | path join) } oh-my-posh
-try-init { broot --print-shell-function nushell | save -f ~/.broot.nu } broot
+} vivid
+
+try-init {
+    zoxide init nushell | save -f ~/.zoxide.nu
+} zoxide
+
+try-init {
+    oh-my-posh init nu --config ([$configDir, oh-my-posh, themes, my.omp.toml] | path join)
+} oh-my-posh
+
+try-init {
+    broot --print-shell-function nushell | save -f ~/.broot.nu
+} broot
