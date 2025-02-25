@@ -17,10 +17,18 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
-[init]
-    defalutBranch = main
 [rerere]
     enabled = true
+[init]
+    defalutBranch = main
+[http]
+    postBuffer = 157286400
+    sslBackend = openssl
+[sendpack]
+    sideband = false
+[alias]
+    unstage = reset HEAD --
+    last = log -1 HEAD
 [push]
     autoSetupRemote = true
     default = current
