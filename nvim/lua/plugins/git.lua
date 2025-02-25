@@ -23,6 +23,11 @@ return {
         '<cmd>Gitsigns toggle_current_line_blame<cr>',
         desc = 'Toggle git [B]lame',
       },
+      {
+        '<leader>gB',
+        '<cmd>Gitsigns blame<cr>',
+        desc = 'Toggle git [B]lame window',
+      },
     },
     opts = {
       -- See `:help gitsigns.txt`
