@@ -23,12 +23,11 @@ export-env {
         | path exists
         | any {$in}
         | if $in {
+          fnm use --silent-if-unchanged
           $env.PATH = (fnm env --shell bash --use-on-cd
             | lines | get 1 | split row "=" | get 1 | str trim --char '"'
             | append $env.PATH
           )
-          fnm install
-          fnm use
         }
       }
     })
