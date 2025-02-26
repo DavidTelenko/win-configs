@@ -1,12 +1,20 @@
 const nushellDir = ($nu.config-path | path parse).parent
 const configDir = ($nushellDir | path parse).parent
+const modules = [$nushellDir, modules] | path join
+const pc = [$modules, "pc.nu"] | path join
+use $pc
+
+let home = if $nu.os-info.family == "windows" {
+    [$env.HOMEDRIVE, $env.HOMEPATH] | path join
+} else {
+    $env.HOME
+}
 
 def grid-ls [] {
     ls
     | sort-by type name -i
     | grid -c
 }
-alias lsg = grid-ls
 
 alias backup-clear = clear
 def clear [] {
@@ -31,39 +39,18 @@ def auto-commit [] {
 def search-kill [processName] {
     let toKill = ps | where name =~ ("(?i)" + $processName)
 
-    if ($toKill | is-empty) {
+    $toKill | is-empty | if $in {
         print $"'($processName)' not found"
         return
     }
 
     print $toKill
+
     print "Are you sure you want to kill all of this?"
 
-    if ((['yes', 'no'] | input list) == 'yes') {
+    ['yes', 'no'] | input list | if $in == 'yes' {
         $toKill | each { kill -f $in.pid }
     }
-}
-
-alias sk = search-kill
-alias mv = ^mv
-alias lg = lazygit
-alias ll = ^exa -la --icons=auto
-alias vi = nvim
-alias dnf = sudo dnf -y
-alias scoop = powershell scoop
-
-alias conf = nvim $configDir
-alias jmplst = nvim $env.JUMP_LIST
-
-alias ghce = gh copilot explain
-alias ghcs = gh copilot suggest
-
-alias "scoop search" = __scoop_search
-
-let home = if $nu.os-info.family == "windows" {
-    [$env.HOMEDRIVE, $env.HOMEPATH] | path join
-} else {
-    $env.HOME
 }
 
 def translate [word: string] {
@@ -74,9 +61,12 @@ def translate [word: string] {
 }
 
 def open_nvim [what: list<string>] {
-    let pathified = $what | path join
-    cd $pathified
-    nvim $pathified
+    $what
+    | path join
+    | do {
+        cd $in
+        nvim $in
+    }
 }
 
 alias todo = open_nvim [$home, Documents, Markdowned, Todo]
@@ -84,10 +74,6 @@ alias mark = open_nvim [$home, Documents, Markdowned]
 
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
-
-const modules = [$nushellDir, modules] | path join
-const pc = [$modules, "pc.nu"] | path join
-use $pc
 
 alias pcs = pc sleep
 alias pcr = pc reboot
@@ -102,3 +88,17 @@ alias pathls = pc path list
 
 alias v = nvim .
 alias c = clear
+
+alias lsg = grid-ls
+alias sk = search-kill
+alias mv = ^mv
+alias lg = lazygit
+alias ll = ^exa -la --icons=auto
+alias vi = nvim
+alias dnf = sudo dnf -y
+alias scoop = powershell scoop
+
+alias conf = nvim $configDir
+alias jmplst = nvim $env.JUMP_LIST
+
+alias "scoop search" = __scoop_search
