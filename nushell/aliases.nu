@@ -69,6 +69,14 @@ def open_nvim [what: list<string>] {
     }
 }
 
+def search-url [...query: string] {
+    try {
+        start $"($env.PREFERED_SEARCH_ENGINE)?q=($query | str join ' ')"
+    } catch {
+        start $"https://duckduckgo.com/?q=($query | str join ' ')"
+    }
+}
+
 alias todo = open_nvim [$home, Documents, Markdowned, Todo]
 alias mark = open_nvim [$home, Documents, Markdowned]
 
