@@ -140,11 +140,11 @@ return {
       local servers = {
         -- clangd = {},        -- c++
         -- jdtls = {},         -- java
-        -- rust_analyzer = {}, -- rust
-        -- gopls = {},         -- go
         -- pyright = {},       -- python
         -- ols = {},           -- odin
         -- html = { filetypes = { 'html', 'twig', 'hbs' } },
+        rust_analyzer = {}, -- rust
+        gopls = {}, -- go
         ts_ls = {},
         tailwindcss = {},
         emmet_language_server = {},
