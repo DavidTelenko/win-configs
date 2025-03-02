@@ -138,7 +138,7 @@ return {
       require('mason-lspconfig').setup()
 
       local servers = {
-        -- clangd = {},        -- c++
+        clangd = {}, -- c++
         -- jdtls = {},         -- java
         -- pyright = {},       -- python
         -- ols = {},           -- odin
