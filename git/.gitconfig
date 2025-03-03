@@ -20,7 +20,7 @@
 [rerere]
     enabled = true
 [init]
-    defalutBranch = main
+    defaultBranch = main
 [http]
     postBuffer = 157286400
     sslBackend = openssl
