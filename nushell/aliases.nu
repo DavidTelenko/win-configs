@@ -1,19 +1,31 @@
+const is_windows = $nu.os-info.family == "windows"
+
 const nushellDir = ($nu.config-path | path parse).parent
 const configDir = ($nushellDir | path parse).parent
 const modules = [$nushellDir, modules] | path join
 const pc = [$modules, "pc.nu"] | path join
 use $pc
 
-let home = if $nu.os-info.family == "windows" {
+let home_dir = if $is_windows {
     [$env.HOMEDRIVE, $env.HOMEPATH] | path join
 } else {
     $env.HOME
 }
 
+let data_dir = if $is_windows {
+    $env.LOCALAPPDATA
+} else {
+    $env.XDG_DATA_HOME
+}
+
+let tmp_dir = if $is_windows {
+    $env.TEMP
+} else {
+    $env.TMPDIR
+}
+
 def grid-ls [] {
-    ls
-    | sort-by type name -i
-    | grid -c
+    ls | sort-by type name -i | grid -c
 }
 
 alias backup-clear = clear
@@ -54,16 +66,14 @@ def search-kill [processName] {
 }
 
 def translate [word: string] {
-    [$home, Documents, Utility, Dictionaries, eng-rus.txt]
+    [$home_dir, Documents, Utility, Dictionaries, eng-rus.txt]
     | path join
     | open $in
     | rg $word
 }
 
 def open_nvim [what: list<string>] {
-    $what
-    | path join
-    | do {
+    $what | path join | do {
         cd $in
         nvim $in
     }
@@ -77,8 +87,31 @@ def search-url [...query: string] {
     }
 }
 
-alias todo = open_nvim [$home, Documents, Markdowned, Todo]
-alias mark = open_nvim [$home, Documents, Markdowned]
+def clean-dir [dir: path, --older: duration = 1wk] {
+    let toDelete = $dir | ls $in | where modified < ((date now) - $older)
+
+    $toDelete | is-empty | if $in {
+        print $"'($dir)' does not have files older then ($older)"
+        return
+    }
+
+    print $toDelete
+    print "Are you sure you want to delete all of this?"
+
+    ['yes', 'no'] | input list | if $in == 'yes' {
+        $toDelete | each { rm -rf $in.name }
+    }
+}
+
+def clean-shada [--older: duration = 1wk] {
+    clean-dir ([$data_dir, nvim-data, shada] | path join) --older $older
+}
+
+def clean-pwd [--older: duration = 1wk] { clean-dir $"(pwd)" --older $older }
+def clean-tmp [--older: duration = 1day] { clean-dir $tmp_dir --older $older }
+
+alias todo = open_nvim [$home_dir, Documents, Markdowned, Todo]
+alias mark = open_nvim [$home_dir, Documents, Markdowned]
 
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
