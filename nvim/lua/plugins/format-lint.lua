@@ -150,10 +150,14 @@ return {
 
     -- Lint auto command
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-      callback = function()
-        lint.try_lint(get_linter())
+      callback = function(args)
+        local buftype =
+          vim.api.nvim_get_option_value('buftype', { buf = args.buf })
 
-        -- lint.try_lint 'cspell'
+        if buftype == '' then
+          lint.try_lint(get_linter())
+          lint.try_lint 'cspell'
+        end
       end,
     })
   end,
