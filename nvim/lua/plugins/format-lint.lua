@@ -35,7 +35,7 @@ return {
       json = { 'prettier', 'biome' },
       yaml = { 'prettier' },
       mdx = { 'prettier' },
-      markdownx = { 'prettier' },
+      markdown = { 'prettier' },
       graphql = { 'prettier' },
       lua = { 'stylua' },
       python = { 'black' },
