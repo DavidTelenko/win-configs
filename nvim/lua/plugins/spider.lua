@@ -31,7 +31,7 @@ return {
     opts = {
       keymaps = {
         useDefaults = true,
-        disabledDefaults = { 'iS', 'aS', 'L', 'H' },
+        disabledDefaults = { 'iS', 'aS', 'L', 'H', 'r' },
       },
     },
     keys = {
