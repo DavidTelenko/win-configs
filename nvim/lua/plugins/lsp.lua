@@ -138,16 +138,13 @@ return {
       require('mason-lspconfig').setup()
 
       local servers = {
-        clangd = {}, -- c++
-        -- jdtls = {},         -- java
-        -- pyright = {},       -- python
-        -- ols = {},           -- odin
         -- html = { filetypes = { 'html', 'twig', 'hbs' } },
-        rust_analyzer = {}, -- rust
-        gopls = {}, -- go
-        ts_ls = {},
-        tailwindcss = {},
+        -- jdtls = {},         -- java
+        -- ols = {},           -- odin
+        -- pyright = {},       -- python
+        clangd = {},
         emmet_language_server = {},
+        gopls = {},
         lua_ls = {
           Lua = {
             workspace = { checkThirdParty = false },
@@ -155,6 +152,10 @@ return {
             diagnostics = { disable = { 'missing-fields' } },
           },
         },
+        rust_analyzer = {},
+        svelte = {},
+        tailwindcss = {},
+        ts_ls = {},
       }
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
