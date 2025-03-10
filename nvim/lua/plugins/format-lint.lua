@@ -29,7 +29,7 @@ return {
       typescript = { 'prettier', 'biome', 'deno_fmt' },
       javascriptreact = { 'prettier', 'biome', 'deno_fmt' },
       typescriptreact = { 'prettier', 'biome', 'deno_fmt' },
-      svelte = { 'prettier' },
+      svelte = { 'prettier', 'biome' },
       css = { 'prettier' },
       html = { 'prettier' },
       json = { 'prettier', 'biome' },
