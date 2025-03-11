@@ -91,7 +91,7 @@ def clean-dir [dir: path, --older: duration = 1wk] {
     let toDelete = $dir | ls $in | where modified < ((date now) - $older)
 
     $toDelete | is-empty | if $in {
-        print $"'($dir)' does not have files older then ($older)"
+        print $"(ansi green)'($dir)' (ansi reset)does not have files older then ($older)"
         return
     }
 
