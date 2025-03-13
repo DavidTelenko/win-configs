@@ -142,6 +142,7 @@ return {
         -- jdtls = {},         -- java
         -- ols = {},           -- odin
         -- pyright = {},       -- python
+        elixirls = {},
         clangd = {},
         emmet_language_server = {},
         gopls = {},
