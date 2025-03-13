@@ -15,30 +15,31 @@ return {
     vim.g.current_linter = 'None'
 
     local linters_by_ft = {
-      javascript = { 'eslint', 'biomejs' },
-      typescript = { 'eslint', 'biomejs' },
-      javascriptreact = { 'eslint', 'biomejs' },
-      typescriptreact = { 'eslint', 'biomejs' },
-      svelte = { 'eslint' },
-      python = { 'pylint' },
       cpp = { 'cpplint' },
+      javascript = { 'eslint', 'biomejs' },
+      javascriptreact = { 'eslint', 'biomejs' },
+      python = { 'pylint' },
+      svelte = { 'eslint' },
+      typescript = { 'eslint', 'biomejs' },
+      typescriptreact = { 'eslint', 'biomejs' },
     }
 
     local formatters_by_ft = {
-      javascript = { 'prettier', 'biome', 'deno_fmt' },
-      typescript = { 'prettier', 'biome', 'deno_fmt' },
-      javascriptreact = { 'prettier', 'biome', 'deno_fmt' },
-      typescriptreact = { 'prettier', 'biome', 'deno_fmt' },
-      svelte = { 'prettier', 'biome' },
       css = { 'prettier' },
-      html = { 'prettier' },
-      json = { 'prettier', 'biome' },
-      yaml = { 'prettier' },
-      mdx = { 'prettier' },
-      markdown = { 'prettier' },
+      elixir = { 'mix' },
       graphql = { 'prettier' },
+      html = { 'prettier' },
+      javascript = { 'prettier', 'biome', 'deno_fmt' },
+      javascriptreact = { 'prettier', 'biome', 'deno_fmt' },
+      json = { 'prettier', 'biome' },
       lua = { 'stylua' },
+      markdown = { 'prettier' },
+      mdx = { 'prettier' },
       python = { 'black' },
+      svelte = { 'prettier', 'biome' },
+      typescript = { 'prettier', 'biome', 'deno_fmt' },
+      typescriptreact = { 'prettier', 'biome', 'deno_fmt' },
+      yaml = { 'prettier' },
     }
 
     conform.setup {
