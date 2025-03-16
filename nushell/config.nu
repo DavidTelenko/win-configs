@@ -770,9 +770,10 @@ const completions = ([$nushellDir, completions] | path join)
 const welcomeBanner = ([$nushellDir, welcome-banner.txt] | path join)
 
 source ~/.zoxide.nu
-source ~/.oh-my-posh.nu
+# source ~/.oh-my-posh.nu
 source ~/.broot.nu
 source $aliases
+
 use $completions *;
 use $modules *
 
