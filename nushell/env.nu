@@ -1,6 +1,4 @@
 $env.PROMPT_COMMAND = {||
-    $env.LAST_PROMPT_TIME = date now
-
     let dir = $env.PWD | path split | if (
         $in | zip ($nu.home-path | path split) | all { $in.0 == $in.1 }
     ) {
@@ -11,10 +9,13 @@ $env.PROMPT_COMMAND = {||
         $in | select 0 (($in | length) - 1) | [$in.0 '..' $in.1]
     } else { $in } | path join
 
+    let duration = $env.CMD_DURATION_MS | into int | into duration --unit ms
+
     [
         $"(ansi green)@(whoami) "
         $"(ansi magenta)nu "
-        $"(ansi yellow)($dir)"
+        $"(ansi yellow)($dir) "
+        $"(ansi white)($duration)"
         $"(char newline)"
         $"(ansi light_blue)> "
     ] | str join
