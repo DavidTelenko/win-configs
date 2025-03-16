@@ -2,8 +2,6 @@
 # mechanisms were put into this module to work seamlessly on any platform and
 # to be semi-easily configurable
 
-use core.nu *
-
 # Runs arbitury powershell command assuming it's installed on the system and
 # mounted into Path env variable
 def powershell_run [command] {
@@ -147,8 +145,7 @@ def impl [f, ...rest] {
             volume_mute: {
                 amixer set Master toggle
             }
-        }} else {{
-        }}
+        }} else {{}}
     )
 
     do ($platform | get $f) ...$rest
