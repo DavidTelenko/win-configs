@@ -18,4 +18,14 @@ export def symlink [
     mklink $link_name $existing
 }
 
-const nushellDir = ($nu.config-path | path parse).parent
+export def retry [
+    blk: closure,
+    --retries(-r): number = 5,
+] {
+    for _ in 0..<$retries {
+        try {
+            do $blk
+            break
+        }
+    }
+}
