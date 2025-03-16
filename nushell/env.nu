@@ -1,51 +1,38 @@
-def create_left_prompt [] {
-    let home =  $nu.home-path
+$env.PROMPT_COMMAND = {||
+    $env.LAST_PROMPT_TIME = date now
 
-    # Perform tilde substitution on dir
-    # To determine if the prefix of the path matches the home dir, we split the current path into
-    # segments, and compare those with the segments of the home dir. In cases where the current dir
-    # is a parent of the home dir (e.g. `/home`, homedir is `/home/user`), this comparison will
-    # also evaluate to true. Inside the condition, we attempt to str replace `$home` with `~`.
-    # Inside the condition, either:
-    # 1. The home prefix will be replaced
-    # 2. The current dir is a parent of the home dir, so it will be uneffected by the str replace
-    let dir = (
-        if ($env.PWD | path split | zip ($home | path split) | all { $in.0 == $in.1 }) {
-            ($env.PWD | str replace $home "~")
-        } else {
-            $env.PWD
-        }
-    )
+    let dir = $env.PWD | path split | if (
+        $in | zip ($nu.home-path | path split) | all { $in.0 == $in.1 }
+    ) {
+        $env.PWD | str replace $nu.home-path "~" | path split
+    } else { $in } | if (
+        ($in | length) > 2
+    ) {
+        $in | select 0 (($in | length) - 1) | [$in.0 '..' $in.1]
+    } else { $in } | path join
 
-    let path_color = (if (is-admin) { ansi blue_bold } else { ansi green_bold })
-    let separator_color = (if (is-admin) { ansi light_blue_bold } else { ansi light_green_bold })
-    let path_segment = $"($path_color)($dir)"
-
-    $path_segment | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)"
+    [
+        $"(ansi green)@(whoami) "
+        $"(ansi magenta)nu "
+        $"(ansi yellow)($dir)"
+        $"(char newline)"
+        $"(ansi light_blue)> "
+    ] | str join
 }
 
-def create_right_prompt [] {
-    # create a right prompt in magenta with green separators and am/pm underlined
-    let time_segment = ([
-        (ansi reset)
-        (ansi magenta)
-        (date now | format date '%x %X %p') # try to respect user's locale
-    ] | str join | str replace --regex --all "([/:])" $"(ansi green)${1}(ansi magenta)" |
-        str replace --regex --all "([AP]M)" $"(ansi magenta_underline)${1}")
+$env.PROMPT_COMMAND_RIGHT = {||
+    let time_segment = [
+        (ansi green)
+        (date now | format date '%I:%M:%S %p')
+    ]
 
     let last_exit_code = if ($env.LAST_EXIT_CODE != 0) {([
         (ansi rb)
         ($env.LAST_EXIT_CODE)
-    ] | str join)
-    } else { "" }
+    ])} else { "" }
 
-    ([$last_exit_code, (char space), $time_segment] | str join)
+    ([$last_exit_code (char space) $time_segment] | flatten | str join)
 }
-
-# Use nushell functions to define your right and left prompt
-$env.PROMPT_COMMAND = {|| create_left_prompt }
-# FIXME: This default is not implemented in rust code as of 2023-09-08.
-$env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt

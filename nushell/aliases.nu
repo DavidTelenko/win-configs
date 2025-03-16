@@ -9,8 +9,6 @@ const pc = [$modules, pc.nu] | path join
 use $core *
 use $pc
 
-let puk = {hello: "there", my: "name"}
-
 let platform_dirs = ($nu.os-info.family | if $in == "windows" {{
     data: $env.LOCALAPPDATA
     home: ([$env.HOMEDRIVE, $env.HOMEPATH] | path join)
