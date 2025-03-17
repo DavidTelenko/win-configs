@@ -48,12 +48,12 @@ def auto-commit [] {
     git push
 }
 
-def search-kill [processName] {
+def search-kill [processName: string] {
     let toKill = ps | where name =~ ("(?i)" + $processName)
 
     $toKill | is-empty | if $in {
         print $"'($processName)' not found"
-        return
+        return 1
     }
 
     print $toKill
@@ -61,8 +61,17 @@ def search-kill [processName] {
     print "Are you sure you want to kill all of this?"
 
     ['yes', 'no'] | input list | if $in == 'yes' {
-        $toKill | each { kill -f $in.pid }
+        $toKill | each {
+            try {
+                kill -f $in.pid
+            } catch {
+                print $"Failed to kill one of processes"
+            }
+        }
+        return 0
     }
+
+    return 1
 }
 
 def translate [word: string] {
@@ -164,6 +173,12 @@ def clean-shada [--older: duration = 1wk] {
 
 def clean-pwd [--older: duration = 1wk] { clean-dir $"(pwd)" --older $older }
 def clean-tmp [--older: duration = 1day] { clean-dir $dirs.temp --older $older }
+
+def restart [processName: string] {
+    search-kill $processName | if $in == 0 {
+        ^$"($processName)"
+    }
+}
 
 alias todo = open_nvim [$dirs.home, Documents, Markdowned, Todo]
 alias mark = open_nvim [$dirs.home, Documents, Markdowned]
