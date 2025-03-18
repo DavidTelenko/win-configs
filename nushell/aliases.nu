@@ -64,8 +64,6 @@ def search-kill [processName: string] {
         $toKill | each {
             try {
                 kill -f $in.pid
-            } catch {
-                print $"Failed to kill one of processes"
             }
         }
         return 0
