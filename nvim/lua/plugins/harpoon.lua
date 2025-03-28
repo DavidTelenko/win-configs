@@ -61,7 +61,8 @@ return {
     end
 
     vim.keymap.set('n', '<leader><space>', function()
-      toggle_telescope(harpoon:list())
+      -- toggle_telescope(harpoon:list())
+      harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = 'Open harpoon window' })
   end,
 }
