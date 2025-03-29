@@ -156,6 +156,8 @@ return {
           vim.api.nvim_get_option_value('buftype', { buf = args.buf })
 
         if buftype == '' then
+          pcall(vim.cmd, 'EslintFixAll')
+
           lint.try_lint(get_linter())
           lint.try_lint 'cspell'
         end
