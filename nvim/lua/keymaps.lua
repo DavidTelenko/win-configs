@@ -50,7 +50,9 @@ vim.keymap.set('i', '<C-j>', '<NOP>', {})
 
 vim.keymap.set('v', 'p', 'P', {
   desc = 'Paste without copying selected text in visual mode',
-}) -- vim.keymap.set('v', 'p', '"0p')
+})
+
+-- vim.keymap.set('v', 'p', '"0p')
 
 vim.keymap.set('n', '<C-u>', '<C-u>zz', {
   desc = 'Scroll half screen up with stabilization',
