@@ -7,6 +7,7 @@ return {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'tpope/vim-sleuth',
+      'b0o/schemastore.nvim',
 
       -- Additional lua configuration, makes nvim stuff amazing!
       {
@@ -143,6 +144,8 @@ return {
         float = { border = _border },
       }
 
+      local schemas = require 'schemastore'
+
       require('mason-lspconfig').setup()
 
       local servers = {
@@ -165,6 +168,17 @@ return {
         svelte = {},
         tailwindcss = {},
         ts_ls = {},
+        jsonls = {
+          schemas = schemas.json.schemas(),
+          validate = { enable = true },
+        },
+        yamlls = {
+          schemas = schemas.yaml.schemas(),
+          schemaStore = {
+            enable = false,
+            url = '',
+          },
+        },
       }
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
