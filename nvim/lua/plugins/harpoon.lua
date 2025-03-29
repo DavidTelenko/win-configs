@@ -15,7 +15,7 @@ return {
     local wk = require 'which-key'
 
     wk.add {
-      { '<leader>H', desc = '[H]arpoon' },
+      { '<leader>h', desc = 'Harpoon' },
     }
 
     for i = 1, 9 do
@@ -34,10 +34,6 @@ return {
     vim.keymap.set('n', '<leader>hr', function()
       harpoon:list():remove()
     end, { desc = '[R]remove file from harpoon' })
-
-    vim.keymap.set('n', '<leader>hm', function()
-      harpoon.ui:toggle_quick_menu(harpoon:list())
-    end, { desc = 'Open quick [M]enu' })
 
     -- basic telescope configuration
     local conf = require('telescope.config').values
@@ -64,5 +60,9 @@ return {
       -- toggle_telescope(harpoon:list())
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = 'Open harpoon window' })
+
+    vim.keymap.set('n', '<leader>hm', function()
+      toggle_telescope(harpoon:list())
+    end, { desc = 'Open quick [M]enu' })
   end,
 }

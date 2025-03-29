@@ -19,6 +19,14 @@ return {
       --  This function gets run when an LSP connects to a particular buffer.
       local telescope = require 'telescope.builtin'
 
+      vim.keymap.set('n', '<leader>cI', function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
+      end, { desc = 'Enable [I]nline hints' })
+
+      vim.keymap.set('n', '<leader>cd', vim.diagnostic.setqflist, {
+        desc = 'Open diagnostics list',
+      })
+
       local on_attach = function(client, bufnr)
         local nmap = function(keys, func, desc)
           if desc then

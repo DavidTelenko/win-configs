@@ -75,45 +75,57 @@ return {
       },
     }
 
-    vim.keymap.set('n', '<leader>di', dap.step_into, { desc = 'Step [I]nto' })
-    vim.keymap.set('n', '<leader>do', dap.step_over, { desc = 'Step [O]ver' })
-    vim.keymap.set('n', '<leader>dO', dap.step_out, { desc = 'Step [O]ut' })
-    vim.keymap.set(
-      'n',
-      '<leader>dc',
-      dap.continue,
-      { desc = 'Start/[C]ontinue' }
-    )
-    vim.keymap.set(
-      'n',
-      '<leader>db',
-      dap.toggle_breakpoint,
-      { desc = 'Toggle [B]reakpoint' }
-    )
+    vim.keymap.set('n', '<leader>di', dap.step_into, {
+      desc = 'Debug: Step [I]nto',
+    })
+
+    vim.keymap.set('n', '<leader>do', dap.step_over, {
+      desc = 'Debug: Step [O]ver',
+    })
+
+    vim.keymap.set('n', '<leader>dO', dap.step_out, {
+      desc = 'Debug: Step [O]ut',
+    })
+
+    vim.keymap.set('n', '<leader>dc', dap.continue, {
+      desc = 'Debug: Start/[C]ontinue',
+    })
+
+    vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, {
+      desc = 'Debug: Toggle [B]reakpoint',
+    })
+
     vim.keymap.set('n', '<leader>dB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    end, { desc = 'Set [B]reakpoint' })
+    end, { desc = 'Debug: Set [B]reakpoint' })
+
+    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+    vim.keymap.set('n', '<leader>du', dapui.toggle, {
+      desc = 'Debug: Open [U]i',
+    })
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
     dapui.setup()
     require('nvim-dap-virtual-text').setup {}
 
-    vim.api.nvim_set_hl(
-      0,
-      'DapBreakpoint',
-      { ctermbg = 0, fg = '#fb4934', bg = '#261c1c' }
-    )
-    vim.api.nvim_set_hl(
-      0,
-      'DapLogPoint',
-      { ctermbg = 0, fg = '#83a598', bg = '#261c1c' }
-    )
-    vim.api.nvim_set_hl(
-      0,
-      'DapStopped',
-      { ctermbg = 0, fg = '#fb4934', bg = '#261c1c' }
-    )
+    vim.api.nvim_set_hl(0, 'DapBreakpoint', {
+      ctermbg = 0,
+      fg = '#fb4934',
+      bg = '#261c1c',
+    })
+
+    vim.api.nvim_set_hl(0, 'DapLogPoint', {
+      ctermbg = 0,
+      fg = '#83a598',
+      bg = '#261c1c',
+    })
+
+    vim.api.nvim_set_hl(0, 'DapStopped', {
+      ctermbg = 0,
+      fg = '#fb4934',
+      bg = '#261c1c',
+    })
 
     vim.fn.sign_define('DapBreakpoint', {
       text = '',
@@ -121,38 +133,34 @@ return {
       linehl = 'DapBreakpoint',
       numhl = 'DapBreakpoint',
     })
+
     vim.fn.sign_define('DapBreakpointCondition', {
       text = '',
       texthl = 'DapBreakpoint',
       linehl = 'DapBreakpoint',
       numhl = 'DapBreakpoint',
     })
+
     vim.fn.sign_define('DapBreakpointRejected', {
       text = '',
       texthl = 'DapBreakpoint',
       linehl = 'DapBreakpoint',
       numhl = 'DapBreakpoint',
     })
+
     vim.fn.sign_define('DapLogPoint', {
       text = '',
       texthl = 'DapLogPoint',
       linehl = 'DapLogPoint',
       numhl = 'DapLogPoint',
     })
+
     vim.fn.sign_define('DapStopped', {
       text = '',
       texthl = 'DapStopped',
       linehl = 'DapStopped',
       numhl = 'DapStopped',
     })
-
-    -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-    vim.keymap.set(
-      'n',
-      '<F7>',
-      dapui.toggle,
-      { desc = 'Debug: See last session result.' }
-    )
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
