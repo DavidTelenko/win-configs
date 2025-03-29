@@ -17,18 +17,7 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     event = 'BufReadPre',
-    keys = {
-      {
-        '<leader>gb',
-        '<cmd>Gitsigns toggle_current_line_blame<cr>',
-        desc = 'Toggle git [B]lame',
-      },
-      {
-        '<leader>gB',
-        '<cmd>Gitsigns blame<cr>',
-        desc = 'Toggle git [B]lame window',
-      },
-    },
+    keys = {},
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
@@ -37,6 +26,14 @@ return {
         delete = { text = '_' },
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
+      },
+      signs_staged = {
+        add = { text = '' },
+        change = { text = '' },
+        delete = { text = '' },
+        topdelete = { text = '' },
+        changedelete = { text = '' },
+        untracked = { text = '' },
       },
       on_attach = function(bufnr)
         vim.keymap.set('n', '<leader>gp', require('gitsigns').preview_hunk, {
@@ -73,6 +70,30 @@ return {
           expr = true,
           buffer = bufnr,
           desc = 'Previous git hunk',
+        })
+
+        vim.keymap.set('n', '<leader>gs', gs.stage_hunk, {
+          desc = 'Stage hunk',
+        })
+
+        vim.keymap.set('n', '<leader>gr', gs.reset_hunk, {
+          desc = 'Reset hunk',
+        })
+
+        vim.keymap.set('v', '<leader>gs', function()
+          gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
+        end, { desc = '[S]tage hunk' })
+
+        vim.keymap.set('v', '<leader>gr', function()
+          gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
+        end, { desc = '[R]eset hunk' })
+
+        vim.keymap.set('n', '<leader>gb', gs.toggle_current_line_blame, {
+          desc = 'Toggle git [B]lame',
+        })
+
+        vim.keymap.set('n', '<leader>gB', gs.blame, {
+          desc = 'Toggle [B]lame windows',
         })
       end,
     },
