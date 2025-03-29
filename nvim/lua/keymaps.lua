@@ -169,4 +169,8 @@ vim.keymap.set('n', '<leader>cr', '<cmd>LspRestart<cr>', {
   desc = '[R]estart Lsp Server',
 })
 
+vim.keymap.set('n', '<leader>e', '<cmd>Oil<cr>', {
+  desc = 'Open explorer window',
+})
+
 -- vim: ts=2 sts=2 sw=2 et

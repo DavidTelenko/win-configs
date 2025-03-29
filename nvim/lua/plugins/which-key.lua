@@ -26,6 +26,8 @@ return {
       { '<leader>w_', hidden = true },
       { '<leader>x', group = 'Trouble' },
       { '<leader>x_', hidden = true },
+      { '<leader>h', group = 'Harpoon' },
+      { '<leader>h_', hidden = true },
     }
   end,
 }

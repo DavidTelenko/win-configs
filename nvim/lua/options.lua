@@ -174,7 +174,7 @@ end, {})
 
 vim.keymap.set('n', '<leader>q', function()
   vim.cmd 'ToggleQuickfix'
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true, desc = 'Toggle quickfix' })
 
 -- MS Windows shenanigans
 vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,),[,]'
