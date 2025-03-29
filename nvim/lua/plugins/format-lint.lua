@@ -16,12 +16,12 @@ return {
 
     local linters_by_ft = {
       cpp = { 'cpplint' },
-      javascript = { 'eslint', 'biomejs' },
-      javascriptreact = { 'eslint', 'biomejs' },
+      javascript = { 'eslint_d', 'biomejs' },
+      javascriptreact = { 'eslint_d', 'biomejs' },
       python = { 'pylint' },
-      svelte = { 'eslint' },
-      typescript = { 'eslint', 'biomejs' },
-      typescriptreact = { 'eslint', 'biomejs' },
+      svelte = { 'eslint_d' },
+      typescript = { 'eslint_d', 'biomejs' },
+      typescriptreact = { 'eslint_d', 'biomejs' },
     }
 
     local formatters_by_ft = {

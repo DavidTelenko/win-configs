@@ -25,7 +25,7 @@ return {
       telescope.load_extension 'notify'
 
       vim.keymap.set('n', '<leader>sn', telescope.extensions.notify.notify, {
-        desc = '[S]earch [N]otifications',
+        desc = 'Search [N]otifications',
       })
     end,
   },

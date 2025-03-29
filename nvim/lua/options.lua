@@ -93,18 +93,11 @@ local en_n = [[qwertyuiop[]asdfghjkl;'zxcvbnm]]
 local ua_n = [[йцукенгшщзхїфівапролджєячсмить]]
 local en_s = [[QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
 local ua_s =
-[[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
+  [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
 
 vim.o.langmap = vim.fn.join({
-  --  to
-  --  ;
-  --  from
-  escape(ua_n)
-  .. ';' --
-  .. escape(en_n),
-  escape(ua_s)
-  .. ';' --
-  .. escape(en_s),
+  escape(ua_n) .. ';' .. escape(en_n),
+  escape(ua_s) .. ';' .. escape(en_s),
 }, ',')
 
 vim.o.langremap = false
@@ -158,8 +151,30 @@ vim.api.nvim_create_autocmd('TermOpen', {
 -- Muscle memory
 vim.api.nvim_create_user_command('E', function()
   -- vim.cmd 'Explore'
-  vim.cmd 'Oil'
+  -- vim.cmd 'Oil'
 end, {})
+
+vim.api.nvim_create_user_command('ToggleQuickfix', function()
+  local qf_exists = false
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win['quickfix'] == 1 then
+      qf_exists = true
+    end
+  end
+  if qf_exists then
+    vim.cmd 'cclose'
+    return
+  end
+  if not vim.tbl_isempty(vim.fn.getqflist()) then
+    vim.cmd 'copen'
+  else
+    print 'Quickfix list is empty'
+  end
+end, {})
+
+vim.keymap.set('n', '<leader>q', function()
+  vim.cmd 'ToggleQuickfix'
+end, { noremap = true, silent = true })
 
 -- MS Windows shenanigans
 vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,),[,]'
