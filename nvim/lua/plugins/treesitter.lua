@@ -81,41 +81,41 @@ return {
             enable = true,
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
-              [']m'] = {
+              [']f'] = {
                 query = '@function.outer',
                 desc = 'Next start of function',
               },
-              [']]'] = {
+              [']l'] = {
                 query = '@class.outer',
                 desc = 'Next start of class',
               },
             },
             goto_next_end = {
-              [']M'] = {
+              [']F'] = {
                 query = '@function.outer',
                 desc = 'Next end of function',
               },
-              [']['] = {
+              [']L'] = {
                 query = '@class.outer',
                 desc = 'Next end of class',
               },
             },
             goto_previous_start = {
-              ['[m'] = {
+              ['[f'] = {
                 query = '@function.outer',
                 desc = 'Previous start of function',
               },
-              ['[['] = {
+              ['[l'] = {
                 query = '@class.outer',
                 desc = 'Previous start of class',
               },
             },
             goto_previous_end = {
-              ['[M'] = {
+              ['[F'] = {
                 query = '@function.outer',
                 desc = 'Previous end of function',
               },
-              ['[]'] = {
+              ['[L'] = {
                 query = '@class.outer',
                 desc = 'Previous end of class',
               },
