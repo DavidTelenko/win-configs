@@ -27,7 +27,9 @@ return {
       handlers = {
         function(config)
           if vim.fn.has 'win32' == 1 then
-            config.adapters.executable.detached = false
+            pcall(function()
+              config.adapters.executable.detached = false
+            end)
           end
           require('mason-nvim-dap').default_setup(config)
         end,
