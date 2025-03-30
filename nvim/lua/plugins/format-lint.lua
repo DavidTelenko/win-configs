@@ -1,7 +1,8 @@
 return {
-  'stevearc/conform.nvim',
+  'mfussenegger/nvim-lint',
   dependencies = {
-    'mfussenegger/nvim-lint',
+    'stevearc/conform.nvim',
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
   },
   event = {
     'BufReadPre',
@@ -9,145 +10,78 @@ return {
   },
   config = function()
     local conform = require 'conform'
-    local lint = require 'lint'
 
-    vim.g.current_formatter = 'None'
-    vim.g.current_linter = 'None'
+    local function first(bufnr, ...)
+      for i = 1, select('#', ...) do
+        local formatter = select(i, ...)
+        if conform.get_formatter_info(formatter, bufnr).available then
+          return formatter
+        end
+      end
+      return select(1, ...)
+    end
 
-    local linters_by_ft = {
-      cpp = { 'cpplint' },
-      javascript = { 'eslint_d', 'biomejs' },
-      javascriptreact = { 'eslint_d', 'biomejs' },
-      python = { 'pylint' },
-      svelte = { 'eslint_d' },
-      typescript = { 'eslint_d', 'biomejs' },
-      typescriptreact = { 'eslint_d', 'biomejs' },
-    }
+    local js_ts_formatters = function(bufnr)
+      return {
+        first(bufnr, 'biome', 'deno_fmt', 'prettierd'),
+        'eslint_d',
+      }
+    end
 
-    local formatters_by_ft = {
-      css = { 'prettier' },
-      elixir = { 'mix' },
-      graphql = { 'prettier' },
-      html = { 'prettier' },
-      javascript = { 'prettier', 'biome', 'deno_fmt' },
-      javascriptreact = { 'prettier', 'biome', 'deno_fmt' },
-      json = { 'prettier', 'biome' },
-      lua = { 'stylua' },
-      markdown = { 'prettier' },
-      mdx = { 'prettier' },
-      python = { 'black' },
-      svelte = { 'prettier', 'biome' },
-      typescript = { 'prettier', 'biome', 'deno_fmt' },
-      typescriptreact = { 'prettier', 'biome', 'deno_fmt' },
-      yaml = { 'prettier' },
+    require('mason-tool-installer').setup {
+      ensure_installed = {
+        'biome',
+        'eslint_d',
+        'prettierd',
+        'stylua',
+      },
     }
 
     conform.setup {
       log_level = vim.log.levels.DEBUG,
-      formatters_by_ft = formatters_by_ft,
-    }
-
-    -- Function to find the first config file by walking up the directory tree
-    local formatter_configs = {
-      prettier = {
-        '.prettierrc',
-        '.prettierrc.json',
-        '.prettierrc.js',
-        'prettier.config.js',
-        'prettier.config.mjs',
-        'prettier.config.cjs',
+      format_after_save = {
+        lsp_fallback = true,
+        timeout_ms = 100000,
       },
-      biome = { 'biome.json', 'biome.jsonc' },
-      deno = { 'deno.json', 'deno.jsonc' },
-    }
-
-    local linter_configs = {
-      biome = { 'biome.json', 'biome.jsonc' },
-      deno = { 'deno.json', 'deno.jsonc' },
-      eslint = {
-        'eslint.config.js',
-        'eslint.config.mjs',
-        'eslint.config.cjs',
-        'eslint.config.ts',
-        'eslint.config.mts',
-        'eslint.config.cts',
+      formatters_by_ft = {
+        css = { 'prettierd' },
+        elixir = { 'mix' },
+        graphql = { 'prettierd' },
+        html = { 'prettierd' },
+        javascript = js_ts_formatters,
+        javascriptreact = js_ts_formatters,
+        json = { 'prettierd', 'biome' },
+        lua = { 'stylua' },
+        markdown = { 'prettierd' },
+        mdx = { 'prettierd' },
+        python = { 'black' },
+        svelte = { 'prettierd', 'biome' },
+        typescript = js_ts_formatters,
+        typescriptreact = js_ts_formatters,
+        yaml = { 'prettierd' },
       },
     }
 
-    local function find_first_config_from(config_files)
-      local dir = vim.fn.getcwd()
-      for formatter, patterns in pairs(config_files) do
-        for _, pattern in ipairs(patterns) do
-          local config_file = dir .. '/' .. pattern
-          if vim.fn.filereadable(config_file) == 1 then
-            return formatter
-          end
-        end
-      end
-      return nil
+    local lint = require 'lint'
+    local formatter_to_linter = {
+      biome = 'biomejs',
+      eslint_d = 'eslint_d',
+    }
+
+    local js_ts_linters = function(bufnr)
+      local formatter = first(bufnr, 'biome', 'eslint_d')
+      return { formatter_to_linter[formatter] }
     end
 
-    -- Function to determine the formatter based on config files and file type
-    local function get_formatter()
-      local filetype = vim.bo.filetype
-      local available_formatters = formatters_by_ft[filetype] or {}
-      local formatter = find_first_config_from(formatter_configs)
-
-      vim.g.current_formatter = available_formatters[1]
-
-      if
-        formatter == 'prettier'
-        and vim.tbl_contains(available_formatters, 'prettier')
-      then
-        vim.g.current_formatter = 'prettier'
-      elseif
-        formatter == 'biome'
-        and vim.tbl_contains(available_formatters, 'biome')
-      then
-        vim.g.current_formatter = 'biome'
-      elseif
-        formatter == 'deno'
-        and vim.tbl_contains(available_formatters, 'deno_fmt')
-      then
-        vim.g.current_formatter = 'deno_fmt'
-      end
-
-      return { vim.g.current_formatter }
-    end
-
-    local function get_linter()
-      local filetype = vim.bo.filetype
-      local available_linter = linters_by_ft[filetype] or {}
-      local linter = find_first_config_from(linter_configs)
-
-      vim.g.current_linter = available_linter[1]
-
-      if
-        linter == 'eslint'
-        and vim.tbl_contains(available_linter, 'eslint')
-      then
-        vim.g.current_linter = 'eslint'
-      elseif
-        linter == 'biome'
-        and vim.tbl_contains(available_linter, 'biomejs')
-      then
-        vim.g.current_linter = 'biomejs'
-      end
-
-      return { vim.g.current_linter }
-    end
-
-    -- Format auto command
-    vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-      callback = function(args)
-        conform.format {
-          formatters = get_formatter(),
-          bufnr = args.buf,
-          lsp_fallback = true,
-          timeout_ms = 100000,
-        }
-      end,
-    })
+    lint.linters_by_ft = {
+      cpp = { 'cpplint' },
+      javascript = js_ts_linters(),
+      javascriptreact = js_ts_linters(),
+      python = { 'pylint' },
+      svelte = { 'eslint_d' },
+      typescript = js_ts_linters(),
+      typescriptreact = js_ts_linters(),
+    }
 
     -- Lint auto command
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
@@ -156,9 +90,7 @@ return {
           vim.api.nvim_get_option_value('buftype', { buf = args.buf })
 
         if buftype == '' then
-          pcall(vim.cmd, 'EslintFixAll')
-
-          lint.try_lint(get_linter())
+          lint.try_lint()
           lint.try_lint 'cspell'
         end
       end,

@@ -125,20 +125,6 @@ vim.keymap.set('i', '<C-Del>', '<C-o>dw', {
   desc = 'Ctrl + Del "default" behavior',
 })
 
--- [[ Diagnostic keymaps ]]
-
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {
-  desc = 'Go to previous diagnostic message',
-})
-
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {
-  desc = 'Go to next diagnostic message',
-})
-
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
-  desc = 'Open floating diagnostic message',
-})
-
 -- How do i exit terminal in vim?
 
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>', {
@@ -171,8 +157,7 @@ vim.keymap.set('n', '<leader>cr', '<cmd>LspRestart<cr>', {
   desc = '[R]estart Lsp Server',
 })
 
-vim.keymap.set('n', '<leader>e', '<cmd>Oil<cr>', {
-  desc = 'Open explorer window',
+vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', {
+  desc = 'Open parent directory',
 })
-
 -- vim: ts=2 sts=2 sw=2 et
