@@ -10,15 +10,15 @@ return {
 
     -- document existing key chains
     require('which-key').add {
-      { '<leader>c', group = 'Code' },
+      { '<leader>c', group = 'Code', mode = { 'x', 'n' } },
       { '<leader>c_', hidden = true },
       { '<leader>d', group = 'Debug' },
       { '<leader>d_', hidden = true },
       { '<leader>f', group = 'Find' },
       { '<leader>f_', hidden = true },
-      { '<leader>g', group = 'Git' },
+      { '<leader>g', group = 'Git', mode = { 'x', 'n' } },
       { '<leader>g_', hidden = true },
-      { '<leader>r', group = 'Refactor' },
+      { '<leader>r', group = 'Refactor', mode = { 'x', 'n' } },
       { '<leader>r_', hidden = true },
       { '<leader>s', group = 'Search' },
       { '<leader>s_', hidden = true },

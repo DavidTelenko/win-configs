@@ -28,11 +28,5 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
   },
-  config = function()
-    require('refactoring').setup {}
-
-    require('which-key').add {
-      { '<leader>r', desc = '[R]efactor', mode = 'x' },
-    }
-  end,
+  opts = {},
 }
