@@ -1,11 +1,11 @@
 return {
   'mbbill/undotree',
   keys = {
-    { '<leader>h' },
-  },
-  config = function()
-    vim.keymap.set('n', '<leader>hh', vim.cmd.UndotreeToggle, {
+    {
+      '<leader>hh',
+      '<cmd>UndotreeToggle<cr>',
+      mode = 'n',
       desc = 'Toggle [H]istory tree',
-    })
-  end,
+    },
+  },
 }

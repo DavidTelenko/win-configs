@@ -14,10 +14,6 @@ return {
 
     local wk = require 'which-key'
 
-    wk.add {
-      { '<leader>h', desc = 'Harpoon' },
-    }
-
     for i = 1, 9 do
       vim.keymap.set('n', '<leader>' .. i, function()
         harpoon:list():select(i)

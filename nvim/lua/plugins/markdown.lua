@@ -9,7 +9,7 @@ return {
   },
   {
     'davidmh/mdx.nvim',
-    config = true,
+    opts = {},
     event = { 'BufEnter *.mdx' },
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
   },
