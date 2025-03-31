@@ -5,6 +5,10 @@ return {
   ---@module "quicker"
   ---@type quicker.SetupOptions
   opts = {
+    opts = {
+      number = true,
+      relativenumber = false,
+    },
     highlight = {
       treesitter = true,
       lsp = false,
@@ -31,9 +35,6 @@ return {
       {
         '<',
         function()
-          if #vim.fn.getqflist() > 100 then
-            return
-          end
           require('quicker').collapse()
         end,
         desc = 'Collapse quickfix context',
