@@ -30,7 +30,7 @@ return {
 
     require('mason-tool-installer').setup {
       ensure_installed = {
-        'biome',
+        -- 'biome',
         'eslint_d',
         'prettierd',
         'stylua',
