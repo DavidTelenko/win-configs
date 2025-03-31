@@ -3,8 +3,8 @@ return {
   event = 'VeryLazy',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    -- 'nvim-treesitter/nvim-treesitter-context',
     'nushell/tree-sitter-nu',
+    -- 'nvim-treesitter/nvim-treesitter-context',
   },
   build = ':TSUpdate',
   config = function()

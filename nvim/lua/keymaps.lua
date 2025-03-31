@@ -1,4 +1,4 @@
--- [[ Keymaps for better default experience ]]
+-- Keymaps for better default experience
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', {
   silent = true,
 })
@@ -21,7 +21,7 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", {
 
 vim.keymap.set('n', 'J', 'mzJ`z')
 
--- Useless for me - L and H
+-- L and H - begin and end of the line
 vim.keymap.set({ 'n', 'v' }, 'L', '$')
 vim.keymap.set({ 'n', 'v' }, 'H', '_')
 
@@ -29,31 +29,17 @@ vim.keymap.set({ 'n', 'v' }, 'H', '_')
 vim.keymap.set('n', ']t', 'vat<esc>', { desc = 'Next tag' })
 vim.keymap.set('n', '[t', 'vato<esc>', { desc = 'Prev tag' })
 
--- Quickfix list
-
-vim.keymap.set('n', ']q', function()
-  pcall(vim.cmd, 'cnext')
-end, { desc = 'Next quicklist entry' })
-
-vim.keymap.set('n', '[q', function()
-  pcall(vim.cmd, 'cprev')
-end, { desc = 'Next quicklist entry' })
-
--- Focus current buffer
-vim.keymap.set('n', '<leader>O', function()
-  vim.cmd 'only'
-end, { desc = 'Focus only window' })
-
 -- disable default control keymaps
 vim.keymap.set('i', '<C-k>', '<NOP>', {})
 vim.keymap.set('i', '<C-j>', '<NOP>', {})
 
+-- Paste without reyanking
+-- vim.keymap.set('v', 'p', '"0p')
 vim.keymap.set('v', 'p', 'P', {
   desc = 'Paste without copying selected text in visual mode',
 })
 
--- vim.keymap.set('v', 'p', '"0p')
-
+-- Scrolling with stabilization
 vim.keymap.set('n', '<C-u>', '<C-u>zz', {
   desc = 'Scroll half screen up with stabilization',
 })
@@ -71,7 +57,6 @@ vim.keymap.set('i', '<C-s>', '<Esc>:update<cr>gi', {
 })
 
 -- Remaps for dealing with word wrap
-
 vim.keymap.set('n', '0', "v:count == 0 ? 'g0' : '0'", {
   expr = true,
   silent = true,
@@ -126,7 +111,6 @@ vim.keymap.set('i', '<C-Del>', '<C-o>dw', {
 })
 
 -- How do i exit terminal in vim?
-
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>', {
   desc = 'Exit terminal',
 })
@@ -140,7 +124,6 @@ vim.keymap.set('n', '<leader>T', vim.cmd.terminal, {
 })
 
 -- lua execute
-
 vim.keymap.set('n', '<leader>cX', '<cmd>source %<CR>', {
   desc = 'e[X]ecute this file with lua',
 })
@@ -156,4 +139,24 @@ vim.keymap.set('v', '<leader>cx', '<cmd>lua<CR>', {
 vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', {
   desc = 'Open parent directory',
 })
+
+-- Yank current file path to system buffer
+vim.keymap.set('n', '<leader>fy', function()
+  vim.fn.setreg('*', vim.fn.expand '%')
+end, { desc = '[Y]ank path' })
+
+-- Quickfix list
+vim.keymap.set('n', ']q', function()
+  pcall(vim.cmd, 'cnext')
+end, { desc = 'Next quicklist entry' })
+
+vim.keymap.set('n', '[q', function()
+  pcall(vim.cmd, 'cprev')
+end, { desc = 'Next quicklist entry' })
+
+-- Focus current buffer
+vim.keymap.set('n', '<leader><cr>', function()
+  vim.cmd 'only'
+end, { desc = 'Focus current buffer' })
+
 -- vim: ts=2 sts=2 sw=2 et
