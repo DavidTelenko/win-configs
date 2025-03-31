@@ -153,10 +153,6 @@ vim.keymap.set('v', '<leader>cx', '<cmd>lua<CR>', {
   desc = 'e[X]ecute current selection with lua',
 })
 
-vim.keymap.set('n', '<leader>cr', '<cmd>LspRestart<cr>', {
-  desc = '[R]estart Lsp Server',
-})
-
 vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', {
   desc = 'Open parent directory',
 })
