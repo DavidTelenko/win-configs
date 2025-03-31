@@ -145,15 +145,6 @@ vim.keymap.set('n', '<leader>fy', function()
   vim.fn.setreg('*', vim.fn.expand '%')
 end, { desc = '[Y]ank path' })
 
--- Quickfix list
-vim.keymap.set('n', ']q', function()
-  pcall(vim.cmd, 'cnext')
-end, { desc = 'Next quicklist entry' })
-
-vim.keymap.set('n', '[q', function()
-  pcall(vim.cmd, 'cprev')
-end, { desc = 'Next quicklist entry' })
-
 -- Focus current buffer
 vim.keymap.set('n', '<leader><cr>', function()
   vim.cmd 'only'
