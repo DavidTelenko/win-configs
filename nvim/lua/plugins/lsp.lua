@@ -5,6 +5,7 @@ return {
     dependencies = {
       {
         'williamboman/mason.nvim',
+        ---@type MasonSettings
         opts = {
           log_level = vim.log.levels.INFO,
           max_concurrent_installers = 4,
@@ -48,19 +49,16 @@ return {
           },
         },
       },
-      {
-        'williamboman/mason-lspconfig.nvim',
-        opts = {},
-      },
+      'williamboman/mason-lspconfig.nvim',
+      'tpope/vim-sleuth',
+      'b0o/schemastore.nvim',
+      'yioneko/nvim-vtsls',
       -- Additional lua configuration, makes nvim stuff amazing!
       {
         'folke/lazydev.nvim',
         ft = 'lua',
         opts = {},
       },
-      'tpope/vim-sleuth',
-      'b0o/schemastore.nvim',
-      'yioneko/nvim-vtsls',
     },
     config = function()
       local telescope = require 'telescope.builtin'
