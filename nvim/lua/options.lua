@@ -106,7 +106,7 @@ vim.o.langremap = false
 -- See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.hl.on_yank { higroup = 'Visual', timeout = 100 }
+    vim.hl.on_yank { timeout = 200 }
   end,
   group = vim.api.nvim_create_augroup('YankHighlight', {
     clear = true,
