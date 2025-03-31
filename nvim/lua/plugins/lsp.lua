@@ -85,6 +85,10 @@ return {
         desc = 'Open floating diagnostic message',
       })
 
+      vim.keymap.set('n', '<leader>cR', '<cmd>LspRestart<cr>', {
+        desc = '[R]estart Lsp Server',
+      })
+
       vim.diagnostic.config {
         float = { border = 'rounded' },
         virtual_text = {
