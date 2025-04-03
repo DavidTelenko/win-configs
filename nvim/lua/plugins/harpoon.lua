@@ -10,7 +10,14 @@ return {
   config = function()
     local harpoon = require 'harpoon'
 
-    harpoon:setup()
+    harpoon:setup {
+      settings = {
+        save_on_toggle = true,
+      },
+    }
+
+    local harpoon_extensions = require 'harpoon.extensions'
+    harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
 
     local wk = require 'which-key'
 
@@ -25,11 +32,11 @@ return {
 
     vim.keymap.set('n', '<leader>ha', function()
       harpoon:list():add()
-    end, { desc = '[A]dd file to harpoon' })
+    end, { desc = 'Add file to harpoon' })
 
     vim.keymap.set('n', '<leader>hr', function()
       harpoon:list():remove()
-    end, { desc = '[R]remove file from harpoon' })
+    end, { desc = 'Rremove file from harpoon' })
 
     -- basic telescope configuration
     local conf = require('telescope.config').values
@@ -54,11 +61,17 @@ return {
 
     vim.keymap.set('n', '<leader><space>', function()
       -- toggle_telescope(harpoon:list())
-      harpoon.ui:toggle_quick_menu(harpoon:list())
+      harpoon.ui:toggle_quick_menu(harpoon:list(), {
+        border = 'rounded',
+        title_pos = 'center',
+        height_in_lines = 20,
+        ui_width_ratio = 0.9,
+        title = ' Harpoon ',
+      })
     end, { desc = 'Open harpoon window' })
 
-    vim.keymap.set('n', '<leader>so', function()
+    vim.keymap.set('n', '<leader>hs', function()
       toggle_telescope(harpoon:list())
-    end, { desc = 'Open quick [M]enu' })
+    end, { desc = 'Search' })
   end,
 }

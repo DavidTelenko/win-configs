@@ -65,7 +65,7 @@ return {
 
       vim.keymap.set('n', '<leader>cI', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
-      end, { desc = 'Enable [I]nline hints' })
+      end, { desc = 'Enable Inline hints' })
 
       vim.keymap.set('n', '<leader>cd', vim.diagnostic.setqflist, {
         desc = 'Open diagnostics list',
@@ -84,7 +84,7 @@ return {
       })
 
       vim.keymap.set('n', '<leader>cR', '<cmd>LspRestart<cr>', {
-        desc = '[R]estart Lsp Server',
+        desc = 'Restart Lsp Server',
       })
 
       vim.diagnostic.config {
@@ -104,23 +104,23 @@ return {
           vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
         end
 
-        nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+        nmap('<leader>rn', vim.lsp.buf.rename, 'Rename')
+        nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
 
-        nmap('gd', telescope.lsp_definitions, '[G]oto [D]efinition')
-        nmap('gr', telescope.lsp_references, '[G]oto [R]eferences')
-        nmap('gI', telescope.lsp_implementations, '[G]oto [I]mplementation')
+        nmap('gd', telescope.lsp_definitions, 'Goto Definition')
+        nmap('gr', telescope.lsp_references, 'Goto References')
+        nmap('gI', telescope.lsp_implementations, 'Goto Implementation')
 
-        nmap('<leader>D', telescope.lsp_type_definitions, 'Type [D]efinition')
+        nmap('<leader>D', telescope.lsp_type_definitions, 'Type Definition')
         nmap(
           '<leader>ss',
           telescope.lsp_document_symbols,
-          '[D]ocument [S]ymbols'
+          'Document Symbols'
         )
         nmap(
           '<leader>ws',
           telescope.lsp_dynamic_workspace_symbols,
-          '[W]orkspace [S]ymbols'
+          'Workspace Symbols'
         )
 
         -- See `:help K` for why this keymap
@@ -133,20 +133,20 @@ return {
         end, 'Signature Documentation')
 
         -- Lesser used LSP functionality
-        nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
         nmap(
           '<leader>wa',
           vim.lsp.buf.add_workspace_folder,
-          '[W]orkspace [A]dd Folder'
+          'Workspace Add Folder'
         )
         nmap(
           '<leader>wr',
           vim.lsp.buf.remove_workspace_folder,
-          '[W]orkspace [R]emove Folder'
+          'Workspace Remove Folder'
         )
         nmap('<leader>wl', function()
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, '[W]orkspace [L]ist Folders')
+        end, 'Workspace List Folders')
 
         vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()
           vim.lsp.buf.format()

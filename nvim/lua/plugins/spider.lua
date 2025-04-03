@@ -1,6 +1,7 @@
 return {
   {
     'chrisgrieser/nvim-spider',
+    enabled = true,
     opts = {
       skipInsignificantPunctuation = false,
       consistentOperatorPending = false,
@@ -31,21 +32,7 @@ return {
     opts = {
       keymaps = {
         useDefaults = true,
-        disabledDefaults = { 'iS', 'aS', 'L', 'H', 'r' },
-      },
-    },
-    keys = {
-      {
-        'is',
-        "<cmd>lua require('various-textobjs').subword('inner')<CR>",
-        mode = { 'o', 'x' },
-        desc = '',
-      },
-      {
-        'as',
-        "<cmd>lua require('various-textobjs').subword('outer')<CR>",
-        mode = { 'o', 'x' },
-        desc = '',
+        disabledDefaults = { 'L', 'H', 'r' },
       },
     },
   },

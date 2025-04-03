@@ -65,7 +65,7 @@ return {
     })
 
     vim.keymap.set('n', '<leader>sb', builtin.buffers, {
-      desc = 'Existing [B]uffers',
+      desc = 'Existing Buffers',
     })
 
     vim.keymap.set('n', '<leader>s/', function()
@@ -77,40 +77,54 @@ return {
       )
     end, { desc = 'In current buffer' })
 
-    vim.keymap.set('n', '<leader>gf', builtin.git_files, {
-      desc = '[G]it [F]iles',
-    })
-
     vim.keymap.set('n', '<leader>sf', builtin.find_files, {
-      desc = '[F]iles',
+      desc = 'Files',
     })
 
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, {
-      desc = '[H]elp',
+      desc = 'Help',
     })
 
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, {
-      desc = 'Current [W]ord',
+      desc = 'Current Word',
     })
 
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, {
-      desc = 'By [G]rep',
+      desc = 'By Grep',
     })
 
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, {
-      desc = '[D]iagnostics',
+      desc = 'Diagnostics',
     })
 
     vim.keymap.set('n', '<leader>sr', builtin.resume, {
-      desc = '[R]esume',
+      desc = 'Resume',
     })
 
     vim.keymap.set('n', '<leader>sq', builtin.quickfix, {
-      desc = '[Q]uickfix',
+      desc = 'Quickfix',
     })
 
     vim.keymap.set('n', '<leader>s?', builtin.keymaps, {
-      desc = '[K]eymaps',
+      desc = 'Keymaps',
     })
+
+    vim.keymap.set('n', '<leader>sc', builtin.command_history, {
+      desc = 'Command history',
+    })
+
+    vim.keymap.set('n', '<leader>gf', builtin.git_files, {
+      desc = 'Search Git Files',
+    })
+
+    vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, {
+      desc = 'Search Git Commits',
+    })
+
+    vim.keymap.set('n', '<leader>gS', builtin.git_stash, {
+      desc = 'Search Git Stash',
+    })
+
+    vim.keymap.set('n', 'z=', builtin.spell_suggest)
   end,
 }
