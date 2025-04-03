@@ -125,15 +125,15 @@ vim.keymap.set('n', '<leader>T', vim.cmd.terminal, {
 
 -- lua execute
 vim.keymap.set('n', '<leader>cX', '<cmd>source %<CR>', {
-  desc = 'e[X]ecute this file with lua',
+  desc = 'Execute this file with lua',
 })
 
 vim.keymap.set('n', '<leader>cx', '<cmd>.lua<CR>', {
-  desc = 'e[X]ecute current line with lua',
+  desc = 'Execute current line with lua',
 })
 
 vim.keymap.set('v', '<leader>cx', '<cmd>lua<CR>', {
-  desc = 'e[X]ecute current selection with lua',
+  desc = 'Execute current selection with lua',
 })
 
 vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', {
@@ -143,7 +143,7 @@ vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', {
 -- Yank current file path to system buffer
 vim.keymap.set('n', '<leader>fy', function()
   vim.fn.setreg('*', vim.fn.expand '%')
-end, { desc = '[Y]ank path' })
+end, { desc = 'Yank path' })
 
 -- Focus current buffer
 vim.keymap.set('n', '<leader><cr>', function()

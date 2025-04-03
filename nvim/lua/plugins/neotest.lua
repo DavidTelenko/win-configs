@@ -10,13 +10,13 @@ return {
     'nvim-neotest/neotest-jest',
   },
   keys = {
-    { '<leader>tr', '<cmd>Neotest run <cr>', desc = '[R]un nearest test' },
-    { '<leader>tl', '<cmd>Neotest run last<cr>', desc = 'Run [L]ast test' },
-    { '<leader>tf', '<cmd>Neotest run file<cr>', desc = 'Run test [F]ile' },
+    { '<leader>tr', '<cmd>Neotest run <cr>', desc = 'Run nearest test' },
+    { '<leader>tl', '<cmd>Neotest run last<cr>', desc = 'Run Last test' },
+    { '<leader>tf', '<cmd>Neotest run file<cr>', desc = 'Run test File' },
     {
       '<leader>tt',
       '<cmd>Neotest run output-panel<cr>',
-      desc = '[T]oggle ouput panel',
+      desc = 'Toggle ouput panel',
     },
   },
   config = function()

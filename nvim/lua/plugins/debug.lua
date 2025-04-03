@@ -78,32 +78,32 @@ return {
     }
 
     vim.keymap.set('n', '<leader>di', dap.step_into, {
-      desc = 'Debug: Step [I]nto',
+      desc = 'Debug: Step Into',
     })
 
     vim.keymap.set('n', '<leader>do', dap.step_over, {
-      desc = 'Debug: Step [O]ver',
+      desc = 'Debug: Step Over',
     })
 
     vim.keymap.set('n', '<leader>dO', dap.step_out, {
-      desc = 'Debug: Step [O]ut',
+      desc = 'Debug: Step Out',
     })
 
     vim.keymap.set('n', '<leader>dc', dap.continue, {
-      desc = 'Debug: Start/[C]ontinue',
+      desc = 'Debug: Start/Continue',
     })
 
     vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, {
-      desc = 'Debug: Toggle [B]reakpoint',
+      desc = 'Debug: Toggle Breakpoint',
     })
 
     vim.keymap.set('n', '<leader>dB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    end, { desc = 'Debug: Set [B]reakpoint' })
+    end, { desc = 'Debug: Set Breakpoint' })
 
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     vim.keymap.set('n', '<leader>du', dapui.toggle, {
-      desc = 'Debug: Open [U]i',
+      desc = 'Debug: Open Ui',
     })
 
     -- Dap UI setup

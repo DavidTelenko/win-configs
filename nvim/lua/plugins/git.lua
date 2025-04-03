@@ -3,7 +3,11 @@ return {
     'tpope/vim-fugitive',
     cmd = 'Git',
     keys = {
-      { '<leader>gg', '<cmd>Git<cr>', { desc = '[G]it menu (fugitive)' } },
+      {
+        '<leader>gg',
+        '<cmd>Git<cr>',
+        desc = 'Git menu (fugitive)',
+      },
     },
   },
   {
@@ -82,18 +86,18 @@ return {
 
         vim.keymap.set('v', '<leader>gs', function()
           gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = '[S]tage hunk' })
+        end, { desc = 'Stage hunk' })
 
         vim.keymap.set('v', '<leader>gr', function()
           gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = '[R]eset hunk' })
+        end, { desc = 'Reset hunk' })
 
         vim.keymap.set('n', '<leader>gb', gs.toggle_current_line_blame, {
-          desc = 'Toggle git [B]lame',
+          desc = 'Toggle git Blame',
         })
 
         vim.keymap.set('n', '<leader>gB', gs.blame, {
-          desc = 'Toggle [B]lame windows',
+          desc = 'Toggle Blame window',
         })
       end,
     },

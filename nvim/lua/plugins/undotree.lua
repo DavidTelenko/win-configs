@@ -2,10 +2,10 @@ return {
   'mbbill/undotree',
   keys = {
     {
-      '<leader>hh',
+      '<leader>u',
       '<cmd>UndotreeToggle<cr>',
       mode = 'n',
-      desc = 'Toggle [H]istory tree',
+      desc = 'Toggle Undotree tree',
     },
   },
 }

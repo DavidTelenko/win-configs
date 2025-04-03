@@ -11,7 +11,7 @@ return {
         Snacks.gitbrowse.open()
       end,
       mode = 'n',
-      desc = '[O]pen repository',
+      desc = 'Open repository',
     },
   },
 }
