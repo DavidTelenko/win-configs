@@ -112,11 +112,7 @@ return {
         nmap('gI', telescope.lsp_implementations, 'Goto Implementation')
 
         nmap('<leader>D', telescope.lsp_type_definitions, 'Type Definition')
-        nmap(
-          '<leader>ss',
-          telescope.lsp_document_symbols,
-          'Document Symbols'
-        )
+        nmap('<leader>ss', telescope.lsp_document_symbols, 'Document Symbols')
         nmap(
           '<leader>ws',
           telescope.lsp_dynamic_workspace_symbols,
@@ -174,7 +170,8 @@ return {
         rust_analyzer = {},
         svelte = {},
         tailwindcss = {},
-        vtsls = {},
+        ts_ls = {},
+        -- vtsls = {},
         jsonls = {
           schemas = schemas.json.schemas(),
           validate = { enable = true },
