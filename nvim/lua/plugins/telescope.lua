@@ -93,6 +93,13 @@ return {
       desc = 'By Grep',
     })
 
+    vim.keymap.set(
+      'n',
+      '<leader>sG',
+      telescope.extensions.live_grep_args.live_grep_args,
+      { desc = 'By Grep With Args' }
+    )
+
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, {
       desc = 'Diagnostics',
     })

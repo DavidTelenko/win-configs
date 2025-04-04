@@ -142,7 +142,7 @@ vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', {
 
 -- Yank current file path to system buffer
 vim.keymap.set('n', '<leader>fy', function()
-  vim.fn.setreg('*', vim.fn.expand '%')
+  vim.fn.setreg('*', vim.fn.expand '%:.')
 end, { desc = 'Yank path' })
 
 -- Focus current buffer
