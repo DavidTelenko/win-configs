@@ -777,5 +777,5 @@ source $aliases
 use $completions *;
 use $modules *
 
-let banner = open $welcomeBanner
-$banner | ansi gradient --fgstart '0x00ddff' --fgend '0xff3377'
+# let banner = open $welcomeBanner
+# $banner | ansi gradient --fgstart '0x00ddff' --fgend '0xff3377'
