@@ -63,6 +63,7 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'tpope/vim-sleuth',
       'b0o/schemastore.nvim',
+      'stevearc/dressing.nvim',
       -- Additional lua configuration, makes nvim stuff amazing!
     },
     config = function()
