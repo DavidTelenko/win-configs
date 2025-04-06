@@ -1,6 +1,35 @@
 return {
   'mfussenegger/nvim-dap',
-  event = 'BufReadPre',
+  keys = {
+    {
+      '<leader>du',
+      desc = 'Debug: Open Ui',
+    },
+    {
+      '<leader>dB',
+      desc = 'Debug: Set Breakpoint',
+    },
+    {
+      '<leader>db',
+      desc = 'Debug: Toggle Breakpoint',
+    },
+    {
+      '<leader>dc',
+      desc = 'Debug: Start/Continue',
+    },
+    {
+      '<leader>dO',
+      desc = 'Debug: Step Out',
+    },
+    {
+      '<leader>do',
+      desc = 'Debug: Step Over',
+    },
+    {
+      '<leader>di',
+      desc = 'Debug: Step Into',
+    },
+  },
   dependencies = {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
@@ -99,7 +128,9 @@ return {
 
     vim.keymap.set('n', '<leader>dB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    end, { desc = 'Debug: Set Breakpoint' })
+    end, {
+      desc = 'Debug: Set Breakpoint',
+    })
 
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     vim.keymap.set('n', '<leader>du', dapui.toggle, {
