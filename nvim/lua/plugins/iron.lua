@@ -13,7 +13,7 @@ return {
     { '<leader>ir', '<cmd>IronRepl<cr>', desc = 'Toggle Repl' },
     { '<leader>iu', desc = 'Send Until Cursor' },
     { '<leader>iv', desc = 'Visual Send', mode = 'v' },
-    { '<leader>T', desc = 'Open nushell terminal' },
+    { '<leader>T', desc = 'Open terminal' },
   },
   config = function()
     local iron = require 'iron.core'
@@ -79,6 +79,6 @@ return {
 
     vim.keymap.set('n', '<leader>T', function()
       iron.repl_for 'nu'
-    end, { desc = 'Open nushell terminal' })
+    end, { desc = 'Open terminal' })
   end,
 }

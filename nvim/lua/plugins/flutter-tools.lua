@@ -1,7 +1,7 @@
 return {
   'akinsho/flutter-tools.nvim',
   enabled = true,
-  keys = { '<leader>ft', '<leader>fr' },
+  ft = { 'dart' },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'stevearc/dressing.nvim',
