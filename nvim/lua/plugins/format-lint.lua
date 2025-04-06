@@ -11,26 +11,41 @@ return {
   config = function()
     local conform = require 'conform'
 
-    local function first(bufnr, ...)
-      for i = 1, select('#', ...) do
-        local formatter = select(i, ...)
+    --- NOTE: Here's the logic for you if you'll ever forget:
+    ---
+    --- !The rule of thumb: first ones listed using `first` are exotics which
+    --- are not installed using Mason (the global "defaults"), latter ones is
+    --- more and more global, the last one is preferably the one you've
+    --- installed with mason
+    ---
+    --- !Also: if you install something with Mason it WILL BE FOUND anyway,
+    --- because Mason adds the tool to the nvim Path so take this into
+    --- consideration.
+    local function first(bufnr, formatters)
+      for _, formatter in ipairs(formatters) do
         if conform.get_formatter_info(formatter, bufnr).available then
           return formatter
         end
       end
-      return select(1, ...)
+      return formatters[1]
+    end
+
+    local function first_fmt(formatters)
+      return function(bufnr)
+        return { first(bufnr, formatters) }
+      end
     end
 
     local js_ts_formatters = function(bufnr)
-      return {
-        first(bufnr, 'biome', 'deno_fmt', 'prettierd'),
-        'eslint_d',
-      }
+      local formatter = first(bufnr, { 'biome', 'deno_fmt', 'prettierd' })
+      if formatter == 'prettierd' then
+        return { formatter, 'eslint_d' }
+      end
+      return { formatter }
     end
 
     require('mason-tool-installer').setup {
       ensure_installed = {
-        -- 'biome',
         'eslint_d',
         'prettierd',
         'stylua',
@@ -50,12 +65,12 @@ return {
         html = { 'prettierd' },
         javascript = js_ts_formatters,
         javascriptreact = js_ts_formatters,
-        json = { 'prettierd', 'biome' },
+        json = first_fmt { 'biome', 'prettierd' },
         lua = { 'stylua' },
         markdown = { 'prettierd' },
         mdx = { 'prettierd' },
         python = { 'black' },
-        svelte = { 'prettierd', 'biome' },
+        svelte = first_fmt { 'biome', 'prettierd' },
         typescript = js_ts_formatters,
         typescriptreact = js_ts_formatters,
         yaml = { 'prettierd' },
@@ -68,26 +83,24 @@ return {
       eslint_d = 'eslint_d',
     }
 
-    local js_ts_linters = function(bufnr)
-      local formatter = first(bufnr, 'biome', 'eslint_d')
-      return { formatter_to_linter[formatter] }
-    end
+    local formatter = first(0, { 'biome', 'eslint_d' })
+    local js_ts_linters = { formatter_to_linter[formatter] }
 
     lint.linters_by_ft = {
       cpp = { 'cpplint' },
-      javascript = js_ts_linters(),
-      javascriptreact = js_ts_linters(),
+      javascript = js_ts_linters,
+      javascriptreact = js_ts_linters,
       python = { 'pylint' },
       svelte = { 'eslint_d' },
-      typescript = js_ts_linters(),
-      typescriptreact = js_ts_linters(),
+      typescript = js_ts_linters,
+      typescriptreact = js_ts_linters,
     }
 
     -- Lint auto command
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
       callback = function(args)
         local buftype =
-          vim.api.nvim_get_option_value('buftype', { buf = args.buf })
+            vim.api.nvim_get_option_value('buftype', { buf = args.buf })
 
         if buftype == '' then
           lint.try_lint()
