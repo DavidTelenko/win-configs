@@ -36,7 +36,7 @@ return {
           'lsp_status',
           ignore_lsp = {
             'emmet_language_server',
-            'tailwindcss-language-server',
+            'tailwindcss',
           },
         },
       },

@@ -150,4 +150,9 @@ vim.keymap.set('n', '<leader><cr>', function()
   vim.cmd 'only'
 end, { desc = 'Focus current buffer' })
 
+-- Replace stupid windows path separators
+vim.keymap.set('n', '<leader>f\\/', function()
+  vim.cmd '%s/\\\\/\\//g'
+end, { desc = 'Replace \\ with /' })
+
 -- vim: ts=2 sts=2 sw=2 et
