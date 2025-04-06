@@ -1,5 +1,16 @@
 return {
   {
+    'yioneko/nvim-vtsls',
+    enabled = false,
+    ft = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' },
+    opts = {},
+  },
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {},
+  },
+  {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
     dependencies = {
@@ -52,13 +63,7 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'tpope/vim-sleuth',
       'b0o/schemastore.nvim',
-      'yioneko/nvim-vtsls',
       -- Additional lua configuration, makes nvim stuff amazing!
-      {
-        'folke/lazydev.nvim',
-        ft = 'lua',
-        opts = {},
-      },
     },
     config = function()
       local telescope = require 'telescope.builtin'

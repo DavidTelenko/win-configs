@@ -1,7 +1,7 @@
 return {
   'akinsho/flutter-tools.nvim',
   enabled = true,
-  lazy = false,
+  keys = { '<leader>ft', '<leader>fr' },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'stevearc/dressing.nvim',
@@ -83,11 +83,7 @@ return {
           nmap('gr', telescope.lsp_references, 'Goto References')
           nmap('gI', telescope.lsp_implementations, 'Goto Implementation')
           nmap('<leader>D', telescope.lsp_type_definitions, 'Type Definition')
-          nmap(
-            '<leader>ss',
-            telescope.lsp_document_symbols,
-            'Document Symbols'
-          )
+          nmap('<leader>ss', telescope.lsp_document_symbols, 'Document Symbols')
           nmap(
             '<leader>ws',
             telescope.lsp_dynamic_workspace_symbols,

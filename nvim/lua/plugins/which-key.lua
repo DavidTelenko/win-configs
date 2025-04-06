@@ -28,6 +28,8 @@ return {
       { '<leader>t_', hidden = true },
       { '<leader>h', group = 'Harpoon' },
       { '<leader>h_', hidden = true },
+      { '<leader>i', group = 'Iron' },
+      { '<leader>i_', hidden = true },
     }
   end,
 }

@@ -1,6 +1,5 @@
 return {
   'stevearc/overseer.nvim',
-  event = { 'VeryLazy' },
   keys = {
     {
       '<leader>co',

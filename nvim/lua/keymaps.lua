@@ -119,9 +119,9 @@ vim.keymap.set('t', '<C-H>', '<C-w>', {
   desc = 'Ctrl + Backspace "default" behavior',
 })
 
-vim.keymap.set('n', '<leader>T', vim.cmd.terminal, {
-  desc = 'Open terminal',
-})
+-- vim.keymap.set('n', '<leader>T', vim.cmd.terminal, {
+--   desc = 'Open terminal',
+-- })
 
 -- lua execute
 vim.keymap.set('n', '<leader>cX', '<cmd>source %<CR>', {
