@@ -155,4 +155,18 @@ vim.keymap.set('n', '<leader>f\\/', function()
   vim.cmd '%s/\\\\/\\//g'
 end, { desc = 'Replace \\ with /' })
 
+--- Zen mode
+local function toggle_zen_mode()
+  vim.g.zen = not vim.g.zen
+  vim.o.listchars = not vim.g.zen and 'tab:· ,trail:·,nbsp:+,space:·' or ''
+  vim.o.number = not vim.g.zen
+  vim.o.relativenumber = not vim.g.zen
+  vim.o.spell = not vim.g.zen
+  vim.o.colorcolumn = not vim.g.zen and '80' or ''
+  -- vim.o.signcolumn = not vim.g.zen and 'yes' or 'no'
+  vim.diagnostic.enable(not vim.g.zen)
+end
+
+vim.keymap.set('n', '<leader>z', toggle_zen_mode, { desc = 'Zen Mode' })
+
 -- vim: ts=2 sts=2 sw=2 et
