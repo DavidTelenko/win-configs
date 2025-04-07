@@ -32,8 +32,21 @@ return {
     opts = {
       keymaps = {
         useDefaults = true,
-        disabledDefaults = { 'L', 'H', 'r' },
+        disabledDefaults = { 'L', 'H', 'r', 'iS', 'aS' },
       },
     },
+    config = function()
+      local objs = require 'various-textobjs'
+
+      --- who needs sentence anyway?)
+
+      vim.keymap.set({ 'o', 'x' }, 'is', function()
+        objs.subword 'inner'
+      end, { remap = true })
+
+      vim.keymap.set({ 'o', 'x' }, 'as', function()
+        objs.subword 'outer'
+      end, { remap = true })
+    end,
   },
 }
