@@ -1,34 +1,13 @@
 return {
   'mfussenegger/nvim-dap',
   keys = {
-    {
-      '<leader>du',
-      desc = 'Debug: Open Ui',
-    },
-    {
-      '<leader>dB',
-      desc = 'Debug: Set Breakpoint',
-    },
-    {
-      '<leader>db',
-      desc = 'Debug: Toggle Breakpoint',
-    },
-    {
-      '<leader>dc',
-      desc = 'Debug: Start/Continue',
-    },
-    {
-      '<leader>dO',
-      desc = 'Debug: Step Out',
-    },
-    {
-      '<leader>do',
-      desc = 'Debug: Step Over',
-    },
-    {
-      '<leader>di',
-      desc = 'Debug: Step Into',
-    },
+    { '<leader>du', desc = 'Open Ui' },
+    { '<leader>dB', desc = 'Set Breakpoint' },
+    { '<leader>db', desc = 'Toggle Breakpoint' },
+    { '<leader>dc', desc = 'Start/Continue' },
+    { '<leader>dO', desc = 'Step Out' },
+    { '<leader>do', desc = 'Step Over' },
+    { '<leader>di', desc = 'Step Into' },
   },
   dependencies = {
     -- Creates a beautiful debugger UI
@@ -107,34 +86,32 @@ return {
     }
 
     vim.keymap.set('n', '<leader>di', dap.step_into, {
-      desc = 'Debug: Step Into',
+      desc = 'Step Into',
     })
 
     vim.keymap.set('n', '<leader>do', dap.step_over, {
-      desc = 'Debug: Step Over',
+      desc = 'Step Over',
     })
 
     vim.keymap.set('n', '<leader>dO', dap.step_out, {
-      desc = 'Debug: Step Out',
+      desc = 'Step Out',
     })
 
     vim.keymap.set('n', '<leader>dc', dap.continue, {
-      desc = 'Debug: Start/Continue',
+      desc = 'Start/Continue',
     })
 
     vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, {
-      desc = 'Debug: Toggle Breakpoint',
+      desc = 'Toggle Breakpoint',
     })
 
     vim.keymap.set('n', '<leader>dB', function()
       dap.set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-    end, {
-      desc = 'Debug: Set Breakpoint',
-    })
+    end, { desc = 'Set Breakpoint' })
 
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     vim.keymap.set('n', '<leader>du', dapui.toggle, {
-      desc = 'Debug: Open Ui',
+      desc = 'Open Ui',
     })
 
     -- Dap UI setup

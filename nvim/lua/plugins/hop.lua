@@ -1,6 +1,5 @@
 return {
   'smoka7/hop.nvim',
-  event = { 'BufEnter' },
   keys = {
     { 's', '<NOP>', mode = { 'n', 'v' }, desc = 'Hop' },
     {
@@ -26,6 +25,22 @@ return {
       '<cmd>HopNodes<cr>',
       mode = { 'n', 'v' },
       desc = 'Hop to treesitter nodes',
+    },
+    {
+      'f',
+      desc = 'Hop to character',
+    },
+    {
+      'F',
+      desc = 'Hop back to character',
+    },
+    {
+      't',
+      desc = 'Hop up to character',
+    },
+    {
+      'T',
+      desc = 'Hop back up to character',
     },
   },
   version = '*',
