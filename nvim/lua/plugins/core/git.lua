@@ -1,7 +1,146 @@
 return {
   {
+    'sindrets/diffview.nvim',
+    cmd = {
+      'DiffviewClose',
+      'DiffviewFileHistory',
+      'DiffviewFocusFiles',
+      'DiffviewLog',
+      'DiffviewOpen',
+      'DiffviewRefresh',
+      'DiffviewToggleFiles',
+    },
+    keys = {
+      { '<leader>gdo', desc = 'Open' },
+      { '<leader>gdc', desc = 'Close' },
+      { '<leader>gdh', desc = 'File History' },
+      { '<leader>gdl', desc = 'Log' },
+    },
+    config = function()
+      local dv = require 'diffview'
+
+      vim.keymap.set('n', '<leader>gdo', dv.open, {
+        desc = 'Open',
+      })
+
+      vim.keymap.set('n', '<leader>gdc', dv.close, {
+        desc = 'Close',
+      })
+
+      vim.keymap.set('n', '<leader>gdh', dv.file_history, {
+        desc = 'File History',
+      })
+    end,
+  },
+  {
+    'lewis6991/gitsigns.nvim',
+    event = 'BufReadPre',
+    opts = {
+      -- See `:help gitsigns.txt`
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+      signs_staged = {
+        add = { text = '' },
+        change = { text = '' },
+        delete = { text = '' },
+        topdelete = { text = '' },
+        changedelete = { text = '' },
+        untracked = { text = '' },
+      },
+      on_attach = function(bufnr)
+        vim.keymap.set('n', '<leader>gp', require('gitsigns').preview_hunk, {
+          buffer = bufnr,
+          desc = 'Preview git hunk',
+        })
+
+        -- don't override the built-in and fugitive keymaps
+        local gs = package.loaded.gitsigns
+
+        vim.keymap.set({ 'n', 'v' }, ']c', function()
+          if vim.wo.diff then
+            return ']c'
+          end
+          vim.schedule(function()
+            gs.next_hunk()
+          end)
+          return '<Ignore>'
+        end, {
+          expr = true,
+          buffer = bufnr,
+          desc = 'Next git hunk',
+        })
+
+        vim.keymap.set({ 'n', 'v' }, '[c', function()
+          if vim.wo.diff then
+            return '[c'
+          end
+          vim.schedule(function()
+            gs.prev_hunk()
+          end)
+          return '<Ignore>'
+        end, {
+          expr = true,
+          buffer = bufnr,
+          desc = 'Previous git hunk',
+        })
+
+        vim.keymap.set('n', '<leader>gs', gs.stage_hunk, {
+          desc = 'Stage hunk',
+        })
+
+        vim.keymap.set('n', '<leader>gr', gs.reset_hunk, {
+          desc = 'Reset hunk',
+        })
+
+        vim.keymap.set('v', '<leader>gs', function()
+          gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
+        end, { desc = 'Stage hunk' })
+
+        vim.keymap.set('v', '<leader>gr', function()
+          gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
+        end, { desc = 'Reset hunk' })
+
+        vim.keymap.set('n', '<leader>gb', gs.toggle_current_line_blame, {
+          desc = 'Toggle git Blame',
+        })
+
+        vim.keymap.set('n', '<leader>gB', gs.blame, {
+          desc = 'Toggle Blame window',
+        })
+      end,
+    },
+  },
+  {
+    'tpope/vim-fugitive',
+    cmd = 'Git',
+    enabled = true,
+    keys = {
+      {
+        '<leader>gg',
+        function()
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            local buf_name = vim.api.nvim_buf_get_name(buf)
+            if string.find(buf_name, 'fugitive://') then
+              vim.api.nvim_win_close(win, false)
+              return
+            end
+          end
+          vim.cmd 'Git'
+        end,
+        desc = 'Git menu (fugitive)',
+      },
+    },
+  },
+  {
     'NeogitOrg/neogit',
     cmd = 'Neogit',
+    enabled = false,
     keys = {
       { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Git menu (Neogit)' },
     },
@@ -174,149 +313,6 @@ return {
       integrations = {
         fzf_lua = nil,
         mini_pick = nil,
-      },
-    },
-  },
-  {
-    'tpope/vim-rhubarb',
-    cmd = 'GBrowse',
-  },
-  {
-    'sindrets/diffview.nvim',
-    cmd = {
-      'DiffviewClose',
-      'DiffviewFileHistory',
-      'DiffviewFocusFiles',
-      'DiffviewLog',
-      'DiffviewOpen',
-      'DiffviewRefresh',
-      'DiffviewToggleFiles',
-    },
-    keys = {
-      { '<leader>gdo', desc = 'Open' },
-      { '<leader>gdc', desc = 'Close' },
-      { '<leader>gdh', desc = 'File History' },
-      { '<leader>gdl', desc = 'Log' },
-    },
-    config = function()
-      local dv = require 'diffview'
-
-      vim.keymap.set('n', '<leader>gdo', dv.open, {
-        desc = 'Open',
-      })
-
-      vim.keymap.set('n', '<leader>gdc', dv.close, {
-        desc = 'Close',
-      })
-
-      vim.keymap.set('n', '<leader>gdh', dv.file_history, {
-        desc = 'File History',
-      })
-    end,
-  },
-  {
-    'lewis6991/gitsigns.nvim',
-    event = 'BufReadPre',
-    opts = {
-      -- See `:help gitsigns.txt`
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-      signs_staged = {
-        add = { text = '' },
-        change = { text = '' },
-        delete = { text = '' },
-        topdelete = { text = '' },
-        changedelete = { text = '' },
-        untracked = { text = '' },
-      },
-      on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>gp', require('gitsigns').preview_hunk, {
-          buffer = bufnr,
-          desc = 'Preview git hunk',
-        })
-
-        -- don't override the built-in and fugitive keymaps
-        local gs = package.loaded.gitsigns
-
-        vim.keymap.set({ 'n', 'v' }, ']c', function()
-          if vim.wo.diff then
-            return ']c'
-          end
-          vim.schedule(function()
-            gs.next_hunk()
-          end)
-          return '<Ignore>'
-        end, {
-          expr = true,
-          buffer = bufnr,
-          desc = 'Next git hunk',
-        })
-
-        vim.keymap.set({ 'n', 'v' }, '[c', function()
-          if vim.wo.diff then
-            return '[c'
-          end
-          vim.schedule(function()
-            gs.prev_hunk()
-          end)
-          return '<Ignore>'
-        end, {
-          expr = true,
-          buffer = bufnr,
-          desc = 'Previous git hunk',
-        })
-
-        vim.keymap.set('n', '<leader>gs', gs.stage_hunk, {
-          desc = 'Stage hunk',
-        })
-
-        vim.keymap.set('n', '<leader>gr', gs.reset_hunk, {
-          desc = 'Reset hunk',
-        })
-
-        vim.keymap.set('v', '<leader>gs', function()
-          gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = 'Stage hunk' })
-
-        vim.keymap.set('v', '<leader>gr', function()
-          gs.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
-        end, { desc = 'Reset hunk' })
-
-        vim.keymap.set('n', '<leader>gb', gs.toggle_current_line_blame, {
-          desc = 'Toggle git Blame',
-        })
-
-        vim.keymap.set('n', '<leader>gB', gs.blame, {
-          desc = 'Toggle Blame window',
-        })
-      end,
-    },
-  },
-  --- Left as backup config
-  {
-    'tpope/vim-fugitive',
-    cmd = 'Git',
-    enabled = false,
-    keys = {
-      {
-        '<leader>gg',
-        function()
-          for _, win in ipairs(vim.api.nvim_list_wins()) do
-            local buf = vim.api.nvim_win_get_buf(win)
-            local buf_name = vim.api.nvim_buf_get_name(buf)
-            if string.find(buf_name, 'fugitive://') then
-              vim.api.nvim_win_close(win, false)
-              return
-            end
-          end
-          vim.cmd 'Git'
-        end,
-        desc = 'Git menu (fugitive)',
       },
     },
   },
