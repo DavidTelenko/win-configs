@@ -137,6 +137,8 @@ return {
       },
     },
   },
+  -- it's a bit sluggish right now, it's really nice plugin, but fugitive
+  -- written in vim script for some reason is more optimized ?!
   {
     'NeogitOrg/neogit',
     cmd = 'Neogit',

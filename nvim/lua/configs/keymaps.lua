@@ -140,6 +140,13 @@ vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', {
   desc = 'Open parent directory',
 })
 
+-- One more % to not use symbol row
+vim.keymap.set('n', 'gm', '%', { desc = 'Jump to closing' })
+vim.keymap.set('n', 'gh', '<C-w>h', { desc = 'Jump to left window' })
+vim.keymap.set('n', 'gj', '<C-w>j', { desc = 'Jump to bottom window' })
+vim.keymap.set('n', 'gk', '<C-w>k', { desc = 'Jump to top window' })
+vim.keymap.set('n', 'gl', '<C-w>l', { desc = 'Jump to right window' })
+
 -- Yank current file path to system buffer
 vim.keymap.set('n', '<leader>fy', function()
   vim.fn.setreg('*', vim.fn.expand '%:.')
