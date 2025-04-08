@@ -1,7 +1,3 @@
--- [[ Install `lazy.nvim` plugin manager ]]
---    https://github.com/folke/lazy.nvim
---    `:help lazy.nvim.txt` for more info
-
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
 if not vim.loop.fs_stat(lazypath) then
@@ -23,7 +19,13 @@ require('lazy').setup {
     version = nil,
     cond = nil,
   },
-  spec = 'plugins',
+  spec = {
+    { import = 'plugins.core' },
+    { import = 'plugins.menus' },
+    { import = 'plugins.motions' },
+    { import = 'plugins.specifics' },
+    { import = 'plugins.themes' },
+  },
   git = {
     log = { '-8' },
     timeout = 120,
@@ -119,5 +121,3 @@ require('lazy').setup {
     require = false,
   },
 }
-
--- vim: ts=2 sts=2 sw=2 et

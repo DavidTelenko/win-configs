@@ -3,10 +3,10 @@ return {
   keys = {
     { '<leader>p', '<cmd>CccPick<cr>', mode = 'n', desc = 'Pick color' },
   },
-  config = function()
+  opts = function()
     local ccc = require 'ccc'
 
-    ccc.setup {
+    return {
       highlighter = {
         auto_enable = true,
         lsp = true,

@@ -52,27 +52,35 @@ return {
     vim.keymap.set('v', '<leader>iv', iron.visual_send, {
       desc = 'Visual Send',
     })
+
     vim.keymap.set('n', '<leader>if', iron.send_file, {
       desc = 'Send File',
     })
+
     vim.keymap.set('n', '<leader>il', iron.send_line, {
       desc = 'Send Line',
     })
+
     vim.keymap.set('n', '<leader>ip', iron.send_paragraph, {
       desc = 'Send Paragraph',
     })
+
     vim.keymap.set('n', '<leader>iu', iron.send_until_cursor, {
       desc = 'Send Until Cursor',
     })
+
     vim.keymap.set('n', '<leader>im', iron.send_mark, {
       desc = 'Send Mark',
     })
+
     vim.keymap.set('n', '<leader>ib', iron.send_code_block, {
       desc = 'Send Code Block',
     })
+
     vim.keymap.set('n', '<leader>iq', iron.close_repl, {
       desc = 'Exit',
     })
+
     vim.keymap.set('n', '<leader>i<space>', function()
       iron.send(nil, string.char(03))
     end, { desc = 'Interrupt' })

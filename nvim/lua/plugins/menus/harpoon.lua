@@ -1,12 +1,20 @@
 return {
   'ThePrimeagen/harpoon',
   branch = 'harpoon2',
-  lazy = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',
   },
-  events = { 'VeryLazy' },
+  keys = {
+    { '<leader><space>', desc = 'Open menu' },
+    { '<leader>ha', desc = 'Add file' },
+    { '<leader>hr', desc = 'Remove file' },
+    { '<leader>hs', desc = 'Search files' },
+    { '<leader>1', desc = 'Navigate to harpoon file 1' },
+    { '<leader>2', desc = 'Navigate to harpoon file 2' },
+    { '<leader>3', desc = 'Navigate to harpoon file 3' },
+    --- to lazy load more just press the menu (<leader><space>) bruh
+  },
   config = function()
     local harpoon = require 'harpoon'
 
@@ -32,11 +40,21 @@ return {
 
     vim.keymap.set('n', '<leader>ha', function()
       harpoon:list():add()
-    end, { desc = 'Add file to harpoon' })
+    end, { desc = 'Add file' })
 
     vim.keymap.set('n', '<leader>hr', function()
       harpoon:list():remove()
-    end, { desc = 'Rremove file from harpoon' })
+    end, { desc = 'Remove file' })
+
+    vim.keymap.set('n', '<leader><space>', function()
+      harpoon.ui:toggle_quick_menu(harpoon:list(), {
+        border = 'rounded',
+        title_pos = 'center',
+        height_in_lines = 20,
+        ui_width_ratio = 0.9,
+        title = ' Harpoon ',
+      })
+    end, { desc = 'Open harpoon window' })
 
     -- basic telescope configuration
     local conf = require('telescope.config').values
@@ -59,19 +77,8 @@ return {
         :find()
     end
 
-    vim.keymap.set('n', '<leader><space>', function()
-      -- toggle_telescope(harpoon:list())
-      harpoon.ui:toggle_quick_menu(harpoon:list(), {
-        border = 'rounded',
-        title_pos = 'center',
-        height_in_lines = 20,
-        ui_width_ratio = 0.9,
-        title = ' Harpoon ',
-      })
-    end, { desc = 'Open harpoon window' })
-
     vim.keymap.set('n', '<leader>hs', function()
       toggle_telescope(harpoon:list())
-    end, { desc = 'Search' })
+    end, { desc = 'Search files' })
   end,
 }

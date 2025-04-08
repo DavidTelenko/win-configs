@@ -26,24 +26,11 @@ return {
       mode = { 'n', 'v' },
       desc = 'Hop to treesitter nodes',
     },
-    {
-      'f',
-      desc = 'Hop to character',
-    },
-    {
-      'F',
-      desc = 'Hop back to character',
-    },
-    {
-      't',
-      desc = 'Hop up to character',
-    },
-    {
-      'T',
-      desc = 'Hop back up to character',
-    },
+    { 'f', desc = 'Hop to character' },
+    { 'F', desc = 'Hop back to character' },
+    { 't', desc = 'Hop up to character' },
+    { 'T', desc = 'Hop back up to character' },
   },
-  version = '*',
   config = function()
     local hop = require 'hop'
     local directions = require('hop.hint').HintDirection
