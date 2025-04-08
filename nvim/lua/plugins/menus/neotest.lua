@@ -19,8 +19,8 @@ return {
       desc = 'Toggle ouput panel',
     },
   },
-  config = function()
-    require('neotest').setup {
+  opts = function()
+    return {
       adapters = {
         -- TODO: think of a portable way to compose a jestCommand
         require 'neotest-jest' {
