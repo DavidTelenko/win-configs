@@ -16,7 +16,6 @@ return {
     opts = {
       ensure_installed = {
         'biome',
-        'dprint',
         'eslint_d',
         'prettierd',
         'stylua',
@@ -199,14 +198,18 @@ return {
         ts_ls = {},
         -- vtsls = {},
         jsonls = {
-          schemas = schemas.json.schemas(),
-          validate = { enable = true },
+          json = {
+            schemas = schemas.json.schemas(),
+            validate = { enable = true },
+          },
         },
         yamlls = {
-          schemas = schemas.yaml.schemas(),
-          schemaStore = {
-            enable = false,
-            url = '',
+          yaml = {
+            schemas = schemas.yaml.schemas(),
+            schemaStore = {
+              enable = false,
+              url = '',
+            },
           },
         },
       }
