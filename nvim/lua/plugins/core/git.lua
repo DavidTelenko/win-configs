@@ -118,7 +118,6 @@ return {
   {
     'tpope/vim-fugitive',
     cmd = 'Git',
-    enabled = true,
     keys = {
       {
         '<leader>gg',

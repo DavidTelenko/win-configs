@@ -38,6 +38,21 @@ return {
             'tailwindcss',
           },
         },
+        {
+          function()
+            local status, result = pcall(function()
+              local linters = require('lint').get_running()
+              if #linters == 0 then
+                return ''
+              end
+              return '󱉶 ' .. table.concat(linters, ', ')
+            end)
+
+            if status then
+              return result
+            end
+          end,
+        },
       },
       lualine_y = {
         {
