@@ -11,63 +11,80 @@ return {
     opts = {},
   },
   {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    event = 'VeryLazy',
+    opts = {
+      ensure_installed = {
+        'biome',
+        'dprint',
+        'eslint_d',
+        'prettierd',
+        'stylua',
+        'yq',
+      },
+    },
+  },
+  {
+    'williamboman/mason.nvim',
+    event = 'VeryLazy',
+    ---@type MasonSettings
+    opts = {
+      log_level = vim.log.levels.INFO,
+      max_concurrent_installers = 4,
+      registries = {
+        'github:mason-org/mason-registry',
+      },
+      providers = {
+        'mason.providers.registry-api',
+        'mason.providers.client',
+      },
+      github = {
+        download_url_template = 'https://github.com/%s/releases/download/%s/%s',
+      },
+      pip = {
+        upgrade_pip = false,
+        install_args = {},
+      },
+      ui = {
+        check_outdated_packages_on_open = true,
+        border = 'rounded',
+        width = 0.8,
+        height = 0.8,
+        icons = {
+          package_installed = '',
+          package_pending = '⌛',
+          package_uninstalled = '',
+        },
+        keymaps = {
+          toggle_package_expand = '<CR>',
+          install_package = 'i',
+          update_package = 'u',
+          check_package_version = 'c',
+          update_all_packages = 'U',
+          check_outdated_packages = 'C',
+          uninstall_package = 'X',
+          cancel_installation = '<C-c>',
+          apply_language_filter = '<C-f>',
+          toggle_package_install_log = '<CR>',
+          toggle_help = 'g?',
+        },
+      },
+    },
+  },
+  {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
     dependencies = {
-      {
-        'williamboman/mason.nvim',
-        ---@type MasonSettings
-        opts = {
-          log_level = vim.log.levels.INFO,
-          max_concurrent_installers = 4,
-          registries = {
-            'github:mason-org/mason-registry',
-          },
-          providers = {
-            'mason.providers.registry-api',
-            'mason.providers.client',
-          },
-          github = {
-            download_url_template = 'https://github.com/%s/releases/download/%s/%s',
-          },
-          pip = {
-            upgrade_pip = false,
-            install_args = {},
-          },
-          ui = {
-            check_outdated_packages_on_open = true,
-            border = 'rounded',
-            width = 0.8,
-            height = 0.8,
-            icons = {
-              package_installed = '',
-              package_pending = '⌛',
-              package_uninstalled = '',
-            },
-            keymaps = {
-              toggle_package_expand = '<CR>',
-              install_package = 'i',
-              update_package = 'u',
-              check_package_version = 'c',
-              update_all_packages = 'U',
-              check_outdated_packages = 'C',
-              uninstall_package = 'X',
-              cancel_installation = '<C-c>',
-              apply_language_filter = '<C-f>',
-              toggle_package_install_log = '<CR>',
-              toggle_help = 'g?',
-            },
-          },
-        },
-      },
       'williamboman/mason-lspconfig.nvim',
       'tpope/vim-sleuth',
       'b0o/schemastore.nvim',
       'stevearc/dressing.nvim',
-      -- Additional lua configuration, makes nvim stuff amazing!
     },
     config = function()
       local telescope = require 'telescope.builtin'
+      local lspconfig = require 'lspconfig'
+      local mason_lspconfig = require 'mason-lspconfig'
+      local schemas = require 'schemastore'
 
       vim.keymap.set('n', '<leader>cI', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
@@ -125,7 +142,6 @@ return {
           'Workspace Symbols'
         )
 
-        -- See `:help K` for why this keymap
         nmap('K', function()
           vim.lsp.buf.hover { border = 'rounded' }
         end, 'Hover Documentation')
@@ -155,8 +171,6 @@ return {
         end, { desc = 'Format current buffer with LSP' })
       end
 
-      local schemas = require 'schemastore'
-
       local servers = {
         -- jdtls = {},         -- java
         -- ols = {},           -- odin
@@ -168,9 +182,15 @@ return {
         gopls = {},
         lua_ls = {
           Lua = {
+            hint = { enable = true },
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
-            diagnostics = { disable = { 'missing-fields' } },
+            diagnostics = {
+              disable = {
+                'missing-fields',
+                'unused-function', -- unused name will still be reported
+              },
+            },
           },
         },
         rust_analyzer = {},
@@ -196,22 +216,32 @@ return {
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
       -- Ensure the servers above are installed
-      local mason_lspconfig = require 'mason-lspconfig'
-
       mason_lspconfig.setup {
         ensure_installed = vim.tbl_keys(servers),
       }
 
       mason_lspconfig.setup_handlers {
         function(server_name)
-          require('lspconfig')[server_name].setup {
+          lspconfig[server_name].setup {
             capabilities = capabilities,
+            filetypes = (servers[server_name] or {}).filetypes,
             on_attach = on_attach,
             settings = servers[server_name],
-            filetypes = (servers[server_name] or {}).filetypes,
           }
         end,
       }
+
+      local local_lsps = {
+        nushell = {},
+      }
+
+      for name, settings in pairs(local_lsps) do
+        lspconfig[name].setup {
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = settings,
+        }
+      end
     end,
   },
 }

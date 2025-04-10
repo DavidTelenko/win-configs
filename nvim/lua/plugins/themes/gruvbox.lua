@@ -1,5 +1,6 @@
 return {
   'ellisonleao/gruvbox.nvim',
+  enabled = true,
   lazy = false,
   opts = {
     terminal_colors = true, -- add neovim terminal colors
