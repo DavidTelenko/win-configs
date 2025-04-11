@@ -7,7 +7,6 @@ param (
     [Switch] $Git = $false,
     [Switch] $Kanata = $false,
     [Switch] $Keymapper = $false,
-    [Switch] $Lazygit = $false,
     [Switch] $Mpv = $false,
     [Switch] $Musikcube = $false,
     [Switch] $Nushell = $false,
@@ -28,7 +27,6 @@ $Pwsh = $All -xor $Pwsh
 $Nvim = $All -xor $Nvim
 $Helix = $All -xor $Helix
 $Git = $All -xor $Git
-$Lazygit = $All -xor $Lazygit
 $Winterm = $All -xor $Winterm
 $Rio = $All -xor $Rio
 $Wezterm = $All -xor $Wezterm
@@ -87,9 +85,6 @@ if ($Rio) {
 }
 if ($Nvim) {
     Link -t $env:localappdata/nvim -e $curr/nvim
-}
-if ($Lazygit) {
-    Link -t $env:localappdata/lazygit -e $curr/lazygit
 }
 if ($Helix) {
     Link -t $env:appdata/helix -e $curr/helix
