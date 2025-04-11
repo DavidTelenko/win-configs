@@ -39,7 +39,6 @@ param (
     [Switch] $Helix = $false,
     [Switch] $Kanata = $false,
     [Switch] $Keymapper = $false,
-    [Switch] $Lazygit = $false,
     [Switch] $Mpv = $false,
     [Switch] $Musikcube = $false,
     [Switch] $Nushell = $false,
@@ -73,5 +72,5 @@ scoop import ~/.configs/scoop/scoopfile.json
 
 # installing configs respecting the users options
 & ~/.configs/init.ps1 `
-  -All -Helix -Lazygit -Rio -Wezterm -Nushell -Alacritty -Broot -Mpv -Ttyper `
+  -All -Helix -Rio -Wezterm -Nushell -Alacritty -Broot -Mpv -Ttyper `
   -Vencord -Musikcube -Keymapper -Kanata -Git
