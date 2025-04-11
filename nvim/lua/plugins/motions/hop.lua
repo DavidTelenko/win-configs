@@ -1,7 +1,7 @@
 return {
   'smoka7/hop.nvim',
   keys = {
-    { 's', '<NOP>', mode = { 'n', 'v' }, desc = 'Hop' },
+    { 's', '<NOP>', mode = { 'n' }, desc = 'Hop' },
     {
       'sa',
       '<cmd>HopAnywhere<cr>',
@@ -9,7 +9,7 @@ return {
       desc = 'Hop anywhere',
     },
     {
-      'ss',
+      's/',
       '<cmd>HopPattern<cr>',
       mode = { 'n', 'v' },
       desc = 'Hop to pattern',

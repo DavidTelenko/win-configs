@@ -17,6 +17,7 @@ return {
       'biome',
     }
 
+    ---@type conform.setupOpts
     return {
       log_level = vim.log.levels.DEBUG,
       format_after_save = {
@@ -33,8 +34,8 @@ return {
         json = json_formatters,
         jsonc = json_formatters,
         lua = { 'stylua' },
-        markdown = { 'prettierd' },
-        mdx = { 'prettierd' },
+        markdown = { 'prettierd', 'injected' },
+        mdx = { 'prettierd', 'injected' },
         python = { 'black' },
         svelte = h.first { h.require_config 'prettierd', 'biome' },
         typescript = js_ts_formatters,
