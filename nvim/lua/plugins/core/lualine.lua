@@ -41,13 +41,10 @@ return {
       lualine_x = {
         {
           'lsp_status',
-          icon = '',
+          icon = '',
           symbols = {
-            done = '',
+            done = '',
             separator = ' ',
-            spinner = {
-              '',
-            },
           },
           ignore_lsp = {
             'emmet_language_server',
