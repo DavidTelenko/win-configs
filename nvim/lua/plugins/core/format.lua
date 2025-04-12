@@ -21,8 +21,8 @@ return {
     return {
       log_level = vim.log.levels.DEBUG,
       format_after_save = {
-        -- lsp_fallback = true,
         timeout_ms = 100000,
+        quiet = true, --- NOTE: maybe dangerous?
       },
       formatters_by_ft = {
         css = { 'prettierd' },
