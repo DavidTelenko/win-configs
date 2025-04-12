@@ -179,4 +179,7 @@ end
 
 vim.keymap.set('n', '<leader>z', toggle_zen_mode, { desc = 'Zen Mode' })
 
+--- TEMP: relearning muscle memory
+vim.keymap.set({ 'n', 'v' }, 'S', 'NOP')
+
 -- vim: ts=2 sts=2 sw=2 et
