@@ -1,9 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
   lazy = false,
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-  },
   opts = {
     options = {
       icons_enabled = true,
@@ -29,29 +26,33 @@ return {
         { 'branch', icon = '󰘬' },
         'diagnostics',
       },
-      lualine_c = { 'filename' },
+      lualine_c = {
+        {
+          'filetype',
+          icon_only = true,
+          colored = false,
+          padding = { left = 1 },
+        },
+        {
+          'filename',
+          padding = { right = 1 },
+        },
+      },
       lualine_x = {
         {
           'lsp_status',
+          icon = '',
+          symbols = {
+            done = '',
+            separator = ' ',
+            spinner = {
+              '',
+            },
+          },
           ignore_lsp = {
             'emmet_language_server',
             'tailwindcss',
           },
-        },
-        {
-          function()
-            local status, result = pcall(function()
-              local linters = require('lint').get_running()
-              if #linters == 0 then
-                return ''
-              end
-              return '󱉶 ' .. table.concat(linters, ', ')
-            end)
-
-            if status then
-              return result
-            end
-          end,
         },
       },
       lualine_y = {

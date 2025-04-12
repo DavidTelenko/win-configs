@@ -1,9 +1,6 @@
 return {
   'mfussenegger/nvim-lint',
-  event = {
-    'BufReadPre',
-    'BufNewFile',
-  },
+  event = { 'BufWritePost' },
   config = function()
     local lint = require 'lint'
     local h = require 'helpers.general'
@@ -36,5 +33,21 @@ return {
         end
       end,
     })
+
+    --- TODO: find a better way to offload some sections in lualine
+    local lualine = require 'lualine'
+    local sections = lualine.get_config().sections
+
+    table.insert(sections.lualine_x, function()
+      local linters = lint.get_running(0)
+      if #linters == 0 then
+        return '󰕥'
+      end
+      return table.concat(linters, ', ') .. ' 󰶚'
+    end)
+
+    require('lualine').setup {
+      sections = sections,
+    }
   end,
 }

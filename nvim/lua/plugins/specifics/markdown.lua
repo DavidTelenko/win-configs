@@ -11,6 +11,5 @@ return {
     'davidmh/mdx.nvim',
     opts = {},
     event = { 'BufEnter *.mdx' },
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
   },
 }

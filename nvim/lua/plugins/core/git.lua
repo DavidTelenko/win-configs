@@ -145,9 +145,6 @@ return {
     keys = {
       { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Git menu (Neogit)' },
     },
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
     opts = {
       -- Hides the hints at the top of the status buffer
       disable_hint = false,

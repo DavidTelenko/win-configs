@@ -1,10 +1,6 @@
 return {
   'ThePrimeagen/harpoon',
   branch = 'harpoon2',
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope.nvim',
-  },
   keys = {
     { '<leader><space>', desc = 'Open menu' },
     { '<leader>ha', desc = 'Add file' },

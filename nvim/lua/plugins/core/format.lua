@@ -9,7 +9,7 @@ return {
     local js_ts_formatters = h.first {
       h.require_config { 'prettierd', 'eslint_d' }, -- order here is important
       h.require_config 'deno_fmt',
-      'biome', -- fallback (important to configure in mason-tool-installer)
+      'biome', -- fallback (important to add to ensure_installed in mason-tool-installer)
     }
 
     local json_formatters = h.first {
