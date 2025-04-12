@@ -1,6 +1,24 @@
 return {
   'nvim-telescope/telescope.nvim',
-  lazy = false,
+  keys = {
+    { '<leader>?', desc = 'Recently opened files' },
+    { '<leader>sb', desc = 'Existing Buffers' },
+    { '<leader>s/', desc = 'In current buffer' },
+    { '<leader>sf', desc = 'Files' },
+    { '<leader>sh', desc = 'Help' },
+    { '<leader>sw', desc = 'Current Word' },
+    { '<leader>sg', desc = 'By Grep' },
+    { '<leader>sG', desc = 'By Grep With Args' },
+    { '<leader>sd', desc = 'Diagnostics' },
+    { '<leader>sr', desc = 'Resume' },
+    { '<leader>sq', desc = 'Quickfix' },
+    { '<leader>s?', desc = 'Keymaps' },
+    { '<leader>sc', desc = 'Command history' },
+    { '<leader>gf', desc = 'Search Git Files' },
+    { '<leader>gc', desc = 'Search Git Commits' },
+    { '<leader>gS', desc = 'Search Git Stash' },
+    { 'z=', desc = '' },
+  },
   dependencies = {
     'nvim-lua/plenary.nvim',
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -61,7 +79,7 @@ return {
     local builtin = require 'telescope.builtin'
 
     vim.keymap.set('n', '<leader>?', builtin.oldfiles, {
-      desc = 'Search recently opened files',
+      desc = 'Recently opened files',
     })
 
     vim.keymap.set('n', '<leader>sb', builtin.buffers, {

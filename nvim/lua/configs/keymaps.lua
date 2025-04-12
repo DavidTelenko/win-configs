@@ -172,6 +172,9 @@ local function toggle_zen_mode()
   vim.o.colorcolumn = not vim.g.zen and '80' or ''
   -- vim.o.signcolumn = not vim.g.zen and 'yes' or 'no'
   vim.diagnostic.enable(not vim.g.zen)
+  pcall(function()
+    require('lualine').hide { unhide = not vim.g.zen }
+  end)
 end
 
 vim.keymap.set('n', '<leader>z', toggle_zen_mode, { desc = 'Zen Mode' })

@@ -70,15 +70,11 @@ return {
       },
     },
   },
+  { 'williamboman/mason-lspconfig.nvim' },
+  { 'b0o/schemastore.nvim' },
   {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
-    dependencies = {
-      'williamboman/mason-lspconfig.nvim',
-      'tpope/vim-sleuth',
-      'b0o/schemastore.nvim',
-      'stevearc/dressing.nvim',
-    },
     config = function()
       local telescope = require 'telescope.builtin'
       local lspconfig = require 'lspconfig'

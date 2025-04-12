@@ -1,5 +1,13 @@
 local M = {}
 
+local is_available = function(fmt)
+  return require('conform').get_formatter_info(fmt).available ~= nil
+end
+
+local is_config_present = function(fmt)
+  return vim.fs.root(vim.fn.getcwd(), require('helpers.configs')[fmt]) ~= nil
+end
+
 --- @param predicate fun(fmt: string): boolean
 --- @return fun(list: table|string): string[]
 local make_require = function(predicate)
@@ -18,13 +26,7 @@ M.first = function(list)
   return #list == 0 and {} or vim.iter({ list[1] }):flatten():totable()
 end
 
-M.require_available = make_require(function(fmt)
-  return require('conform').get_formatter_info(fmt).available ~= nil
-end)
-
-M.require_config = make_require(function(fmt)
-  return require('conform').get_formatter_info(fmt).available ~= nil
-    and vim.fs.root(vim.fn.getcwd(), require('helpers.configs')[fmt]) ~= nil
-end)
+M.require_available = make_require(is_available)
+M.require_config = make_require(is_config_present)
 
 return M
