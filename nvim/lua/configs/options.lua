@@ -55,7 +55,6 @@ vim.o.termguicolors = true
 
 -- This little circles to see spaces (VS Code habit)
 vim.o.list = true
--- vim.o.listchars = "tab:> ,trail:🞄,nbsp:+,space:🞄"
 vim.o.listchars = 'tab:· ,trail:·,nbsp:+,space:·'
 
 -- Tabs
@@ -89,11 +88,12 @@ local function escape(str)
   return vim.fn.escape(str, escape_chars)
 end
 
+-- stylua: ignore start
 local en_n = [[qwertyuiop[]asdfghjkl;'zxcvbnm]]
 local ua_n = [[йцукенгшщзхїфівапролджєячсмить]]
 local en_s = [[QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
-local ua_s =
-  [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
+local ua_s = [[ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ]]
+-- stylua: ignore end
 
 vim.o.langmap = vim.fn.join({
   escape(ua_n) .. ';' .. escape(en_n),
@@ -115,5 +115,10 @@ if vim.g.neovide then
   vim.g.neovide_cursor_trail_size = 0.2
   vim.g.neovide_cursor_animate_command_line = false
 end
+
+-- Zen mode
+vim.g.zen = false
+-- remove or comment to disable it by default
+require('helpers.zen').toggle_zen_mode()
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -1,6 +1,14 @@
 return {
   'stevearc/oil.nvim',
   lazy = false,
+  keys = {
+    {
+      '<leader>o',
+      '<cmd>Oil<cr>',
+      mode = 'n',
+      desc = 'Open parent directory',
+    },
+  },
   opts = {
     -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
     -- Set to false if you still want to use netrw.

@@ -1,6 +1,7 @@
 return {
   'kylechui/nvim-surround',
   keys = {
+    { 'S', '<NOP>', mode = { 'n', 'v' } },
     { 'ds' },
     { 'cs' },
     { 'ys' },

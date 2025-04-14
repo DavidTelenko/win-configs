@@ -29,7 +29,9 @@ return {
 
         if buftype == '' then
           lint.try_lint()
-          lint.try_lint 'cspell'
+          if vim.o.spell then
+            lint.try_lint 'cspell'
+          end
         end
       end,
     })
