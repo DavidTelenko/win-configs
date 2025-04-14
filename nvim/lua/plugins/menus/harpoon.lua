@@ -6,6 +6,8 @@ return {
     { '<leader>ha', desc = 'Add file' },
     { '<leader>hr', desc = 'Remove file' },
     { '<leader>hs', desc = 'Search files' },
+    { ']h', desc = 'Next harpoon file' },
+    { '[h', desc = 'Previous harpoon file' },
     { '<leader>1', desc = 'Navigate to harpoon file 1' },
     { '<leader>2', desc = 'Navigate to harpoon file 2' },
     { '<leader>3', desc = 'Navigate to harpoon file 3' },
@@ -37,6 +39,14 @@ return {
     vim.keymap.set('n', '<leader>ha', function()
       harpoon:list():add()
     end, { desc = 'Add file' })
+
+    vim.keymap.set('n', ']h', function()
+      harpoon:list():next()
+    end, { desc = 'Next harpoon file' })
+
+    vim.keymap.set('n', '[h', function()
+      harpoon:list():prev()
+    end, { desc = 'Previous harpoon file' })
 
     vim.keymap.set('n', '<leader>hr', function()
       harpoon:list():remove()
