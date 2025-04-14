@@ -3,12 +3,6 @@ return {
   keys = {
     { 's', '<NOP>', mode = { 'n' }, desc = 'Hop' },
     {
-      'sa',
-      '<cmd>HopAnywhere<cr>',
-      mode = { 'n', 'v' },
-      desc = 'Hop anywhere',
-    },
-    {
       's/',
       '<cmd>HopPattern<cr>',
       mode = { 'n', 'v' },
@@ -31,13 +25,14 @@ return {
     { 't', desc = 'Hop up to character' },
     { 'T', desc = 'Hop back up to character' },
   },
-  config = function()
+  opts = {
+    keys = 'asdfghjkl;',
+  },
+  config = function(_, opts)
     local hop = require 'hop'
     local directions = require('hop.hint').HintDirection
 
-    hop.setup {
-      keys = 'asdfghjkl;',
-    }
+    hop.setup(opts)
 
     vim.keymap.set('', 'f', function()
       hop.hint_char1 {

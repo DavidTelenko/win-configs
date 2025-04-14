@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
--- Muscle memory
+-- Unlearning muscle memory
 vim.api.nvim_create_user_command('E', function()
   -- vim.cmd 'Explore'
   -- vim.cmd 'Oil'
