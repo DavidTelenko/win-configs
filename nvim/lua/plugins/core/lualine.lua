@@ -2,8 +2,66 @@ return {
   'nvim-lualine/lualine.nvim',
   lazy = false,
   opts = function()
-    local my_filename = require('lualine.components.filename'):extend()
-    my_filename.apply_icon = require('lualine.components.filetype').apply_icon
+    local filename = require('lualine.components.filename'):extend()
+    filename.apply_icon = require('lualine.components.filetype').apply_icon
+
+    local lsp_status = {
+      'lsp_status',
+      icon = '',
+      symbols = {
+        done = '',
+        separator = ' ',
+      },
+      ignore_lsp = {
+        'emmet_language_server',
+        'tailwindcss',
+      },
+    }
+
+    local diff = {
+      'diff',
+      symbols = { added = ' ', modified = ' ', removed = ' ' },
+    }
+
+    local default_extension = function(name, filetype)
+      return {
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { { 'branch', icon = '󰘬' }, 'diagnostics' },
+          lualine_c = { name },
+          lualine_x = { lsp_status },
+          lualine_y = { diff },
+          lualine_z = { 'location' },
+        },
+        filetypes = { filetype },
+      }
+    end
+
+    local extensions = {
+      oil = default_extension(function()
+        return '󰖌 Oil'
+      end, 'oil'),
+
+      harpoon = default_extension(function()
+        return '󰀱 Harpoon'
+      end, 'harpoon'),
+
+      telescope = default_extension(function()
+        return '󰭎 Telescope'
+      end, 'TelescopePrompt'),
+
+      undotree = default_extension(function()
+        return ' Undotree'
+      end, 'undotree'),
+
+      diff = default_extension(function()
+        return '󰳻 Diff'
+      end, 'diff'),
+
+      fugitive = default_extension(function()
+        return ' ' .. vim.fn.FugitiveHead()
+      end, 'fugitive'),
+    }
 
     return {
       options = {
@@ -24,37 +82,7 @@ return {
           winbar = 1000,
         },
       },
-      sections = {
-        lualine_a = { 'mode' },
-        lualine_b = {
-          { 'branch', icon = '󰘬' },
-          'diagnostics',
-        },
-        lualine_c = {
-          my_filename,
-        },
-        lualine_x = {
-          {
-            'lsp_status',
-            icon = '',
-            symbols = {
-              done = '',
-              separator = ' ',
-            },
-            ignore_lsp = {
-              'emmet_language_server',
-              'tailwindcss',
-            },
-          },
-        },
-        lualine_y = {
-          {
-            'diff',
-            symbols = { added = ' ', modified = ' ', removed = ' ' },
-          },
-        },
-        lualine_z = { 'location' },
-      },
+      sections = default_extension(filename).sections,
       tabline = {},
       winbar = {},
       inactive_winbar = {},
@@ -62,51 +90,12 @@ return {
         'lazy',
         'mason',
         'quickfix',
-        {
-          sections = {
-            lualine_a = {
-              function()
-                return '󰘬 ' .. vim.fn.FugitiveHead()
-              end,
-            },
-            lualine_z = { 'location' },
-          },
-          filetypes = { 'fugitive' },
-        },
-        {
-          sections = {
-            lualine_a = {
-              function()
-                local ft = vim.opt_local.filetype:get()
-                return (ft == 'undotree') and '󰐅 Undotree'
-                  or (ft == 'diff') and '󰐆 Diff'
-              end,
-            },
-            lualine_z = { 'location' },
-          },
-          filetypes = { 'undotree', 'diff' },
-        },
-        {
-          sections = {
-            lualine_a = {
-              function()
-                return ' Telescope'
-              end,
-            },
-          },
-          filetypes = { 'TelescopePrompt' },
-        },
-        {
-          sections = {
-            lualine_a = {
-              function()
-                return ' Harpoon'
-              end,
-            },
-            lualine_z = { 'location' },
-          },
-          filetypes = { 'harpoon' },
-        },
+        extensions.fugitive,
+        extensions.oil,
+        extensions.diff,
+        extensions.undotree,
+        extensions.telescope,
+        extensions.harpoon,
       },
     }
   end,
