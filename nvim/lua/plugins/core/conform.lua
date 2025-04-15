@@ -17,6 +17,7 @@ return {
       'biome',
     }
 
+    ---@module "conform"
     ---@type conform.setupOpts
     return {
       log_level = vim.log.levels.DEBUG,
