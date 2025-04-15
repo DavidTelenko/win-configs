@@ -41,11 +41,11 @@ return {
     end, { desc = 'Add file' })
 
     vim.keymap.set('n', ']h', function()
-      harpoon:list():next()
+      harpoon:list():next { ui_nav_wrap = true }
     end, { desc = 'Next harpoon file' })
 
     vim.keymap.set('n', '[h', function()
-      harpoon:list():prev()
+      harpoon:list():prev { ui_nav_wrap = true }
     end, { desc = 'Previous harpoon file' })
 
     vim.keymap.set('n', '<leader>hr', function()

@@ -7,7 +7,7 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 
 -- Disable mouse mode
 vim.o.mouse = ''
