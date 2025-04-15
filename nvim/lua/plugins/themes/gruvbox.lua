@@ -30,5 +30,7 @@ return {
     require('gruvbox').setup(opts)
     vim.cmd.colorscheme 'gruvbox'
     vim.api.nvim_set_hl(0, 'Delimiter', { link = 'GruvboxOrange' })
+    vim.api.nvim_set_hl(0, 'ErrorMsg', { link = 'WarningMsg' })
+    vim.api.nvim_set_hl(0, 'Error', { link = 'WarningMsg' })
   end,
 }
