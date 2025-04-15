@@ -19,6 +19,16 @@ return {
       local dap = require 'dap'
       local dapui = require 'dapui'
 
+      local js_ts_configs = {
+        {
+          type = 'pwa-node',
+          request = 'attach',
+          name = 'Attach',
+          processId = require('dap.utils').pick_process,
+          cwd = '${workspaceFolder}',
+        },
+      }
+
       require('mason-nvim-dap').setup {
         automatic_setup = true,
         automatic_installation = true,
@@ -40,6 +50,11 @@ return {
             end
             require('mason-nvim-dap').default_setup(config)
           end,
+
+          typescriptreact = js_ts_configs,
+          javascriptreact = js_ts_configs,
+          typescript = js_ts_configs,
+          javascript = js_ts_configs,
 
           python = function(config)
             config.adapters = {
