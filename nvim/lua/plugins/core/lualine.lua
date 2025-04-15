@@ -59,7 +59,7 @@ return {
       end, 'diff'),
 
       fugitive = default_extension(function()
-        return ' ' .. vim.fn.FugitiveHead()
+        return '󰘬 ' .. vim.fn.FugitiveHead()
       end, 'fugitive'),
     }
 
