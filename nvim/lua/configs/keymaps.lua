@@ -161,5 +161,3 @@ end, { desc = 'Replace \\ with /' })
 vim.keymap.set('n', '<leader>z', require('helpers.zen').toggle_zen_mode, {
   desc = 'Zen Mode',
 })
-
--- vim: ts=2 sts=2 sw=2 et
