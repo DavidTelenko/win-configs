@@ -11,7 +11,7 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", {
   desc = 'Move selection down',
 })
 
-vim.keymap.set('v', 'Z', 'J', {
+vim.keymap.set({ 'v', 'n' }, 'Z', 'J', {
   desc = 'Join lines',
 })
 
@@ -160,4 +160,13 @@ end, { desc = 'Replace \\ with /' })
 -- Zen mode
 vim.keymap.set('n', '<leader>z', require('helpers.zen').toggle_zen_mode, {
   desc = 'Zen Mode',
+})
+
+-- Toggle quickfix
+vim.keymap.set('n', '<leader>q', function()
+  vim.cmd 'ToggleQuickfix'
+end, {
+  noremap = true,
+  silent = true,
+  desc = 'Toggle quickfix',
 })

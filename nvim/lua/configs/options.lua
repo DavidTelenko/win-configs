@@ -2,6 +2,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Fallback theme
+vim.cmd.colorscheme 'retrobox'
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
