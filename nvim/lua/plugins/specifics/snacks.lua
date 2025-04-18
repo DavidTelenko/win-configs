@@ -4,6 +4,7 @@ return {
   ---@type snacks.Config
   opts = {
     gitbrowse = { enabled = true },
+    quickfile = { enabled = true },
   },
   keys = {
     {
