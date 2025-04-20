@@ -18,6 +18,7 @@ return {
         'biome',
         'eslint_d',
         'prettierd',
+        'shfmt',
         'stylua',
         'yq',
       },

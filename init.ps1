@@ -125,6 +125,7 @@ if ($Winterm) {
 
 if ($Git) {
     git config --global --add include.path "$curr\git\.gitconfig"
+    git config --local --add include.path "..\.gitconfig"
 }
 
 # separate spicetify+spotx install

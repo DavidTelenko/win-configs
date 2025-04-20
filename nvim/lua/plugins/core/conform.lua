@@ -26,6 +26,7 @@ return {
         quiet = true, --- NOTE: maybe dangerous?
       },
       formatters_by_ft = {
+        sh = { 'shfmt' },
         css = { 'prettierd' },
         elixir = { 'mix' },
         graphql = { 'prettierd' },

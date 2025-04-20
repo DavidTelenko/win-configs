@@ -1,0 +1,23 @@
+#!/bin/bash
+
+readonly COMMIT_MSG_FILE=$1
+readonly COMMIT_SOURCE=$2
+readonly PROMPT="generate a git commit message based on this git diff, please give short answer (limit to 72 characters) and no details/explanation so it can be used directly for the git commit -m command, start with lowercase, use conventional git commit messages: "
+
+hook() {
+    if ! type tgpt >/dev/null 2>&1 || [[ -n $COMMIT_SOURCE ]]; then
+        exit 0
+    fi
+
+    local diff=$(git --no-pager diff --cached)
+    local generated_msg=$(echo "$PROMPT $diff" | tgpt -q)
+
+    if [[ $? -ne 0 ]]; then
+        exit 0
+    fi
+
+    local trimmed_msg=${generated_msg:2}
+    echo "${trimmed_msg,,}$(cat $COMMIT_MSG_FILE)" >$COMMIT_MSG_FILE
+}
+
+hook
