@@ -246,6 +246,10 @@
     {
       "Name": "zoxide",
       "Source": "main"
+    },
+    {
+      "Name": "tgpt",
+      "Source": "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
     }
   ]
 }
