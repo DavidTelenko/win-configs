@@ -2,21 +2,22 @@ return {
   'nvim-telescope/telescope.nvim',
   keys = {
     { '<leader>?', desc = 'Recently opened files' },
-    { '<leader>sb', desc = 'Existing Buffers' },
-    { '<leader>s/', desc = 'In current buffer' },
-    { '<leader>sf', desc = 'Files' },
-    { '<leader>sh', desc = 'Help' },
-    { '<leader>sw', desc = 'Current Word' },
-    { '<leader>sg', desc = 'By Grep' },
-    { '<leader>sG', desc = 'By Grep With Args' },
-    { '<leader>sd', desc = 'Diagnostics' },
-    { '<leader>sr', desc = 'Resume' },
-    { '<leader>sq', desc = 'Quickfix' },
-    { '<leader>s?', desc = 'Keymaps' },
-    { '<leader>sc', desc = 'Command history' },
-    { '<leader>gf', desc = 'Search Git Files' },
-    { '<leader>gc', desc = 'Search Git Commits' },
     { '<leader>gS', desc = 'Search Git Stash' },
+    { '<leader>gc', desc = 'Search Git Commits' },
+    { '<leader>gf', desc = 'Search Git Files' },
+    { '<leader>s/', desc = 'In current buffer' },
+    { '<leader>s?', desc = 'Keymaps' },
+    { '<leader>sG', desc = 'By Grep With Args' },
+    { '<leader>sb', desc = 'Existing Buffers' },
+    { '<leader>sc', desc = 'Command history' },
+    { '<leader>sd', desc = 'Diagnostics' },
+    { '<leader>sf', desc = 'Files' },
+    { '<leader>sg', desc = 'By Grep' },
+    { '<leader>sh', desc = 'Help' },
+    { '<leader>sq', desc = 'Quickfix' },
+    { '<leader>sr', desc = 'Resume' },
+    { '<leader>sw', desc = 'Current Word' },
+    { '<leader>sz', desc = 'Zoxide' },
     { 'z=', desc = '' },
   },
   dependencies = {
@@ -33,6 +34,7 @@ return {
     },
     'nvim-telescope/telescope-ui-select.nvim',
     'nvim-telescope/telescope-live-grep-args.nvim',
+    'jvgrootveld/telescope-zoxide',
   },
   config = function()
     local telescope = require 'telescope'
@@ -67,6 +69,9 @@ return {
             },
           },
         },
+        zoxide = {
+          prompt_title = 'Zoxide',
+        },
       },
     }
 
@@ -74,6 +79,7 @@ return {
     pcall(telescope.load_extension, 'fzf')
     pcall(telescope.load_extension, 'live_grep_args')
     pcall(telescope.load_extension, 'ui-select')
+    pcall(telescope.load_extension, 'zoxide')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -128,6 +134,10 @@ return {
 
     vim.keymap.set('n', '<leader>sq', builtin.quickfix, {
       desc = 'Quickfix',
+    })
+
+    vim.keymap.set('n', '<leader>sz', telescope.extensions.zoxide.list, {
+      desc = 'Zoxide',
     })
 
     vim.keymap.set('n', '<leader>s?', builtin.keymaps, {

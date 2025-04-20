@@ -66,10 +66,14 @@ return {
                   query = '@parameter.inner',
                   desc = 'inner parameter',
                 },
-                ['af'] = { query = '@function.outer', desc = 'outer function' },
-                ['if'] = { query = '@function.inner', desc = 'inner function' },
-                ['ac'] = { query = '@class.outer', desc = 'outer class' },
-                ['ic'] = { query = '@class.inner', desc = 'inner class' },
+                ['af'] = {
+                  query = '@function.outer',
+                  desc = 'outer function',
+                },
+                ['if'] = {
+                  query = '@function.inner',
+                  desc = 'inner function',
+                },
                 ['a='] = {
                   query = '@assignment.outer',
                   desc = 'outer assignment',
@@ -78,18 +82,32 @@ return {
                   query = '@assignment.inner',
                   desc = 'inner assignment',
                 },
-                ['r='] = { query = '@assignment.rhs', desc = 'rhs assignment' },
-                ['l='] = { query = '@assignment.lhs', desc = 'lhs assignment' },
-                ['al'] = { query = '@loop.outer', desc = 'outer loop' },
-                ['il'] = { query = '@loop.inner', desc = 'inner loop' },
-                -- ['ac'] = { query = '@comment.outer', desc = 'outer comment' },
-                -- ['ic'] = { query = '@comment.inner', desc = 'inner comment' },
+                ['r='] = {
+                  query = '@assignment.rhs',
+                  desc = 'rhs assignment',
+                },
+                ['l='] = {
+                  query = '@assignment.lhs',
+                  desc = 'lhs assignment',
+                },
+                ['ab'] = {
+                  query = '@block.outer',
+                  desc = 'outer block',
+                },
+                ['ib'] = {
+                  query = '@block.inner',
+                  desc = 'inner block',
+                },
               },
             },
             move = {
               enable = true,
               set_jumps = true, -- whether to set jumps in the jumplist
               goto_next_start = {
+                [']p'] = {
+                  query = '@parameter.outer',
+                  desc = 'Next parameter',
+                },
                 [']f'] = {
                   query = '@function.outer',
                   desc = 'Next start of function',
@@ -97,6 +115,10 @@ return {
                 [']l'] = {
                   query = '@class.outer',
                   desc = 'Next start of class',
+                },
+                [']b'] = {
+                  query = '@block.outer',
+                  desc = 'Next start of block',
                 },
               },
               goto_next_end = {
@@ -108,8 +130,16 @@ return {
                   query = '@class.outer',
                   desc = 'Next end of class',
                 },
+                [']B'] = {
+                  query = '@block.outer',
+                  desc = 'Next end of block',
+                },
               },
               goto_previous_start = {
+                ['[p'] = {
+                  query = '@parameter.outer',
+                  desc = 'Previous parameter',
+                },
                 ['[f'] = {
                   query = '@function.outer',
                   desc = 'Previous start of function',
@@ -117,6 +147,10 @@ return {
                 ['[l'] = {
                   query = '@class.outer',
                   desc = 'Previous start of class',
+                },
+                ['[b'] = {
+                  query = '@block.outer',
+                  desc = 'Previous start of block',
                 },
               },
               goto_previous_end = {
@@ -128,18 +162,22 @@ return {
                   query = '@class.outer',
                   desc = 'Previous end of class',
                 },
+                ['[B'] = {
+                  query = '@block.outer',
+                  desc = 'Previous end of block',
+                },
               },
             },
             swap = {
               enable = true,
               swap_next = {
-                ['<leader>sa'] = {
+                ['<leader>cn'] = {
                   query = '@parameter.inner',
                   desc = 'swap next parameter',
                 },
               },
               swap_previous = {
-                ['<leader>sA'] = {
+                ['<leader>cp'] = {
                   query = '@parameter.inner',
                   desc = 'swap previous parameter',
                 },
