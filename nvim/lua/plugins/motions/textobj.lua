@@ -4,7 +4,19 @@ return {
   opts = {
     keymaps = {
       useDefaults = true,
-      disabledDefaults = { 'iS', 'aS', 'L', 'gw', 'gW' },
+      disabledDefaults = {
+        'L',
+        'C',
+        'r',
+        'iS',
+        'aS',
+        'ik',
+        'ak',
+        'iv',
+        'av',
+        'gw',
+        'gW',
+      },
     },
   },
   config = function(_, opts)
@@ -13,10 +25,10 @@ return {
 
     vim.keymap.set({ 'o', 'x' }, 'is', function()
       objs.subword 'inner'
-    end, { remap = true, desc = 'subword' })
+    end, { remap = true, desc = 'inner subword' })
 
     vim.keymap.set({ 'o', 'x' }, 'as', function()
       objs.subword 'outer'
-    end, { remap = true, desc = 'subword' })
+    end, { remap = true, desc = 'outer subword' })
   end,
 }

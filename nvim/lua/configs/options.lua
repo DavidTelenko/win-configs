@@ -40,7 +40,7 @@ vim.o.smartcase = true
 vim.o.smartindent = true
 
 -- Font
-vim.o.guifont = 'RobotoMono Nerd Font Mono:h18'
+vim.o.guifont = 'RobotoMono Nerd Font Mono:h20'
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
@@ -80,6 +80,10 @@ vim.o.smoothscroll = true
 vim.o.foldmethod = 'indent'
 vim.o.foldlevel = 99
 
+-- Path fuzzy
+vim.o.path = '.,**'
+vim.o.wildmenu = true
+
 -- Netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_hide = 0
@@ -117,6 +121,10 @@ if vim.g.neovide then
   vim.g.neovide_fullscreen = true
   vim.g.neovide_cursor_trail_size = 0.2
   vim.g.neovide_cursor_animate_command_line = false
+  vim.g.neovide_padding_top = 2
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 10
+  vim.g.neovide_padding_left = 10
 end
 
 -- Zen mode
