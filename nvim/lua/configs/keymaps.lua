@@ -15,6 +15,10 @@ vim.keymap.set({ 'v', 'n' }, 'Z', 'J', {
   desc = 'Join lines',
 })
 
+vim.keymap.set('n', 'zz', 'ZZ', {
+  desc = 'Write & Exit',
+})
+
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", {
   desc = 'Move selection up',
 })
@@ -166,7 +170,6 @@ vim.keymap.set('n', '<leader>z', require('helpers.zen').toggle_zen_mode, {
 vim.keymap.set('n', '<leader>q', function()
   vim.cmd 'ToggleQuickfix'
 end, {
-  noremap = true,
   silent = true,
   desc = 'Toggle quickfix',
 })

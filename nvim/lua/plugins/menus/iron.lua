@@ -40,7 +40,8 @@ return {
           },
         },
         repl_open_cmd = {
-          view.split.vertical.rightbelow '%40',
+          -- view.split.vertical.botright(0.4),
+          view.split.horizontal.botright(0.4),
         },
       },
       highlight = {
@@ -86,7 +87,7 @@ return {
     end, { desc = 'Interrupt' })
 
     vim.keymap.set('n', '<leader>T', function()
-      iron.repl_for 'nu'
+      iron.focus_on 'nu'
     end, { desc = 'Open terminal' })
   end,
 }
