@@ -12,6 +12,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- netrw keymaps for more 'lettered' experience
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'netrw',
+  group = vim.api.nvim_create_augroup('NetrwKeymaps', {
+    clear = true,
+  }),
   callback = function()
     vim.keymap.set('n', 'l', '<cr>', { buffer = true, remap = true })
     vim.keymap.set('n', 'h', '-', { buffer = true, remap = true })
