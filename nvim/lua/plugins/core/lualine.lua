@@ -17,6 +17,7 @@ return {
         },
         ignore_focus = {},
         always_divide_middle = true,
+        always_show_tabline = false,
         globalstatus = true,
         refresh = {
           statusline = 100,
@@ -27,7 +28,7 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { { 'branch', icon = '󰘬' }, 'diagnostics' },
-        lualine_c = { filename },
+        lualine_c = { { filename, path = 1 } },
         lualine_x = {
           {
             'lsp_status',
@@ -50,7 +51,9 @@ return {
         },
         lualine_z = { 'location' },
       },
-      tabline = {},
+      tabline = {
+        lualine_a = { 'tabs' },
+      },
       winbar = {},
       inactive_winbar = {},
     }
