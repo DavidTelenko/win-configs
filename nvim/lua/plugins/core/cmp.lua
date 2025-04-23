@@ -30,6 +30,10 @@ return {
       },
     }
 
+    cmp.setup.filetype('TelescopePrompt', {
+      enabled = false,
+    })
+
     return {
       sources = {
         { name = 'nvim_lsp' },
