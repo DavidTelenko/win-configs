@@ -14,6 +14,7 @@ return {
     { '<leader>iu', desc = 'Send Until Cursor' },
     { '<leader>iv', desc = 'Visual Send', mode = 'v' },
     { '<leader>T', desc = 'Open terminal' },
+    { '<C-`>', desc = 'Open terminal' },
   },
   config = function()
     local iron = require 'iron.core'
@@ -86,8 +87,21 @@ return {
       iron.send(nil, string.char(03))
     end, { desc = 'Interrupt' })
 
-    vim.keymap.set('n', '<leader>T', function()
-      iron.focus_on 'nu'
-    end, { desc = 'Open terminal' })
+    local function toggle_repl()
+      local meta = iron.repl_for 'nu'
+      local winid = vim.fn.bufwinid(meta.bufnr)
+      if winid ~= -1 then
+        vim.api.nvim_set_current_win(winid)
+        vim.cmd.startinsert()
+      end
+    end
+
+    vim.keymap.set({ 'n', 't' }, '<leader>T', toggle_repl, {
+      desc = 'Open terminal',
+    })
+
+    vim.keymap.set({ 'n', 't' }, '<C-`>', toggle_repl, {
+      desc = 'Open terminal',
+    })
   end,
 }
