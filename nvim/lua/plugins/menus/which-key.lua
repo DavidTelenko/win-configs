@@ -12,7 +12,7 @@ return {
       { '<leader>d', group = 'Debug' },
       { '<leader>f', group = 'File' },
       { '<leader>g', group = 'Git', mode = { 'x', 'n' } },
-      { '<leader>gd', group = 'Diffview' },
+      { '<leader>gD', group = 'Diffview' },
       { '<leader>r', group = 'Refactor', mode = { 'x', 'n' } },
       { '<leader>s', group = 'Search' },
       { '<leader>t', group = 'Test' },
