@@ -90,6 +90,22 @@ return {
         desc = 'Open diagnostics list',
       })
 
+      vim.keymap.set('n', ']e', function()
+        vim.diagnostic.jump {
+          count = 1,
+          float = true,
+          severity = vim.diagnostic.severity.ERROR,
+        }
+      end, { desc = 'Go to next error message' })
+
+      vim.keymap.set('n', '[e', function()
+        vim.diagnostic.jump {
+          count = -1,
+          float = true,
+          severity = vim.diagnostic.severity.ERROR,
+        }
+      end, { desc = 'Go to prev error message' })
+
       vim.keymap.set('n', ']d', function()
         vim.diagnostic.jump { count = 1, float = true }
       end, { desc = 'Go to next diagnostic message' })

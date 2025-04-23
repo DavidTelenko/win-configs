@@ -121,7 +121,7 @@ if vim.g.neovide then
   vim.g.neovide_fullscreen = true
   vim.g.neovide_cursor_trail_size = 0.2
   vim.g.neovide_cursor_animate_command_line = false
-  vim.g.neovide_padding_top = 2
+  vim.g.neovide_padding_top = 0
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_padding_right = 10
   vim.g.neovide_padding_left = 10

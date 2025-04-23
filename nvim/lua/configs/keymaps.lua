@@ -173,3 +173,18 @@ end, {
   silent = true,
   desc = 'Toggle quickfix',
 })
+
+-- Tabs
+for i = 1, 9 do
+  vim.keymap.set({ 'n', 'i', 't' }, '<M-' .. i .. '>', function()
+    pcall(vim.cmd, 'tabn' .. i)
+  end)
+end
+
+vim.keymap.set({ 'n', 'i', 't' }, '<C-S-t>', function()
+  vim.cmd 'tabnew'
+end)
+
+vim.keymap.set({ 'n', 'i', 't' }, '<C-S-w>', function()
+  vim.cmd 'q'
+end)
