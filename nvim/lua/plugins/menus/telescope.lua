@@ -18,7 +18,6 @@ return {
     { '<leader>sr', desc = 'Resume' },
     { '<leader>sw', desc = 'Current Word' },
     { '<leader>sz', desc = 'Zoxide' },
-    { 'z=', desc = '' },
   },
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -179,6 +178,11 @@ return {
       desc = 'Search Git Stash',
     })
 
-    vim.keymap.set('n', 'z=', builtin.spell_suggest)
+    vim.keymap.set(
+      'v',
+      '<leader>s',
+      '"hy:Telescope live_grep default_text=<C-r>h<cr>',
+      { desc = 'Search current selection' }
+    )
   end,
 }
