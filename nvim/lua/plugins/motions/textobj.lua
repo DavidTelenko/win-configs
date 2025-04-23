@@ -1,6 +1,6 @@
 return {
   'chrisgrieser/nvim-various-textobjs',
-  keys = { 'v', 'd', 'y' },
+  keys = { 'c', 'd', 'v', 'y' },
   opts = {
     keymaps = {
       useDefaults = true,
@@ -22,6 +22,9 @@ return {
   config = function(_, opts)
     local objs = require 'various-textobjs'
     objs.setup(opts)
+
+    -- TODO: this still sometimes can invoke 'default' inside/around sentence
+    -- behavior which is useless for me
 
     vim.keymap.set({ 'o', 'x' }, 'is', function()
       objs.subword 'inner'
