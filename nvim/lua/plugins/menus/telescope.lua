@@ -71,6 +71,25 @@ return {
         },
         zoxide = {
           prompt_title = 'Zoxide',
+
+          mappings = {
+            default = {
+              action = function(selection)
+                vim.cmd.tcd(selection.path)
+              end,
+              after_action = function(selection)
+                vim.notify('Tab directory changed to ' .. selection.path)
+              end,
+            },
+            ['<C-t>'] = {
+              action = function(selection)
+                vim.cmd.cd(selection.path)
+              end,
+              after_action = function(selection)
+                vim.notify('Global directory changed to ' .. selection.path)
+              end,
+            },
+          },
         },
       },
     }
