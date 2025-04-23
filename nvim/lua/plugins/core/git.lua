@@ -11,25 +11,48 @@ return {
       'DiffviewToggleFiles',
     },
     keys = {
-      { '<leader>gdo', desc = 'Open' },
-      { '<leader>gdc', desc = 'Close' },
-      { '<leader>gdh', desc = 'File History' },
-      { '<leader>gdl', desc = 'Log' },
+      { '<leader>gd', desc = 'Toggle Diffview' },
+      { '<leader>gDo', desc = 'Open' },
+      { '<leader>gDc', desc = 'Close' },
+      { '<leader>gDh', desc = 'File history' },
     },
-    config = function()
+    opts = {
+      view = {
+        merge_tool = {
+          layout = 'diff3_mixed',
+        },
+      },
+      file_panel = {
+        win_config = {
+          width = 30,
+        },
+      },
+    },
+    config = function(_, opts)
       local dv = require 'diffview'
 
-      vim.keymap.set('n', '<leader>gdo', dv.open, {
+      dv.setup(opts)
+
+      vim.keymap.set('n', '<leader>gDo', dv.open, {
         desc = 'Open',
       })
 
-      vim.keymap.set('n', '<leader>gdc', dv.close, {
+      vim.keymap.set('n', '<leader>gDc', dv.close, {
         desc = 'Close',
       })
 
-      vim.keymap.set('n', '<leader>gdh', dv.file_history, {
+      vim.keymap.set('n', '<leader>gDh', dv.file_history, {
         desc = 'File History',
       })
+
+      vim.keymap.set('n', '<leader>gd', function(args)
+        local view = require('diffview.lib').get_current_view()
+        if view then
+          dv.close()
+        else
+          dv.open(args)
+        end
+      end, { desc = 'Toggle diffview' })
     end,
   },
   {
