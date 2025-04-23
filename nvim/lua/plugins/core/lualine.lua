@@ -10,7 +10,7 @@ return {
         icons_enabled = true,
         theme = 'auto',
         component_separators = '',
-        section_separators = { right = '', left = '' },
+        section_separators = { right = '', left = '' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -26,7 +26,14 @@ return {
         },
       },
       sections = {
-        lualine_a = { 'mode' },
+        lualine_a = {
+          {
+            'mode',
+            fmt = function(str)
+              return str:sub(1, 1)
+            end,
+          },
+        },
         lualine_b = { { 'branch', icon = '󰘬' }, 'diagnostics' },
         lualine_c = { { filename, path = 1 } },
         lualine_x = {
