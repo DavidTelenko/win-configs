@@ -2,48 +2,61 @@ return {
   'stevearc/conform.nvim',
   event = {
     'BufWritePost',
+    'DirChanged',
   },
-  opts = function()
+  config = function()
     local h = require 'helpers.general'
 
-    local js_ts_formatters = h.first {
-      h.require_config { 'prettierd', 'eslint_d' }, -- order here is important
-      h.require_config 'deno_fmt',
-      'biome', -- fallback (important to add to ensure_installed in mason-tool-installer)
-    }
+    function setup()
+      local js_ts_formatters = h.first {
+        h.require_config { 'prettierd', 'eslint_d' }, -- order here is important
+        h.require_config 'deno_fmt',
+        'biome', -- fallback (important to add to ensure_installed in mason-tool-installer)
+      }
 
-    local json_formatters = h.first {
-      h.require_config 'prettierd',
-      'biome',
-    }
+      local json_formatters = h.first {
+        h.require_config 'prettierd',
+        'biome',
+      }
 
-    ---@module "conform"
-    ---@type conform.setupOpts
-    return {
-      log_level = vim.log.levels.DEBUG,
-      format_after_save = {
-        timeout_ms = 100000,
-        quiet = true, --- NOTE: maybe dangerous?
-      },
-      formatters_by_ft = {
-        sh = { 'shfmt' },
-        css = { 'prettierd' },
-        elixir = { 'mix' },
-        graphql = { 'prettierd' },
-        html = { 'prettierd' },
-        javascript = js_ts_formatters,
-        javascriptreact = js_ts_formatters,
-        json = json_formatters,
-        jsonc = json_formatters,
-        lua = { 'stylua' },
-        markdown = { 'prettierd', 'injected' },
-        mdx = { 'prettierd', 'injected' },
-        python = { 'black' },
-        svelte = h.first { h.require_config 'prettierd', 'biome' },
-        typescript = js_ts_formatters,
-        typescriptreact = js_ts_formatters,
-        yaml = { 'prettierd' },
-      },
-    }
+      ---@module "conform"
+      ---@type conform.setupOpts
+      local opts = {
+        log_level = vim.log.levels.DEBUG,
+        format_after_save = {
+          timeout_ms = 100000,
+          quiet = true, --- NOTE: maybe dangerous?
+        },
+        formatters_by_ft = {
+          sh = { 'shfmt' },
+          css = { 'prettierd' },
+          elixir = { 'mix' },
+          graphql = { 'prettierd' },
+          html = { 'prettierd' },
+          javascript = js_ts_formatters,
+          javascriptreact = js_ts_formatters,
+          json = json_formatters,
+          jsonc = json_formatters,
+          lua = { 'stylua' },
+          markdown = { 'prettierd', 'injected' },
+          mdx = { 'prettierd', 'injected' },
+          python = { 'black' },
+          svelte = h.first { h.require_config 'prettierd', 'biome' },
+          typescript = js_ts_formatters,
+          typescriptreact = js_ts_formatters,
+          yaml = { 'prettierd' },
+        },
+      }
+      require('conform').setup(opts)
+    end
+
+    vim.api.nvim_create_autocmd('DirChanged', {
+      group = vim.api.nvim_create_augroup('ConformDirChanged', {
+        clear = true,
+      }),
+      callback = setup,
+    })
+
+    setup()
   end,
 }
