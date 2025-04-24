@@ -81,14 +81,6 @@ return {
                 query = '@assignment.inner',
                 desc = 'inner assignment',
               },
-              ['r='] = {
-                query = '@assignment.rhs',
-                desc = 'rhs assignment',
-              },
-              ['l='] = {
-                query = '@assignment.lhs',
-                desc = 'lhs assignment',
-              },
               ['ab'] = {
                 query = '@block.outer',
                 desc = 'outer block',
