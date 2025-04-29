@@ -13,8 +13,8 @@ return {
     { '<leader>ir', '<cmd>IronRepl<cr>', desc = 'Toggle Repl' },
     { '<leader>iu', desc = 'Send Until Cursor' },
     { '<leader>iv', desc = 'Visual Send', mode = 'v' },
-    { '<leader>T', desc = 'Open terminal' },
     { '<C-`>', desc = 'Open terminal' },
+    { '<leader>t', desc = 'Open terminal' },
   },
   config = function()
     local iron = require 'iron.core'
@@ -92,15 +92,15 @@ return {
       local winid = vim.fn.bufwinid(meta.bufnr)
       if winid ~= -1 then
         vim.api.nvim_set_current_win(winid)
-        vim.cmd.startinsert()
+        -- vim.cmd.startinsert()
       end
     end
 
-    vim.keymap.set({ 'n', 't' }, '<leader>T', toggle_repl, {
+    vim.keymap.set({ 'n', 't' }, '<C-`>', toggle_repl, {
       desc = 'Open terminal',
     })
 
-    vim.keymap.set({ 'n', 't' }, '<C-`>', toggle_repl, {
+    vim.keymap.set('n', '<leader>t', toggle_repl, {
       desc = 'Open terminal',
     })
   end,

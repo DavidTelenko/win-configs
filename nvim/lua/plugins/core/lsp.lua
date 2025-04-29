@@ -178,7 +178,7 @@ return {
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, 'Workspace List Folders')
 
-        vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()
+        vim.api.nvim_buf_create_user_command(bufnr, 'LspFormat', function()
           vim.lsp.buf.format()
         end, { desc = 'Format current buffer with LSP' })
       end
@@ -237,6 +237,7 @@ return {
             },
           },
         },
+        zls = {},
       }
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
