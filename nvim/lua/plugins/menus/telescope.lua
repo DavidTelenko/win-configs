@@ -5,6 +5,7 @@ return {
     { '<leader>gS', desc = 'Search Git Stash' },
     { '<leader>gc', desc = 'Search Git Commits' },
     { '<leader>gf', desc = 'Search Git Files' },
+    { '<leader>s', desc = 'Current selection', mode = 'v' },
     { '<leader>s/', desc = 'In current buffer' },
     { '<leader>s?', desc = 'Keymaps' },
     { '<leader>sG', desc = 'By Grep With Args' },

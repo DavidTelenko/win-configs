@@ -25,6 +25,7 @@ return {
         log_level = vim.log.levels.DEBUG,
         format_after_save = {
           timeout_ms = 100000,
+          lsp_format = 'fallback',
           quiet = true, --- NOTE: maybe dangerous?
         },
         formatters_by_ft = {
@@ -56,6 +57,10 @@ return {
       }),
       callback = setup,
     })
+
+    vim.api.nvim_create_user_command('ConformFormat', function()
+      require('conform').format()
+    end, { desc = 'Format current buffer with Conform' })
 
     setup()
   end,
