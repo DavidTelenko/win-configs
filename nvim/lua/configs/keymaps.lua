@@ -179,7 +179,14 @@ for i = 1, 9 do
   vim.keymap.set({ 'n', 'i', 't' }, '<M-' .. i .. '>', function()
     pcall(vim.cmd, 'tabn' .. i)
   end)
+  vim.keymap.set({ 'n' }, 'g' .. i, function()
+    pcall(vim.cmd, 'tabn' .. i)
+  end)
 end
+
+vim.keymap.set({ 'n' }, 'gt', function()
+  vim.cmd 'tabnew'
+end)
 
 vim.keymap.set({ 'n', 'i', 't' }, '<C-S-t>', function()
   vim.cmd 'tabnew'
