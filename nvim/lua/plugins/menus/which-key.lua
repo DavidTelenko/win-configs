@@ -2,9 +2,14 @@ return {
   'folke/which-key.nvim',
   event = 'VeryLazy',
   config = function()
-    require('which-key').setup {
+    local wk = require 'which-key'
+    wk.setup {
       preset = 'helix',
     }
+
+    for i = 1, 9 do
+      wk.add { 'g' .. i, hidden = true }
+    end
 
     -- document existing key chains
     require('which-key').add {
@@ -17,6 +22,11 @@ return {
       { '<leader>s', group = 'Search' },
       { '<leader>t', group = 'Test' },
       { '<leader>x', group = 'Trouble' },
+      {
+        '<leader>a',
+        group = 'Ai',
+        icon = { icon = '', color = 'orange' },
+      },
       {
         '<leader>w',
         group = 'Workspace',
