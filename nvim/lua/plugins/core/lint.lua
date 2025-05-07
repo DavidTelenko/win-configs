@@ -7,11 +7,6 @@ return {
 
     function setup()
       local js_ts_linters = h.first(h.require_config { 'eslint_d', 'biomejs' })
-      local configs = require 'helpers.configs'
-
-      for _, name in ipairs(js_ts_linters) do
-        lint.linters[name].cwd = vim.fs.root(vim.fn.getcwd(), configs[name])
-      end
 
       lint.linters_by_ft = {
         cpp = { 'cpplint' },
