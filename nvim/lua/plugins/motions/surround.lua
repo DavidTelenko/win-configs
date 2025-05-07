@@ -21,6 +21,15 @@ return {
 
     surround.buffer_setup {
       surrounds = {
+        m = {
+          add = function()
+            local result =
+              surr_utils.get_input 'Enter the markdown codeblock language: '
+            if result then
+              return { { '```' .. result }, { '```' } }
+            end
+          end,
+        },
         g = {
           add = function()
             local result = surr_utils.get_input 'Enter the generic name: '
