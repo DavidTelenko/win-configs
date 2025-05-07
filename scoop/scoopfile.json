@@ -136,6 +136,10 @@
       "Source": "extras"
     },
     {
+      "Source": "extras",
+      "Name": "naps2"
+    },
+    {
       "Name": "neovim",
       "Source": "main"
     },
