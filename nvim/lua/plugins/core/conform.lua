@@ -15,8 +15,8 @@ return {
       }
 
       local json_formatters = h.first {
-        h.require_config 'prettierd',
-        'biome',
+        h.require_config 'biome',
+        'prettierd',
       }
 
       ---@module "conform"
