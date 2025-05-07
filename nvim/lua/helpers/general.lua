@@ -23,7 +23,8 @@ end
 ---@param list table
 ---@return table
 M.first = function(list)
-  return #list == 0 and {} or vim.iter({ list[1] }):flatten():totable()
+  local filtered = vim.iter(list):flatten():totable()
+  return #filtered == 0 and {} or { filtered[1] }
 end
 
 M.require_available = make_require(is_available)
