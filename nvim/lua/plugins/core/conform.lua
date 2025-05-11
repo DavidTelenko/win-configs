@@ -9,7 +9,8 @@ return {
 
     function setup()
       local js_ts_formatters = h.first {
-        h.require_config { 'prettierd', 'eslint_d' }, -- order here is important
+        -- two under one require config means it's preferable to use both
+        h.require_config { 'prettierd', 'eslint_d' },
         h.require_config 'deno_fmt',
         'biome', -- fallback (important to add to ensure_installed in mason-tool-installer)
       }
