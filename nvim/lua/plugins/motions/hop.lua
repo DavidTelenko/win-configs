@@ -25,9 +25,7 @@ return {
     { 't', desc = 'Hop up to character', mode = { 'n', 'v' } },
     { 'T', desc = 'Hop back up to character', mode = { 'n', 'v' } },
   },
-  opts = {
-    keys = 'asdfghjkl;',
-  },
+  opts = {},
   config = function(_, opts)
     local hop = require 'hop'
     local directions = require('hop.hint').HintDirection
