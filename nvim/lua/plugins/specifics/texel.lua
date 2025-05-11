@@ -23,7 +23,10 @@ return {
 
     vim.keymap.set('n', '<leader>as', function()
       vim.cmd 'tabnew'
-      vim.cmd 'set filetype=markdown'
+      vim.cmd 'setl filetype=markdown'
+      vim.cmd 'setl buftype=nofile'
+      vim.cmd 'setl bufhidden=hide'
+      vim.cmd 'setl noswapfile'
     end, { desc = 'Open scratch markdown tab buffer' })
   end,
 }
