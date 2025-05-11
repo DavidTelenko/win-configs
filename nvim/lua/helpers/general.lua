@@ -4,6 +4,13 @@ local is_available = function(fmt)
   return require('conform').get_formatter_info(fmt).available ~= nil
 end
 
+local is_non_empty = function(tbl)
+  if type(tbl) == 'table' then
+    return not vim.tbl_isempty(tbl)
+  end
+  return not not tbl
+end
+
 local is_config_present = function(fmt)
   return vim.fs.root(vim.fn.getcwd(), require('helpers.configs')[fmt]) ~= nil
 end
@@ -20,11 +27,16 @@ local make_require = function(predicate)
   end
 end
 
+--- Returns first element in table then flattens the result to be a table
 ---@param list table
 ---@return table
 M.first = function(list)
-  local filtered = vim.iter(list):flatten():totable()
-  return #filtered == 0 and {} or { filtered[1] }
+  return vim
+    .iter(list)
+    :filter(is_non_empty)
+    :take(1)
+    :flatten(math.huge)
+    :totable()
 end
 
 M.require_available = make_require(is_available)
