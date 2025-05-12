@@ -21,7 +21,7 @@ return {
 
     surround.buffer_setup {
       surrounds = {
-        m = {
+        c = {
           add = function()
             local result =
               surr_utils.get_input 'Enter the markdown codeblock language: '
