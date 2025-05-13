@@ -52,12 +52,12 @@ wezterm.on(
   end
 )
 
-config.window_padding = {
-  left = "1%",
-  right = "1%",
-  top = "0.5%",
-  bottom = "0.5%",
-}
+-- config.window_padding = {
+--   left = "1%",
+--   right = "1%",
+--   top = "0.5%",
+--   bottom = "0.5%",
+-- }
 
 -- config.enable_scroll_bar = true
 config.hide_tab_bar_if_only_one_tab = true
