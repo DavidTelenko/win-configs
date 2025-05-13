@@ -7,23 +7,22 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<F1>', '<Esc>', {
   silent = true,
 })
 
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", {
-  desc = 'Move selection down',
-})
-
-vim.keymap.set({ 'v', 'n' }, 'Z', 'J', {
-  desc = 'Join lines',
-})
-
 vim.keymap.set('n', 'zz', 'ZZ', {
   desc = 'Write & Exit',
 })
 
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", {
-  desc = 'Move selection up',
-})
+-- Remaps system-wide remapped "arrow keys" to useful motions
+vim.keymap.set('n', '<A-j>', '<C-d>')
+vim.keymap.set('n', '<down>', '<C-d>zz')
 
-vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('n', '<A-k>', '<C-u>')
+vim.keymap.set('n', '<up>', '<C-u>zz')
+
+vim.keymap.set('n', '<A-h>', '_')
+vim.keymap.set('n', '<left>', '_')
+
+vim.keymap.set('n', '<A-l>', '$')
+vim.keymap.set('n', '<right>', '$')
 
 -- L and H - begin and end of the line
 vim.keymap.set({ 'n', 'v' }, 'L', '$')
@@ -51,6 +50,11 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', {
 vim.keymap.set('n', '<C-d>', '<C-d>zz', {
   desc = 'Scroll half screen down with stabilization',
 })
+
+vim.keymap.set('n', '<A-u>', '<C-u>zz')
+vim.keymap.set('n', '<PageUp>', '<C-u>zz')
+vim.keymap.set('n', '<A-d>', '<C-d>zz')
+vim.keymap.set('n', '<PageDown>', '<C-d>zz')
 
 -- Remaps for dealing with word wrap
 vim.keymap.set('n', '0', "v:count == 0 ? 'g0' : '0'", {
