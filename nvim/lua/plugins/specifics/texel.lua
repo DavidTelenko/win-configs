@@ -7,7 +7,11 @@ return {
   },
   --- @module "texel"
   --- @type texel.Config
-  opts = {},
+  opts = {
+    tgpt = {
+      provider = 'deepseek',
+    },
+  },
   config = function(_, opts)
     local texel = require 'texel'
 
