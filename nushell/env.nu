@@ -32,7 +32,10 @@ $env.PROMPT_COMMAND_RIGHT = {||
         ($env.LAST_EXIT_CODE)
     ])} else { "" }
 
-    ([$last_exit_code (char space) $time_segment] | flatten | str join)
+    [
+        $last_exit_code (char space)
+        # $time_segment
+    ] | flatten | str join
 }
 
 # The prompt indicators are environmental variables that represent
