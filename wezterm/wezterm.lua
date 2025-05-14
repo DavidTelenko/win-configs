@@ -242,6 +242,13 @@ for i = 0, 8 do
   })
 end
 
+-- Autocommands
+
+wezterm.on('gui-startup', function(_)
+  local _, pane, window = wezterm.mux.spawn_window {}
+  window:gui_window():perform_action(wezterm.action.ToggleFullScreen, pane)
+end)
+
 -- Shells
 config.default_prog = { 'nu' }
 
