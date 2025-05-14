@@ -1,12 +1,15 @@
 -- API
+
 local wezterm = require 'wezterm'
 
--- Plugins-
+-- Plugins
+
 wezterm.plugin.require 'https://github.com/abidibo/wezterm-sessions'
 local tabline =
   wezterm.plugin.require 'https://github.com/michaelbrusegard/tabline.wez'
 
 -- Globals
+
 local config = wezterm.config_builder()
 config.automatically_reload_config = true
 
@@ -30,7 +33,7 @@ config.window_padding = {
   -- right = '3px',
 }
 
-local transparent_style = false
+local transparent_style = true
 local gradient_style = false
 
 config.color_scheme = 'GruvboxDark'
@@ -65,8 +68,9 @@ end
 
 local colors = wezterm.color.get_builtin_schemes()[config.color_scheme]
 local surface = colors.ansi[1]
+
 local background = '#3c3836' -- TODO: find more portable way
-local active_tab = '#a89984'
+local active_tab = colors.cursor_bg
 
 local normal_color = colors.brights[5]
 local copy_color = colors.ansi[3]
@@ -107,20 +111,20 @@ tabline.setup {
       },
     },
     section_separators = {
-      -- right = nf.ple_left_half_circle_thick,
-      -- left = nf.ple_right_half_circle_thick,
-      right = '',
-      left = '',
+      right = nf.ple_left_half_circle_thick,
+      left = nf.ple_right_half_circle_thick,
+      -- right = '',
+      -- left = '',
     },
     component_separators = {
       right = '',
       left = '',
     },
     tab_separators = {
-      -- right = nf.ple_left_half_circle_thick,
-      -- left = nf.ple_right_half_circle_thick,
-      right = '',
-      left = '',
+      right = nf.ple_left_half_circle_thick,
+      left = nf.ple_right_half_circle_thick,
+      -- right = '',
+      -- left = '',
     },
   },
   sections = {
@@ -133,7 +137,7 @@ tabline.setup {
       },
     },
     tabline_b = { 'workspace' },
-    tabline_c = {},
+    tabline_c = { ' ' },
     tab_active = {
       { 'index', padding = 1 },
       -- { 'cwd', padding = { right = 1 } },
@@ -250,7 +254,9 @@ wezterm.on('gui-startup', function(_)
 end)
 
 -- Shells
+
 config.default_prog = { 'nu' }
 
 -- Finalize
+
 return config
