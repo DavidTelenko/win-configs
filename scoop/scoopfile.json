@@ -240,6 +240,10 @@
       "Source": "main"
     },
     {
+      "Source": "versions",
+      "Name": "wezterm-nightly"
+    },
+    {
       "Name": "windows-terminal-preview",
       "Source": "versions"
     },
