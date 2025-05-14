@@ -1,6 +1,6 @@
 -- API
 
-local wezterm = require 'wezterm'
+local wezterm = require 'wezterm' --[[@as Wezterm]]
 
 -- Plugins
 
@@ -146,7 +146,7 @@ tabline.setup {
       { 'index', padding = 1 },
       -- { 'process', padding = { right = 1 } },
     },
-    tabline_x = { 'ram', 'cpu' },
+    tabline_x = {},
     tabline_y = {
       { 'datetime', style = '%H:%M - %a %d' },
       -- 'battery',
@@ -220,6 +220,26 @@ config.keys = {
     },
   },
   {
+    key = 't',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action_callback(function(window, pane)
+      local mux_window = window:mux_window()
+
+      local tabs = mux_window:tabs_with_info()
+      local current_index = 0
+      for _, tab_info in ipairs(tabs) do
+        if tab_info.is_active then
+          current_index = tab_info.index
+          break
+        end
+      end
+
+      mux_window:spawn_tab {}
+
+      window:perform_action(act.MoveTab(current_index + 1), pane)
+    end),
+  },
+  {
     key = 'Q',
     mods = 'CTRL|SHIFT',
     action = act.ShowLauncherArgs {
@@ -236,6 +256,11 @@ config.keys = {
     mods = 'CTRL|SHIFT',
     action = act { EmitEvent = 'restore_session' },
   },
+  {
+    key = 'v',
+    mods = 'CTRL|SHIFT',
+    action = act { EmitEvent = 'trigger-vim-with-scrollback' },
+  },
 }
 
 for i = 0, 8 do
@@ -251,6 +276,35 @@ end
 wezterm.on('gui-startup', function(_)
   local _, pane, window = wezterm.mux.spawn_window {}
   window:gui_window():perform_action(wezterm.action.ToggleFullScreen, pane)
+end)
+
+wezterm.on('trigger-vim-with-scrollback', function(window, pane)
+  -- Retrieve the text from the pane
+  local text = pane:get_lines_as_text(pane:get_dimensions().scrollback_rows)
+
+  -- Create a temporary file to pass to vim
+  local name = os.tmpname()
+  local f = io.open(name, 'w+')
+
+  if f == nil then
+    wezterm.log_info 'Temp file does not exist'
+    return
+  end
+
+  f:write(text)
+  f:flush()
+  f:close()
+
+  -- Open a new window running vim and tell it to open the file
+  window:perform_action(
+    act.SpawnCommandInNewTab {
+      args = { 'nvim', name },
+    },
+    pane
+  )
+
+  wezterm.sleep_ms(1000)
+  os.remove(name)
 end)
 
 -- Shells
