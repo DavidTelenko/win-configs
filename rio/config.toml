@@ -19,11 +19,11 @@ family = "RobotoMono Nerd Font Mono"
 size = 28
 
 [mouse]
-hide-mouse-curson-when-typing = true
+nide-mouse-cursor-when-typing = true
 
 [navigation]
 mode = "Bookmark"
-clickable = true
+clickable = false
 
 [editor]
 program = "nvim"
@@ -50,6 +50,16 @@ foreground = '#ebdbb2'
 selection-background = '#665c54'
 selection-foreground = '#ebdbb2'
 cursor = '#ebdbb2'
+
+dim_black = '#282828'
+dim_red = '#cc241d'
+dim_green = '#98971a'
+dim_yellow = '#d79921'
+dim_blue = '#458588'
+dim_magenta = '#b16286'
+dim_cyan = '#689d6a'
+dim_white = '#a89984'
+
 black = '#282828'
 red = '#cc241d'
 green = '#98971a'
@@ -58,6 +68,7 @@ blue = '#458588'
 magenta = '#b16286'
 cyan = '#689d6a'
 white = '#a89984'
+
 light_black = '#928374'
 light_red = '#fb4934'
 light_green = '#b8bb26'
