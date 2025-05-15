@@ -200,7 +200,7 @@ alias c = clear
 
 alias lsg = grid-ls
 alias sk = search-kill
-alias mv = ^mv
+# alias mv = ^mv
 # disk picture
 alias dp = wiztree-pic
 # record screen

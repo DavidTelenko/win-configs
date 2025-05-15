@@ -158,7 +158,7 @@ return {
           vim.lsp.buf.hover { border = 'rounded' }
         end, 'Hover Documentation')
 
-        nmap('gk', function()
+        nmap('gK', function()
           vim.lsp.buf.signature_help { border = 'rounded' }
         end, 'Signature Documentation')
 

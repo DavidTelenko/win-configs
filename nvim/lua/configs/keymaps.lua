@@ -11,18 +11,21 @@ vim.keymap.set('n', 'zz', 'ZZ', {
   desc = 'Write & Exit',
 })
 
--- Remaps system-wide remapped "arrow keys" to useful motions
-vim.keymap.set('n', '<A-j>', '<C-d>')
-vim.keymap.set('n', '<down>', '<C-d>zz')
-
-vim.keymap.set('n', '<A-k>', '<C-u>')
-vim.keymap.set('n', '<up>', '<C-u>zz')
-
+-- Remaps system-wide remapped keys
 vim.keymap.set('n', '<A-h>', '_')
 vim.keymap.set('n', '<left>', '_')
 
 vim.keymap.set('n', '<A-l>', '$')
 vim.keymap.set('n', '<right>', '$')
+
+vim.keymap.set('n', '<A-u>', '<C-u>zz')
+vim.keymap.set('n', '<PageUp>', '<C-u>zz')
+
+vim.keymap.set('n', '<A-d>', '<C-d>zz')
+vim.keymap.set('n', '<PageDown>', '<C-d>zz')
+
+vim.keymap.set('n', '<A-o>', '<C-o>')
+vim.keymap.set('n', '<A-i>', '<C-i>')
 
 -- L and H - begin and end of the line
 vim.keymap.set({ 'n', 'v' }, 'L', '$')
@@ -32,29 +35,21 @@ vim.keymap.set({ 'n', 'v' }, 'H', '_')
 vim.keymap.set('n', ']t', 'vat<esc>', { desc = 'Next tag' })
 vim.keymap.set('n', '[t', 'vato<esc>', { desc = 'Prev tag' })
 
--- Disable default control keymaps
-vim.keymap.set('i', '<C-k>', '<NOP>', {})
-vim.keymap.set('i', '<C-j>', '<NOP>', {})
-
 -- Paste without reyanking
 -- vim.keymap.set('v', 'p', '"0p')
 vim.keymap.set('v', 'p', 'P', {
   desc = 'Paste without copying selected text in visual mode',
 })
 
--- Scrolling with stabilization
-vim.keymap.set('n', '<C-u>', '<C-u>zz', {
-  desc = 'Scroll half screen up with stabilization',
-})
+-- Unlearning muscle memory
+vim.keymap.set('n', '<C-u>', '<NOP>')
+vim.keymap.set('n', '<C-d>', '<NOP>')
+vim.keymap.set('n', '<C-o>', '<NOP>')
+vim.keymap.set('n', '<C-i>', '<NOP>')
 
-vim.keymap.set('n', '<C-d>', '<C-d>zz', {
-  desc = 'Scroll half screen down with stabilization',
-})
-
-vim.keymap.set('n', '<A-u>', '<C-u>zz')
-vim.keymap.set('n', '<PageUp>', '<C-u>zz')
-vim.keymap.set('n', '<A-d>', '<C-d>zz')
-vim.keymap.set('n', '<PageDown>', '<C-d>zz')
+-- Disable default control keymaps
+vim.keymap.set('i', '<C-k>', '<NOP>', {})
+vim.keymap.set('i', '<C-j>', '<NOP>', {})
 
 -- Remaps for dealing with word wrap
 vim.keymap.set('n', '0', "v:count == 0 ? 'g0' : '0'", {

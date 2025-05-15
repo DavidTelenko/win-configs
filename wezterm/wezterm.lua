@@ -4,7 +4,8 @@ local wezterm = require 'wezterm' --[[@as Wezterm]]
 
 -- Plugins
 
-wezterm.plugin.require 'https://github.com/abidibo/wezterm-sessions'
+-- wezterm.plugin.require 'https://github.com/abidibo/wezterm-sessions'
+
 local tabline =
   wezterm.plugin.require 'https://github.com/michaelbrusegard/tabline.wez'
 
@@ -41,7 +42,7 @@ config.color_scheme = 'GruvboxDark'
 if transparent_style then
   config.win32_system_backdrop = 'Acrylic'
   config.macos_window_background_blur = 20
-  config.kde_window_background_blur = true
+  -- config.kde_window_background_blur = true
   config.window_background_opacity = 0.8
 end
 
@@ -57,10 +58,7 @@ if gradient_style then
       -- "#302b63",
       -- "#182E48",
     },
-    -- preset = "Warm",
-    -- "Linear", "Basis" and "CatmullRom" as supported.
     interpolation = 'Basis',
-    -- "Rgb", "LinearRgb", "Hsv" and "Oklab" are supported.
     blend = 'Rgb',
     noise = 30,
   }
@@ -113,8 +111,6 @@ tabline.setup {
     section_separators = {
       right = nf.ple_left_half_circle_thick,
       left = nf.ple_right_half_circle_thick,
-      -- right = '',
-      -- left = '',
     },
     component_separators = {
       right = '',
@@ -123,8 +119,6 @@ tabline.setup {
     tab_separators = {
       right = nf.ple_left_half_circle_thick,
       left = nf.ple_right_half_circle_thick,
-      -- right = '',
-      -- left = '',
     },
   },
   sections = {
@@ -203,7 +197,7 @@ config.keys = {
     action = act.PromptInputLine {
       description = wezterm.format {
         { Attribute = { Intensity = 'Bold' } },
-        { Foreground = { AnsiColor = 'Fuchsia' } },
+        { Foreground = { AnsiColor = 'Green' } },
         { Text = 'Enter name for new workspace' },
       },
       action = wezterm.action_callback(function(window, pane, line)
@@ -279,10 +273,8 @@ wezterm.on('gui-startup', function(_)
 end)
 
 wezterm.on('trigger-vim-with-scrollback', function(window, pane)
-  -- Retrieve the text from the pane
   local text = pane:get_lines_as_text(pane:get_dimensions().scrollback_rows)
 
-  -- Create a temporary file to pass to vim
   local name = os.tmpname()
   local f = io.open(name, 'w+')
 
@@ -295,7 +287,6 @@ wezterm.on('trigger-vim-with-scrollback', function(window, pane)
   f:flush()
   f:close()
 
-  -- Open a new window running vim and tell it to open the file
   window:perform_action(
     act.SpawnCommandInNewTab {
       args = { 'nvim', name },
