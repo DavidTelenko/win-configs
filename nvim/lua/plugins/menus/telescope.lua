@@ -112,12 +112,9 @@ return {
     })
 
     vim.keymap.set('n', '<leader>s/', function()
-      builtin.current_buffer_fuzzy_find(
-        require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        }
-      )
+      builtin.current_buffer_fuzzy_find {
+        previewer = false,
+      }
     end, { desc = 'In current buffer' })
 
     vim.keymap.set('n', '<leader>sf', builtin.find_files, {
