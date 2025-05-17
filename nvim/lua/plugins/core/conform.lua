@@ -4,6 +4,7 @@ return {
     'BufWritePost',
     'DirChanged',
   },
+  cmd = { 'ConformFormat', 'ConformInfo' },
   config = function()
     local h = require 'helpers.general'
 
