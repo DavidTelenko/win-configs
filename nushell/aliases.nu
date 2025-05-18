@@ -28,13 +28,13 @@ def grid-ls [] {
     ls | sort-by type name -i | grid -c
 }
 
-alias backup-clear = clear
-def clear [] {
-    backup-clear --keep-scrollback
-}
-def wipe [] {
-    backup-clear
-}
+# alias backup-clear = clear
+# def clear [] {
+#     backup-clear --keep-scrollback
+# }
+# def wipe [] {
+#     backup-clear
+# }
 
 # weird shenanigan but aliasing 'scoop search' directly to 'scoop-search' makes
 # it search the word 'search')
@@ -129,14 +129,14 @@ def record-screen [] {
 }
 
 def wiztree-pic [
+    destination?: path,
     --width: number = 1920,
     --height: number = 1080,
-    --destination(-d): path
 ] {
     let dest_png = [$dirs.temp, "wiztree_tmp.png"] | path join
     try { rm $dest_png }
 
-    (wiztree $"(pwd)"
+    (wiztree $"($destination | default pwd)"
         /treemapimagefile=$"($dest_png)"
         /treemapimagewidth=$"($width)"
         /treemapimageheight=$"($height)")
