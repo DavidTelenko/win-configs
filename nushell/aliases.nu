@@ -32,9 +32,6 @@ def grid-ls [] {
 # def clear [] {
 #     backup-clear --keep-scrollback
 # }
-# def wipe [] {
-#     backup-clear
-# }
 
 # weird shenanigan but aliasing 'scoop search' directly to 'scoop-search' makes
 # it search the word 'search')
@@ -209,9 +206,12 @@ alias lg = lazygit
 alias ll = ^exa -la --icons=auto
 alias vi = nvim
 alias dnf = sudo dnf -y
+
 alias scoop = powershell scoop
+alias "scoop search" = __scoop_search
+alias "scoop i" = powershell scoop install
+alias "scoop u" = powershell scoop uninstall
+alias "scoop ls" = powershell scoop list
 
 alias conf = nvim $configDir
 alias jmplst = nvim $env.JUMP_LIST
-
-alias "scoop search" = __scoop_search
