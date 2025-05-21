@@ -31,7 +31,6 @@ return {
           quiet = true, --- NOTE: maybe dangerous?
         },
         formatters_by_ft = {
-          sh = { 'shfmt' },
           css = { 'prettierd' },
           elixir = { 'mix' },
           graphql = { 'prettierd' },
@@ -40,10 +39,12 @@ return {
           javascriptreact = js_ts_formatters,
           json = json_formatters,
           jsonc = json_formatters,
+          kotlin = { 'ktlint' },
           lua = { 'stylua' },
           markdown = { 'prettierd', 'injected' },
           mdx = { 'prettierd', 'injected' },
           python = { 'black' },
+          sh = { 'shfmt' },
           svelte = h.first { h.require_config 'prettierd', 'biome' },
           typescript = js_ts_formatters,
           typescriptreact = js_ts_formatters,

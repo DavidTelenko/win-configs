@@ -27,7 +27,7 @@ local make_require = function(predicate)
   end
 end
 
---- Returns first element in table then flattens the result to be a table
+--- Returns first element from flattened table with all non-empty elements
 ---@param list table
 ---@return table
 M.first = function(list)
@@ -37,6 +37,13 @@ M.first = function(list)
     :take(1)
     :flatten(math.huge)
     :totable()
+end
+
+--- Returns flattened table with all non-empty elements
+---@param list table
+---@return table
+M.all = function(list)
+  return vim.iter(list):filter(is_non_empty):flatten(math.huge):totable()
 end
 
 M.require_available = make_require(is_available)

@@ -1,3 +1,75 @@
+local get_servers = function(context)
+  return {
+    -- jdtls = {},         -- java
+    -- ols = {},           -- odin
+    -- pyright = {},       -- python
+    html = {
+      filetypes = {
+        'html',
+        'twig',
+        'hbs',
+      },
+    },
+    elixirls = {},
+    clangd = {},
+    emmet_language_server = {},
+    gopls = {},
+    lua_ls = {
+      Lua = {
+        hint = { enable = true },
+        workspace = {
+          checkThirdParty = false,
+        },
+        telemetry = {
+          enable = false,
+        },
+        diagnostics = {
+          disable = {
+            'missing-fields',
+            'unused-function', -- unused name will still be reported
+          },
+        },
+      },
+    },
+    rust_analyzer = {},
+    svelte = {},
+    tailwindcss = {},
+    ts_ls = {
+      typescript = {
+        inlayHints = {
+          includeInlayParameterNameHints = 'all',
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
+      },
+    },
+    kotlin_language_server = {},
+    -- vtsls = {},
+    jsonls = {
+      json = {
+        schemas = context.schemas.json.schemas(),
+        validate = {
+          enable = true,
+        },
+      },
+    },
+    yamlls = {
+      yaml = {
+        schemas = context.schemas.yaml.schemas(),
+        schemaStore = {
+          enable = false,
+          url = '',
+        },
+      },
+    },
+    zls = {},
+  }
+end
+
 return {
   {
     'yioneko/nvim-vtsls',
@@ -183,66 +255,13 @@ return {
         end, { desc = 'Format current buffer with LSP' })
       end
 
-      local servers = {
-        -- jdtls = {},         -- java
-        -- ols = {},           -- odin
-        -- pyright = {},       -- python
-        html = { filetypes = { 'html', 'twig', 'hbs' } },
-        elixirls = {},
-        clangd = {},
-        emmet_language_server = {},
-        gopls = {},
-        lua_ls = {
-          Lua = {
-            hint = { enable = true },
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-            diagnostics = {
-              disable = {
-                'missing-fields',
-                'unused-function', -- unused name will still be reported
-              },
-            },
-          },
-        },
-        rust_analyzer = {},
-        svelte = {},
-        tailwindcss = {},
-        ts_ls = {
-          typescript = {
-            inlayHints = {
-              includeInlayParameterNameHints = 'all',
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = true,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
-          },
-        },
-        -- vtsls = {},
-        jsonls = {
-          json = {
-            schemas = schemas.json.schemas(),
-            validate = { enable = true },
-          },
-        },
-        yamlls = {
-          yaml = {
-            schemas = schemas.yaml.schemas(),
-            schemaStore = {
-              enable = false,
-              url = '',
-            },
-          },
-        },
-        zls = {},
-      }
-
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+      local servers = get_servers {
+        schemas = schemas,
+      }
 
       -- Ensure the servers above are installed
       mason_lspconfig.setup {

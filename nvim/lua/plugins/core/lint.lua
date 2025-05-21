@@ -15,6 +15,7 @@ return {
         cpp = { 'cpplint' },
         javascript = js_ts_linters,
         javascriptreact = js_ts_linters,
+        kotlin = { 'ktlint' },
         python = { 'pylint' },
         svelte = js_ts_linters,
         typescript = js_ts_linters,
