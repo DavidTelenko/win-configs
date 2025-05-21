@@ -16,6 +16,7 @@ return {
       { '<leader>gDc', desc = 'Close' },
       { '<leader>gDh', desc = 'File history' },
     },
+    --- @type DiffviewConfig
     opts = {
       view = {
         merge_tool = {

@@ -59,6 +59,7 @@ vim.o.termguicolors = true
 -- This little circles to see spaces (VS Code habit)
 vim.o.list = true
 vim.o.listchars = 'tab:· ,trail:·,nbsp:+,space:·'
+vim.o.fillchars = vim.o.fillchars .. 'diff:╱'
 
 -- Tabs
 vim.o.tabstop = 4
