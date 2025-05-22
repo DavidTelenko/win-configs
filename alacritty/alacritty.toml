@@ -1,8 +1,4 @@
-import = []
-working_directory = "~"
-live_config_reload = true
-
-[shell]
+[terminal.shell]
 program = "nu"
 args = []
 
@@ -11,8 +7,8 @@ args = []
 
 [window]
 padding = { x = 10, y = 10 }
-dynamic_padding = false
-decorations = "None"
+dynamic_padding = true
+decorations = "Full"
 opacity = 1.0
 blur = false
 startup_mode = "Fullscreen"
@@ -25,7 +21,7 @@ multiplier = 3
 
 [font]
 normal = { family = "RobotoMono Nerd Font Mono" }
-size = 16
+size = 20
 
 [colors]
 [colors.primary]
@@ -51,3 +47,10 @@ blue = "#83A598"
 magenta = "#D3869B"
 cyan = "#8EC07C"
 white = "#EBDBB2"
+
+[general]
+live_config_reload = true
+working_directory = "~"
+import = []
+
+[terminal]
