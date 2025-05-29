@@ -10,10 +10,10 @@ local get_servers = function(context)
         'hbs',
       },
     },
-    elixirls = {},
-    clangd = {},
+    -- elixirls = {},
+    -- clangd = {},
     emmet_language_server = {},
-    gopls = {},
+    -- gopls = {},
     lua_ls = {
       Lua = {
         hint = { enable = true },
@@ -47,7 +47,7 @@ local get_servers = function(context)
         },
       },
     },
-    kotlin_language_server = {},
+    -- kotlin_language_server = {},
     -- vtsls = {},
     jsonls = {
       json = {
