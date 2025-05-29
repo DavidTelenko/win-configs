@@ -9,7 +9,7 @@ return {
   --- @type texel.Config
   opts = {
     tgpt = {
-      provider = 'deepseek',
+      -- provider = 'deepseek',
     },
   },
   config = function(_, opts)
