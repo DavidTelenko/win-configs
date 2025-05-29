@@ -7,24 +7,20 @@ return {
     { 'ys' },
     { 's', mode = 'v' },
   },
-  opts = {
-    keymaps = {
-      visual = 's',
-    },
-  },
-  config = function(_, opts)
+  config = function()
     local surround = require 'nvim-surround'
-    local surr_utils = require 'nvim-surround.config'
+    local surround_utils = require 'nvim-surround.config'
     local ts_utils = require 'nvim-treesitter.ts_utils'
 
-    surround.setup(opts)
-
-    surround.buffer_setup {
+    surround.setup {
+      keymaps = {
+        visual = 's',
+      },
       surrounds = {
         c = {
           add = function()
             local result =
-              surr_utils.get_input 'Enter the markdown codeblock language: '
+              surround_utils.get_input 'Enter the markdown codeblock language: '
             if result then
               return { { '```' .. result }, { '```' } }
             end
@@ -32,19 +28,19 @@ return {
         },
         g = {
           add = function()
-            local result = surr_utils.get_input 'Enter the generic name: '
+            local result = surround_utils.get_input 'Enter the generic name: '
             if result then
               return { { result .. '<' }, { '>' } }
             end
           end,
           find = function()
-            return surr_utils.get_selection { node = 'generic_type' }
+            return surround_utils.get_selection { node = 'generic_type' }
           end,
           delete = '^(.-<)().-(>)()$',
           change = {
             target = '^(.-<)().-(>)()$',
             replacement = function()
-              local result = surr_utils.get_input 'Enter the generic name: '
+              local result = surround_utils.get_input 'Enter the generic name: '
               if result then
                 return { { result .. '<' }, { '>' } }
               end
@@ -80,7 +76,7 @@ return {
         },
         l = {
           add = function()
-            local input = surr_utils.get_input 'Link name: '
+            local input = surround_utils.get_input 'Link name: '
             if input then
               return {
                 { '[' .. input .. '](' },

@@ -35,30 +35,34 @@ return {
     vim.keymap.set({ 'n', 'v' }, 'f', function()
       hop.hint_char1 {
         direction = directions.AFTER_CURSOR,
-        current_line_only = true,
+        current_line_only = false,
+        jump_on_sole_occurrence = false,
       }
     end, { remap = true })
 
     vim.keymap.set({ 'n', 'v' }, 'F', function()
       hop.hint_char1 {
         direction = directions.BEFORE_CURSOR,
-        current_line_only = true,
+        current_line_only = false,
+        jump_on_sole_occurrence = false,
       }
     end, { remap = true })
 
     vim.keymap.set({ 'n', 'v' }, 't', function()
       hop.hint_char1 {
         direction = directions.AFTER_CURSOR,
-        current_line_only = true,
+        current_line_only = false,
         hint_offset = -1,
+        jump_on_sole_occurrence = false,
       }
     end, { remap = true })
 
     vim.keymap.set({ 'n', 'v' }, 'T', function()
       hop.hint_char1 {
         direction = directions.BEFORE_CURSOR,
-        current_line_only = true,
+        current_line_only = false,
         hint_offset = 1,
+        jump_on_sole_occurrence = false,
       }
     end, { remap = true })
   end,
