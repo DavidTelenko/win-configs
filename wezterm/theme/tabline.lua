@@ -14,7 +14,7 @@ return {
   search_mode = {
     a = { bg = colors.bright_green, fg = colors.dark0 },
     b = { bg = colors.dark0, fg = colors.light2 },
-    c = { bg = colors.dark4, fg = colors.dark0 },
+    c = { bg = colors.dark1, fg = colors.light1 },
   },
   tab = {
     active = { bg = colors.dark0, fg = colors.light2 },
