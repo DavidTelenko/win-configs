@@ -14,9 +14,9 @@ let platform_dirs = ($nu.os-info.family | if $in == "windows" {{
     home: ([$env.HOMEDRIVE, $env.HOMEPATH] | path join)
     temp: $env.TEMP
 }} else {{
-    data: $env.XDG_DATA_HOME
+    data: ([$env.HOME, '.local', 'share'] | path join)
     home: $env.HOME
-    temp: $env.TMPDIR
+    temp: '/tmp'
 }})
 
 let dirs = $platform_dirs
