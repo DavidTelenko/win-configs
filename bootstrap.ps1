@@ -3,7 +3,7 @@
     Bootstraps the system to this config snapshot
 
 .DESCRIPTION
-    This script is intended to be installed from this api request or mnually
+    This script is intended to be installed from this api request or manually
     and run as a starting point to clone the configs repository, install all
     the packages, and symlink the configs to appropriate configuration
     locations. There is a lot of other flags which all signify whether the
@@ -59,7 +59,7 @@ param (
 # scoop package manager first
 if (!$SkipScoop) {
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-    iex "& { $(irm get.scoop.sh) } -RunAsAdmin"
+    Invoke-Expression "& { $(Invoke-RestMethod get.scoop.sh) } -RunAsAdmin"
 }
 
 # Once scoop is in our system we can proceed with git installation and clone
