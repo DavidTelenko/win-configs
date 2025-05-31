@@ -112,10 +112,10 @@ vim.o.langremap = false
 
 -- MS Windows shenanigans
 vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,),[,]'
--- if vim.fn.has 'win32' then
---   vim.o.shellslash = true
---   vim.o.completeslash = 'slash'
--- end
+if vim.fn.exists '+shellslash' then
+  vim.o.shellslash = true
+  vim.o.completeslash = 'slash'
+end
 
 -- Neovide setup for easier jumpstart in OS Windows
 if vim.g.neovide then
