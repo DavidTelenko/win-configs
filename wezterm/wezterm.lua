@@ -8,6 +8,7 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 config.default_prog = { 'nu' }
+-- config.default_domain = 'WSL:Arch'
 
 config.automatically_reload_config = true
 
@@ -17,6 +18,8 @@ config.show_new_tab_button_in_tab_bar = false
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = false
 config.enable_tab_bar = true
+-- config.window_background_opacity = 0.8
+-- config.win32_system_backdrop = 'Acrylic'
 
 config.font = wezterm.font 'RobotoMono Nerd Font Mono'
 config.font_size = 20
@@ -120,6 +123,18 @@ config.keys = {
     mods = 'CTRL|SHIFT',
     action = act.SwitchToWorkspace {
       name = 'lxp',
+    },
+  },
+  {
+    key = '#',
+    mods = 'CTRL|SHIFT',
+    action = act.SwitchToWorkspace {
+      name = 'arch',
+      spawn = {
+        domain = {
+          DomainName = 'WSL:Arch',
+        },
+      },
     },
   },
 }
