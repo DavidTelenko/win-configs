@@ -30,36 +30,37 @@
 #>
 
 param (
-    [Switch] $SkipScoop = $false,
-    [Switch] $All = $false,
+  [Switch] $SkipScoop = $false,
+  [Switch] $All = $false,
 
-    [Switch] $Alacritty = $false,
-    [Switch] $Broot = $false,
-    [Switch] $Git = $false,
-    [Switch] $Helix = $false,
-    [Switch] $Kanata = $false,
-    [Switch] $Keymapper = $false,
-    [Switch] $Mpv = $false,
-    [Switch] $Musikcube = $false,
-    [Switch] $Nushell = $false,
-    [Alias("Neovim")]
-    [Switch] $Nvim = $false,
-    [Alias("PowerShell")]
-    [Switch] $Pwsh = $false,
-    [Switch] $Rio = $false,
-    [Switch] $Spotify = $false,
-    [Switch] $Ttyper = $false,
-    [Switch] $Vencord = $false,
-    [Switch] $Wezterm = $false,
-    [Alias("WindowsTerminal")]
-    [Switch] $Winterm = $false
+  [Switch] $Alacritty = $false,
+  [Switch] $Broot = $false,
+  [Switch] $Git = $false,
+  [Switch] $Helix = $false,
+  [Switch] $Kanata = $false,
+  [Switch] $Keymapper = $false,
+  [Switch] $Mpv = $false,
+  [Switch] $Musikcube = $false,
+  [Switch] $Nushell = $false,
+  [Alias("Neovim")]
+  [Switch] $Nvim = $false,
+  [Switch] $Powertoys = $false,
+  [Alias("PowerShell")]
+  [Switch] $Pwsh = $false,
+  [Switch] $Rio = $false,
+  [Switch] $Spotify = $false,
+  [Switch] $Ttyper = $false,
+  [Switch] $Wezterm = $false,
+  [Alias("WindowsTerminal")]
+  [Switch] $Winterm = $false
 )
 
 # If we start from scratch and got this script from web call we need to install
 # scoop package manager first
-if (!$SkipScoop) {
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-    Invoke-Expression "& { $(Invoke-RestMethod get.scoop.sh) } -RunAsAdmin"
+if (!$SkipScoop)
+{
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+  Invoke-Expression "& { $(Invoke-RestMethod get.scoop.sh) } -RunAsAdmin"
 }
 
 # Once scoop is in our system we can proceed with git installation and clone
@@ -72,5 +73,21 @@ scoop import ~/.configs/scoop/scoopfile.json
 
 # installing configs respecting the users options
 & ~/.configs/init.ps1 `
-  -All -Helix -Rio -Wezterm -Nushell -Alacritty -Broot -Mpv -Ttyper `
-  -Vencord -Musikcube -Keymapper -Kanata -Git
+  -All `
+  -Alacritty `
+  -Broot `
+  -Git `
+  -Helix `
+  -Kanata `
+  -Keymapper `
+  -Mpv `
+  -Musikcube `
+  -Nushell `
+  -Nvim `
+  -Powertoys `
+  -Pwsh `
+  -Rio `
+  -Spotify `
+  -Ttyper `
+  -Wezterm `
+  -Winterm
