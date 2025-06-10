@@ -15,6 +15,7 @@ return {
     { '<leader>sf', desc = 'Files' },
     { '<leader>sg', desc = 'By Grep' },
     { '<leader>sh', desc = 'Help' },
+    { '<leader>sH', desc = 'Hidden' },
     { '<leader>sq', desc = 'Quickfix' },
     { '<leader>sr', desc = 'Resume' },
     { '<leader>sw', desc = 'Current Word' },
@@ -123,6 +124,12 @@ return {
 
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, {
       desc = 'Help',
+    })
+
+    vim.keymap.set('n', '<leader>sH', function()
+      builtin.find_files { hidden = true, no_ignore = true }
+    end, {
+      desc = 'Hidden',
     })
 
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, {

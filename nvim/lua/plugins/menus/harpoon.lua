@@ -83,7 +83,7 @@ return {
         :find()
     end
 
-    vim.keymap.set('n', '<leader>hs', function()
+    vim.keymap.set('n', '<leader>se', function()
       toggle_telescope(harpoon:list())
     end, { desc = 'Search files' })
   end,
