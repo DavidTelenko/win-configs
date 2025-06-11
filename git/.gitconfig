@@ -6,9 +6,11 @@
 [credential "helperselector"]
     selected = manager
 [core]
+    autocrlf = false
+    editor = nvim
+    eol = lf
     pager = delta
     symlinks = true
-    editor = nvim
 [interactive]
     diffFilter = delta --color-only
 [delta]
