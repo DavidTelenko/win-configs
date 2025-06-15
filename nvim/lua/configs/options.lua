@@ -9,8 +9,8 @@ vim.cmd.colorscheme 'retrobox'
 vim.o.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
-vim.wo.relativenumber = false
+vim.o.number = false
+vim.o.relativenumber = false
 
 -- Disable mouse mode
 vim.o.mouse = ''
