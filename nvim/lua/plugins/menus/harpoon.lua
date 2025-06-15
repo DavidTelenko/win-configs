@@ -5,7 +5,8 @@ return {
     { '<leader><space>', desc = 'Open menu' },
     { '<leader>ha', desc = 'Add file' },
     { '<leader>hr', desc = 'Remove file' },
-    { '<leader>hs', desc = 'Search files' },
+    { '<leader>hs', desc = 'Harpoon files' },
+    { '<leader>se', desc = 'Harpoon files' },
     { ']h', desc = 'Next harpoon file' },
     { '[h', desc = 'Previous harpoon file' },
     { '<leader>1', desc = 'Navigate to harpoon file 1' },
@@ -85,6 +86,6 @@ return {
 
     vim.keymap.set('n', '<leader>se', function()
       toggle_telescope(harpoon:list())
-    end, { desc = 'Search files' })
+    end, { desc = 'Harpoon files' })
   end,
 }
