@@ -22,7 +22,7 @@ vim.o.clipboard = 'unnamedplus'
 
 -- This thing ---------------------------------------------------------------->
 vim.o.colorcolumn = '80'
-vim.o.textwidth = 80
+-- vim.o.textwidth = 80
 
 -- Scroll will trigger leaving 8 lines at the bottom
 vim.o.scrolloff = 8

@@ -38,6 +38,7 @@ return {
           javascript = js_ts_formatters,
           javascriptreact = js_ts_formatters,
           json = json_formatters,
+          jsonc = json_formatters,
           kotlin = { 'ktlint' },
           lua = { 'stylua' },
           markdown = { 'prettierd', 'injected' },
