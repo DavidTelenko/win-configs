@@ -39,10 +39,10 @@
 }
 
 window#waybar {
-  /* background: #000000; */
+  background: #000000;
   /* overlay design (transparent version)*/
   /* border-radius: 1.35rem; */
-  background: rgba(0, 0, 0, 0.8);
+  /* background: rgba(0, 0, 0, 0.8);*/
 }
 
 #tray menu,
