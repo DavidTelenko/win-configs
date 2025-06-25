@@ -264,11 +264,10 @@ return {
       }
 
       -- Ensure the servers above are installed
+
       mason_lspconfig.setup {
         ensure_installed = vim.tbl_keys(servers),
-      }
-
-      mason_lspconfig.setup_handlers {
+        automatic_enable = true,
         function(server_name)
           lspconfig[server_name].setup {
             capabilities = capabilities,
