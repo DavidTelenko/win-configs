@@ -152,7 +152,6 @@ return {
       local telescope = require 'telescope.builtin'
       local lspconfig = require 'lspconfig'
       local mason_lspconfig = require 'mason-lspconfig'
-      local schemas = require 'schemastore'
 
       vim.keymap.set('n', '<leader>cI', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
@@ -195,97 +194,107 @@ return {
       })
 
       vim.diagnostic.config {
-        float = { border = 'rounded' },
+        float = { border = 'rounded', source = 'if_many' },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '󰅚 ',
+            [vim.diagnostic.severity.WARN] = '󰀪 ',
+            [vim.diagnostic.severity.INFO] = '󰋽 ',
+            [vim.diagnostic.severity.HINT] = '󰌶 ',
+          },
+        },
         virtual_text = {
           current_line = true,
         },
       }
 
       --  This function gets run when an LSP connects to a particular buffer.
-      local on_attach = function(client, bufnr)
-        local nmap = function(keys, func, desc)
-          if desc then
-            desc = 'LSP: ' .. desc
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+        callback = function(event)
+          local nmap = function(keys, func, desc)
+            if desc then
+              desc = 'LSP: ' .. desc
+            end
+
+            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = desc })
           end
 
-          vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-        end
+          nmap('<leader>rn', vim.lsp.buf.rename, 'Rename')
+          nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
 
-        nmap('<leader>rn', vim.lsp.buf.rename, 'Rename')
-        nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
+          nmap('gd', telescope.lsp_definitions, 'Goto Definition')
+          nmap('gr', telescope.lsp_references, 'Goto References')
+          nmap('gI', telescope.lsp_implementations, 'Goto Implementation')
 
-        nmap('gd', telescope.lsp_definitions, 'Goto Definition')
-        nmap('gr', telescope.lsp_references, 'Goto References')
-        nmap('gI', telescope.lsp_implementations, 'Goto Implementation')
+          nmap('<leader>D', telescope.lsp_type_definitions, 'Type Definition')
+          nmap('<leader>ss', telescope.lsp_document_symbols, 'Document Symbols')
+          nmap(
+            '<leader>ws',
+            telescope.lsp_dynamic_workspace_symbols,
+            'Workspace Symbols'
+          )
 
-        nmap('<leader>D', telescope.lsp_type_definitions, 'Type Definition')
-        nmap('<leader>ss', telescope.lsp_document_symbols, 'Document Symbols')
-        nmap(
-          '<leader>ws',
-          telescope.lsp_dynamic_workspace_symbols,
-          'Workspace Symbols'
-        )
+          nmap('K', function()
+            vim.lsp.buf.hover { border = 'rounded' }
+          end, 'Hover Documentation')
 
-        nmap('K', function()
-          vim.lsp.buf.hover { border = 'rounded' }
-        end, 'Hover Documentation')
+          nmap('gK', function()
+            vim.lsp.buf.signature_help { border = 'rounded' }
+          end, 'Signature Documentation')
 
-        nmap('gK', function()
-          vim.lsp.buf.signature_help { border = 'rounded' }
-        end, 'Signature Documentation')
+          -- Lesser used LSP functionality
+          nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+          nmap(
+            '<leader>wa',
+            vim.lsp.buf.add_workspace_folder,
+            'Workspace Add Folder'
+          )
+          nmap(
+            '<leader>wr',
+            vim.lsp.buf.remove_workspace_folder,
+            'Workspace Remove Folder'
+          )
+          nmap('<leader>wl', function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+          end, 'Workspace List Folders')
 
-        -- Lesser used LSP functionality
-        nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
-        nmap(
-          '<leader>wa',
-          vim.lsp.buf.add_workspace_folder,
-          'Workspace Add Folder'
-        )
-        nmap(
-          '<leader>wr',
-          vim.lsp.buf.remove_workspace_folder,
-          'Workspace Remove Folder'
-        )
-        nmap('<leader>wl', function()
-          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, 'Workspace List Folders')
-
-        vim.api.nvim_buf_create_user_command(bufnr, 'LspFormat', function()
-          vim.lsp.buf.format()
-        end, { desc = 'Format current buffer with LSP' })
-      end
+          vim.api.nvim_buf_create_user_command(
+            event.buf,
+            'LspFormat',
+            function()
+              vim.lsp.buf.format()
+            end,
+            { desc = 'Format current buffer with LSP' }
+          )
+        end,
+      })
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
       local servers = get_servers {
-        schemas = schemas,
+        schemas = require 'schemastore',
       }
 
       -- Ensure the servers above are installed
 
+      ---@type MasonLspconfigSettings
       mason_lspconfig.setup {
         ensure_installed = vim.tbl_keys(servers),
         automatic_enable = true,
-        function(server_name)
-          lspconfig[server_name].setup {
-            capabilities = capabilities,
-            filetypes = (servers[server_name] or {}).filetypes,
-            on_attach = on_attach,
-            settings = servers[server_name],
-          }
-        end,
       }
 
-      local local_lsps = {
+      local local_servers = {
         nushell = {},
       }
 
-      for name, settings in pairs(local_lsps) do
+      local all_servers = vim.tbl_extend('error', servers, local_servers)
+
+      for name, settings in pairs(all_servers) do
         lspconfig[name].setup {
           capabilities = capabilities,
-          on_attach = on_attach,
           settings = settings,
         }
       end
