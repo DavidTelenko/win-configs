@@ -283,7 +283,7 @@ return {
       ---@type MasonLspconfigSettings
       mason_lspconfig.setup {
         ensure_installed = vim.tbl_keys(servers),
-        automatic_enable = true,
+        automatic_enable = false,
       }
 
       local local_servers = {
