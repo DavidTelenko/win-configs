@@ -113,6 +113,7 @@ vim.o.langremap = false
 
 -- MS Windows shenanigans
 vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,),[,]'
+vim.o.fileformats = 'unix,dos'
 if vim.fn.exists '+shellslash' then
   vim.o.shellslash = true
   vim.o.completeslash = 'slash'
