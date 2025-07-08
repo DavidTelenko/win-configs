@@ -84,6 +84,16 @@ return {
       ['g.'] = 'actions.toggle_hidden',
       ['g\\'] = 'actions.toggle_trash',
       ['gq'] = 'actions.send_to_qflist',
+      ['<leader>so'] = {
+        function()
+          require('telescope.builtin').find_files {
+            cwd = require('oil').get_current_dir(),
+          }
+        end,
+        mode = 'n',
+        nowait = true,
+        desc = 'Files in cwd',
+      },
     },
     -- Set to false to disable all of the above keymaps
     use_default_keymaps = true,
