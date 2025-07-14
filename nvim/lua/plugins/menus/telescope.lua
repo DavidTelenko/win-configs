@@ -40,9 +40,18 @@ return {
   config = function()
     local telescope = require 'telescope'
     local lga_actions = require 'telescope-live-grep-args.actions'
+    local actions = require 'telescope.actions'
 
     telescope.setup {
       defaults = {
+        mappings = {
+          i = {
+            ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+          },
+          n = {
+            ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+          },
+        },
         wrap_results = true,
         layout_config = {
           horizontal = {
