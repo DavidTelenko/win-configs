@@ -6,7 +6,6 @@ return {
     { '<leader>ha', desc = 'Add file' },
     { '<leader>hr', desc = 'Remove file' },
     { '<leader>hs', desc = 'Harpoon files' },
-    { '<leader>se', desc = 'Harpoon files' },
     { ']h', desc = 'Next harpoon file' },
     { '[h', desc = 'Previous harpoon file' },
     { '<leader>1', desc = 'Navigate to harpoon file 1' },
@@ -84,7 +83,7 @@ return {
         :find()
     end
 
-    vim.keymap.set('n', '<leader>se', function()
+    vim.keymap.set('n', '<leader>hs', function()
       toggle_telescope(harpoon:list())
     end, { desc = 'Harpoon files' })
   end,

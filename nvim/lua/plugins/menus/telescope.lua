@@ -12,6 +12,7 @@ return {
     { '<leader>sb', desc = 'Existing Buffers' },
     { '<leader>sc', desc = 'Command history' },
     { '<leader>sd', desc = 'Diagnostics' },
+    { '<leader>se', desc = 'Errors' },
     { '<leader>sf', desc = 'Files' },
     { '<leader>sg', desc = 'By Grep' },
     { '<leader>sh', desc = 'Help' },
@@ -159,6 +160,10 @@ return {
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, {
       desc = 'Diagnostics',
     })
+
+    vim.keymap.set('n', '<leader>se', function()
+      builtin.diagnostics { severity = vim.diagnostic.severity.ERROR }
+    end, { desc = 'Diagnostics' })
 
     vim.keymap.set('n', '<leader>sr', builtin.resume, {
       desc = 'Resume',
