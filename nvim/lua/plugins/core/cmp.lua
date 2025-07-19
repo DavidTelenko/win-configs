@@ -93,6 +93,8 @@ return {
           end
         end, { 'i', 's' }),
         ['<M-i>'] = cmp.mapping.complete(),
+        ['<M-j>'] = cmp.mapping.select_next_item(),
+        ['<M-k>'] = cmp.mapping.select_prev_item(),
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
       },
