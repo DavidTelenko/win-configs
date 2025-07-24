@@ -1,9 +1,5 @@
 return {
   {
-    'nushell/tree-sitter-nu',
-    ft = 'nu',
-  },
-  {
     'nvim-treesitter/nvim-treesitter',
     event = 'VeryLazy',
     dependencies = {
