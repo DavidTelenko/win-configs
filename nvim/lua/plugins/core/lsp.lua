@@ -1,7 +1,7 @@
 local get_servers = function(context)
   return {
     -- jdtls = {},         -- java
-    -- ols = {},           -- odin
+    ols = {}, -- odin
     -- pyright = {},       -- python
     html = {
       filetypes = {
@@ -11,7 +11,7 @@ local get_servers = function(context)
       },
     },
     -- elixirls = {},
-    -- clangd = {},
+    clangd = {},
     emmet_language_server = {},
     -- gopls = {},
     lua_ls = {
@@ -145,6 +145,7 @@ return {
   },
   { 'williamboman/mason-lspconfig.nvim' },
   { 'b0o/schemastore.nvim' },
+  { 'danarth/sonarlint.nvim' },
   {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
@@ -152,6 +153,7 @@ return {
       local telescope = require 'telescope.builtin'
       local lspconfig = require 'lspconfig'
       local mason_lspconfig = require 'mason-lspconfig'
+      local helpers = require 'helpers.lsp'
 
       vim.keymap.set('n', '<leader>cI', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
@@ -161,29 +163,21 @@ return {
         desc = 'Open diagnostics list',
       })
 
-      vim.keymap.set('n', ']e', function()
-        vim.diagnostic.jump {
-          count = 1,
-          float = true,
-          severity = vim.diagnostic.severity.ERROR,
-        }
-      end, { desc = 'Go to next error message' })
-
-      vim.keymap.set('n', '[e', function()
-        vim.diagnostic.jump {
-          count = -1,
-          float = true,
-          severity = vim.diagnostic.severity.ERROR,
-        }
-      end, { desc = 'Go to prev error message' })
-
-      vim.keymap.set('n', ']d', function()
-        vim.diagnostic.jump { count = 1, float = true }
-      end, { desc = 'Go to next diagnostic message' })
-
-      vim.keymap.set('n', '[d', function()
-        vim.diagnostic.jump { count = -1, float = true }
-      end, { desc = 'Go to prev diagnostic message' })
+      helpers.next_prev_diagnostic {
+        severity = vim.diagnostic.severity.ERROR,
+        key = 'e',
+        message = 'error',
+      }
+      helpers.next_prev_diagnostic {
+        severity = vim.diagnostic.severity.WARN,
+        key = 'w',
+        message = 'warning',
+      }
+      helpers.next_prev_diagnostic {
+        severity = nil,
+        key = 'd',
+        message = 'diagnostic',
+      }
 
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
         desc = 'Open floating diagnostic message',
@@ -209,66 +203,58 @@ return {
       }
 
       --  This function gets run when an LSP connects to a particular buffer.
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
-        callback = function(event)
-          local nmap = function(keys, func, desc)
-            if desc then
-              desc = 'LSP: ' .. desc
-            end
-
-            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = desc })
+      local on_attach = function(_, buf)
+        local nmap = function(keys, func, desc)
+          if desc then
+            desc = 'LSP: ' .. desc
           end
 
-          nmap('<leader>rn', vim.lsp.buf.rename, 'Rename')
-          nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
+          vim.keymap.set('n', keys, func, { buffer = buf, desc = desc })
+        end
 
-          nmap('gd', telescope.lsp_definitions, 'Goto Definition')
-          nmap('gr', telescope.lsp_references, 'Goto References')
-          nmap('gI', telescope.lsp_implementations, 'Goto Implementation')
+        nmap('<leader>rn', vim.lsp.buf.rename, 'Rename')
+        nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
 
-          nmap('<leader>D', telescope.lsp_type_definitions, 'Type Definition')
-          nmap('<leader>ss', telescope.lsp_document_symbols, 'Document Symbols')
-          nmap(
-            '<leader>ws',
-            telescope.lsp_dynamic_workspace_symbols,
-            'Workspace Symbols'
-          )
+        nmap('gd', telescope.lsp_definitions, 'Goto Definition')
+        nmap('gr', telescope.lsp_references, 'Goto References')
+        nmap('gI', telescope.lsp_implementations, 'Goto Implementation')
 
-          nmap('K', function()
-            vim.lsp.buf.hover { border = 'rounded' }
-          end, 'Hover Documentation')
+        nmap('<leader>D', telescope.lsp_type_definitions, 'Type Definition')
+        nmap('<leader>ss', telescope.lsp_document_symbols, 'Document Symbols')
+        nmap(
+          '<leader>ws',
+          telescope.lsp_dynamic_workspace_symbols,
+          'Workspace Symbols'
+        )
 
-          nmap('gK', function()
-            vim.lsp.buf.signature_help { border = 'rounded' }
-          end, 'Signature Documentation')
+        nmap('K', function()
+          vim.lsp.buf.hover { border = 'rounded' }
+        end, 'Hover Documentation')
 
-          -- Lesser used LSP functionality
-          nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
-          nmap(
-            '<leader>wa',
-            vim.lsp.buf.add_workspace_folder,
-            'Workspace Add Folder'
-          )
-          nmap(
-            '<leader>wr',
-            vim.lsp.buf.remove_workspace_folder,
-            'Workspace Remove Folder'
-          )
-          nmap('<leader>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end, 'Workspace List Folders')
+        nmap('gK', function()
+          vim.lsp.buf.signature_help { border = 'rounded' }
+        end, 'Signature Documentation')
 
-          vim.api.nvim_buf_create_user_command(
-            event.buf,
-            'LspFormat',
-            function()
-              vim.lsp.buf.format()
-            end,
-            { desc = 'Format current buffer with LSP' }
-          )
-        end,
-      })
+        -- Lesser used LSP functionality
+        nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+        nmap(
+          '<leader>wa',
+          vim.lsp.buf.add_workspace_folder,
+          'Workspace Add Folder'
+        )
+        nmap(
+          '<leader>wr',
+          vim.lsp.buf.remove_workspace_folder,
+          'Workspace Remove Folder'
+        )
+        nmap('<leader>wl', function()
+          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        end, 'Workspace List Folders')
+
+        vim.api.nvim_buf_create_user_command(buf, 'LspFormat', function()
+          vim.lsp.buf.format()
+        end, { desc = 'Format current buffer with LSP' })
+      end
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -296,6 +282,25 @@ return {
         lspconfig[name].setup {
           capabilities = capabilities,
           settings = settings,
+          on_attach = on_attach,
+        }
+      end
+
+      local enable_sonar = false
+      if enable_sonar then
+        require('sonarlint').setup {
+          server = {
+            cmd = {
+              'sonarlint-language-server',
+              '-stdio',
+              '-analyzers',
+              vim.fn.expand '$MASON/share/sonarlint-analyzers/sonarjs.jar',
+            },
+          },
+          filetypes = {
+            'typescript',
+            'typescriptreact',
+          },
         }
       end
     end,
