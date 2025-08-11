@@ -69,6 +69,14 @@ return {
                 query = '@function.inner',
                 desc = 'inner function',
               },
+              ['ac'] = {
+                query = '@class.outer',
+                desc = 'outer class',
+              },
+              ['ic'] = {
+                query = '@class.inner',
+                desc = 'inner class',
+              },
               ['a='] = {
                 query = '@assignment.outer',
                 desc = 'outer assignment',
