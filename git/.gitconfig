@@ -1,37 +1,57 @@
 [filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [credential "helperselector"]
-    selected = manager
+  selected = manager
 [core]
-    autocrlf = false
-    editor = nvim
-    eol = lf
-    pager = delta
-    symlinks = true
+  autocrlf = false
+  editor = nvim
+  eol = lf
+  pager = delta
+  symlinks = true
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [delta]
-    navigate = true
-    syntax-theme = gruvbox-dark
+  navigate = true
+  syntax-theme = gruvbox-dark
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 [diff]
-    colorMoved = default
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 [rerere]
-    enabled = true
+  enabled = true
 [init]
-    defaultBranch = main
+  defaultBranch = main
 [http]
-    postBuffer = 157286400
-    sslBackend = openssl
+  ; postBuffer = 157286400
+  ; sslBackend = openssl
 [sendpack]
-    sideband = false
+  sideband = false
 [alias]
-    unstage = reset HEAD --
-    last = log -1 HEAD
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  lol = log --oneline --graph --all
 [push]
-    autoSetupRemote = true
-    default = current
+  autoSetupRemote = true
+  default = current
+  followTags = true
+[fetch]
+  prune = true
+  ; pruneTags = true
+[branch]
+  sort = -committerdate
+[help]
+  autocorrect = prompt
+[commit]
+  verbose = true
+[column]
+  ui = auto
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
