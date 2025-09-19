@@ -8,6 +8,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     -- Adapters
     'nvim-neotest/neotest-jest',
+    'thenbe/neotest-playwright',
   },
   keys = {
     { '<leader>tr', '<cmd>Neotest run <cr>', desc = 'Run nearest test' },
@@ -29,6 +30,19 @@ return {
           cwd = function()
             return vim.fn.getcwd()
           end,
+        },
+        require('neotest-playwright').adapter {
+          options = {
+            persist_project_selection = true,
+            enable_dynamic_test_discovery = true,
+            preset = 'debug',
+            experimental = {
+              telescope = {
+                enabled = true,
+                opts = {},
+              },
+            },
+          },
         },
       },
       output_panel = { open_on_run = true },
