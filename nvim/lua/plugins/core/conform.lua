@@ -32,6 +32,7 @@ return {
         },
         formatters_by_ft = {
           css = { 'prettierd' },
+          cpp = { 'clang-format' },
           elixir = { 'mix' },
           graphql = { 'prettierd' },
           html = { 'prettierd' },
@@ -41,8 +42,8 @@ return {
           jsonc = json_formatters,
           kotlin = { 'ktlint' },
           lua = { 'stylua' },
-          markdown = { 'prettierd', 'injected' },
-          mdx = { 'prettierd', 'injected' },
+          markdown = { 'prettierd' }, -- 'injected' },
+          mdx = { 'prettierd' }, -- 'injected' },
           python = { 'black' },
           sh = { 'shfmt' },
           svelte = h.first { h.require_config 'prettierd', 'biome' },
