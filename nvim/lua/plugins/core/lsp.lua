@@ -2,6 +2,7 @@ local get_servers = function(context)
   return {
     -- jdtls = {},         -- java
     ols = {}, -- odin
+    bashls = {},
     -- pyright = {},       -- python
     html = {
       filetypes = {
