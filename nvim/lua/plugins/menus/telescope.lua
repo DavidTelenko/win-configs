@@ -1,11 +1,11 @@
 return {
   'nvim-telescope/telescope.nvim',
   keys = {
-    { '<leader>?', desc = 'Recently opened files' },
+    { '<leader>?',  desc = 'Recently opened files' },
     { '<leader>gS', desc = 'Search Git Stash' },
     { '<leader>gc', desc = 'Search Git Commits' },
     { '<leader>gf', desc = 'Search Git Files' },
-    { '<leader>s', desc = 'Current selection', mode = 'v' },
+    { '<leader>s',  desc = 'Current selection',    mode = 'v' },
     { '<leader>s/', desc = 'In current buffer' },
     { '<leader>s?', desc = 'Keymaps' },
     { '<leader>sG', desc = 'By Grep With Args' },
@@ -57,7 +57,7 @@ return {
         layout_config = {
           horizontal = {
             height = 0.95,
-            preview_cutoff = 100,
+            -- preview_cutoff = 100,
             prompt_position = 'bottom',
             width = 0.9,
           },
