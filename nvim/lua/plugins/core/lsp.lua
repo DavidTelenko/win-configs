@@ -152,7 +152,6 @@ return {
     event = 'VeryLazy',
     config = function()
       local telescope = require 'telescope.builtin'
-      local lspconfig = require 'lspconfig'
       local mason_lspconfig = require 'mason-lspconfig'
       local helpers = require 'helpers.lsp'
 
@@ -280,29 +279,12 @@ return {
       local all_servers = vim.tbl_extend('error', servers, local_servers)
 
       for name, settings in pairs(all_servers) do
-        lspconfig[name].setup {
+        vim.lsp.enable(name)
+        vim.lsp.config(name, {
           capabilities = capabilities,
           settings = settings,
           on_attach = on_attach,
-        }
-      end
-
-      local enable_sonar = false
-      if enable_sonar then
-        require('sonarlint').setup {
-          server = {
-            cmd = {
-              'sonarlint-language-server',
-              '-stdio',
-              '-analyzers',
-              vim.fn.expand '$MASON/share/sonarlint-analyzers/sonarjs.jar',
-            },
-          },
-          filetypes = {
-            'typescript',
-            'typescriptreact',
-          },
-        }
+        })
       end
     end,
   },
