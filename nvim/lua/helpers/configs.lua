@@ -30,4 +30,21 @@ M.prettierd = {
   'prettier.config.cjs',
 }
 
+M.cspell = {
+  '.cspell.json',
+  '.cspell.json',
+  'cspell.json',
+  '.cSpell.json',
+  'cSpell.json',
+  'cspell.config.mjs',
+  'cspell.config.js',
+  'cspell.config.cjs',
+  'cspell.config.json',
+  'cspell.config.yaml',
+  'cspell.config.yml',
+  'cspell.config.toml',
+  'cspell.yaml',
+  'cspell.yml',
+}
+
 return M
