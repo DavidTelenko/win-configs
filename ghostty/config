@@ -1,0 +1,9 @@
+font-family = "RobotoMono Nerd Font"
+font-size = 17
+theme = "GruvboxDark"
+background = 000000
+confirm-close-surface = false
+
+keybind = "shift+arrow_down=scroll_page_lines:3"
+keybind = "shift+arrow_up=scroll_page_lines:-3"
+keybind = "shift+alt+r=write_scrollback_file:open"
