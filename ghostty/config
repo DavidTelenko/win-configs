@@ -4,6 +4,7 @@ theme = "GruvboxDark"
 background = 000000
 confirm-close-surface = false
 gtk-tabs-location = hidden
+auto-update = check
 
 keybind = "shift+arrow_down=scroll_page_lines:3"
 keybind = "shift+arrow_up=scroll_page_lines:-3"
