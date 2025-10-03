@@ -151,6 +151,11 @@ vim.keymap.set('n', '<leader>fy', function()
   vim.fn.setreg('*', vim.fn.expand '%:.')
 end, { desc = 'Yank path' })
 
+-- Yank current file path to system buffer
+vim.keymap.set('n', '<leader>fh', function()
+  vim.cmd 'TOhtml'
+end, { desc = 'To HTML' })
+
 -- Focus current buffer
 vim.keymap.set('n', '<leader><cr>', function()
   vim.cmd 'only'
@@ -194,4 +199,8 @@ end)
 
 vim.keymap.set({ 'n', 'i', 't' }, '<C-S-w>', function()
   vim.cmd 'q'
+end)
+
+vim.keymap.set({ 'n', 'i' }, '<A-s>', function()
+  vim.cmd 'noa update'
 end)
