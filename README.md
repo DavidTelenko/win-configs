@@ -44,6 +44,7 @@ Here the general list of configured packages:
 - [Kitty](https://sw.kovidgoyal.net/kitty/)
 - [Wezterm](https://wezfurlong.org/wezterm/index.html)
 - [Rio](https://github.com/raphamorim/rio)
+- [Ghostty](https://github.com/ghostty-org/ghostty)
 
 ### Crucial for me Tools:
 
