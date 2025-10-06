@@ -1,3 +1,4 @@
+---@return table<string,vim.lsp.Config>
 local get_servers = function(context)
   return {
     -- jdtls = {},         -- java
@@ -11,23 +12,27 @@ local get_servers = function(context)
         'hbs',
       },
     },
-    -- elixirls = {},
+    elixirls = {
+      cmd = { 'elixir-ls' },
+    },
     clangd = {},
     emmet_language_server = {},
     -- gopls = {},
     lua_ls = {
-      Lua = {
-        hint = { enable = true },
-        workspace = {
-          checkThirdParty = false,
-        },
-        telemetry = {
-          enable = false,
-        },
-        diagnostics = {
-          disable = {
-            'missing-fields',
-            'unused-function', -- unused name will still be reported
+      settings = {
+        Lua = {
+          hint = { enable = true },
+          workspace = {
+            checkThirdParty = false,
+          },
+          telemetry = {
+            enable = false,
+          },
+          diagnostics = {
+            disable = {
+              'missing-fields',
+              'unused-function', -- unused name will still be reported
+            },
           },
         },
       },
@@ -36,34 +41,40 @@ local get_servers = function(context)
     svelte = {},
     tailwindcss = {},
     ts_ls = {
-      typescript = {
-        inlayHints = {
-          includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
+      settings = {
+        typescript = {
+          inlayHints = {
+            includeInlayParameterNameHints = 'all',
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
         },
       },
     },
     -- kotlin_language_server = {},
     -- vtsls = {},
     jsonls = {
-      json = {
-        schemas = context.schemas.json.schemas(),
-        validate = {
-          enable = true,
+      settings = {
+        json = {
+          schemas = context.schemas.json.schemas(),
+          validate = {
+            enable = true,
+          },
         },
       },
     },
     yamlls = {
-      yaml = {
-        schemas = context.schemas.yaml.schemas(),
-        schemaStore = {
-          enable = false,
-          url = '',
+      settings = {
+        yaml = {
+          schemas = context.schemas.yaml.schemas(),
+          schemaStore = {
+            enable = false,
+            url = '',
+          },
         },
       },
     },
@@ -272,18 +283,22 @@ return {
         automatic_enable = false,
       }
 
+      ---@type table<string,vim.lsp.Config>
       local local_servers = {
         nushell = {},
       }
 
+      ---@type table<string,vim.lsp.Config>
       local all_servers = vim.tbl_extend('error', servers, local_servers)
 
-      for name, settings in pairs(all_servers) do
+      for name, config in pairs(all_servers) do
         vim.lsp.enable(name)
         vim.lsp.config(name, {
           capabilities = capabilities,
-          settings = settings,
+          settings = config.settings,
           on_attach = on_attach,
+          cmd = config.cmd,
+          filetypes = config.filetypes,
         })
       end
     end,
