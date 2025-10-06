@@ -1,22 +1,21 @@
 return {
   'nvim-telescope/telescope.nvim',
   keys = {
-    { '<leader>?',  desc = 'Recently opened files' },
-    { '<leader>gS', desc = 'Search Git Stash' },
-    { '<leader>gc', desc = 'Search Git Commits' },
-    { '<leader>gf', desc = 'Search Git Files' },
-    { '<leader>s',  desc = 'Current selection',    mode = 'v' },
+    { '<leader>?', desc = 'Recently opened files' },
+    { '<leader>s', desc = 'Current selection', mode = 'v' },
     { '<leader>s/', desc = 'In current buffer' },
+    { '<leader>s:', desc = 'Command history' },
     { '<leader>s?', desc = 'Keymaps' },
     { '<leader>sG', desc = 'By Grep With Args' },
+    { '<leader>sH', desc = 'Hidden' },
+    { '<leader>sa', desc = 'Search Git Stash' },
     { '<leader>sb', desc = 'Existing Buffers' },
-    { '<leader>sc', desc = 'Command history' },
+    { '<leader>sc', desc = 'Search Git Commits' },
     { '<leader>sd', desc = 'Diagnostics' },
     { '<leader>se', desc = 'Errors' },
     { '<leader>sf', desc = 'Files' },
     { '<leader>sg', desc = 'By Grep' },
     { '<leader>sh', desc = 'Help' },
-    { '<leader>sH', desc = 'Hidden' },
     { '<leader>sq', desc = 'Quickfix' },
     { '<leader>sr', desc = 'Resume' },
     { '<leader>sw', desc = 'Current Word' },
@@ -163,7 +162,7 @@ return {
 
     vim.keymap.set('n', '<leader>se', function()
       builtin.diagnostics { severity = vim.diagnostic.severity.ERROR }
-    end, { desc = 'Diagnostics' })
+    end, { desc = 'Errors' })
 
     vim.keymap.set('n', '<leader>sr', builtin.resume, {
       desc = 'Resume',
@@ -181,19 +180,15 @@ return {
       desc = 'Keymaps',
     })
 
-    vim.keymap.set('n', '<leader>sc', builtin.command_history, {
+    vim.keymap.set('n', '<leader>s:', builtin.command_history, {
       desc = 'Command history',
     })
 
-    vim.keymap.set('n', '<leader>gf', builtin.git_files, {
-      desc = 'Search Git Files',
-    })
-
-    vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, {
+    vim.keymap.set('n', '<leader>sc', builtin.git_bcommits, {
       desc = 'Search Git Commits',
     })
 
-    vim.keymap.set('n', '<leader>gS', builtin.git_stash, {
+    vim.keymap.set('n', '<leader>sa', builtin.git_stash, {
       desc = 'Search Git Stash',
     })
 

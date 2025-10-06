@@ -11,7 +11,7 @@ return {
       'DiffviewToggleFiles',
     },
     keys = {
-      { '<leader>gd',  desc = 'Toggle Diffview' },
+      { '<leader>gd', desc = 'Toggle Diffview' },
       { '<leader>gDo', desc = 'Open' },
       { '<leader>gDc', desc = 'Close' },
       { '<leader>gDh', desc = 'File history' },
@@ -60,7 +60,6 @@ return {
     'lewis6991/gitsigns.nvim',
     event = 'BufReadPre',
     opts = {
-      -- See `:help gitsigns.txt`
       signs = {
         add = { text = '+' },
         change = { text = '~' },
@@ -121,6 +120,12 @@ return {
           desc = 'Reset hunk',
         })
 
+        vim.keymap.set('n', '<leader>gq', function()
+          gs.setqflist 'all'
+        end, {
+          desc = 'Hunk quickfix list',
+        })
+
         vim.keymap.set('v', '<leader>gs', function()
           gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end, { desc = 'Stage hunk' })
@@ -150,8 +155,10 @@ return {
           for _, win in ipairs(vim.api.nvim_list_wins()) do
             local buf = vim.api.nvim_win_get_buf(win)
             local buf_name = vim.api.nvim_buf_get_name(buf)
-            if (string.find(buf_name, 'fugitive://')
-                  or string.find(buf_name, 'fugitive:\\\\')) then
+            if
+              string.find(buf_name, 'fugitive://')
+              or string.find(buf_name, 'fugitive:\\\\')
+            then
               vim.api.nvim_win_close(win, false)
               return
             end
@@ -202,10 +209,8 @@ return {
       git_services = {
         ['github.com'] = 'https://github.com/${owner}/${repository}/compare/${branch_name}?expand=1',
         ['bitbucket.org'] = 'https://bitbucket.org/${owner}/${repository}/pull-requests/new?source=${branch_name}&t=1',
-        ['gitlab.com'] =
-        'https://gitlab.com/${owner}/${repository}/merge_requests/new?merge_request[source_branch]=${branch_name}',
-        ['azure.com'] =
-        'https://dev.azure.com/${owner}/_git/${repository}/pullrequestcreate?sourceRef=${branch_name}&targetRef=${target}',
+        ['gitlab.com'] = 'https://gitlab.com/${owner}/${repository}/merge_requests/new?merge_request[source_branch]=${branch_name}',
+        ['azure.com'] = 'https://dev.azure.com/${owner}/_git/${repository}/pullrequestcreate?sourceRef=${branch_name}&targetRef=${target}',
       },
       -- Allows a different telescope sorter. Defaults to 'fuzzy_with_index_bias'. The example below will use the native fzf
       -- sorter instead. By default, this function returns `nil`.

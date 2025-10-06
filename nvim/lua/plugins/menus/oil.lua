@@ -83,7 +83,7 @@ return {
       ['gx'] = 'actions.open_external',
       ['g.'] = 'actions.toggle_hidden',
       ['g\\'] = 'actions.toggle_trash',
-      ['gq'] = 'actions.send_to_qflist',
+      ['qq'] = 'actions.send_to_qflist',
       ['<leader>so'] = {
         function()
           require('telescope.builtin').find_files {
