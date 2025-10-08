@@ -1,8 +1,8 @@
 M = {}
 
 M.next_prev_diagnostic = function(config)
-  local next = { key = ']', count = 1, message = 'next' }
-  local prev = { key = '[', count = -1, message = 'previous' }
+  local next = { key = ']', count = 1, message = 'Next' }
+  local prev = { key = '[', count = -1, message = 'Previous' }
 
   for _, conf in ipairs { next, prev } do
     vim.keymap.set('n', conf.key .. config.key, function()
@@ -11,7 +11,7 @@ M.next_prev_diagnostic = function(config)
         float = true,
         severity = config.severity,
       }
-    end, { desc = 'Go to ' .. conf.message .. ' ' .. config.message })
+    end, { desc = conf.message .. ' ' .. config.message })
   end
 end
 
