@@ -74,7 +74,7 @@ return {
           -- else
           cmp.confirm {
             select = true,
-            behavior = cmp.ConfirmBehavior.Replace,
+            behavior = cmp.ConfirmBehavior.Insert,
           }
           -- end
         end),
