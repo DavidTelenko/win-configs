@@ -41,6 +41,18 @@ return {
         },
         lualine_c = {
           {
+            function()
+              if vim.fn.reg_recording() == '' then
+                return ''
+              end
+              return '🔴(' .. vim.fn.reg_recording() .. ')'
+            end,
+            padding = {
+              right = 0,
+              left = 1,
+            },
+          },
+          {
             filename,
             path = 1,
             symbols = {
