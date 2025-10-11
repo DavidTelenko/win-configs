@@ -1,0 +1,14 @@
+---
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: "0.2"
+useGitignore: true
+dictionaryDefinitions:
+  - name: project-words
+    path: "./.words.txt"
+    addWords: true
+dictionaries:
+  - project-words
+ignorePaths:
+  - "./.words.txt"
+  - "./ttyper/language"
+  - "./wezterm/types/wezterm/nerdfonts.lua"
