@@ -40,12 +40,6 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
--- Unlearning muscle memory
-vim.api.nvim_create_user_command('E', function()
-  -- vim.cmd 'Explore'
-  -- vim.cmd 'Oil'
-end, {})
-
 -- Toggle Quickfix list
 vim.api.nvim_create_user_command('ToggleQuickfix', function()
   local qf_exists = false
