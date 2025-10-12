@@ -3,7 +3,7 @@ program = "nu"
 args = []
 
 [env]
-# additional env varialbes
+# additional env variables
 
 [window]
 padding = { x = 10, y = 10 }
