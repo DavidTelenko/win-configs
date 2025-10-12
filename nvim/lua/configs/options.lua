@@ -110,11 +110,11 @@ vim.o.langmap = vim.fn.join({
 }, ',')
 
 vim.o.langremap = false
+vim.o.fileformats = 'unix,dos'
 
 -- MS Windows shenanigans
 if vim.uv.os_uname().sysname == 'win32' then
   vim.o.isfname = '@,48-57,/,.,-,_,+,,,#,$,%,~,=,(,),[,]'
-  vim.o.fileformats = 'unix,dos'
   vim.o.shellslash = true
   vim.o.completeslash = 'slash'
 end
