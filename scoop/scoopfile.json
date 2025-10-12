@@ -32,6 +32,10 @@
       "Source": "main"
     },
     {
+      "Name": "RobotoMono-NF",
+      "Source": "nerd-fonts"
+    },
+    {
       "Name": "age",
       "Source": "extras"
     },
@@ -44,16 +48,16 @@
       "Source": "main"
     },
     {
+      "Name": "bottom",
+      "Version": "0.10.2"
+    },
+    {
       "Name": "brename",
       "Source": "main"
     },
     {
       "Name": "broot",
       "Source": "main"
-    },
-    {
-      "Name": "bottom",
-      "Version": "0.10.2"
     },
     {
       "Name": "clangd",
@@ -72,12 +76,12 @@
       "Source": "main"
     },
     {
-      "Name": "dependencies",
-      "Source": "extras"
-    },
-    {
       "Name": "delta",
       "Source": "main"
+    },
+    {
+      "Name": "dependencies",
+      "Source": "extras"
     },
     {
       "Name": "eza",
@@ -96,20 +100,20 @@
       "Source": "main"
     },
     {
-      "Name": "gow",
-      "Source": "main"
-    },
-    {
       "Name": "git",
       "Source": "main"
     },
     {
-      "Name": "heroic-games-launcher",
-      "Source": "games"
+      "Name": "gow",
+      "Source": "main"
     },
     {
       "Name": "handle",
       "Source": "sysinternals"
+    },
+    {
+      "Name": "heroic-games-launcher",
+      "Source": "games"
     },
     {
       "Name": "innounp",
@@ -128,11 +132,11 @@
       "Source": "extras"
     },
     {
-      "Name": "musikcube",
+      "Name": "mupdf",
       "Source": "extras"
     },
     {
-      "Name": "mupdf",
+      "Name": "musikcube",
       "Source": "extras"
     },
     {
@@ -152,12 +156,12 @@
       "Source": "main"
     },
     {
-      "Name": "ntop",
-      "Source": "main"
-    },
-    {
       "Name": "nsis",
       "Source": "extras"
+    },
+    {
+      "Name": "ntop",
+      "Source": "main"
     },
     {
       "Name": "nu",
@@ -180,11 +184,11 @@
       "Source": "main"
     },
     {
-      "Name": "powertoys",
+      "Name": "pdftk-builder",
       "Source": "extras"
     },
     {
-      "Name": "pdftk-builder",
+      "Name": "powertoys",
       "Source": "extras"
     },
     {
@@ -200,11 +204,11 @@
       "Source": "main"
     },
     {
-      "Name": "RobotoMono-NF",
-      "Source": "nerd-fonts"
+      "Name": "scoop-search",
+      "Source": "main"
     },
     {
-      "Name": "scoop-search",
+      "Name": "sox",
       "Source": "main"
     },
     {
@@ -212,15 +216,7 @@
       "Source": "sysinternals"
     },
     {
-      "Name": "sox",
-      "Source": "main"
-    },
-    {
       "Name": "taskbarx",
-      "Source": "extras"
-    },
-    {
-      "Name": "telegram",
       "Source": "extras"
     },
     {
@@ -228,15 +224,23 @@
       "Source": "main"
     },
     {
-      "Name": "ttyper",
-      "Source": "main"
+      "Name": "telegram",
+      "Source": "extras"
+    },
+    {
+      "Name": "tgpt",
+      "Source": "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
     },
     {
       "Name": "tokei",
       "Source": "main"
     },
     {
-      "Name": "yt-dlp",
+      "Name": "ttyper",
+      "Source": "main"
+    },
+    {
+      "Name": "uv",
       "Source": "main"
     },
     {
@@ -252,12 +256,12 @@
       "Source": "extras"
     },
     {
-      "Name": "zoxide",
+      "Name": "yt-dlp",
       "Source": "main"
     },
     {
-      "Name": "tgpt",
-      "Source": "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
+      "Name": "zoxide",
+      "Source": "main"
     }
   ]
 }
