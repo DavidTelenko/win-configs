@@ -1,4 +1,5 @@
 return {
+  enable = false,
   'uga-rosa/ccc.nvim',
   keys = {
     { '<leader>p', '<cmd>CccPick<cr>', mode = 'n', desc = 'Pick color' },
