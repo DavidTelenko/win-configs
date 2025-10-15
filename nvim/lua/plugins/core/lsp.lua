@@ -17,7 +17,7 @@ local get_servers = function(context)
     },
     clangd = {},
     emmet_language_server = {},
-    -- gopls = {},
+    gopls = {},
     lua_ls = {
       settings = {
         Lua = {
