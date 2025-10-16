@@ -56,10 +56,11 @@ return {
         wrap_results = true,
         layout_config = {
           horizontal = {
-            height = 0.95,
-            -- preview_cutoff = 100,
             prompt_position = 'bottom',
-            width = 0.9,
+            width = { padding = 0 },
+            height = { padding = 0 },
+            preview_cutoff = 10,
+            preview_width = 0.4,
           },
         },
       },
