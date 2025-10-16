@@ -21,7 +21,7 @@ config.enable_tab_bar = true
 -- config.window_background_opacity = 0.8
 -- config.win32_system_backdrop = 'Acrylic'
 
-config.font = wezterm.font 'RobotoMono Nerd Font Mono'
+config.font = wezterm.font 'RobotoMono Nerd Font'
 config.font_size = 20
 
 config.window_padding = {
@@ -122,11 +122,18 @@ config.keys = {
     key = '@',
     mods = 'CTRL|SHIFT',
     action = act.SwitchToWorkspace {
-      name = 'lxp',
+      name = 'frontend',
     },
   },
   {
     key = '#',
+    mods = 'CTRL|SHIFT',
+    action = act.SwitchToWorkspace {
+      name = 'backend',
+    },
+  },
+  {
+    key = '$',
     mods = 'CTRL|SHIFT',
     action = act.SwitchToWorkspace {
       name = 'arch',
