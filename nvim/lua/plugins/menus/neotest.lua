@@ -11,11 +11,11 @@ return {
     'thenbe/neotest-playwright',
   },
   keys = {
-    { '<leader>tr', '<cmd>Neotest run <cr>', desc = 'Run nearest test' },
-    { '<leader>tl', '<cmd>Neotest run last<cr>', desc = 'Run Last test' },
-    { '<leader>tf', '<cmd>Neotest run file<cr>', desc = 'Run test File' },
+    { '<leader>Tr', '<cmd>Neotest run <cr>', desc = 'Run nearest test' },
+    { '<leader>Tl', '<cmd>Neotest run last<cr>', desc = 'Run Last test' },
+    { '<leader>Tf', '<cmd>Neotest run file<cr>', desc = 'Run test File' },
     {
-      '<leader>tt',
+      '<leader>Tt',
       '<cmd>Neotest run output-panel<cr>',
       desc = 'Toggle ouput panel',
     },

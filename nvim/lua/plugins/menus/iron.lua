@@ -14,7 +14,7 @@ return {
     { '<leader>iu', desc = 'Send Until Cursor' },
     { '<leader>iv', desc = 'Visual Send', mode = 'v' },
     { '<C-`>', desc = 'Open terminal' },
-    { '<leader>T', desc = 'Open terminal' },
+    { '<leader>t', desc = 'Open terminal' },
   },
   config = function()
     local iron = require 'iron.core'
@@ -25,7 +25,7 @@ return {
         scratch_repl = true,
         repl_definition = {
           typescript = {
-            command = { 'deno', 'repl' },
+            command = { 'deno', 'repl', '--allow-read' },
           },
           javascript = {
             command = { 'node' },
@@ -100,7 +100,7 @@ return {
       desc = 'Open terminal',
     })
 
-    vim.keymap.set('n', '<leader>T', toggle_repl, {
+    vim.keymap.set('n', '<leader>t', toggle_repl, {
       desc = 'Open terminal',
     })
   end,
