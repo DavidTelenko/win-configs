@@ -382,6 +382,7 @@ menuup
 metalink
 mfussenegger
 milkdrop
+mitchellh
 mkdp
 mklink
 mktemp
