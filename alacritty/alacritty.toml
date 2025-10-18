@@ -7,8 +7,8 @@ args = []
 
 [window]
 padding = { x = 10, y = 10 }
-dynamic_padding = true
-decorations = "Full"
+dynamic_padding = false
+decorations = "None"
 opacity = 1.0
 blur = false
 startup_mode = "Fullscreen"
@@ -21,7 +21,7 @@ multiplier = 3
 
 [font]
 normal = { family = "RobotoMono Nerd Font Mono" }
-size = 20
+size = 16
 
 [colors]
 [colors.primary]
@@ -49,8 +49,8 @@ cyan = "#8EC07C"
 white = "#EBDBB2"
 
 [general]
+# working_directory = "~"
 live_config_reload = true
-working_directory = "~"
 import = []
 
 [terminal]
