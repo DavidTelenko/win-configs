@@ -1,29 +1,16 @@
 # Win Configs
 
-This repo aims to create single simple source of all necessary system
-configuration file for all tools I need.
+This repo aims to create single simple source of all necessary system configuration file for all tools I need.
 
 It is constantly updating and is not a place familiar with stability.
 
-The future goal of this repo is to be reproducible on different operating
-systems. However for now this is not finished nor tested which is why sadly it
-only supports MS Windows (hence the name).
+The future goal of this repo is to be reproducible on different operating systems. However for now this is not finished nor tested which is why sadly it only supports MS Windows (hence the name).
 
 # What's inside
 
-The main guts of this repo mostly contains configs for `nushell` and `neovim`.
-As of today windows does not support most of the frequently used shells and I
-am not really a huge fun of WSL so I decided to use `nushell`. The downside of
-this approach is that `nushell` does not come with fresh windows system (and we
-assume this repo is being installed on a fresh system in the first place) so
-writing a cross-platform `nu` bootstrap script is not an option. Thus this repo
-only contains the `ps1` bootstrap and init scripts which are simple
-initialization scripts for downloading and installing all the necessary
-packages as well as creating all the necessary symlinks to all folders in this
-directory.
+The main guts of this repo mostly contains configs for `nushell` and `neovim`. As of today windows does not support most of the frequently used shells and I am not really a huge fun of WSL so I decided to use `nushell`. The downside of this approach is that `nushell` does not come with fresh windows system (and we assume this repo is being installed on a fresh system in the first place) so writing a cross-platform `nu` bootstrap script is not an option. Thus this repo only contains the `ps1` bootstrap and init scripts which are simple initialization scripts for downloading and installing all the necessary packages as well as creating all the necessary symlinks to all folders in this directory.
 
-The list of packages to be installed can be found in a
-[scoopfile](scoop/scoopfile.json)
+The list of packages to be installed can be found in a [scoopfile](scoop/scoopfile.json)
 
 Here the general list of configured packages:
 
@@ -78,16 +65,11 @@ Here the general list of configured packages:
 
 # Installation
 
-To bootstrap the system run the `bootstrap.ps1` script followed by `init.ps1`
-script with names of tools you wish to link.
+To bootstrap the system run the `bootstrap.ps1` script followed by `init.ps1` script with names of tools you wish to link.
 
-It's apparent that's a "chicken and an egg" problem may occur in the case of
-fresh system because the scoop is not yet installed however we need git in
-order to clone repo and run the bootstrap script.
+It's apparent that's a "chicken and an egg" problem may occur in the case of fresh system because the scoop is not yet installed however we need git in order to clone repo and run the bootstrap script.
 
-The simple solution is to first just download the script manually (or via web
-request) then run it and it will do all dirty typing for us (_The Chicken
-method_).
+The simple solution is to first just download the script manually (or via web request) then run it and it will do all dirty typing for us (_The Chicken method_).
 
 This method can be run like this
 
@@ -96,14 +78,10 @@ iex "& { $(iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/
 ```
 
 > [!NOTE]
-> If you want to skip some packages you can combine `-All` option with
-> the name of the package you want to skip installing configs for e.g `-Pwsh`
-> skips the powershell config completely.
+> If you want to skip some packages you can combine `-All` option with the name of the package you want to skip installing configs for e.g `-Pwsh` skips the powershell config completely.
 
 > [!NOTE]
-> If you want to only install some packages configs remove `-All` option and
-> invoke the script with only the names of the packages you want to configure
-> e.g passing only `-Pwsh` will configure only the powershell config for you.
+> If you want to only install some packages configs remove `-All` option and invoke the script with only the names of the packages you want to configure e.g passing only `-Pwsh` will configure only the powershell config for you.
 
 Another solution is to manually install scoop, clone repo and run bootstrap with
 a `-SkipScoop` parameter this will effectively do the same.
@@ -128,22 +106,15 @@ The names of the parameters for the [bootstrap.ps1](bootstrap.ps1) is the follow
 - `-Keymapper`
 - `-Kanata`
 
-If you left with some questions please take a look at a
-[bootstrap.ps1](bootstrap.ps1) documentation by invoking this command in
-powershell `help bootstrap.ps1` and `help bootstrap.ps1 -examples`
+If you left with some questions please take a look at a [bootstrap.ps1](bootstrap.ps1) documentation by invoking this command in powershell `help bootstrap.ps1` and `help bootstrap.ps1 -examples`
 
 # Notes
 
-- **Power Toys** - cannot be adequately configured using symlinks to its config
-  files so we just use their own manual system of backing up stuff
+- **Power Toys** - cannot be adequately configured using symlinks to its config files so we just use their own manual system of backing up stuff
 
-- **Windows Terminal** - its better not to sym or hard link config file to the
-  file in the config directory, after all its the terminal emulator and some
-  stuff tends to diverge in different computers, so this repo only contains
-  most general settings of my liking
+- **Windows Terminal** - its better not to sym or hard link config file to the file in the config directory, after all its the terminal emulator and some stuff tends to diverge in different computers, so this repo only contains most general settings of my liking
 
-- **Vimium** - it does not support any type of automated backup mechanic (as
-  far as I know) so it's the same as with powertoys - manual import.
+- **Vimium** - it does not support any type of automated backup mechanic (as far as I know) so it's the same as with powertoys - manual import.
 
 # Linux related configs
 
