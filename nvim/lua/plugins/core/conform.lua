@@ -8,7 +8,7 @@ return {
   config = function()
     local h = require 'helpers.general'
 
-    function setup()
+    local function setup()
       local js_ts_formatters = h.first {
         -- two under one require config means it's preferable to use both
         h.require_config { 'prettierd', 'eslint_d' },
@@ -18,7 +18,7 @@ return {
 
       local json_formatters = h.first {
         h.require_config 'biome',
-        'prettierd',
+        h.require_config 'prettierd',
       }
 
       ---@module "conform"
