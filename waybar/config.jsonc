@@ -1,22 +1,18 @@
 {
-  "backlight":
-  {
+  "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
-    "format-icons":
-    [
+    "format-icons": [
       "󰃞",
       "󰃟",
       "󰃠"
     ],
     "tooltip": false
   },
-  "battery":
-  {
+  "battery": {
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
-    "format-icons":
-    [
+    "format-icons": [
       "󰁺",
       "󰁻",
       "󰁼",
@@ -30,27 +26,23 @@
     ],
     "format-plugged": "󰂄 {capacity}%",
     "interval": 10,
-    "states":
-    {
+    "states": {
       "critical": 15,
       "good": 100,
       "warning": 30
     }
   },
-  "clock":
-  {
+  "clock": {
     "format": "{:%H:%M - %a %d}",
     "interval": 60,
     "tooltip-format": "{calendar}",
     "on-click": "gnome-clocks",
-    "calendar":
-    {
+    "calendar": {
       "mode": "month",
       "mode-mon-col": 3,
       "weeks-pos": "right",
       "on-scroll": 1,
-      "format":
-      {
+      "format": {
         "months": "<span color='#fabd2f'><b>{}</b></span>",
         "days": "<span color='#d3869b'><b>{}</b></span>",
         "weeks": "",
@@ -59,25 +51,21 @@
       }
     }
   },
-  "cpu":
-  {
+  "cpu": {
     "format": " {usage}%",
     "tooltip": false
   },
-  "custom/lock":
-  {
+  "custom/lock": {
     "format": "󰌾",
     "on-click": "kill -9 -1",
     "tooltip-format": "Lock"
   },
-  "custom/media":
-  {
+  "custom/media": {
     "escape": true,
-    "exec": "$HOME/.config/waybar/scripts/media-info.sh get",
-    "exec-if": "$HOME/.config/waybar/scripts/media-info.sh can",
-    "format": "{icon} {}",
-    "format-icons":
-    {
+    "exec": "$HOME/.config/waybar/scripts/media_info.sh get",
+    "exec-if": "$HOME/.config/waybar/scripts/media_info.sh can",
+    "format": "{icon} {text}",
+    "format-icons": {
       "paused": "",
       "playing": ""
     },
@@ -88,20 +76,17 @@
     "return-type": "json",
     "smooth-scrolling-threshold": 10
   },
-  "custom/power":
-  {
+  "custom/power": {
     "format": "",
     "on-click": "shutdown now",
     "tooltip-format": "Shutdown"
   },
-  "custom/reboot":
-  {
+  "custom/reboot": {
     "format": "󰜉",
     "on-click": "reboot",
     "tooltip-format": "Reboot"
   },
-  "custom/record":
-  {
+  "custom/record": {
     "exec": "$HOME/.config/hypr/scripts/screenshot.sh record-status",
     "format": "󰑊",
     "interval": "once",
@@ -110,27 +95,22 @@
     "signal": 1,
     "tooltip": false
   },
-  "custom/show-tray":
-  {
+  "custom/show-tray": {
     "format": "",
     "tooltip-format": "Tray"
   },
-  "custom/sleep":
-  {
+  "custom/sleep": {
     "format": "󰤄",
     "on-click": "systemctl suspend",
     "tooltip-format": "Sleep"
   },
-  "group/group-power":
-  {
-    "drawer":
-    {
+  "group/group-power": {
+    "drawer": {
       "children-class": "not-power",
       "transition-duration": 400,
       "transition-left-to-right": false
     },
-    "modules":
-    [
+    "modules": [
       "custom/power",
       "custom/sleep",
       "custom/lock",
@@ -138,51 +118,41 @@
     ],
     "orientation": "horizontal"
   },
-  "group/group-tray":
-  {
-    "drawer":
-    {
+  "group/group-tray": {
+    "drawer": {
       "children-class": "not-show-tray",
       "transition-duration": 400,
       "transition-left-to-right": true
     },
-    "modules":
-    [
+    "modules": [
       "custom/show-tray",
       "tray"
     ],
     "orientation": "horizontal"
   },
-  "hyprland/language":
-  {
+  "hyprland/language": {
     "format": " {short}"
   },
-  "hyprland/window":
-  {
+  "hyprland/window": {
     "max-length": 24
   },
-  "hyprland/workspaces":
-  {
+  "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "sort-by-number": true
   },
   "layer": "top",
-  "memory":
-  {
+  "memory": {
     "format": " {}%"
   },
-  "modules-center":
-  [
+  "modules-center": [
     "clock"
   ],
-  "modules-left":
-  [
+  "modules-left": [
     "hyprland/workspaces",
     "custom/media"
   ],
-  "modules-right":
-  [
+  "modules-right": [
     "group/group-tray",
     "custom/record",
     "pulseaudio",
@@ -192,8 +162,7 @@
     "hyprland/language",
     "group/group-power"
   ],
-  "network":
-  {
+  "network": {
     "format-disconnected": "󰣽",
     "format-ethernet": "󰀃 {ipaddr}/{cidr}",
     "format-linked": "󰀃 {ifname} (No IP)",
@@ -201,16 +170,13 @@
     "tooltip-format": "󰀃 {essid}: {ifname} via {gwaddr}"
   },
   "position": "top",
-  "pulseaudio":
-  {
+  "pulseaudio": {
     "format": "{icon} {volume}% {format_source}",
     "format-bluetooth": "{icon} {volume}% {format_source}",
     "format-bluetooth-muted": "{icon} {format_source}",
-    "format-icons":
-    {
+    "format-icons": {
       "car": "󰸜",
-      "default":
-      [
+      "default": [
         "",
         "",
         ""
@@ -230,13 +196,11 @@
     "tooltip": false
   },
   "reload_style_on_change": true,
-  "temperature":
-  {
+  "temperature": {
     "critical-threshold": 70,
     "format": "{icon} {temperatureC}󰔄",
     "format-critical": "{icon} {temperatureC}󰔄",
-    "format-icons":
-    [
+    "format-icons": [
       "",
       "",
       "",
@@ -246,8 +210,7 @@
     "thermal-zone": 4,
     "tooltip": false
   },
-  "tray":
-  {
+  "tray": {
     "spacing": 10
   }
 }

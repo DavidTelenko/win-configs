@@ -13,7 +13,7 @@ get() {
   local status="${status_upper,,}"
 
   if [[ $status == stopped ]]; then
-    echo "{ class="\"class\": \"stopped"\" }"
+    echo "{ "\"class\": \"stopped"\" }"
     return
   fi
 
@@ -26,8 +26,8 @@ get() {
     local current_position=$(playerctl -p $player metadata -f "{{ position }}")
     local total_length=$(playerctl -p $player metadata -f "{{ mpris:length }}")
 
-    local progress=$(echo $current_position $total_length \
-      | awk '{printf "%f", $1 / ($2 + 1) * 10}')
+    local progress=$(echo $current_position $total_length |
+      awk '{printf "%f", $1 / ($2 + 1) * 10}')
     progress=${progress%%.*}
 
     local class="\"class\": \"$status-$progress\""
@@ -36,9 +36,9 @@ get() {
   fi
 
   echo {\"text\": \"$artist_title\", \
-        \"alt\": \"$status\", \
-        \"tooltip\": "\"$title\n$artist\n$album\"", \
-        $class}
+    \"alt\": \"$status\", \
+    \"tooltip\": "\"$title\n$artist\n$album\"", \
+    $class}
 }
 
 can() {
