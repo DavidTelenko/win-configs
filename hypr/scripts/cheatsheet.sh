@@ -42,14 +42,14 @@ opened="$HOME/.config/hypr/scripts/data/cheatsheet_opened"
 
 if [[ ! -z $(cat $opened) ]]; then
   notify-send -t 1 -r 777 " " # just to close opened cheat sheet
-  echo "" > $opened
+  echo "" >$opened
   exit
 fi
 
-echo 1 > $opened
+echo 1 >$opened
 
 notify-send -t 0 -r 777 " 󰋗 Cheat Sheet $W$S/" \
-"""
+  """
  $(h  Manager)
  $(cmd $W X) - Close Window         $(cmd $W $T) - Open Windows List
  $(cmd $W F) - Fullscreen Window    $(cmd $W $R) - Launch Terminal
