@@ -146,15 +146,16 @@ vim.keymap.set('n', '<leader>rr', '"hyiw:%s/<C-r>h//g<left><left>', {
   desc = 'Replace word under cursor',
 })
 
--- Yank current file path to system buffer
+-- File / filepath related keymaps
 vim.keymap.set('n', '<leader>fy', function()
   vim.fn.setreg('*', vim.fn.expand '%:.')
 end, { desc = 'Yank path' })
 
--- Yank current file path to system buffer
 vim.keymap.set('n', '<leader>fh', function()
   vim.cmd 'TOhtml'
 end, { desc = 'To HTML' })
+
+vim.keymap.set('n', '<leader>fs', ':w !sudo tee %<cr>', { desc = 'Sudo save' })
 
 -- Focus current buffer
 vim.keymap.set('n', '<leader><cr>', function()

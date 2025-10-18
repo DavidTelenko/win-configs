@@ -29,11 +29,12 @@ return {
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
       callback = function(args)
         local buftype =
-            vim.api.nvim_get_option_value('buftype', { buf = args.buf })
+          vim.api.nvim_get_option_value('buftype', { buf = args.buf })
 
         if buftype == '' then
           lint.try_lint()
 
+          -- This does not seem to work
           if h.require_config 'cspell' then
             lint.try_lint 'cspell'
           end
