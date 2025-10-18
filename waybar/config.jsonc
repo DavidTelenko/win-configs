@@ -37,6 +37,7 @@
     "interval": 60,
     "tooltip-format": "{calendar}",
     "on-click": "gnome-clocks",
+    "locale": "en_GB",
     "calendar": {
       "mode": "month",
       "mode-mon-col": 3,
@@ -62,7 +63,7 @@
   },
   "custom/media": {
     "escape": true,
-    "exec": "$HOME/.config/waybar/scripts/media_info.sh get",
+    "exec": "$HOME/.config/waybar/scripts/media_info.sh get simple",
     "exec-if": "$HOME/.config/waybar/scripts/media_info.sh can",
     "format": "{icon} {text}",
     "format-icons": {

@@ -222,10 +222,11 @@ tooltip {
   background: rgba(0, 0, 0, 0);
   transition-property: all;
   transition-duration: 600ms;
+  padding: 0.25rem 0.8rem;
 }
 
 #custom-media:hover {
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 1.2rem;
 }
 
 #custom-media.playing {

@@ -55,9 +55,10 @@ notify-send -t 0 -r 777 " 󰋗 Cheat Sheet $W$S/" \
  $(cmd $W F) - Fullscreen Window    $(cmd $W $R) - Launch Terminal
  $(cmd $W R) - Open App Launcher    $(cmd $W $S P) - Launch Color Picker
  $(cmd $W C) - Open Clipboard Menu  $(cmd $W $S W) - Close All Notifications
- $(cmd $W W) - Toggle Bar           $(cmd $W $S /) - Toggle Cheat Sheet
+ $(cmd $W W) - Toggle Bar           $(cmd $W $C W) - Reload Bar
  $(cmd $W "$n") - Select $n Workspace
  $(cmd $W $S "$n") - Move Window to $n Workspace
+ $(cmd $W $S /) - Toggle Cheat Sheet
 
  $(h 󰍹 System)
  $(cmd $W M) - Mute Volume   $(purple $W $S M) - Mute Microphone
