@@ -74,7 +74,7 @@ The simple solution is to first just download the script manually (or via web re
 This method can be run like this
 
 ```powershell
-iex "& { $(iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/master/bootstrap.ps1) } -All"
+iex "& { $(iwr -useb https://raw.githubusercontent.com/DavidTelenko/win-configs/main/scripts/windows/bootstrap.ps1) } -All"
 ```
 
 > [!NOTE]
