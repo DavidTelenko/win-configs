@@ -13,6 +13,9 @@ musikcube/stderr.txt
 musikcube/session.json
 musikcube/playback.json
 
+cmus/*
+!cmus/rc
+
 wezterm/recent-commands.json
 wezterm/check_update
 
