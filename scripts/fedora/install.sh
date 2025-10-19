@@ -1,11 +1,10 @@
+#!/bin/bash
+
 # Should all of this be on per-package basis?
 
-config="$HOME/.config"
 rpm-fusion() {
   echo "https://download1.rpmfusion.org/$1/fedora/rpmfusion-$1-release-$(rpm -E %fedora).noarch.rpm"
 }
-
-# install step
 
 dnf install $(rpm-fusion free)
 dnf install $(rpm-fusion nonfree)
@@ -21,6 +20,7 @@ dnf install aria2c
 dnf install cmus
 dnf install discord
 dnf install dunst
+dnf install gh
 dnf install ghostty
 dnf install git
 dnf install go
@@ -40,6 +40,8 @@ dnf install slurp
 dnf install steam
 dnf install swww
 dnf install telegram-desktop
+dnf install tmux
+dnf install unar
 dnf install waybar
 dnf install wf-recorder
 dnf install wl-paste
@@ -53,26 +55,3 @@ cargo install zoxide
 cargo install hyprland-per-window-layout
 
 go install github.com/aandrew-me/tgpt/v2@latest
-
-# link step
-
-link() {
-  ln -s "./$1" "$config/$1"
-}
-
-link cmus
-link dunst
-link ghostty
-link mpv
-link nushell
-link nvim
-link rofi
-link ttyper
-link waybar
-
-cp -rf ./keyd /etc/keyd
-git config --global --add include.path "$(pwd)/git/.gitconfig"
-
-# systemctl
-
-sudo systemctl enable --now keyd

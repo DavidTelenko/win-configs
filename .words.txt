@@ -660,6 +660,7 @@ trunc
 ttyper
 uall
 ulauncher
+unar
 undercurl
 undofile
 undotree
