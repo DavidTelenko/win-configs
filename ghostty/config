@@ -1,4 +1,4 @@
-font-family = "RobotoMono Nerd Font"
+font-family = "RobotoMono Nerd Font Propo"
 font-size = 16
 theme = "GruvboxDark"
 background = 000000
@@ -14,3 +14,5 @@ keybind = "ctrl+shift+u=scroll_page_up"
 keybind = "ctrl+shift+d=scroll_page_down"
 keybind = "ctrl+shift+j=scroll_page_lines:3"
 keybind = "ctrl+shift+k=scroll_page_lines:-3"
+keybind = "ctrl+shift+bracket_left=move_tab:-1"
+keybind = "ctrl+shift+bracket_right=move_tab:1"
