@@ -127,7 +127,3 @@ try-init {
 try-init {
     oh-my-posh init nu --config ([$configDir, oh-my-posh, themes, my.omp.toml] | path join)
 } oh-my-posh
-
-try-init {
-    broot --print-shell-function nushell | save -f ~/.broot.nu
-} broot

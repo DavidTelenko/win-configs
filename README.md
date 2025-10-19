@@ -118,7 +118,7 @@ If you left with some questions please take a look at a [bootstrap.ps1](bootstra
 
 # Linux related configs
 
-In the future this needs to be listed in [ansible config](https://docs.ansible.com/ansible/latest/index.html)
+Still under construction, I have a [todo](https://github.com/DavidTelenko/markdowned/blob/main/todo/linux.md) which I just follow manually. At some point, I'll spend a day or two cooking up a single `init.sh` working for both arch and fedora based distros and OS windows.
 
 - [Dunst](https://github.com/dunst-project/dunst)
 - [Rofi](https://github.com/davatorium/rofi)
@@ -126,6 +126,7 @@ In the future this needs to be listed in [ansible config](https://docs.ansible.c
 - [Hyprland](https://hyprland.org/)
 - [Keyd](https://github.com/rvaiya/keyd)
 - [Ghostty](https://github.com/mitchellh/ghostty)
+- [Swww](https://github.com/LGFae/swww)
 
 ## Notes
 

@@ -117,6 +117,7 @@ conceallevel
 conig
 connrefused
 copen
+copr
 coreutils
 cortana
 cppdbg
@@ -553,6 +554,7 @@ rtmin
 rulebook
 rundll
 rustc
+rustup
 saadparwaiz
 sasl
 schannel
