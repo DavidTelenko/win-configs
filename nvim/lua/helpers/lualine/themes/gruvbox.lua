@@ -2,8 +2,7 @@ local colors = {
   dark0_hard = '#1d2021',
   dark0 = '#282828',
   dark0_soft = '#32302f',
-  dark1 = '#000000',
-  -- dark1 = '#3c3836',
+  dark1 = '#3c3836',
   dark2 = '#504945',
   dark3 = '#665c54',
   dark4 = '#7c6f64',
@@ -60,31 +59,31 @@ return {
   normal = {
     a = { bg = colors.light2, fg = colors.dark0, gui = 'bold' },
     b = { bg = colors.dark0, fg = colors.light2 },
-    c = { bg = colors.dark1, fg = colors.light1 },
+    c = { bg = colors.dark1, fg = colors.light3 },
   },
   insert = {
     a = { bg = colors.bright_blue, fg = colors.dark0, gui = 'bold' },
     b = { bg = colors.dark0, fg = colors.light2 },
-    c = { bg = colors.dark1, fg = colors.light2 },
+    c = { bg = colors.dark1, fg = colors.light1 },
   },
   visual = {
     a = { bg = colors.bright_yellow, fg = colors.dark0, gui = 'bold' },
     b = { bg = colors.dark0, fg = colors.light2 },
-    c = { bg = colors.dark1, fg = colors.light2 },
+    c = { bg = colors.dark1, fg = colors.light1 },
   },
   replace = {
     a = { bg = colors.bright_red, fg = colors.dark0, gui = 'bold' },
     b = { bg = colors.dark0, fg = colors.light2 },
-    c = { bg = colors.dark1, fg = colors.light2 },
+    c = { bg = colors.dark1, fg = colors.light1 },
   },
   command = {
     a = { bg = colors.bright_green, fg = colors.dark0, gui = 'bold' },
     b = { bg = colors.dark0, fg = colors.light2 },
-    c = { bg = colors.dark1, fg = colors.light2 },
+    c = { bg = colors.dark4, fg = colors.dark0 },
   },
   inactive = {
     a = { bg = colors.dark0, fg = colors.gray, gui = 'bold' },
     b = { bg = colors.dark0, fg = colors.gray },
-    c = { bg = colors.dark1, fg = colors.gray },
+    c = { bg = colors.dark0, fg = colors.gray },
   },
 }
