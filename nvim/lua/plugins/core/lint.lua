@@ -34,8 +34,7 @@ return {
         if buftype == '' then
           lint.try_lint()
 
-          -- This does not seem to work
-          if h.require_config 'cspell' then
+          if not vim.tbl_isempty(h.require_config 'cspell') then
             lint.try_lint 'cspell'
           end
         end
