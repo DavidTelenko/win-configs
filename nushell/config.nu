@@ -762,16 +762,14 @@ $env.config = {
     ]
 }
 
-# const completions = ([$nushellDir, completions] | path join)
-# const welcomeBanner = ([$nushellDir, welcome-banner.txt] | path join)
-
 use './dirs.nu' *
-
+# const welcomeBanner = ([$nushellDir, welcome-banner.txt] | path join)
 const zoxide = [$localVendor, zoxide.nu] | path join
+
 source $zoxide
 source $aliases
 
-# use $completions *;
+# use $completions *
 use $modules *
 
 # let banner = open $welcomeBanner
