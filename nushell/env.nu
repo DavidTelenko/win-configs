@@ -105,8 +105,7 @@ if $nu.os-info.family != "windows" {
     $env.TERM = 'xterm-256color'
 }
 
-const nushellDir = ($nu.config-path | path parse).parent
-const configDir = ($nushellDir | path parse).parent
+use './dirs.nu' *
 
 def try-init [cmd, util] {
     try {
@@ -121,9 +120,15 @@ try-init {
 } vivid
 
 try-init {
-    zoxide init nushell | save -f ~/.zoxide.nu
+    zoxide init nushell | save -f ([$localVendor, zoxide.nu] | path join)
 } zoxide
 
-try-init {
-    oh-my-posh init nu --config ([$configDir, oh-my-posh, themes, my.omp.toml] | path join)
-} oh-my-posh
+const out = [$localVendor, omp.nu] | path join
+rm -f $out
+
+if not ("TERM_PROGRAM" in $env) or $env.TERM_PROGRAM != 'WezTerm' {
+    const theme = [$configDir, oh-my-posh, themes, my.omp.toml] | path join
+    try-init {
+        oh-my-posh init nu --eval --config $theme | save -f $out
+    } oh-my-posh
+}

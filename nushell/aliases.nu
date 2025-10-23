@@ -1,7 +1,5 @@
 # cspell: disable
-const nushellDir = ($nu.config-path | path parse).parent
-const configDir = ($nushellDir | path parse).parent
-const modules = [$nushellDir, modules] | path join
+use './dirs.nu' *
 
 const core = [$modules, core.nu] | path join
 const pc = [$modules, pc.nu] | path join
@@ -11,17 +9,13 @@ use $pc
 
 let platform_dirs = ($nu.os-info.family | if $in == "windows" {{
     data: $env.LOCALAPPDATA
-    home: ([$env.HOMEDRIVE, $env.HOMEPATH] | path join)
-    temp: $env.TEMP
 }} else {{
-    data: ([$env.HOME, '.local', 'share'] | path join)
-    home: $env.HOME
-    temp: '/tmp'
+    data: ([$nu.home-path, '.local', 'share'] | path join)
 }})
 
 let dirs = $platform_dirs
     | insert videos {
-        try { $env.VIDEOSDIR } catch { "D:/Videos" }
+        try { $env.VIDEOSDIR } catch { [$nu.home-path, Videos] | path join}
     }
 
 def grid-ls [] {
@@ -70,7 +64,7 @@ def search-kill [processName: string] {
 }
 
 def translate [word: string] {
-    [$dirs.home, Documents, Utility, Dictionaries, eng-rus.txt]
+    [$nu.home-path, Documents, Utility, Dictionaries, eng-rus.txt]
     | path join
     | open $in
     | rg $word
@@ -92,7 +86,7 @@ def search-url [...query: string] {
 }
 
 def record-screen [] {
-    let captures_dir = [$dirs.videos, "Captures"] | path join
+    let captures_dir = [$dirs.videos, Captures] | path join
 
     mkdir $captures_dir # create if not exist
 
@@ -130,7 +124,7 @@ def wiztree-pic [
     --width: number = 1920,
     --height: number = 1080,
 ] {
-    let dest_png = [$dirs.temp, "wiztree_tmp.png"] | path join
+    let dest_png = [$nu.temp-path, "wiztree_tmp.png"] | path join
     try { rm $dest_png }
 
     (wiztree $"($destination | default pwd)"
@@ -167,7 +161,7 @@ def clean-shada [--older: duration = 1wk] {
 }
 
 def clean-pwd [--older: duration = 1wk] { clean-dir $"(pwd)" --older $older }
-def clean-tmp [--older: duration = 1day] { clean-dir $dirs.temp --older $older }
+def clean-tmp [--older: duration = 1day] { clean-dir $nu.temp-path --older $older }
 
 def restart [processName: string] {
     search-kill $processName | if $in == 0 {
@@ -175,8 +169,8 @@ def restart [processName: string] {
     }
 }
 
-alias todo = open_nvim [$dirs.home, Documents, Markdowned, Todo]
-alias mark = open_nvim [$dirs.home, Documents, Markdowned]
+alias todo = open_nvim [$nu.home-path, Documents, Markdowned, Todo]
+alias mark = open_nvim [$nu.home-path, Documents, Markdowned]
 
 alias cal = cal --week-start mo
 alias ffmpeg = ffmpeg -hide_banner
