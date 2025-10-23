@@ -169,6 +169,26 @@ def restart [processName: string] {
     }
 }
 
+def imgcat [] {
+  if (is-wezterm) {
+    $in | wezterm imgcat
+    return
+  }
+
+  if (is-kitty) {
+    $in | kitten icat
+    return
+  }
+
+  $in | ^imgcat
+}
+
+def "from gif"  [] { imgcat }
+def "from jpeg" [] { imgcat }
+def "from jpg"  [] { imgcat }
+def "from png"  [] { imgcat }
+def "from webp" [] { imgcat }
+
 alias todo = open_nvim [$nu.home-path, Documents, Markdowned, Todo]
 alias mark = open_nvim [$nu.home-path, Documents, Markdowned]
 
