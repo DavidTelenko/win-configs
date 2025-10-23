@@ -106,6 +106,8 @@ if $nu.os-info.family != "windows" {
 }
 
 use './dirs.nu' *
+const core = [$modules, core.nu] | path join
+use $core *
 
 def try-init [cmd, util] {
     try {
@@ -126,7 +128,7 @@ try-init {
 const out = [$localVendor, omp.nu] | path join
 rm -f $out
 
-if not ("TERM_PROGRAM" in $env) or $env.TERM_PROGRAM != 'WezTerm' {
+if not (is-wezterm) {
     const theme = [$configDir, oh-my-posh, themes, my.omp.toml] | path join
     try-init {
         oh-my-posh init nu --eval --config $theme | save -f $out
