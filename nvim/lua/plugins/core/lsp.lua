@@ -1,10 +1,9 @@
 ---@return table<string,vim.lsp.Config>
 local get_servers = function(context)
   return {
-    -- jdtls = {},         -- java
-    ols = {}, -- odin
+    ols = {},
     bashls = {},
-    -- pyright = {},       -- python
+    pyright = {},
     html = {
       filetypes = {
         'html',
@@ -18,6 +17,16 @@ local get_servers = function(context)
     clangd = {},
     emmet_language_server = {},
     gopls = {},
+    jdtls = {
+      -- TODO: I may want to use JDTLS_JVM_ARGS env var instead
+      cmd = vim.list_extend(
+        vim.lsp.config['jdtls'].cmd, ---@diagnostic disable-line: param-type-mismatch
+        {
+          '--jvm-arg=-javaagent:'
+            .. vim.fn.expand '$MASON/share/jdtls/lombok.jar',
+        }
+      ),
+    },
     lua_ls = {
       settings = {
         Lua = {
@@ -293,13 +302,13 @@ return {
 
       for name, config in pairs(all_servers) do
         vim.lsp.enable(name)
-        vim.lsp.config(name, {
-          capabilities = capabilities,
-          settings = config.settings,
-          on_attach = on_attach,
-          cmd = config.cmd,
-          filetypes = config.filetypes,
-        })
+        vim.lsp.config(
+          name,
+          vim.tbl_deep_extend('force', vim.lsp.config[name], config, {
+            on_attach = on_attach,
+            capabilities = capabilities,
+          })
+        )
       end
     end,
   },
