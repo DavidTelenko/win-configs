@@ -20,6 +20,7 @@ return {
         svelte = js_ts_linters,
         typescript = js_ts_linters,
         typescriptreact = js_ts_linters,
+        markdown = { 'cspell' },
       }
     end
 
@@ -32,9 +33,12 @@ return {
           vim.api.nvim_get_option_value('buftype', { buf = args.buf })
 
         if buftype == '' then
-          lint.try_lint()
+          local linter = lint.try_lint()
 
-          if not vim.tbl_isempty(h.require_config 'cspell') then
+          if
+            linter ~= 'cspell'
+            and not vim.tbl_isempty(h.require_config 'cspell')
+          then
             lint.try_lint 'cspell'
           end
         end
