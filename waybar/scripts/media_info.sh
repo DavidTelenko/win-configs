@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Requires: playerctl, ~/.config/hypr/scripts/player_manager.sh
 

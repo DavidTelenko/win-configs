@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Requires: playerctl
+# TODO: use `read` instead of `cat`
 
 state_file="$HOME/.config/hypr/scripts/data/player_state"
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 red() {
   echo "<span color='#fb4934'>$@</span>"
 }
