@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 fonts="$HOME/.local/share/fonts"
 font="RobotoMono"

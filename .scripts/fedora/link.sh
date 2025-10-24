@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 link() {
   echo "link $HOME/.config/$1 -> $(pwd)/$1"
