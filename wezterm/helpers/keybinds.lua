@@ -3,7 +3,7 @@ local M = {}
 local wezterm = require 'wezterm' --[[@as Wezterm]]
 local act = wezterm.action
 
-M.move_tab = wezterm.action_callback(function(window, pane)
+M.spawn_next_tab = wezterm.action_callback(function(window, pane)
   local mux_window = window:mux_window()
 
   local tabs = mux_window:tabs_with_info()

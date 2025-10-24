@@ -82,9 +82,19 @@ config.keys = {
     action = keybinds.new_workspace,
   },
   {
+    key = '{',
+    mods = 'CTRL|SHIFT',
+    action = act.MoveTabRelative(-1),
+  },
+  {
+    key = '}',
+    mods = 'CTRL|SHIFT',
+    action = act.MoveTabRelative(1),
+  },
+  {
     key = 't',
     mods = 'CTRL|SHIFT',
-    action = keybinds.move_tab,
+    action = keybinds.spawn_next_tab,
   },
   {
     key = 'Q',
@@ -119,21 +129,7 @@ config.keys = {
     },
   },
   {
-    key = '@',
-    mods = 'CTRL|SHIFT',
-    action = act.SwitchToWorkspace {
-      name = 'frontend',
-    },
-  },
-  {
-    key = '#',
-    mods = 'CTRL|SHIFT',
-    action = act.SwitchToWorkspace {
-      name = 'backend',
-    },
-  },
-  {
-    key = '$',
+    key = ')',
     mods = 'CTRL|SHIFT',
     action = act.SwitchToWorkspace {
       name = 'arch',
@@ -146,11 +142,23 @@ config.keys = {
   },
 }
 
+-- Switch to tab on Alt+<n>
 for i = 0, 8 do
   table.insert(config.keys, {
     key = tostring(i + 1),
     mods = 'ALT',
     action = act.ActivateTab(i),
+  })
+end
+
+-- Rest of the workspaces will be just numbers
+for i, key in ipairs { '@', '#', '$', '%', '^', '&', '*' } do
+  table.insert(config.keys, {
+    key = key,
+    mods = 'CTRL|SHIFT',
+    action = act.SwitchToWorkspace {
+      name = tostring(i + 1),
+    },
   })
 end
 
