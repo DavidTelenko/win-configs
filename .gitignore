@@ -21,3 +21,5 @@ wezterm/check_update
 
 hypr/scripts/data/player_state
 hypr/scripts/data/cheatsheet_opened
+
+.env

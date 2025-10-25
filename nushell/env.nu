@@ -106,6 +106,21 @@ if $nu.os-info.family != "windows" {
 }
 
 use './dirs.nu' *
+
+[$configDir .env]
+| path join
+| if ($in | path exists) {
+    $in
+    | open --raw
+    | lines
+    | if not ($in | is-empty) {
+        $in
+        | each { split row '=' | { $in.0: $in.1 } }
+        | reduce { |it| merge $it }
+        | load-env
+    }
+}
+
 const core = [$modules, core.nu] | path join
 use $core *
 
