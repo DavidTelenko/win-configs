@@ -31,9 +31,13 @@ export def retry [
 }
 
 export def is-wezterm [] {
-  ("TERM_PROGRAM" in $env) and $env.TERM_PROGRAM == 'WezTerm'
+    ("TERM_PROGRAM" in $env) and $env.TERM_PROGRAM == 'WezTerm'
 }
 
 export def is-kitty [] {
-  "KITTY_WINDOW_ID" in $env
+    "KITTY_WINDOW_ID" in $env
+}
+
+export def is-windows [] {
+    $nu.os-info.family == "windows"
 }

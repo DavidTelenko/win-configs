@@ -1,3 +1,16 @@
+use './dirs.nu' *
+const core = [$modules, core.nu] | path join
+
+use $core *
+
+def read-lines [path: string] {
+    [$configDir $path]
+    | path join
+    | if ($in | path exists) {
+        $in | open --raw | lines
+    }
+}
+
 $env.PROMPT_COMMAND = {||
     let dir = $env.PWD | path split | if (
         $in | zip ($nu.home-path | path split) | all { $in.0 == $in.1 }
@@ -38,23 +51,11 @@ $env.PROMPT_COMMAND_RIGHT = {||
     ] | flatten | str join
 }
 
-# The prompt indicators are environmental variables that represent
-# the state of the prompt
-# $env.PROMPT_INDICATOR = {|| "> " }
-# $env.PROMPT_INDICATOR_VI_INSERT = {|| ": " }
-# $env.PROMPT_INDICATOR_VI_NORMAL = {|| "> " }
-# $env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }
-
 $env.PROMPT_INDICATOR = {|| "" }
 $env.PROMPT_INDICATOR_VI_INSERT = {|| "" }
 $env.PROMPT_INDICATOR_VI_NORMAL = {|| "" }
 $env.PROMPT_MULTILINE_INDICATOR = {|| "" }
 
-# If you want previously entered commands to have a different prompt from the usual one,
-# you can uncomment one or more of the following lines.
-# This can be useful if you have a 2-line prompt and it's taking up a lot of space
-# because every command entered takes up 2 lines instead of 1. You can then uncomment
-# the line below so that previously entered commands show with a single `🚀`.
 $env.TRANSIENT_PROMPT_COMMAND = {|| "> " }
 $env.TRANSIENT_PROMPT_INDICATOR = {|| "" }
 $env.TRANSIENT_PROMPT_INDICATOR_VI_INSERT = {|| "" }
@@ -89,9 +90,17 @@ $env.NU_PLUGIN_DIRS = [
     ($nu.default-config-dir | path join 'plugins') # add <nushell-config-dir>/plugins
 ]
 
+read-lines '.env'
+| if not ($in | is-empty) {
+    $in
+    | each { split row '=' | { $in.0: $in.1 } }
+    | reduce { |it| merge $it }
+    | load-env
+}
+
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
-if $nu.os-info.family != "windows" {
+if not (is-windows) {
     $env.PATH = ($env.PATH | split row (char esep)
         | prepend $'($env.HOME)/bin'
         | prepend $'($env.HOME)/.local/bin'
@@ -99,30 +108,16 @@ if $nu.os-info.family != "windows" {
         | prepend $'($env.HOME)/.cargo/bin'
         | prepend $'($env.HOME)/go/bin'
         | prepend $'($env.HOME)/.spicetify'
+        | prepend (read-lines '.path')
         | uniq
     )
 } else {
     $env.TERM = 'xterm-256color'
+    $env.Path = ($env.Path | split row (char esep)
+        | prepend (read-lines '.path')
+        | uniq
+    )
 }
-
-use './dirs.nu' *
-
-[$configDir .env]
-| path join
-| if ($in | path exists) {
-    $in
-    | open --raw
-    | lines
-    | if not ($in | is-empty) {
-        $in
-        | each { split row '=' | { $in.0: $in.1 } }
-        | reduce { |it| merge $it }
-        | load-env
-    }
-}
-
-const core = [$modules, core.nu] | path join
-use $core *
 
 def try-init [cmd, util] {
     try {
