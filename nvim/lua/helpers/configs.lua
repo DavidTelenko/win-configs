@@ -31,18 +31,19 @@ M.prettierd = {
 }
 
 M.cspell = {
-  '.cspell.json',
-  '.cspell.json',
-  'cspell.json',
   '.cSpell.json',
+  '.cspell.json',
+  '.cspell.yaml',
+  '.cspell.yml',
   'cSpell.json',
-  'cspell.config.mjs',
-  'cspell.config.js',
   'cspell.config.cjs',
+  'cspell.config.js',
   'cspell.config.json',
+  'cspell.config.mjs',
+  'cspell.config.toml',
   'cspell.config.yaml',
   'cspell.config.yml',
-  'cspell.config.toml',
+  'cspell.json',
   'cspell.yaml',
   'cspell.yml',
 }
