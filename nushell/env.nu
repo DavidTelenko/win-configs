@@ -7,7 +7,10 @@ def read-lines [path: string] {
     [$configDir $path]
     | path join
     | if ($in | path exists) {
-        $in | open --raw | lines
+        $in
+        | open --raw
+        | lines
+        | where { $in !~ '^ *#.+$' }
     }
 }
 
