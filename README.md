@@ -1,4 +1,4 @@
-# Win Configs
+# Configs
 
 This repo aims to create single simple source of all necessary system configuration file for all tools I need.
 
