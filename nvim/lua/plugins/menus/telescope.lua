@@ -9,8 +9,8 @@ return {
     { '<leader>sG', desc = 'By grep with args' },
     { '<leader>sH', desc = 'Hidden' },
     { '<leader>sa', desc = 'Git stash' },
-    { '<leader>sB', desc = 'Existing buffers' },
-    { '<leader>sb', desc = 'Git branches' },
+    { '<leader>sb', desc = 'Existing buffers' },
+    { '<leader>sB', desc = 'Git branches' },
     { '<leader>sc', desc = 'Git commits' },
     { '<leader>sd', desc = 'Diagnostics' },
     { '<leader>se', desc = 'Errors' },
@@ -119,7 +119,7 @@ return {
       desc = 'Recently opened files',
     })
 
-    vim.keymap.set('n', '<leader>sB', builtin.buffers, {
+    vim.keymap.set('n', '<leader>sb', builtin.buffers, {
       desc = 'Existing buffers',
     })
 
@@ -190,7 +190,7 @@ return {
       desc = 'Git commits',
     })
 
-    vim.keymap.set('n', '<leader>sb', builtin.git_branches, {
+    vim.keymap.set('n', '<leader>sB', builtin.git_branches, {
       desc = 'Git branches',
     })
 
