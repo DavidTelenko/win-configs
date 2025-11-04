@@ -33,5 +33,8 @@ return {
     vim.keymap.set({ 'o', 'x' }, 'as', function()
       objs.subword 'outer'
     end, { remap = true, desc = 'outer subword' })
+
+    vim.keymap.set({ 'o', 'x' }, 'ij', ':<c-u>norm viq<cr>')
+    vim.keymap.set({ 'o', 'x' }, 'aj', ':<c-u>norm vaq<cr>')
   end,
 }

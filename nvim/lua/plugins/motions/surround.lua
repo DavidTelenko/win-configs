@@ -16,6 +16,9 @@ return {
       keymaps = {
         visual = 's',
       },
+      aliases = {
+        ['j'] = { '"', "'", '`' },
+      },
       surrounds = {
         c = {
           add = function()
