@@ -769,7 +769,7 @@ const zoxide = [$localVendor, zoxide.nu] | path join
 source $zoxide
 source $aliases
 
-# use $completions *
+use $completions *
 use $modules *
 
 # let banner = open $welcomeBanner
