@@ -11,22 +11,22 @@ local get_servers = function(context)
         'hbs',
       },
     },
-    elixirls = {
-      cmd = { 'elixir-ls' },
-    },
+    -- elixirls = {
+    --   cmd = { 'elixir-ls' },
+    -- },
     clangd = {},
     emmet_language_server = {},
     gopls = {},
-    jdtls = {
-      -- TODO: I may want to use JDTLS_JVM_ARGS env var instead
-      cmd = vim.list_extend(
-        vim.lsp.config['jdtls'].cmd, ---@diagnostic disable-line: param-type-mismatch
-        {
-          '--jvm-arg=-javaagent:'
-            .. vim.fn.expand '$MASON/share/jdtls/lombok.jar',
-        }
-      ),
-    },
+    -- jdtls = {
+    --   -- TODO: I may want to use JDTLS_JVM_ARGS env var instead
+    --   cmd = vim.list_extend(
+    --     vim.lsp.config['jdtls'].cmd, ---@diagnostic disable-line: param-type-mismatch
+    --     {
+    --       '--jvm-arg=-javaagent:'
+    --         .. vim.fn.expand '$MASON/share/jdtls/lombok.jar',
+    --     }
+    --   ),
+    -- },
     lua_ls = {
       settings = {
         Lua = {
@@ -49,23 +49,11 @@ local get_servers = function(context)
     rust_analyzer = {},
     svelte = {},
     tailwindcss = {},
-    ts_ls = {
-      settings = {
-        typescript = {
-          inlayHints = {
-            includeInlayParameterNameHints = 'all',
-            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-          },
-        },
-      },
-    },
-    -- kotlin_language_server = {},
+    -- biome = {},
+    -- tsgo = {},
+    -- ts_ls = {},
     -- vtsls = {},
+    -- kotlin_language_server = {},
     jsonls = {
       settings = {
         json = {
@@ -171,13 +159,12 @@ return {
     'neovim/nvim-lspconfig',
     event = 'VeryLazy',
     config = function()
-      local telescope = require 'telescope.builtin'
       local mason_lspconfig = require 'mason-lspconfig'
       local helpers = require 'helpers.lsp'
 
       vim.keymap.set('n', '<leader>cI', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
-      end, { desc = 'Enable Inline hints' })
+      end, { desc = 'Toggle inlay hints' })
 
       vim.keymap.set('n', '<leader>cd', vim.diagnostic.setqflist, {
         desc = 'Open diagnostics list',
@@ -222,60 +209,6 @@ return {
         },
       }
 
-      --  This function gets run when an LSP connects to a particular buffer.
-      local on_attach = function(_, buf)
-        local nmap = function(keys, func, desc)
-          if desc then
-            desc = 'LSP: ' .. desc
-          end
-
-          vim.keymap.set('n', keys, func, { buffer = buf, desc = desc })
-        end
-
-        nmap('<leader>rn', vim.lsp.buf.rename, 'Rename')
-        nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
-
-        nmap('gd', telescope.lsp_definitions, 'Goto Definition')
-        nmap('gr', telescope.lsp_references, 'Goto References')
-        nmap('gI', telescope.lsp_implementations, 'Goto Implementation')
-
-        nmap('<leader>D', telescope.lsp_type_definitions, 'Type Definition')
-        nmap('<leader>ss', telescope.lsp_document_symbols, 'Document Symbols')
-        nmap(
-          '<leader>ws',
-          telescope.lsp_dynamic_workspace_symbols,
-          'Workspace Symbols'
-        )
-
-        nmap('K', function()
-          vim.lsp.buf.hover { border = 'rounded' }
-        end, 'Hover Documentation')
-
-        nmap('gK', function()
-          vim.lsp.buf.signature_help { border = 'rounded' }
-        end, 'Signature Documentation')
-
-        -- Lesser used LSP functionality
-        nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
-        nmap(
-          '<leader>wa',
-          vim.lsp.buf.add_workspace_folder,
-          'Workspace Add Folder'
-        )
-        nmap(
-          '<leader>wr',
-          vim.lsp.buf.remove_workspace_folder,
-          'Workspace Remove Folder'
-        )
-        nmap('<leader>wl', function()
-          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, 'Workspace List Folders')
-
-        vim.api.nvim_buf_create_user_command(buf, 'LspFormat', function()
-          vim.lsp.buf.format()
-        end, { desc = 'Format current buffer with LSP' })
-      end
-
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -305,7 +238,7 @@ return {
         vim.lsp.config(
           name,
           vim.tbl_deep_extend('force', vim.lsp.config[name], config, {
-            on_attach = on_attach,
+            on_attach = require('configs.keymaps').on_attach,
             capabilities = capabilities,
           })
         )
