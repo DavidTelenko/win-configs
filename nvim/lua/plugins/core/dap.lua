@@ -19,16 +19,6 @@ return {
       local dap = require 'dap'
       local dapui = require 'dapui'
 
-      local js_ts_configs = {
-        {
-          type = 'pwa-node',
-          request = 'attach',
-          name = 'Attach',
-          processId = require('dap.utils').pick_process,
-          cwd = '${workspaceFolder}',
-        },
-      }
-
       require('mason-nvim-dap').setup {
         automatic_setup = true,
         automatic_installation = true,
@@ -50,11 +40,6 @@ return {
             end
             require('mason-nvim-dap').default_setup(config)
           end,
-
-          typescriptreact = js_ts_configs,
-          javascriptreact = js_ts_configs,
-          typescript = js_ts_configs,
-          javascript = js_ts_configs,
 
           python = function(config)
             config.adapters = {
@@ -88,6 +73,56 @@ return {
           -- 'delve',
         },
       }
+
+      dap.adapters['pwa-node'] = {
+        type = 'server',
+        host = 'localhost',
+        port = '${port}',
+        executable = {
+          detached = false,
+          command = vim.fn.stdpath 'data' .. '/mason/bin/js-debug-adapter.cmd',
+          args = { '${port}' },
+        },
+      }
+
+      for _, language in ipairs {
+        'typescript',
+        'typescriptreact',
+        'javascript',
+        'javascriptreact',
+      } do
+        require('dap').configurations[language] = {
+          {
+            type = 'pwa-node',
+            request = 'launch',
+            name = 'Launch file',
+            program = '${file}',
+            cwd = '${workspaceFolder}',
+          },
+          {
+            type = 'pwa-node',
+            request = 'attach',
+            name = 'Attach',
+            processId = require('dap.utils').pick_process,
+            cwd = '${workspaceFolder}',
+          },
+          {
+            type = 'pwa-node',
+            request = 'launch',
+            name = 'Debug Jest Tests',
+            -- trace = true, -- include debugger info
+            runtimeExecutable = 'node',
+            runtimeArgs = {
+              './node_modules/jest/bin/jest.js',
+              '--runInBand',
+            },
+            rootPath = '${workspaceFolder}',
+            cwd = '${workspaceFolder}',
+            console = 'integratedTerminal',
+            internalConsoleOptions = 'neverOpen',
+          },
+        }
+      end
 
       vim.keymap.set('n', '<leader>di', dap.step_into, {
         desc = 'Step Into',
