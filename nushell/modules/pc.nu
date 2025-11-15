@@ -172,6 +172,27 @@ export def snooze [] { impl snooze }
 # Restars computer to bios
 export def bios [] { impl bios }
 
+# Sends notification
+export def notify [
+    message: string
+] {
+    use speak.nu;
+    use std;
+
+    speak $message
+
+    (
+        ffplay
+        -loglevel quiet
+        -fs
+        -noborder
+        -alwaysontop
+        -loop 10
+        -volume 30
+        $env.NOTIFICATION_AUDIO
+    )
+}
+
 # Sets volume to desired value
 export def "volume set" [
     value: float,

@@ -22,10 +22,12 @@ def grid-ls [] {
     ls | sort-by type name -i | grid -c
 }
 
-# alias backup-clear = clear
-# def clear [] {
-#     backup-clear --keep-scrollback
-# }
+def timer [
+    time: duration
+] {
+    sleep $time;
+    pc notify $"your ($time) timer is up";
+}
 
 # weird shenanigan but aliasing 'scoop search' directly to 'scoop-search' makes
 # it search the word 'search')
@@ -85,7 +87,9 @@ def search-url [...query: string] {
     }
 }
 
-def record-screen [] {
+def record-screen [
+    monitor: number = 0
+] {
     let captures_dir = [$dirs.videos, Captures] | path join
 
     mkdir $captures_dir # create if not exist
@@ -102,19 +106,19 @@ def record-screen [] {
 
     (ffmpeg
         -framerate 60
-        -offset_x 1920          # this selects offset to second monitor
-        -video_size 1920x1080   # resolution {width}x{height}
-        -f gdigrab              # video grabber
-        -i desktop              # input device
-        -c:v h264_nvenc         # codec (nvidia nvenc)
-        -preset:v $preset       # preset (p1-p7 lower is ++speed --quality/size)
-        -profile:v high         # limits the output to a specific H.264 profile
-        -tune:v hq              # tune preset
-        -pix_fmt yuv420p        # pixel format (for dumb players)
-        -rc:v vbr               # constant quality vbr mode
-        -cq:v $rate_control     # rate control (0-51 lower is ++quality --size)
-        -bf:v 2                 # b-frames
-        -b:v 0                  # bitrate (reset)
+        -offset_x ($monitor * 1920) # this selects offset to second monitor
+        -video_size 1920x1080       # resolution {width}x{height}
+        -f gdigrab                  # video grabber
+        -i desktop                  # input device
+        -c:v h264_nvenc             # codec (nvidia nvenc)
+        -preset:v $preset           # preset (p1-p7 lower is ++speed --quality/size)
+        -profile:v high             # limits the output to a specific H.264 profile
+        -tune:v hq                  # tune preset
+        -pix_fmt yuv420p            # pixel format (for dumb players)
+        -rc:v vbr                   # constant quality vbr mode
+        -cq:v $rate_control         # rate control (0-51 lower is ++quality --size)
+        -bf:v 2                     # b-frames
+        -b:v 0                      # bitrate (reset)
         $filepath
     )
 }
@@ -221,6 +225,7 @@ alias lg = lazygit
 alias ll = ^exa -la --icons=auto
 alias vi = nvim
 alias dnf = sudo dnf -y
+alias ':q' = exit
 
 alias scoop = powershell scoop
 alias "scoop search" = __scoop_search

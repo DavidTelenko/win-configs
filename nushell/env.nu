@@ -11,6 +11,7 @@ def read-lines [path: string] {
         | open --raw
         | lines
         | where { $in !~ '^ *#.+$' }
+        # remove inline comments here
     }
 }
 
