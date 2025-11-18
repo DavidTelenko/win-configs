@@ -41,7 +41,7 @@ vim.o.smartcase = true
 vim.o.smartindent = true
 
 -- Font
-vim.o.guifont = 'RobotoMono Nerd Font Mono:h20'
+vim.o.guifont = 'RobotoMono Nerd Font:h20'
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
@@ -118,6 +118,13 @@ if vim.uv.os_uname().sysname == 'win32' then
   vim.o.shellslash = true
   vim.o.completeslash = 'slash'
 end
+
+-- Custom filetypes
+vim.filetype.add {
+  extension = {
+    ['tdesktop-theme'] = 'css',
+  },
+}
 
 -- Neovide setup for easier jumpstart in OS Windows
 if vim.g.neovide then
