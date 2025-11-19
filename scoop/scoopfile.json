@@ -164,6 +164,10 @@
       "Source": "extras"
     },
     {
+      "Name": "nsudo",
+      "Source": "extras"
+    },
+    {
       "Name": "ntop",
       "Source": "main"
     },

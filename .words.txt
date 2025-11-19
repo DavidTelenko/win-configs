@@ -36,6 +36,8 @@ backspaceword
 backtab
 baki
 basbebe
+bashism
+bashisms
 bashls
 bcommits
 bdnav
@@ -433,6 +435,7 @@ noto
 nowait
 npublic
 nsis
+nsudo
 ntfs
 ntlm
 ntlmauth
