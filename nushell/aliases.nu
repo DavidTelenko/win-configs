@@ -192,6 +192,11 @@ def "from jpeg" [] { imgcat }
 def "from jpg"  [] { imgcat }
 def "from png"  [] { imgcat }
 def "from webp" [] { imgcat }
+def "from mp3"  [] { $in | ffplay -autoexit -nodisp - }
+def "from flac" [] { $in | ffplay -autoexit -nodisp - }
+def "from wav"  [] { $in | ffplay -autoexit -nodisp - }
+def "from mkv"  [] { $in | ffplay -autoexit - }
+def "from avi"  [] { $in | ffplay -autoexit - }
 
 alias todo = open_nvim [$nu.home-path, Documents, Markdowned, Todo]
 alias mark = open_nvim [$nu.home-path, Documents, Markdowned]

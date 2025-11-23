@@ -183,11 +183,11 @@ export def notify [
 
     (
         ffplay
-        -loglevel quiet
+        -autoexit
         -fs
-        -noborder
-        -alwaysontop
+        -loglevel quiet
         -loop 10
+        -nodisp
         -volume 30
         $env.NOTIFICATION_AUDIO
     )
