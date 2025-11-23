@@ -85,14 +85,6 @@ return {
                 query = '@assignment.inner',
                 desc = 'inner assignment',
               },
-              ['ab'] = {
-                query = '@block.outer',
-                desc = 'outer block',
-              },
-              ['ib'] = {
-                query = '@block.inner',
-                desc = 'inner block',
-              },
             },
           },
           move = {
