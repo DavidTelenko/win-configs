@@ -123,25 +123,8 @@ def record-screen [
     )
 }
 
-def wiztree-pic [
-    destination?: path,
-    --width: number = 1920,
-    --height: number = 1080,
-] {
-    let dest_png = [$nu.temp-path, "wiztree_tmp.png"] | path join
-    try { rm $dest_png }
-
-    (wiztree $"($destination | default pwd)"
-        /treemapimagefile=$"($dest_png)"
-        /treemapimagewidth=$"($width)"
-        /treemapimageheight=$"($height)")
-
-    retry -r 5 {
-        sleep 5sec
-        start $dest_png
-    }
-
-    return $dest_png
+def wiztree-pic [destination?: path] {
+    wiztree $"($destination | default (pwd))"
 }
 
 def clean-dir [dir: path, --older: duration = 1wk] {
