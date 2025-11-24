@@ -147,6 +147,13 @@ return {
       desc = 'Current word',
     })
 
+    vim.keymap.set(
+      'v',
+      '<leader>s',
+      builtin.grep_string,
+      { desc = 'Search current selection' }
+    )
+
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, {
       desc = 'By grep',
     })
@@ -197,12 +204,5 @@ return {
     vim.keymap.set('n', '<leader>sa', builtin.git_stash, {
       desc = 'Git stash',
     })
-
-    vim.keymap.set(
-      'v',
-      '<leader>s',
-      '"hy:Telescope live_grep default_text=<C-r>h<cr>',
-      { desc = 'Search current selection' }
-    )
   end,
 }
