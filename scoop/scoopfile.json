@@ -100,8 +100,8 @@
       "Source": "main"
     },
     {
-      "Source": "main",
-      "Name": "gh"
+      "Name": "gh",
+      "Source": "main"
     },
     {
       "Name": "git",
