@@ -15,6 +15,12 @@ return {
 
     hop.setup(opts)
 
+    -- This is the most powerful feature, and I'm contemplating to leave just
+    -- this one and remap it to just 's'
+    vim.keymap.set({ 'n', 'v' }, 'sd', function()
+      hop.hint_camel_case { keys = 'asdfghjkleiownv;' }
+    end, { remap = true, desc = 'Hop to word' })
+
     vim.keymap.set({ 'n', 'v' }, 'sf', function()
       hop.hint_char1 {
         current_line_only = false,
@@ -25,10 +31,6 @@ return {
     vim.keymap.set({ 'n', 'v' }, 'sl', function()
       hop.hint_lines {}
     end, { remap = true, desc = 'Hop to line' })
-
-    vim.keymap.set({ 'n', 'v' }, 'sd', function()
-      hop.hint_words {}
-    end, { remap = true, desc = 'Hop to word' })
 
     vim.keymap.set({ 'n', 'v' }, 'st', function()
       hop_ts.hint_nodes {}
