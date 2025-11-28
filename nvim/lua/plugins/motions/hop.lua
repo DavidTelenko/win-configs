@@ -8,16 +8,34 @@ return {
     { 'st', desc = 'Hop to treesitter nodes' },
     { 'sf', desc = 'Hop to character' },
   },
-  opts = {},
-  config = function(_, opts)
+  config = function()
     local hop = require 'hop'
     local hop_ts = require 'hop-treesitter'
 
-    hop.setup(opts)
+    local function set(name, link)
+      vim.api.nvim_set_hl(0, name, {
+        link = link,
+        default = true,
+      })
+    end
+
+    -- Gruvbox theme
+    set('HopNextKey', 'GruvboxRedBold')
+    set('HopNextKey1', 'GruvboxOrangeBold')
+    set('HopNextKey2', 'GruvboxYellowBold')
+    set('HopCursor', 'Cursor')
+    set('HopPreview', 'IncSearch')
+    set('HopUnmatched', 'Comment')
+
+    hop.setup {
+      create_hl_autocmd = false,
+      hl_mode = 'replace',
+    }
 
     -- This is the most powerful feature, and I'm contemplating to leave just
     -- this one and remap it to just 's'
     vim.keymap.set({ 'n', 'v' }, 'sd', function()
+      -- cspell:disable-next-line
       hop.hint_camel_case { keys = 'asdfghjkleiownv;' }
     end, { remap = true, desc = 'Hop to word' })
 
