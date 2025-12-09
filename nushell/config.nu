@@ -764,7 +764,7 @@ $env.config = {
 
 use './dirs.nu' *
 # const welcomeBanner = ([$nushellDir, welcome-banner.txt] | path join)
-const zoxide = [$localVendor, zoxide.nu] | path join
+const zoxide = [$autoload, zoxide.nu] | path join
 
 source $zoxide
 source $aliases

@@ -1,5 +1,5 @@
 nushell/history.txt
-nushell/vendor
+nushell/vendor/autoload/*
 
 mpv/cache
 mpv/watch_later
@@ -21,6 +21,9 @@ wezterm/check_update
 
 hypr/scripts/data/player_state
 hypr/scripts/data/cheatsheet_opened
+
+karabiner/assets
+karabiner/automatic_backups
 
 .env
 .path

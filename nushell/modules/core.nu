@@ -41,3 +41,7 @@ export def is-kitty [] {
 export def is-windows [] {
     $nu.os-info.family == "windows"
 }
+
+export def is-macos [] {
+    $nu.os-info.name == "macos"
+}

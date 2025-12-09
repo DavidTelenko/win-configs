@@ -112,6 +112,9 @@ if not (is-windows) {
         | prepend $'($env.HOME)/.cargo/bin'
         | prepend $'($env.HOME)/go/bin'
         | prepend $'($env.HOME)/.spicetify'
+        | prepend '/opt/homebrew/bin'
+        | prepend '/home/linuxbrew/.linuxbrew/bin'
+        | prepend '/usr/local/bin'
         | prepend (read-lines '.path')
         | uniq
     )
@@ -121,6 +124,15 @@ if not (is-windows) {
         | prepend (read-lines '.path')
         | uniq
     )
+}
+
+if (is-macos) {
+    brew shellenv csh
+    | lines
+    | parse --regex 'setenv (\w+) "?(.+)"?;'
+    | transpose -r
+    | into record
+    | load-env
 }
 
 def try-init [cmd, util] {
@@ -136,10 +148,10 @@ try-init {
 } vivid
 
 try-init {
-    zoxide init nushell | save -f ([$localVendor, zoxide.nu] | path join)
+    zoxide init nushell | save -f ([$autoload, zoxide.nu] | path join)
 } zoxide
 
-const out = [$localVendor, omp.nu] | path join
+const out = [$autoload, omp.nu] | path join
 rm -f $out
 
 if not (is-wezterm) {
