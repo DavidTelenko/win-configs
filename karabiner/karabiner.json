@@ -4,6 +4,30 @@
       "complex_modifications": {
         "rules": [
           {
+            "description": "Remap Ctrl + Delete to delete by word backwards",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace",
+                    "modifiers": [
+                      "left_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Remap option+x to command+q, to close applications on macOS.",
             "manipulators": [
               {

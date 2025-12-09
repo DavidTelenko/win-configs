@@ -102,6 +102,10 @@ vim.keymap.set({ 'i', 't' }, '<C-H>', '<C-w>', {
   desc = 'Delete word backward',
 })
 
+vim.keymap.set({ 'i', 't' }, '<A-BS>', '<C-w>', {
+  desc = 'Delete word backward',
+})
+
 vim.keymap.set({ 'i', 't' }, '<C-D>', '<C-o>dw', {
   desc = 'Delte word forward',
 })
