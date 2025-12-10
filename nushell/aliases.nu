@@ -170,6 +170,14 @@ def imgcat [] {
   $in | ^imgcat
 }
 
+def ll [] {
+  if (is-windows) {
+    ^exa -la --icons=auto
+  } else {
+    ^eza -la --icons=auto
+  }
+}
+
 def "from gif"  [] { imgcat }
 def "from jpeg" [] { imgcat }
 def "from jpg"  [] { imgcat }
@@ -210,7 +218,6 @@ alias dp = wiztree-pic
 # record screen
 alias rs = record-screen
 alias lg = lazygit
-alias ll = ^exa -la --icons=auto
 alias vi = nvim
 alias dnf = sudo dnf -y
 alias ':q' = exit
