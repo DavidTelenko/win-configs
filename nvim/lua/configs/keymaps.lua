@@ -12,12 +12,6 @@ vim.keymap.set('n', 'zz', 'ZZ', {
 })
 
 -- Remaps system-wide remapped keys
--- vim.keymap.set('n', '<A-h>', '_')
--- vim.keymap.set('n', '<left>', '_')
-
--- vim.keymap.set('n', '<A-l>', '$')
--- vim.keymap.set('n', '<right>', '$')
-
 vim.keymap.set('n', '<A-u>', '<C-u>zz')
 vim.keymap.set('n', '<PageUp>', '<C-u>zz')
 
@@ -114,10 +108,6 @@ vim.keymap.set({ 'i', 't' }, '<C-D>', '<C-o>dw', {
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>', {
   desc = 'Exit terminal',
 })
-
--- vim.keymap.set('n', '<leader>T', vim.cmd.terminal, {
---   desc = 'Open terminal',
--- })
 
 -- Lua execute
 vim.keymap.set('n', '<leader>cX', '<cmd>source %<CR>', {
