@@ -2,6 +2,14 @@ local wezterm = require 'wezterm' --[[@as Wezterm]]
 local tabline =
   require('wezterm').plugin.require 'https://github.com/michaelbrusegard/tabline.wez'
 local nf = wezterm.nerdfonts
+local git_helpers = require 'helpers.git'
+
+local function with_icon(value, icon)
+  if not value then
+    return ''
+  end
+  return icon .. ' ' .. value .. ' '
+end
 
 tabline.setup {
   options = {
@@ -38,18 +46,15 @@ tabline.setup {
     },
     tab_inactive = {
       { 'index', padding = 1 },
-      -- { 'process', padding = { right = 1 } },
     },
     tabline_x = {
       function(window)
-        local branch = require('helpers.git').git_branch(window)
-        if not branch then
-          return ''
-        end
+        local branch = with_icon(git_helpers.branch(window), nf.oct_git_branch)
+
         return wezterm.format {
           { Attribute = { Intensity = 'Bold' } },
           {
-            Text = nf.oct_git_branch .. ' ' .. branch .. ' ',
+            Text = branch,
           },
         }
       end,

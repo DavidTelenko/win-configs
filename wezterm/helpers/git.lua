@@ -1,6 +1,15 @@
 local M = {}
 
-M.get_git_head = function(git_dir)
+--- @param window Window
+local function cwd(window)
+  return window
+    :active_tab()
+    :active_pane()
+    :get_current_working_dir().file_path
+    :sub(2)
+end
+
+M.get_head = function(git_dir)
   local f_head = io.open(git_dir .. '/HEAD')
 
   if f_head then
@@ -18,9 +27,8 @@ M.get_git_head = function(git_dir)
 end
 
 --- @param window Window
-M.git_branch = function(window)
-  local cwd_uri = window:active_tab():active_pane():get_current_working_dir()
-  return M.get_git_head(cwd_uri.file_path:sub(2) .. '/.git')
+M.branch = function(window)
+  return M.get_head(cwd(window) .. '/.git')
 end
 
 return M
