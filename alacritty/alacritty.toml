@@ -20,8 +20,8 @@ history = 10000
 multiplier = 3
 
 [font]
-normal = { family = "RobotoMono Nerd Font Mono" }
-size = 16
+normal = { family = "RobotoMono Nerd Font" }
+size = 20
 
 [colors]
 [colors.primary]
