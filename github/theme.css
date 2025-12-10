@@ -176,7 +176,9 @@
     --color-topic-tag-border: rgba(0, 0, 0, 0);
     --color-counter-border: rgba(0, 0, 0, 0);
     --color-select-menu-backdrop-border: #665c54;
-    --color-select-menu-tap-highlight: rgba(60, 56, 54, 0.5);
+    /* Here opacity was 0.5, but on github actions headers it was semi-transparent on top of text */
+    /*                                                  V */
+    --color-select-menu-tap-highlight: rgba(60, 56, 54, 1);
     --color-select-menu-tap-focus-bg: #458588;
     --color-overlay-shadow:
       0 0 0 1px #504945, 0 16px 32px rgba(29, 32, 33, 0.85);
