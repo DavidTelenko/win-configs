@@ -36,7 +36,7 @@ return {
     -- this one and remap it to just 's'
     vim.keymap.set({ 'n', 'v' }, 'sd', function()
       -- cspell:disable-next-line
-      hop.hint_camel_case { keys = 'asdfghjkleiownv;' }
+      hop.hint_camel_case { keys = 'qazwsxedcrfvtgbyhnujmikolp' }
     end, { remap = true, desc = 'Hop to word' })
 
     vim.keymap.set({ 'n', 'v' }, 'sf', function()

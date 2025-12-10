@@ -77,7 +77,7 @@ return {
             end
           end,
         },
-        l = {
+        L = {
           add = function()
             local input = surround_utils.get_input 'Link name: '
             if input then

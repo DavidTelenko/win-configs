@@ -42,7 +42,7 @@ return {
           jsonc = json_formatters,
           kotlin = { 'ktlint' },
           lua = { 'stylua' },
-          markdown = { 'prettierd' }, -- 'injected' },
+          markdown = { 'prettierd', 'injected' },
           mdx = { 'prettierd' }, -- 'injected' },
           python = { 'black' },
           sh = { 'shfmt' },
