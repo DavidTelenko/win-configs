@@ -12,15 +12,15 @@ vim.keymap.set('n', 'zz', 'ZZ', {
 })
 
 -- Remaps system-wide remapped keys
-vim.keymap.set('n', '<A-u>', '<C-u>zz')
-vim.keymap.set('n', '<PageUp>', '<C-u>zz')
+vim.keymap.set({ 'n', 'v' }, '<A-u>', '<C-u>zz')
+vim.keymap.set({ 'n', 'v' }, '<PageUp>', '<C-u>zz')
 
-vim.keymap.set('n', '<A-d>', '<C-d>zz')
-vim.keymap.set('n', '<PageDown>', '<C-d>zz')
+vim.keymap.set({ 'n', 'v' }, '<A-d>', '<C-d>zz')
+vim.keymap.set({ 'n', 'v' }, '<PageDown>', '<C-d>zz')
 
-vim.keymap.set('n', '<A-o>', '<C-o>')
-vim.keymap.set('n', '<A-i>', '<C-i>')
-vim.keymap.set('n', '<A-r>', '<C-r>')
+vim.keymap.set({ 'n', 'v' }, '<A-o>', '<C-o>')
+vim.keymap.set({ 'n', 'v' }, '<A-i>', '<C-i>')
+vim.keymap.set({ 'n', 'v' }, '<A-r>', '<C-r>')
 
 -- L and H - begin and end of the line
 vim.keymap.set({ 'n', 'v' }, 'L', '$')
