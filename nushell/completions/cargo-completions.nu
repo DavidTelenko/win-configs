@@ -264,7 +264,7 @@ export extern "cargo run" [
 # Run the tests
 export extern "cargo test" [
   test_arg_separator?: string
-   ...args: any        # Arguments to be passed to the tests
+  ...args: any        # Arguments to be passed to the tests
   --no-run       # Compile, but don't run tests
   --no-fail-fast # Run all tests regardless of failure
   --package(-p): string@"nu-complete cargo packages" # Test only the specified packages

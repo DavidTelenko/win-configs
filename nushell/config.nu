@@ -585,6 +585,13 @@ $env.config = {
       event: { edit: backspaceword }
     }
     {
+      name: delete_one_word_backward
+      modifier: alt
+      keycode: backspace
+      mode: [emacs, vi_insert]
+      event: { edit: backspaceword }
+    }
+    {
       name: move_left
       modifier: none
       keycode: backspace
