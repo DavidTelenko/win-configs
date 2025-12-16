@@ -28,23 +28,32 @@
             ]
           },
           {
-            "description": "Remap option+x to command+q, to close applications on macOS.",
+            "description": "Remap caps lock to ctrl and alt+shift+u to caps lock",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "x",
+                  "key_code": "caps_lock"
+                },
+                "to": [
+                  {
+                    "key_code": "left_control"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "u",
                   "modifiers": {
                     "mandatory": [
-                      "left_command"
+                      "left_command",
+                      "left_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "q",
-                    "modifiers": [
-                      "command"
-                    ]
+                    "key_code": "caps_lock"
                   }
                 ],
                 "type": "basic"
@@ -139,11 +148,31 @@
       "simple_modifications": [
         {
           "from": {
+            "apple_vendor_top_case_key_code": "keyboard_fn"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ]
+        },
+        {
+          "from": {
             "key_code": "left_command"
           },
           "to": [
             {
               "key_code": "left_option"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "apple_vendor_top_case_key_code": "keyboard_fn"
             }
           ]
         },
@@ -164,26 +193,6 @@
           "to": [
             {
               "key_code": "left_option"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "left_control"
-          },
-          "to": [
-            {
-              "apple_vendor_top_case_key_code": "keyboard_fn"
-            }
-          ]
-        },
-        {
-          "from": {
-            "apple_vendor_top_case_key_code": "keyboard_fn"
-          },
-          "to": [
-            {
-              "key_code": "left_control"
             }
           ]
         }
