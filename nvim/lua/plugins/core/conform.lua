@@ -13,12 +13,14 @@ return {
         -- two under one require config means it's preferable to use both
         h.require_config { 'prettierd', 'eslint_d' },
         h.require_config 'deno_fmt',
-        'biome', -- fallback (important to add to ensure_installed in mason-tool-installer)
+        h.require_config 'biome',
+        'prettierd', -- fallback (important to add to ensure_installed in mason-tool-installer)
       }
 
       local json_formatters = h.first {
         h.require_config 'biome',
         h.require_config 'prettierd',
+        -- fallback to lsp
       }
 
       ---@module "conform"
@@ -32,7 +34,6 @@ return {
         },
         formatters_by_ft = {
           css = { 'prettierd' },
-          cpp = { 'clang-format' },
           elixir = { 'mix' },
           graphql = { 'prettierd' },
           html = { 'prettierd' },
@@ -42,7 +43,7 @@ return {
           jsonc = json_formatters,
           kotlin = { 'ktlint' },
           lua = { 'stylua' },
-          markdown = { 'prettierd', 'injected' },
+          markdown = { 'prettierd' }, -- 'injected' },
           mdx = { 'prettierd' }, -- 'injected' },
           python = { 'black' },
           sh = { 'shfmt' },
