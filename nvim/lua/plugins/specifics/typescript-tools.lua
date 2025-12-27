@@ -8,6 +8,6 @@ return {
   },
   ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
   opts = {
-    on_attach = require('configs.keymaps').on_attach,
+    on_attach = require('helpers.lsp').on_attach,
   },
 }

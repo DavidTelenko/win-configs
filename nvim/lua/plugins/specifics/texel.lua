@@ -9,7 +9,8 @@ return {
   --- @type texel.Config
   opts = {
     tgpt = {
-      -- provider = 'deepseek',
+      -- provider = 'gemini',
+      -- key = vim.env.GEMINI_API_KEY,
     },
   },
   config = function(_, opts)

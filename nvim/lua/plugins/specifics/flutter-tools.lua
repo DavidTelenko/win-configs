@@ -62,7 +62,7 @@ return {
           virtual_text = true, -- show the highlight using virtual text
           virtual_text_str = '■', -- the virtual text character to highlight
         },
-        on_attach = require('configs.keymaps').on_attach,
+        on_attach = require('helpers.lsp').on_attach,
         capabilities = function(config)
           return config
         end,

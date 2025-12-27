@@ -81,12 +81,6 @@ end
 
 return {
   {
-    'yioneko/nvim-vtsls',
-    enabled = false,
-    ft = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' },
-    opts = {},
-  },
-  {
     'folke/lazydev.nvim',
     ft = 'lua',
     opts = {},
@@ -96,6 +90,7 @@ return {
     event = 'VeryLazy',
     opts = {
       ensure_installed = {
+        'ast-grep',
         'biome',
         'eslint_d',
         'prettierd',
@@ -238,7 +233,7 @@ return {
         vim.lsp.config(
           name,
           vim.tbl_deep_extend('force', vim.lsp.config[name], config, {
-            on_attach = require('configs.keymaps').on_attach,
+            on_attach = helpers.on_attach,
             capabilities = capabilities,
           })
         )
